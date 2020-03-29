@@ -1,0 +1,340 @@
+% ToDo:
+% Abstract
+% Tabellen
+% Dataset wo auch immer (ohne Stimuli) hochladen
+
+% For more detailed article preparation guidelines, please see:
+% http://f1000research.com/author-guidelines
+\documentclass[10pt,a4paper,twocolumn]{article}
+\usepackage{f1000_styles}
+\usepackage[
+	colorlinks=true,
+	urlcolor=blue,
+	linkcolor=green
+]{hyperref}
+%% Default: numerical citations
+\usepackage[numbers]{natbib}
+
+%% Uncomment this lines for superscript citations instead
+% \usepackage[super]{natbib}
+
+%% Uncomment these lines for author-year citations instead
+% \usepackage[round]{natbib}
+% \let\cite\citep
+
+\begin{document}
+
+\title{\textit{F1000Research} A studyforrest extension, an annotations of words and phonemes in the German dubbed movie ``Forrest Gump'' and its audio-description}
+\titlenote{whatever titlenote here}
+
+% provide full affiliation information (including full institutional address, ZIP code and e-mail address) for all authors, and identify who is/are the corresponding author(s).
+% EMAIL hier noch "kanonisch" unterbringen
+% Madeburg habe ich nicht mit reingenommen, obwohl MD/Sachsen-Anhalt unten wg. Stipendium unter Funding kommt.
+\author[1, 2]{Christian~O.~Häusler}
+\author[1, 2]{Michael Hanke}
+
+\affil[1]{Institute of Neuroscience and Medicine, Brain \& Behaviour (INM-7), Research Centre Jülich, Jülich, Germany}
+\affil[2]{Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany}
+
+\maketitle
+\thispagestyle{fancy}
+\begin{abstract}
+% up to 300 words
+Kommt ganz am Ende;
+hier ggf. bereits Praat erwähnen;
+im Gegensatz zu Sätzen und Phones haben Einzelworte zusätzliche Annos
+
+\end{abstract}
+\section*{Keywords}
+% maximal 8
+language, speech, annotation, fMRI, natural stimulation, narrative, studyforrest
+
+\clearpage
+\section*{Introduction}
+% Links sind jetzt im laufenden Text; habs nach wie vor mit \href gemacht
+% sieht bei längeren Links natürlich kacke aus
+
+% largely adopted from haeusler2016annotation
+% https://f1000research.com/articles/5-2273
+% In Einleitung muss wohl noch etwas zu "reproducible research" und "datalad dataset" kommen
+Cognitive neuroimaging research is moving towards studying brain behavior
+under conditions of real-life(-like complexity). Motion pictures \citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not, lerner2011topographic} are increasingly utilized as so called naturalistic stimuli.
+
+% new; not from haeusler2016annotation
+Because naturalistic stimuli are multi-dimensional and their temporal structure
+is (usually) unknown, data-driven methods like intersubject correlation
+(ISC)\citep{hasson2004intersubject} or independent component analysis
+(ICA)\citep{bartels2004chronoarchitecture} are often used to analyze
+corresponding fMRI data. Nevertheless, theory-driven analyses like a general
+linear model (GLM) are necessary to not just explain how but also when and why a
+brain region is responding to a stimulus \citep{hamilton2018revolution}. Studies
+using GLMs based on annotations of a stimulus' temporal structure have
+elucidated how the brain responds to visual features of a movie
+\citep{bartels2004mapping} or speech-related features of a narrative
+\citep{rocca2019language}.
+
+% adapted from haeusler2016annotation
+% nun ja, folgend nicht super korrekt: sentences sind nicht vollständige
+% Sätze im linguistischen Sinne (Subjekt, Objekt, Prädikat), sondern auch
+% Ausrufe ("Forrest!") oder mitunter isolierte non-speech "Sätze" ("oouh").
+% Sätze im linguistischen Sinne sind in der Annotation durch "." oder "?" am
+% Ende gekennzeichnet. Sollte aber so passen.
+For this publication, we annotated the onsets and offsets, and content of
+sentences, single words, and phonemes spoken in the movie Forrest Gump (R.
+Zemeckis, Paramount Pictures, 1994) \citep{ForrestGumpMovie}. fMRI data of
+participants watching the audio-visual movie \citep{hanke2016simultaneous} and
+it's audio-description for visually impaired persons \citep{hanke2014audiomovie}
+are the core data of the publicly available \textit{studyforrest} dataset
+(\href{www.studyforrest.org}{studyforrest.org}). Additional fMRI data
+\citep{sengupta2016extension} include retinotopic mappings and localization of
+higher visual areas of the same participants.
+% paper regarding mention musical not mentioned
+% und damit zitiere ich mich als dortiger Coauthor nicht selbst. Skandal!
+
+The current annotation facilitates modelling of hemodynamic brain responses
+correlating with speech-related events in the movie and audio-description.
+Further, it extends already available annotations of portrayed emotions
+\citep{labs2015portrayed} and perceived emtions
+\citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the movie \citep{haeusler2016annotation}. All annotations can be used in any study focusing on other aspects of real-life cognition by serving as additional
+confound measures describing key properties of major building blocks of the stimulus.
+
+\section*{Materials and methods}
+\subsection*{Stimulus}
+% References sind vom Anno-Paper in die .bib-Datei übernommen worden; die
+% “hardcoded” Zitationen sind aber noch im laufenden Text.
+We annotated speech in the slightly shortened "research cut" of the movie
+\citep{hanke2016simultaneous} and its temporally aligned audio-description
+\citep{hanke2014audiomovie}. For the movie stimulus, we used the audio track of
+the German DVD release (Paramount Home Entertainment, Germany, 2002; PAL video,
+DE103519SV)\citep{ForrestGumpDVD}. For the audio-only stimulus, we used the
+movie's audio-description that was broadcast as an additional audio track for
+visually impaired listeners on Swiss public television (Koop, Michalski,
+Beckmann, Meinhardt \& Benecke, produced by Bayrischer Rundfunk,
+2009)\citep{ForrestGumpGermanAD}. The plot of the movie is already carried by an
+off-screen voice of the main character Forrest Gump. In the largely identical audio-description, a male narrator additionally describes essential aspects of the visual scenery when there is no off-screen voice, dialog, or other relevant auditory content.
+\subsection*{Annotation procedure}
+% wo kommen die "preliminaries transcriptions" her?
+% Die "most basic" Datei, die das Dataset enthält ist der Merge aus Diaolog, Narrator & Non-Speech-Annotation
+Preliminary, orthographic transcriptions of dialogues (german\_dialog.csv),
+non-speech vocalizations (e.g. laughing or groaning;
+non\_speech\_vocalization.json), and the audio-description's narrator
+(german\_audio\_description.csv) were merged and converted to Praat's
+\citep{boersma2019praat} .TextGrid format (
+\href{www.fon.hum.uva.nl/praat}{fon.hum.uva.nl/praat}). The merged transcription
+containing one onset and offset for usually a couple of sentences was opened
+along (the audio file of) the audio-description in Praat v6.0.22 for manual
+improvements: In several passes, the approximate temporal onsets and offsets
+were corrected. Intervals containing several sentences were split into intervals
+containing only one sentence. When two or more persons were speaking
+simultaneously the less dominant (background) voice was dropped. Low volume
+background speech (especially occurring during music or continuous environmental
+noise) or low volume non-speech vocalizations that are difficult to recognize by
+a regular audience were dropped, too.
+
+% Alignment preparations
+We used the Montreal Forced Aligner v1.0.1
+\href{montrealcorpustools.github.io/Montreal-Forced-Aligner}{montrealcorpustools.github.io/Montreal-Forced-Aligner}\citep{mcauliffe2017montreal};to
+algorithmically identify the onset and offset of each word and phoneme embedded
+in the transcribed sentences. To enable the aligner to look up the pronunciation
+of every word, we chose a German pronunciation dictionary
+\href{https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict}{raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict}
+provided by Prosodylab (\href{http://prosodylab.org}{prosodylab.org}) that uses
+the Prosodylab PhoneSet. The dictionary was manually updated with movie-specific
+German words. The pronunciation of English words occurring in the otherwise
+German audio track was taken from an English pronunciation dictionary
+(\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org/mfa/dictionaries/english.dict} that uses the ARPAbet PhoneSet.
+
+% Alignment
+% Nicht erwähnt: Wenn die Korrektur der Phoneme unmöglich war, habe ich einfach
+% die Event-Borders zwischen den Phonemen herausgenommen. Wortbeginn und Wortende stimmen dann mit einem neuen, "künstlich-großen Phoneme" überein.
+% Das "Groß-Phonem" enthält dann ohne Grenzen zwischen den tatsächlichen Phonemen des Wortes alle Phoneme des Wortes ("es ist kompliziert zu erklären, aber im Grunde ganz einfach).
+% kommt selten vor, ist im Grunde "noise" und ist in der Anno sofort als solches zu erkennen.
+The audio file was converted from .FLAC to .WAV via ffmpeg v4.1.4
+(\href{www.ffmpeg.org}{ffmpeg.org}) to meet the aligner's requirements. This
+.WAV file, the transcription of sentences, and the updated dictionary were
+submitted to the aligner that first trained an acoustic model on the data and
+then performed the alignment. In a first step, the resulting .TextGrid file that
+contains onsets and offsets of words and phonemes was opened in Praat to check
+and correct the automatic alignment. In several passes, words [and their
+corresponding phonemes] on which the automatic alignment performed moderately
+were corrected. Some (low volume) sentences that are spoken in continuously
+noisy settings (pursuit, battle, hurricane, demonstration/rally, disco) were
+removed due to poor overall alignment performance. In a second step, the
+complete sentences of the orthographic transcription were copied into the
+annotation. In a third step, the name of the speaker was added for every sentence.
+During every new step results from all previous steps were checked again for errors and corrected.
+
+% descriptive Nouns
+% hier ggf. noch angeben, dass die effektiv identisch waren
+% Florian hat zwei Regeln falsch verstanden, sonst war übereinstimmung >90%
+A further annotation of the audio-description's narrator was done manually: Two
+persons performed a categorization of nouns embedded in sentences spoken by the
+narrator to describe the movie's missing visual content. Categories focus on the
+cinematographic scene's environment, inherent objects, persons, and a person's
+appearance. A preliminary annotation according to the rules (s. table XY) was done by one person and corrected in several runs by the author.
+
+% NLP
+To automatically analyze linguistic features of words in their corresponding
+sentence, we employed the Python package spaCy v2.2.1
+(\href{https://spacy.io}{spacy.io}) and a German language model
+(de\_core\_news\_md; \href{https://spacy.io/models/de}{spacy.io/models/de})
+trained on the TIGER Treebank corpus
+(\href{https://www.ims.uni-stuttgart.de}{ims.uni-stuttgart.de}). We performed
+analyses regarding part of speech (i.e. grammatical tagging or word-category
+disambiguation), syntactic dependency, lemmatization, word embedding (i.e.
+semantic similarity), and if the word is one of the most common words of the
+German language. Results of these analyzes were added to the annotation and
+saved as .TextGrid file. This .TextGrid file was converted via python script to
+a tab separated file in accordance with the brain imaging data structure
+(\href{https://bids.neuroimaging.io/}){BIDS}\citep{gorgolewski2016bids}). Non-speech vocalizations were dropped from the sentences before analysis.
+% BIDS stuff runter zu "Dataset content"?
+
+\subsection*{Data Legend}
+% wo wurde automatisch korrigiert (e.g. NE/NN, NONSPEECH)
+% s. dictionaries oben in add_part-of-speech-tagging2textgrid.py
+\subsubsection*{Start (\texttt{start})}
+the onset of the sentences, word or phoneme provided in seconds of stimulus onset.
+\subsubsection*{Duration (\texttt{end})}
+the duration of the sentences, word or phoneme provided in seconds.
+\subsubsection*{Speaker identity (\texttt{person})}
+name of the persons that speaks the sentence, word, phoneme.
+% einige Eigennamen (NE/NN) wurden automatisch korrigiert, weil das Sprachmodell
+% die naheliegenderweise nicht kannte; eine Liste dieser Eigennamen befindet
+% sich oben in dem entsprechendem Skript
+% (add_part-of-speech-tagging2textgrid.py)
+\subsubsection*{Simple part-of-speech tag (\texttt{pos})}
+This column contains tags for whole sentences ("SENTENCE"), phonemes ("PHONEME") and non-speech vocalizations (NONSPEECH). For single words, it contains a simple part-of-speech tagging (grammatical tagging; word-category disambiguation) taking the relationship with adjacent and related words in the same sentence into account. This simple part-of-speech tagging tags follow the \href{https://universaldependencies.org}{Universal Dependencies} v2 POS tag set.
+
+\subsubsection*{Detailed part-of-speech tag (\texttt{tag})}
+A detailed part-of-speech tagging following the TIGER Treebank annotation scheme \citep{brants2004tiger} which is based on the \href{https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets}{Stuttgart-Tübingen-Tagset} \citep{schiller1999stts}.
+\subsubsection*{Syntactic dependency (\texttt{dep})}
+A word's column entry provides information about a word's syntactic dependency. Information following the TIGER Treebank annotation scheme \citep{brants2004tiger} is given in the format:
+"arc label;word's head;word's child1, word's child2, ..." where the "arc label" describes the type of syntactic relation that connects a "child" (the single word) to its "head".
+\subsubsection*{Lemmatization (\texttt{lemma})}
+For single words, the base form (root) of the word
+\subsubsection*{Common Word (\texttt{stop})}
+For single words, this column provides information if the word is part of a stop list, hence one of the most common words in the German language ("True") or not ('"False")?
+\subsubsection*{Narrator's descriptive nouns (\texttt{descr})}
+A categorizing of nouns that serve as auditory cues about the movie's visual content. Comprised categories focus on the cinematographic scene's environment (geo, geo-room; setting\_new, setting\_old), inherent persons (female, female name; male, male name, person), their appearance (face, head; body, bodypart), and objects (object, furniture).
+\paragraph*{Narrator's descriptive nouns}
+\begin{center}
+\begin{tabular}{ |c|c|c|c| }
+\hline
+category & description & examples & count\\
+\hline
+geo & immobile landmarks & building, tree, street, alley, meadow, cornfield, river & 125\\
+geo-room & rooms / locales; elements defining a locale's spatial layout & living room; wall, door, window, floor, turf & 105\\
+setting\_new & first-time mentioned setting & on a bridge, on an alley, on campus & 86\\
+setting\_rec & recurring setting & at the bus stop & 37\\
+body & trunk of the body; overlaid clothes & back, hip, shoulder; jacket, dress, shirt & 66\\
+bodypart & limbs and trousers & arm, finger, leg, toe & 69\\
+face & face or parts of it & face, ear, nose, mouth & 47\\
+head & non-face parts of the head; worn headgear & head, hair, ear, neck, helmet & 36\\
+furniture & movable objects insides/outsides & bench, bed, table, chair & 50\\
+object & countable entities with firm boundaries & feather, telephone, car & 232\\
+objects & countable entities with firm boundaries & wheels, photos & 52\\
+female & female person & nurse, mother, women & 31\\
+females & female persons & women & 3\\
+fname & female name & Jenny, Carla & 74\\
+male & male person & man, father, soldier & 89\\
+males & concrete male persons & boys, opponents & 23\\
+mname & male name of person present in the scene & Forrest, Bubba, Kennedy & 291\\
+persons & concrete persons of unknown sex / gender & hippies, patients & 17\\
+++ & nouns, adverbial adjectives, and adverbs & in the evening, it's daytime, later
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection*{Word embedding (semantic similarity) (\texttt{vector})}
+A word's column entry contains a 300-dimensional \href{https://en.wikipedia.org/wiki/Word2vec}{word vector} providing a multi-dimensional meaning representation of the word. Uncommon and out-of-vocabulary words with a vector consisting of 300 dimensions of 0's were set to '\#' [to save space].
+
+\subsubsection*{Phonemes (\texttt{phones})}
+Phonemes of German words follow the Prosodylab PhoneSet, English words follow the ARPAbet PhoneSet.
+
+\subsection*{Dataset content}
+% habe folgend die Art und Weise aus der Datei p.tex der Schnitt-Annotation übernommen, wobei das im veröffentlichten Paper ganz anders aussieht
+% noch mit so Boxen und doi's
+% ACHTUNG: github erlaubt laut datalad handbook keine Dateien >100MB
+% Anno im Praat Format ist >200MB (und die audiodateien ohnehin)
+The released annotation comes in two different versions. First, in a (text-based) .TextGrid file that can be loaded into Praat (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid}).
+Second, as a text-based tab-separated-value (TSV) formatted table  (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv})  in accordance with the brain imaging data structure BIDS \citep{gorgolewski2016bids} (\href{https://bids.neuroimaging.io/}{bids.neuroimaging.io}). The source code for all descriptive statistics included in this paper is available in \texttt{code/descriptive-statistics.py} (Python script).
+
+\section*{Dataset validation}
+% Information about any validation carried out and/or any limitations of the
+% datasets, including any allowances made for controlling bias or unwanted
+% sources of variability.
+% ~170 words => das wird beim folgenden Schreiben definitiv nichts werden
+% Intro
+In order to assess data quality, we investigated if contrasting speech-related events to non-speech related events lead to increased activation in areas known to be involved in semantic processing \citep{binder2009semantic, dewitt2012phoneme}.
+Moreover, we tested if similar linguistic concepts providing high semantic information (proper nouns and nouns) contrasted to a concept providing low semantic information (conjunctions) lead to increased activation in congruent brain areas.
+% Preprocessing
+% die Daten aus Hanke2014 sind eigentlich nicht bewegungskorrigiert und aligned
+% Quelle ist in vorliegendem Falle:
+% juseless.inm7.de:/data/project/studyforrest/collection/phase1
+% bei allem, was folgend mit alignment/co-registration zu tun hat, bin ich mir nicht sicher
+We used fMRI BOLD data of the 2h audio-description (7 Tesla, 2s TR, partial
+brain coverage with 1.4 mm isotropic voxels) \citep{hanke2014audiomovie} that
+were already corrected for motion and aligned [wie?] to study specific group template [co-registered to MNI?].
+All further steps analysis steps were carried out using Feat v6.00 (FMRI Expert
+Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB’s
+Software Library)\citep{smith2004fsl}. Data were temporally high-pass filtered (cut-off 150s), spatially smoothed (Gaussian kernel; 4.0 mm FWHM), and the brain was extracted from surrounding tissue [keine Plan, ob die Reihenfolge so korrek ist]. A grand-mean intensity normalization of the entire 4D dataset was performed by a single multiplicative factor.
+We implemented a standard three-level, voxel-wise general linear model (GLM) to average parameter estimates across the eight stimulus segments, and later across 19 subjects.
+% 1st lvl
+At the first level analysing each segment for each subject individually, we defined regressors based on information drawn from the annotation. The top 20 detailed tags by count (“nn” with N=2620 to “prf” with N=157) were modelled as such from the onset to offset of each word. The remaining tags were pooled to a single regressor (“tag\_other” ; N=1123). The top 80 phonemes (“n” with n=6053 to “IY1” with N=32) were pooled to the regressor “phonemes” (N=65251).
+The ends of (complete) grammatical sentences were used as the onset of events, abitrarily lasting 0.2s, for the regressors “sentence” (N=1651).
+A “no speech” regressor (“no-sp”; N=264) serving as a control condition was created by the following rationale: events were fitted into intervals between onsets and offsets of sentences/words assumed to contain no comprehensible speech. Each event of the no speech condition had a minimum distance of 1.8s to onset/offsets of sentences/words and to each other onset of the no speech condition (s. anno2events-files.py). A length of 0.07s was chosen for these events matching the average length of phonemes.
+Two regressors reflecting auditory (low-level) features (left-right loudness/volume/amplitude difference; root mean squared amplitude) aligned to the frame rate of (40 ms) were modelled to reduce nuisance effects.
+Those 26 regressors were convolved with FSL's “Double-Gamma HRF” as a model of the hemodynamic response function. Temporal derivatives were also included in the design matrix, and it was subjected to the same temporal filtering as the BOLD time series. Finally, six motion parameters were used as additional nuisance regressors.
+The following six t-contrasts were defined: 1) all 21 tag-related regressors > no speech; 2) no speech > all 21 tag-related regressors; 3) proper nouns (“ne”; N=1012) > coordinate conjunctions (“kon”; N=475); 4) coordinate conjunctions > proper nouns; 5) nouns (“nn”) > coordinate conjunctions, and 6) coordinate conjunctions > nouns. The first level analysis that fitted each voxel’s time course separately for each subject was performed in functional space preserving the orientation of the EPI images [richtig?].
+
+% 2nd lvl and 3rd lvl
+The second-level analysis which averaged contrast estimates across the eight stimulus segments per subject was carried out using a fixed effects model by forcing the random effects variance to zero in FLAME (FMRIB’s Local Analysis of Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}. The third level analysis which averaged contrast estimates across subjects was carried out using FLAME stage 1 with automatic outlier de-weighting \citep{beckmann2003general, woolrich2004multilevel, woolrich2008robust}.
+Z (Gaussianised T/F) statistic images were thresholded using clusters determined by Z>3.4 and a (corrected) cluster significance threshold of p<.05 \citep{woolrich2008robust}. Brain regions associated with observed clusters were determined with the Juelich Histological Atlas \citep{eickhoff2005toolbox,eickhoff2007assignment} the Harvard-Oxford Cortical Atlas \citep{desikan2006automated}[really?] provided by FSL.
+
+% results
+% tabelle mit Cluster-Nr., nr. of voxels, max loc (MNI) x, y, z, mean, std; center of mass, structure
+% figure
+
+% discussion
+
+
+\section*{Data availability}
+% aus der Schnitt-Annotation übernommen
+\texttt{This section will be auto-generated.}
+
+In addition, released data, code, and manuscript sources are also available on
+Github (\url{https://github.com/psychoinformatics-de/WHAT-EVER}).
+
+\section*{Conclusions}
+% state what you think are the main conclusions that can be realistically drawn from the findings in the paper, taking care not to make claims that cannot be supported.
+Conclusion hatten wir bei der Schnitt-Annotation nicht; entspricht im Grunde dem letzten Absatz der Einleitung
+
+
+\subsection*{Author contributions}
+% subsection in Schnitte-Anno
+%In order to give appropriate credit to each author of an article, the
+%individual contributions of each author to the manuscript should be detailed
+%in this section. We recommend using author initials and then stating briefly
+%how they contributed.
+COH designed, performed, and validated the annotation, and wrote the manuscript.
+MH provided critical feedback on the procedure and wrote the manuscript.
+
+\subsection*{Competing interests}
+% subsection in Schnitte-Anno
+No competing interests were disclosed.
+
+\subsection*{Grant information}
+% subsection in Schnitte-Anno
+% im Großen und Ganzen: Ich habe keine Ahnung, wer meine Ernährer sind
+Christian O. Häusler was supported by a graduate stipend from the German federal state of Saxony-Anhalt and ???
+Michale Hanke was supported by ???
+
+\subsection*{Acknowledgements}
+We are grateful to \href{www.florianschurz.de}{Florian Schurz} who initiated doing the annotation of the descriptive nouns, and performed the preliminary annotation of nouns. Christian O. Häusler is also grateful to Valeri Kippes who took care of the author's mental sanity by providing excellent training at his gym in Jülich during the mentally draining period of manual corrections of the annotation.
+
+
+{\small\bibliographystyle{unsrtnat}
+\bibliography{references}}
+
+\end{document}
