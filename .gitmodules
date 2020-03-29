@@ -3,3 +3,8 @@
 	url = chaeusler@juseless.inm7.de:/data/group/psyinf/studyforrest-speechannotation
 	branch = master
 	datalad-id = cacc9298-faed-11e9-9b76-e86a64c80559
+[submodule "inputs/studyforrest-speechanno-validation"]
+	path = inputs/studyforrest-speechanno-validation
+	url = chaeusler@juseless.inm7.de:/data/group/psyinf/studyforrest-speechanno-validation
+	branch = master
+	datalad-id = 13fa3214-4f20-11ea-ab4e-ac1f6bac9bd2
