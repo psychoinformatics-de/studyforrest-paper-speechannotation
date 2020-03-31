@@ -47,8 +47,6 @@ TAG_NAMES = {
 }
 
 
-outPath = 'figures'
-
 def parse_arguments():
     '''
     '''
@@ -71,7 +69,6 @@ def parse_arguments():
     example = args.exmpl
 
     return outDir, example
-
 
 
 def plot_heatmap(matrix, outFpath):
