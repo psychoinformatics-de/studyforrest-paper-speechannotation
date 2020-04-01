@@ -29,6 +29,16 @@ def parse_arguments():
 
     return inDir, outFile
 
+no2alpha = {0: 'All',
+            1: 'I',
+            2: 'II',
+            3: 'III',
+            4: 'IV',
+            5: 'V',
+            6: 'VI',
+            7: 'VII',
+            8: 'VIII'
+            }
 
 if __name__ == "__main__":
     inDir, outFile = parse_arguments()
@@ -60,13 +70,15 @@ if __name__ == "__main__":
         # build the lines for the current regressor to write to file
         for run, count in enumerate(eventsPerRun):
             regressor = regressor.capitalize()
-            run = 'Run' + str(run)
-            line = '\\newcommand{\\%s%s}{%s}\n' % (regressor, run, count)
+            run = no2alpha[run]
+            line = '\\newcommand{\\r%s%s}{%s}\n' % (regressor, run, count)
             toWrite.append(line)
-            if run == 'Run8':
+            if run == 'VIII':
                 toWrite.append('\n')
 
     # write the file if a filename was passed as command line argument
+    toWrite = [line.replace('_', '') for line in toWrite]
+    toWrite = [line.replace('-', '') for line in toWrite]
     if outFile is not None:
        with open(outFile, 'w') as f:
            f.writelines(toWrite)
