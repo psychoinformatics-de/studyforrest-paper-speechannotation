@@ -20,6 +20,17 @@ SEGMENTS_OFFSETS = (
     (6410.44, 0.44),  # last segment's start
     (7086.00, 0.00))  # movie's last time point
 
+no2alpha = {0: 'All',
+            1: 'I',
+            2: 'II',
+            3: 'III',
+            4: 'IV',
+            5: 'V',
+            6: 'VI',
+            7: 'VII',
+            8: 'VIII'
+            }
+
 
 def parse_arguments():
     '''
@@ -172,8 +183,9 @@ def print_word_columns(countsWor, topNr):
             # for the current column/annotation, make a list of all
             # occuring categories by looking up the keys that exist in the dict
             # add the counts per segment later by extending a category's item
-                categories = [[category] for category in countsWor[column].keys()
-                          if category not in ['', '##']]
+                categories = [[category] for category
+                              in countsWor[column].keys()
+                              if category not in ['', '##']]
 
         # create the list with the counts per segment
         # that will be added
@@ -210,18 +222,16 @@ def statsSentPhones(statsFor, countsDict):
         for run in countsDict[speaker].keys():
             countsPerRun[run] += countsDict[speaker][run]
 
-
-
     perRun = [countsPerRun[run] for run in sorted(countsPerRun.keys())]
 
     line = [str(x) for x in perRun]
     line = statsFor + '\t' + '\t'.join(line)
     print(line)
 
-    labels = ['%sRun%s' % (statsFor, x) for x in range(0,9)]
+    labels = ['a%s%s' % (statsFor, no2alpha[x]) for x in range(0, 9)]
     labelsAndCounts = list(zip(labels, perRun))
     linesForLatex = ['\\newcommand{\\%s}{%s}\n' % (label, count)
-                    for label, count in labelsAndCounts]
+                     for label, count in labelsAndCounts]
 
     linesForLatex.append('\n')
 
@@ -245,10 +255,10 @@ def statsWords(countsWor):
     line = 'Words\t' + '\t'.join(line)
     print(line)
 
-    labels = ['%sRun%s' % (statsFor, x) for x in range(0,9)]
+    labels = ['a%s%s' % (statsFor, no2alpha[x]) for x in range(0, 9)]
     labelsAndCounts = list(zip(labels, perRun))
     linesForLatex = ['\\newcommand{\\%s}{%s}\n' % (label, count)
-                    for label, count in labelsAndCounts]
+                     for label, count in labelsAndCounts]
 
     linesForLatex.append('\n')
 
@@ -282,14 +292,13 @@ def sentsBySpeaker(countSen, topNr):
         for run, count in enumerate(speaker[1:]):
             name = ''.join([char for char in speaker[0] if char.isalpha()])
             name = name.lower().capitalize()
-            label = name + 'Run' + str(run)
+            label = 'a' + name + no2alpha[run]
 
             line = '\\newcommand{\\%s}{%s}\n' % (label, count)
             linesForLatex.append(line)
 
         # after every speaker, insert a line break
         linesForLatex.append('\n')
-
 
     return linesForLatex
 
@@ -298,12 +307,12 @@ def statsWordsColumns(colName, currentColumnDict, topNr):
     '''
     '''
     categories = [[category] for category in currentColumnDict.keys()
-                    if category not in ['', '###']]
+                  if category not in ['', '###']]
 
     for category in categories:
         # add explanation of categories of 'pos', 'tag', and 'dep'
         allRuns = [currentColumnDict[category[0]][str(x)]
-                    for x in range(0, 9)]
+                   for x in range(0, 9)]
         allRuns.append(spacy.explain(category[0]))
 
         # add the information of all runs
@@ -327,12 +336,12 @@ def statsWordsColumns(colName, currentColumnDict, topNr):
         # add the description of the category label taken from Spacy
         if category[-1] != None:
             spaCyExplanation = category[-1]
-            line = '\\newcommand{\\%s%s}{%s}\n' % (colName, name, spaCyExplanation)
+            line = '\\newcommand{\\a%s%s}{%s}\n' % (colName, name, spaCyExplanation)
             linesForLatex.append(line)
 
         for run, count in enumerate(category[1:-1]):
 
-            label = '%s%sRun%s' % (colName, name, run)
+            label = 'a%s%s%s' % (colName, name, no2alpha[run])
 
             line = '\\newcommand{\\%s}{%s}\n' % (label, count)
             linesForLatex.append(line)
@@ -345,9 +354,9 @@ def statsWordsColumns(colName, currentColumnDict, topNr):
 
 def write_tex_file(outFile):
     '''
+    this is used to generate the .tex-file for the reproducible paper
     '''
-    # this is used to generate the .tex-file for the reproducible paper
-    print(' \tall\tseg1\tseg2\tseg3\tseg4\tseg5\tseg6\tseg7\tseg8\tExplanation')
+    print('\tall\tseg1\tseg2\tseg3\tseg4\tseg5\tseg6\tseg7\tseg8\tExplanation')
 
     forTexFile = []
     print('% Overview:')
@@ -432,7 +441,7 @@ if __name__ == "__main__":
     # single words and their additional columns with linguistic features
     countsWor = populate_column_cat_count(countsWor, fContent)
 
-    if outFile == None:
+    if outFile is None:
         # this was used for exploratory analyses of the
         # natural language statistics in the stimulus
         # statistics for Sentences, Non-Spech, Phonemes
@@ -443,5 +452,5 @@ if __name__ == "__main__":
         # statistics for phonemes uses the same functions as stats for speakers
         print_speaker_per_run('Phonemes:', countsPho, -1)
 
-    if outFile != None:
+    if outFile is not None:
         write_tex_file(outFile)
