@@ -231,7 +231,7 @@ setting\_rec  & \aDescrSettingrecAll & \aDescrSettingrecI & \aDescrSettingrecII 
 20 & vvpp  & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvppV & \rVvppVI & \rVvppVII & \rVvppVIII & \aTagVvpp \tabularnewline
 21 & tag\_other  & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII & all other TAG categories \tabularnewline
 22 & sentence  & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII & complete grammatical sentences \tabularnewline
-23 & phones  & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII & top XY phonemes \tabularnewline
+23 & phones  & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII & top 80 phonemes \tabularnewline
 24 & no-sp  & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII & no speech (```soundscape''') \tabularnewline
 25 & fg\_ad\_lrdiff  & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII & left-right volume difference \tabularnewline
 26 & fg\_ad\_rms  & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII & root mean square \tabularnewline
@@ -239,6 +239,15 @@ setting\_rec  & \aDescrSettingrecAll & \aDescrSettingrecI & \aDescrSettingrecII 
 \end{tabular}
 \end{table*}
 
+% Also weshalb wird das temporal filtering der regressoren wann wie gemacht??? -> nachschlagen
+% “You should normally apply the same temporal filtering to the model as you have applied to the data, as the model is designed to look like the data before temporal filtering was applied. In this way, long-time-scale components in the model will be dealt with correctly. This is set with the Apply temporal filtering option.”
+\begin{figure*}
+  \centering
+% \includegraphics[width=0.4\textwidth]{frog.jpg}
+  \includegraphics[width=\linewidth]{figures/regressor-corr}
+  \caption{Pearson correlation coefficients of the 26 regressors used in the analysis to validate the annotation. Regressors were convolved with FSL's “Double-Gamma HRF” as a model of the hemodynamic response function, temporally filtered with the same high-pass filter (cut-off 150s) as the BOLD time series, and cocatenated across runs before performing the correlation. Die unterschiedlichen Farben in den der Schriften kann man noch (wie?) sinnvoll ändern.}
+  \label{fig:correlation}
+\end{figure*}
 
 
 \clearpage
