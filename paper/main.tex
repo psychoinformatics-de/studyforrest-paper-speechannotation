@@ -1,8 +1,3 @@
-% ToDo:
-% Abstract
-% Tabellen
-% Dataset wo auch immer (ohne Stimuli) hochladen
-
 % For more detailed article preparation guidelines, please see:
 % http://f1000research.com/author-guidelines
 \documentclass[10pt,a4paper,twocolumn]{article}
@@ -57,11 +52,11 @@ language, speech, annotation, fMRI, natural stimulation, narrative, studyforrest
 
 
 \begin{table*}[t]
-\caption{Overview of the speech annotation's content for the whole stimulus and it's individual segments. Words include \aPosNonspeechAll\space non-speech vocalizations.}
+\caption{Overview of the speech annotation's content for the whole stimulus and it's individual segments. The label ``Sentences''' comprises complete grammatical sentences (i.e. having a subject and a predicate, and additionally marked with a full stop in the annotation). The  ``Sentences'' also comprises exlamations or non-speech vocalizations in quick succession (e.g. ``ha, ha, ha'') or in isolation (e.g. ``ha'', at time points when speakers rapidly switch). The label ``Words'' comprises every single word or non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
 \label{tab:overview}
 \begin{tabular}{llllllllll}
 \toprule
-\textbf{category} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
+\textbf{label} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
 \midrule
 sentences  & \aSentencesAll & \aSentencesI & \aSentencesII & \aSentencesIII & \aSentencesIV & \aSentencesV & \aSentencesVI & \aSentencesVII & \aSentencesVIII \tabularnewline
 words  & \aWordsAll & \aWordsI & \aWordsII & \aWordsIII & \aWordsIV & \aWordsV & \aWordsVI & \aWordsVII & \aWordsVIII \tabularnewline
@@ -70,9 +65,9 @@ phonemes  & \aPhonesAll & \aPhonesI & \aPhonesII & \aPhonesIII & \aPhonesIV & \a
 \end{tabular}
 \end{table*}
 
-
+% bei ein paar Namen bin ich ggf. von Labs abgewichen (genauer identifiziert, ggf. kleine Fehler korrigiert. Ist dann aber nur bei Personen, die 1-2x mit 1-2 Sätzen auftauchen.
 \begin{table*}[t]
-\caption{Sentences spoken by top 10 of 97 (identified) speakers sorted alphabetically. Narrator only in audio-description.}
+\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurrs in the audio-description of the movie. Shown names are identical to the names used in \citep{labs2015portrayed}. Overall 97 persons were identified.}
 \label{tab:speakers}
 \begin{tabular}{llllllllll}
 \toprule
@@ -94,11 +89,11 @@ Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarra
 
 
 \begin{table*}[t]
-\caption{Simple part of speech tagging (POS). All 15 categories sorted alpapetically. Descriptions were taken from spaCy.explain(). Non-speech vocalizations (NONSPEECH) were manually added.}
+\caption{Simple part of speech tagging (POS). All 15 labels sorted alpapetically. Descriptions were taken from spaCy.explain(). Non-speech vocalizations (NONSPEECH) were manually identified.}
 \label{tab:pos}
 \begin{tabular}{lllllllllll}
 \toprule
-\textbf{category} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 ADJ & \aPosAdj & \aPosAdjAll & \aPosAdjI & \aPosAdjII & \aPosAdjIII & \aPosAdjIV & \aPosAdjV & \aPosAdjVI & \aPosAdjVII \tabularnewline
 ADP & \aPosAdp & \aPosAdpAll & \aPosAdpI & \aPosAdpII & \aPosAdpIII & \aPosAdpIV & \aPosAdpV & \aPosAdpVI & \aPosAdpVII & \aPosAdpVIII \tabularnewline
@@ -121,11 +116,11 @@ X & \aPosX & \aPosXAll & \aPosXI & \aPosXII & \aPosXIII & \aPosXIV & \aPosXV & \
 
 
 \begin{table*}[t]
-\caption{Detailed part of speech tagging (TAG). The top 15 of 43 categories sorted alphabetically. Descriptions were taken from spaCy.explain().}
+\caption{Detailed part of speech tagging (TAG). The 15 most often occurring labels (overall 43 labels) sorted alphabetically. Descriptions were taken from spaCy.explain().}
 \label{tab:tag}
 \begin{tabular}{lllllllllll}
 \toprule
-\textbf{category} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 ADJA & \aTagAdja & \aTagAdjaAll & \aTagAdjaI & \aTagAdjaII & \aTagAdjaIII & \aTagAdjaIV & \aTagAdjaV & \aTagAdjaVI & \aTagAdjaVII & \aTagAdjaVIII \tabularnewline
 ADJD & \aTagAdjd & \aTagAdjdAll & \aTagAdjdI & \aTagAdjdII & \aTagAdjdIII & \aTagAdjdIV & \aTagAdjdV & \aTagAdjdVI & \aTagAdjdVII & \aTagAdjdVIII \tabularnewline
@@ -148,11 +143,11 @@ VVPP & \aTagVvpp & \aTagVvppAll & \aTagVvppI & \aTagVvppII & \aTagVvppIII & \aTa
 
 
 \begin{table*}[t]
-\caption{Syntactic dependencies (DEP). The top 15 of 37 categories sorted alphabetically. Descriptions were taken from spaCy.explain().}
+\caption{Syntactic dependencies (DEP). The 15 most often occuring labels (overall 37 labels) sorted alphabetically. Descriptions were taken from spaCy.explain().}
 \label{tab:dep}
 \begin{tabular}{lllllllllll}
 \toprule
-\textbf{category} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 cd & \aDepCd & \aDepCdAll & \aDepCdI & \aDepCdII & \aDepCdIII & \aDepCdIV & \aDepCdV & \aDepCdVI & \aDepCdVII & \aDepCdVIII \tabularnewline
 cj & \aDepCj & \aDepCjAll & \aDepCjI & \aDepCjII & \aDepCjIII & \aDepCjIV & \aDepCjV & \aDepCjVI & \aDepCjVII & \aDepCjVIII \tabularnewline
@@ -160,7 +155,7 @@ cp & \aDepCp & \aDepCpAll & \aDepCpI & \aDepCpII & \aDepCpIII & \aDepCpIV & \aDe
 da & \aDepDa & \aDepDaAll & \aDepDaI & \aDepDaII & \aDepDaIII & \aDepDaIV & \aDepDaV & \aDepDaVI & \aDepDaVII & \aDepDaVIII \tabularnewline
 ju & \aDepJu & \aDepJuAll & \aDepJuI & \aDepJuII & \aDepJuIII & \aDepJuIV & \aDepJuV & \aDepJuVI & \aDepJuVII & \aDepJuVIII \tabularnewline
 mnr & \aDepMnr & \aDepMnrAll & \aDepMnrI & \aDepMnrII & \aDepMnrIII & \aDepMnrIV & \aDepMnrV & \aDepMnrVI & \aDepMnrVII & \aDepMnrVIII \tabularnewline
-Mmo & \aDepMo & \aDepMoAll & \aDepMoI & \aDepMoII & \aDepMoIII & \aDepMoIV & \aDepMoV & \aDepMoVI & \aDepMoVII & \aDepMoVIII \tabularnewline
+mo & \aDepMo & \aDepMoAll & \aDepMoI & \aDepMoII & \aDepMoIII & \aDepMoIV & \aDepMoV & \aDepMoVI & \aDepMoVII & \aDepMoVIII \tabularnewline
 nk & \aDepNk & \aDepNkAll & \aDepNkI & \aDepNkII & \aDepNkIII & \aDepNkIV & \aDepNkV & \aDepNkVI & \aDepNkVII & \aDepNkVIII \tabularnewline
 oa & \aDepOa & \aDepOaAll & \aDepOaI & \aDepOaII & \aDepOaIII & \aDepOaIV & \aDepOaV & \aDepOaVI & \aDepOaVII & \aDepOaVIII \tabularnewline
 oc & \aDepOc & \aDepOcAll & \aDepOcI & \aDepOcII & \aDepOcIII & \aDepOcIV & \aDepOcV & \aDepOcVI & \aDepOcVII & \aDepOcVIII \tabularnewline
@@ -179,7 +174,7 @@ svp & separable verb prefix & \aDepSvpAll & \aDepSvpI & \aDepSvpII & \aDepSvpIII
 \label{tab:descr-nouns}
 \begin{tabular}{lllllllllll}
 \toprule
-\textbf{category} & \textbf{examples} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{label} & \textbf{examples} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 body & back, hip, shoulder; jacket, dress, shirt & \aDescrBodyAll & \aDescrBodyI & \aDescrBodyII & \aDescrBodyIII & \aDescrBodyIV & \aDescrBodyV & \aDescrBodyVI & \aDescrBodyVII & \aDescrBodyVIII \tabularnewline
 bodypart  & arm, finger, leg, toe & \aDescrBodypartAll & \aDescrBodypartI & \aDescrBodypartII & \aDescrBodypartIII & \aDescrBodypartIV & \aDescrBodypartV & \aDescrBodypartVI & \aDescrBodypartVII & \aDescrBodypartVIII\tabularnewline
@@ -206,11 +201,11 @@ setting\_rec & at the ``bus stop'' & \aDescrSettingrecAll & \aDescrSettingrecI &
 
 
 \begin{table*}[t]
-\caption{Overview of the 26 REGRESSORS used for the validation analysis. The top 20 categories of the detailed part-of speech tagging were used as such. Descriptions were taken from spaCy.explain(). All others tags were pooled to ``tag\_other''. The other categories were build\dots}
+    \caption{Overview of the 26 regressors for the validation analysis. The first column contains the number of the regressor in the design file of FSL \citep{smith2004fsl}. The 20 most often occuring labels from the detailed part-of speech tagging were used as such. Words belonging to all other labels were pooled to ``tag\_other''. The regressor ``sentence'' contains the end of complete grammatical sentences. The regressor ``phones'' contains the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32). The regressor ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent low-level auditory nuissance regressors comprising one event for every movie frame (40ms).}
 \label{tab:regressors}
 \begin{tabular}{llllllllllll}
 \toprule
-\textbf{no} & \textbf{name} &  \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{no} & \textbf{label} &  \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 1 & adja & \aTagAdja & \rAdjaAll & \rAdjaI & \rAdjaII & \rAdjaIII & \rAdjaIV & \rAdjaV & \rAdjaVI & \rAdjaVII & \rAdjaVIII \tabularnewline
 2 & adjd & \aTagAdjd & \rAdjdAll & \rAdjdI & \rAdjdII & \rAdjdIII & \rAdjdIV & \rAdjdV & \rAdjdVI & \rAdjdVII & \rAdjdVIII \tabularnewline
@@ -233,9 +228,11 @@ setting\_rec & at the ``bus stop'' & \aDescrSettingrecAll & \aDescrSettingrecI &
 19 & vvinf & \aTagVvinf & \rVvinfAll & \rVvinfI & \rVvinfII & \rVvinfIII & \rVvinfIV & \rVvinfV & \rVvinfVI & \rVvinfVII & \rVvinfVIII \tabularnewline
 20 & vvpp & \aTagVvpp & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvppV & \rVvppVI & \rVvppVII & \rVvppVIII \tabularnewline
 21 & tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII \tabularnewline
+\cline{1-12}
 22 & sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
-23 & phones & top 80 phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
-24 & no-sp & no speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
+23 & phones & 80 most often occuring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
+24 & no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
+\cline{1-12}
 25 & fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
 26 & fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
 \bottomrule
@@ -248,7 +245,7 @@ setting\_rec & at the ``bus stop'' & \aDescrSettingrecAll & \aDescrSettingrecI &
   \centering
 % \includegraphics[width=0.4\textwidth]{frog.jpg}
   \includegraphics[width=\linewidth]{figures/regressor-corr}
-  \caption{Pearson correlation coefficients of the 26 regressors used in the analysis to validate the annotation. Regressors were convolved with FSL's “Double-Gamma HRF” as a model of the hemodynamic response function, temporally filtered with the same high-pass filter (cut-off 150s) as the BOLD time series, and cocatenated across runs before performing the correlation. NOTE: Bisher werden pdf figures. Die unterschiedlichen Farben in den der Schriften kann man noch (wie?) sinnvoll ändern.}
+  \caption{Pearson correlation coefficients of the 26 regressors used in the analysis to validate the annotation. Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function, temporally filtered with the same high-pass filter (cut-off 150s) as the BOLD time series, and cocatenated across runs before performing the correlation.}
 \label{fig:reg-corr}
 \end{figure*}
 
@@ -263,7 +260,7 @@ setting\_rec & at the ``bus stop'' & \aDescrSettingrecAll & \aDescrSettingrecI &
 
 
 \begin{table*}[t]
-    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for COPE1: all 21 tag-related regressors > no speech.}
+    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast words > no-speech.}
 \label{tab:cope1}
 \begin{tabular}{rrrrrrrrrrp{3cm}}
 \toprule
@@ -281,7 +278,7 @@ Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure 
 
 
 \begin{table*}[t]
-\caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for COPE3: proper nouns (``ne'') > coordinate conjunctions (``kon'').}
+\caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast proper nouns (``ne'') > coordinate conjunctions (``kon'').}
 \label{tab:cope3}
 \begin{tabular}{rrrrrrrrrrp{3cm}}
 \toprule
@@ -305,7 +302,7 @@ Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure 
 
 
 \begin{table*}[t]
-    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for COPE5: nouns (``nn'') > coordinate conjunctions (``kon'').}
+    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast nouns (``nn'') > coordinate conjunctions (``kon'').}
 \label{tab:cope5}
 \begin{tabular}{rrrrrrrrrrp{3cm}}
 \toprule
@@ -435,7 +432,7 @@ were corrected. Some (low volume) sentences that are spoken in continuously
 noisy settings (pursuit, battle, hurricane, demonstration/rally, disco) were
 removed due to poor overall alignment performance. In a second step, the
 complete sentences of the orthographic transcription were copied into the
-annotation (s. table \ref{tab:overview} for an overview of the annotation's contenct). In a third step, the name of the speaker was added for every sentence (s. table \ref{tab:speakers} for the most often occurring speakers).
+annotation (s. table \ref{tab:overview} for an overview of the annotation's content). In a third step, the name of the speaker was added for every sentence (s. table \ref{tab:speakers} for the most often occurring speakers).
 During every new step results from all previous steps were checked again for errors and corrected.
 
 % descriptive Nouns
@@ -466,31 +463,39 @@ a tab separated file in accordance with the brain imaging data structure
 \subsection*{Data Legend}
 % wo wurde automatisch korrigiert (e.g. NE/NN, NONSPEECH)
 % s. dictionaries oben in add_part-of-speech-tagging2textgrid.py
+
 \subsubsection*{Start (\texttt{start})}
 the onset of the sentences, word or phoneme provided in seconds of stimulus onset.
+
 \subsubsection*{Duration (\texttt{end})}
 the duration of the sentences, word or phoneme provided in seconds.
+
 \subsubsection*{Speaker identity (\texttt{person})}
-name of the persons that speaks the sentence, word, phoneme.
+name of the persons that speaks the sentence, word or phoneme (s. table \ref{tab:speakers}).
+
 % einige Eigennamen (NE/NN) wurden automatisch korrigiert, weil das Sprachmodell
 % die naheliegenderweise nicht kannte; eine Liste dieser Eigennamen befindet
 % sich oben in dem entsprechendem Skript
 % (add_part-of-speech-tagging2textgrid.py)
 \subsubsection*{Simple part-of-speech tag (\texttt{pos})}
-This column contains tags for whole sentences ("SENTENCE"), phonemes ("PHONEME") and non-speech vocalizations (NONSPEECH). For single words, it contains a simple part-of-speech tagging (grammatical tagging; word-category disambiguation) taking the relationship with adjacent and related words in the same sentence into account. This simple part-of-speech tagging tags follow the \href{https://universaldependencies.org}{Universal Dependencies} v2 POS tag set.
+This column contains tags for whole sentences ("SENTENCE"), phonemes ("PHONEME") and non-speech vocalizations (NONSPEECH). For single words, it contains a simple part-of-speech tagging (grammatical tagging; word-category disambiguation) taking the relationship with adjacent and related words in the same sentence into account (s. table \ref{tab:pos}). This simple part-of-speech tagging tags follow the \href{https://universaldependencies.org}{Universal Dependencies} v2 POS tag set.
 
 \subsubsection*{Detailed part-of-speech tag (\texttt{tag})}
-A detailed part-of-speech tagging following the TIGER Treebank annotation scheme \citep{brants2004tiger} which is based on the \href{https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets}{Stuttgart-Tübingen-Tagset} \citep{schiller1999stts}.
+A detailed part-of-speech tagging following the TIGER Treebank annotation scheme \citep{brants2004tiger}(s. table \ref{tab:tag}) which is based on the \href{https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets}{Stuttgart-Tübingen-Tagset} \citep{schiller1999stts}.
+
 \subsubsection*{Syntactic dependency (\texttt{dep})}
 A word's column entry provides information about a word's syntactic dependency. Information following the TIGER Treebank annotation scheme \citep{brants2004tiger} is given in the format:
-"arc label;word's head;word's child1, word's child2, ..." where the "arc label" describes the type of syntactic relation that connects a "child" (the single word) to its "head".
+"arc label;word's head;word's child1, word's child2, ..." where the "arc label" (s. table \ref{tab:dep}) describes the type of syntactic relation that connects a "child" (the single word) to its "head".
+
 \subsubsection*{Lemmatization (\texttt{lemma})}
 For single words, the base form (root) of the word
+
 \subsubsection*{Common Word (\texttt{stop})}
 For single words, this column provides information if the word is part of a stop list, hence one of the most common words in the German language ("True") or not ('"False")?
+
 \subsubsection*{Narrator's descriptive nouns (\texttt{descr})}
 A categorizing of nouns that serve as auditory cues about the movie's visual content. Comprised categories focus on the cinematographic scene's environment (geo, geo-room; setting\_new, setting\_old), inherent persons (female, female name; male, male name, person), their appearance (face, head; body, bodypart), and objects (object, furniture).
-\paragraph*{Narrator's descriptive nouns}
+
 \subsubsection*{Word embedding (semantic similarity) (\texttt{vector})}
 A word's column entry contains a 300-dimensional \href{https://en.wikipedia.org/wiki/Word2vec}{word vector} providing a multi-dimensional meaning representation of the word. Uncommon and out-of-vocabulary words with a vector consisting of 300 dimensions of 0's were set to '\#' [to save space].
 
@@ -527,13 +532,13 @@ Software Library)\citep{smith2004fsl}. Data were temporally high-pass filtered (
 We implemented a standard three-level, voxel-wise general linear model (GLM) to average parameter estimates across the eight stimulus segments, and later across 19 subjects.
 % 1st lvl
 At the first level analysing each segment for each subject individually, we defined 26 regressors (s. table \ref{tab:regressors})
- based on information drawn from the annotation. The top 20 detailed tags by count (``nn'' with N=\rNnAll\space to ``prf'' with N=\rPrfAll) were modelled as such from the onset to offset of each word. The remaining tags were pooled to a single regressor (``tag\_other``; N=\rTagotherAll). The top 80 phonemes (``n'' with n=6053 to ``IY1'' with N=32) were pooled to the regressor ``phonemes'' (N=\rPhonesAll).
+ based on information drawn from the annotation. The 20 most often occuring detailed tag labels (``nn'' with N=\rNnAll\space to ``prf'' with N=\rPrfAll) were modelled as such from the onset to offset of each word. The remaining tags were pooled to a single regressor (``tag\_other``; N=\rTagotherAll). The top 80 phonemes (``n'' with n=6053 to ``IY1'' with N=32) were pooled to the regressor ``phonemes'' (N=\rPhonesAll).
 The ends of (complete) grammatical sentences were used as the onset of events, abitrarily lasting 0.2s, for the regressors ``sentence'' (N=\rSentenceAll).
 A ``no-speech'' regressor (``no-sp''; N=\rNospAll) serving as a control condition was created by the following rationale: events were fitted into intervals between onsets and offsets of sentences/words assumed to contain no comprehensible speech. Each event of the no-speech condition had a minimum distance of 1.8s to onset/offsets of sentences/words and to each other onset of the no-speech condition (s. anno2events-files.py). A length of 0.07s was chosen for these events matching the average length of phonemes.
 Two regressors reflecting auditory (low-level) features (left-right loudness/volume/amplitude difference; root mean squared amplitude) aligned to the frame rate of (40 ms) were modelled to reduce nuisance effects.
 Hier (und das ggf auch mehr auf Korrelation der Regressoren eingehen. \ref{fig:reg-corr}).
 Those 26 regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function. Temporal derivatives were also included in the design matrix, and it was subjected to the same temporal filtering as the BOLD time series. Finally, six motion parameters were used as additional nuisance regressors.
-The following six t-contrasts were defined: 1) all 21 tag-related regressors > no-speech; 2) no-speech > all 21 tag-related regressors; 3) proper nouns (``ne''; N=\rNeAll) > coordinate conjunctions (``kon''; N=\rKonAll); 4) coordinate conjunctions > proper nouns; 5) nouns (``nn'') > coordinate conjunctions, and 6) coordinate conjunctions > nouns. The first level analysis that fitted each voxel’s time course separately for each subject was performed in functional space preserving the orientation of the EPI images [richtig?].
+The following six t-contrasts were defined: 1) words (21 tag-related regressors) > no-speech; 2) no-speech > all 21 tag-related regressors; 3) proper nouns (``ne''; N=\rNeAll) > coordinate conjunctions (``kon''; N=\rKonAll); 4) coordinate conjunctions > proper nouns; 5) nouns (``nn'') > coordinate conjunctions, and 6) coordinate conjunctions > nouns. The first level analysis that fitted each voxel’s time course separately for each subject was performed in functional space preserving the orientation of the EPI images [richtig?].
 
 % 2nd lvl and 3rd lvl
 The second-level analysis which averaged contrast estimates across the eight stimulus segments per subject was carried out using a fixed effects model by forcing the random effects variance to zero in FLAME (FMRIB’s Local Analysis of Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}. The third level analysis which averaged contrast estimates across subjects was carried out using FLAME stage 1 with automatic outlier de-weighting \citep{beckmann2003general, woolrich2004multilevel, woolrich2008robust}.
