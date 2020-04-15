@@ -108,6 +108,8 @@ Further, it extends already available annotations of portrayed emotions
 \citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the movie \citep{haeusler2016annotation}. All annotations can be used in any study focusing on other aspects of real-life cognition by serving as additional
 confound measures describing key properties of major building blocks of the stimulus.
 
+\todo[inline]{this work seems to improve/replace previous work (in part), it is important to state that clearly and identify which pieces are involved}
+
 \section*{Materials and methods}
 \subsection*{Stimulus}
 % References sind vom Anno-Paper in die .bib-Datei übernommen worden; die
@@ -123,44 +125,45 @@ visually impaired listeners on Swiss public television (Koop, Michalski,
 Beckmann, Meinhardt \& Benecke, produced by Bayrischer Rundfunk,
 2009)\citep{ForrestGumpGermanAD}. The plot of the movie is already carried by an
 off-screen voice of the main character Forrest Gump. In the largely identical audio-description, a male narrator additionally describes essential aspects of the visual scenery when there is no off-screen voice, dialog, or other relevant auditory content
+
 \subsection*{Annotation procedure}
 % wo kommen die "preliminaries transcriptions" her?
 % Die "most basic" Datei, die das Dataset enthält ist der Merge aus Diaolog, Narrator & Non-Speech-Annotation
-Preliminary, orthographic transcriptions of dialogues (german\_dialog.csv),
+Preliminary, orthographic transcriptions of dialogues (\texttt{german\_dialog.csv})\todo{filenames should have some text markup. I did this example, please apply to other locations as well},
 non-speech vocalizations (e.g. laughing or groaning;
 non\_speech\_vocalization.json), and the audio-description's narrator
-(german\_audio\_description.csv) were merged and converted to Praat's
-\citep{boersma2019praat} .TextGrid format (
+(german\_audio\_description.csv)\todo{where were those from? citation missing} were merged and converted to Praat's
+\citep{boersma2019praat} TextGrid format (
 \href{www.fon.hum.uva.nl/praat}{fon.hum.uva.nl/praat}). The merged transcription
 containing one onset and offset for usually a couple of sentences was opened
 along (the audio file of) the audio-description in Praat v6.0.22 for manual
-improvements: In several passes, the approximate temporal onsets and offsets
+improvements\todo{in general process information is not relevant: of course you need to open a file to work with it. The Q is what you did to it, why, and how exactly. So instead of "was opened along (the audio file of) the audio-description in Praat v6.0.22", better "was edited in Praat v6.0.22 for manual validation against the original audio"}: In several passes\todo{why several passes?}, the approximate temporal onsets and offsets
 were corrected. Intervals containing several sentences were split into intervals
 containing only one sentence. When two or more persons were speaking
 simultaneously the less dominant (background) voice was dropped. Low volume
 background speech (especially occurring during music or continuous environmental
 noise) or low volume non-speech vocalizations that are difficult to recognize by
-a regular audience were dropped, too.
+a regular audience\todo{what is a regular audience? without neurological disorders ;-)} were dropped, too.
 
 % Alignment preparations
-We used the Montreal Forced Aligner v1.0.1
-\href{montrealcorpustools.github.io/Montreal-Forced-Aligner}{montrealcorpustools.github.io/Montreal-Forced-Aligner}\citep{mcauliffe2017montreal};to
+We used the Montreal Forced Aligner v1.0.1 
+\href{montrealcorpustools.github.io/Montreal-Forced-Aligner}{montrealcorpustools.github.io/Montreal-Forced-Aligner}\citep{mcauliffe2017montreal}\todo{we need a consistent way of citing software. I think it is overkill to have a reference, plus a URL, plus a version in the main text. Either everything in the reference, or (maybe) just name+version in the text};to
 algorithmically identify the onset and offset of each word and phoneme embedded
 in the transcribed sentences. To enable the aligner to look up the pronunciation
 of every word, we chose a German pronunciation dictionary
 \href{https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict}{raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict}
 provided by Prosodylab (\href{http://prosodylab.org}{prosodylab.org}) that uses
-the Prosodylab PhoneSet. The dictionary was manually updated with movie-specific
-German words. The pronunciation of English words occurring in the otherwise
+the Prosodylab PhoneSet\todo{same here, use a proper bibtex reference}. The dictionary was manually updated with movie-specific
+German words\todo{which words, how determined, why?}. The pronunciation of English words occurring in the otherwise
 German audio track was taken from an English pronunciation dictionary
-(\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org/mfa/dictionaries/english.dict} that uses the ARPAbet PhoneSet.
+(\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org/mfa/dictionaries/english.dict} that uses the ARPAbet PhoneSet\todo{It would help a non-expert like me to understand why a PhoneSet is important for this annotation, sounds like a jargon}.
 
 % Alignment
 % Nicht erwähnt: Wenn die Korrektur der Phoneme unmöglich war, habe ich einfach
 % die Event-Borders zwischen den Phonemen herausgenommen. Wortbeginn und Wortende stimmen dann mit einem neuen, "künstlich-großen Phoneme" überein.
 % Das "Groß-Phonem" enthält dann ohne Grenzen zwischen den tatsächlichen Phonemen des Wortes alle Phoneme des Wortes ("es ist kompliziert zu erklären, aber im Grunde ganz einfach).
 % kommt selten vor, ist im Grunde "noise" und ist in der Anno sofort als solches zu erkennen.
-The audio file was converted from .FLAC to .WAV via ffmpeg v4.1.4
+The audio file was converted from .FLAC to .WAV\todo{Better WAV not .WAV, likewise for others} via ffmpeg v4.1.4
 (\href{www.ffmpeg.org}{ffmpeg.org}) to meet the aligner's requirements. This
 .WAV file, the transcription of sentences, and the updated dictionary were
 submitted to the aligner that first trained an acoustic model on the data and
