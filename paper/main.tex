@@ -55,193 +55,10 @@ language, speech, annotation, fMRI, natural stimulation, narrative, studyforrest
 \clearpage
 
 
-\begin{table*}[t]
-\caption{Overview of the speech annotation's content for the whole stimulus and it's individual segments. The label ``Sentences''' comprises complete grammatical sentences (i.e. having a subject and a predicate, and additionally marked with a full stop in the annotation). The  ``Sentences'' also comprises exlamations or non-speech vocalizations in quick succession (e.g. ``ha, ha, ha'') or in isolation (e.g. ``ha'', at time points when speakers rapidly switch). The label ``Words'' comprises every single word or non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
-\label{tab:overview}
-\begin{tabular}{llllllllll}
-\toprule
-\textbf{label} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
-\midrule
-sentences  & \aSentencesAll & \aSentencesI & \aSentencesII & \aSentencesIII & \aSentencesIV & \aSentencesV & \aSentencesVI & \aSentencesVII & \aSentencesVIII \tabularnewline
-words  & \aWordsAll & \aWordsI & \aWordsII & \aWordsIII & \aWordsIV & \aWordsV & \aWordsVI & \aWordsVII & \aWordsVIII \tabularnewline
-phonemes  & \aPhonesAll & \aPhonesI & \aPhonesII & \aPhonesIII & \aPhonesIV & \aPhonesV & \aPhonesVI & \aPhonesVII & \aPhonesVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table*}
-
-% bei ein paar Namen bin ich ggf. von Labs abgewichen (genauer identifiziert, ggf. kleine Fehler korrigiert. Ist dann aber nur bei Personen, die 1-2x mit 1-2 Sätzen auftauchen.
-\begin{table*}[t]
-\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurrs in the audio-description of the movie. Shown names are identical to the names used in \citep{labs2015portrayed}. Overall 97 persons were identified.}
-\label{tab:speakers}
-\begin{tabular}{llllllllll}
-\toprule
-\textbf{name} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
-\midrule
-Bubba  & \aBubbaAll & \aBubbaI & \aBubbaII & \aBubbaIII & \aBubbaIV & \aBubbaV & \aBubbaVI & \aBubbaVII & \aBubbaVIII \tabularnewline
-Forrest  & \aForrestAll & \aForrestI & \aForrestII & \aForrestIII & \aForrestIV & \aForrestV & \aForrestVI & \aForrestVII & \aForrestVIII \tabularnewline
-Forrest (child)  & \aForrestchildAll & \aForrestchildI & \aForrestchildII & \aForrestchildIII & \aForrestchildIV & \aForrestchildV & \aForrestchildVI & \aForrestchildVII & \aForrestchildVIII \tabularnewline
-Forrest (v.o.)  & \aForrestvoAll & \aForrestvoI & \aForrestvoII & \aForrestvoIII & \aForrestvoIV & \aForrestvoV & \aForrestvoVI & \aForrestvoVII & \aForrestvoVIII \tabularnewline
-Hancock  & \aHancockAll & \aHancockI & \aHancockII & \aHancockIII & \aHancockIV & \aHancockV & \aHancockVI & \aHancockVII & \aHancockVIII \tabularnewline
-Jenny  & \aJennyAll & \aJennyI & \aJennyII & \aJennyIII & \aJennyIV & \aJennyV & \aJennyVI & \aJennyVII & \aJennyVIII \tabularnewline
-Jenny (child)  & \aJennychildAll & \aJennychildI & \aJennychildII & \aJennychildIII & \aJennychildIV & \aJennychildV & \aJennychildVI & \aJennychildVII & \aJennychildVIII \tabularnewline
-Lt. Dan  & \aLtdanAll & \aLtdanI & \aLtdanII & \aLtdanIII & \aLtdanIV & \aLtdanV & \aLtdanVI & \aLtdanVII & \aLtdanVIII \tabularnewline
-Mrs. Gump  & \aMrsgumpAll & \aMrsgumpI & \aMrsgumpII & \aMrsgumpIII & \aMrsgumpIV & \aMrsgumpV & \aMrsgumpVI & \aMrsgumpVII & \aMrsgumpVIII \tabularnewline
-Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarratorIV & \aNarratorV & \aNarratorVI & \aNarratorVII & \aNarratorVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table*}
 
 
-\begin{table*}[t]
-\caption{Simple part of speech tagging (POS). All 15 labels sorted alpapetically. Descriptions were taken from spaCy.explain(). Non-speech vocalizations (NONSPEECH) were manually identified.}
-\label{tab:pos}
-\begin{tabular}{lllllllllll}
-\toprule
-\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
-\midrule
-ADJ & \aPosAdj & \aPosAdjAll & \aPosAdjI & \aPosAdjII & \aPosAdjIII & \aPosAdjIV & \aPosAdjV & \aPosAdjVI & \aPosAdjVII \tabularnewline
-ADP & \aPosAdp & \aPosAdpAll & \aPosAdpI & \aPosAdpII & \aPosAdpIII & \aPosAdpIV & \aPosAdpV & \aPosAdpVI & \aPosAdpVII & \aPosAdpVIII \tabularnewline
-ADV & \aPosAdv & \aPosAdvAll & \aPosAdvI & \aPosAdvII & \aPosAdvIII & \aPosAdvIV & \aPosAdvV & \aPosAdvVI & \aPosAdvVII & \aPosAdvVIII \tabularnewline
-AUX & \aPosAux & \aPosAuxAll & \aPosAuxI & \aPosAuxII & \aPosAuxIII & \aPosAuxIV & \aPosAuxV & \aPosAuxVI & \aPosAuxVII & \aPosAuxVIII \tabularnewline
-CONJ & \aPosConj & \aPosConjAll & \aPosConjI & \aPosConjII & \aPosConjIII & \aPosConjIV & \aPosConjV & \aPosConjVI & \aPosConjVII & \aPosConjVIII \tabularnewline
-DET & \aPosDet & \aPosDetAll & \aPosDetI & \aPosDetII & \aPosDetIII & \aPosDetIV & \aPosDetV & \aPosDetVI & \aPosDetVII & \aPosDetVIII \tabularnewline
-NONSPEECH & non-speech vocalization & \aPosNonspeechAll & \aPosNonspeechI & \aPosNonspeechII & \aPosNonspeechIII & \aPosNonspeechIV & \aPosNonspeechV & \aPosNonspeechVI & \aPosNonspeechVII & \aPosNonspeechVIII \tabularnewline
-NOUN & \aPosNoun & \aPosNounAll & \aPosNounI & \aPosNounII & \aPosNounIII & \aPosNounIV & \aPosNounV & \aPosNounVI & \aPosNounVII & \aPosNounVIII \tabularnewline
-NUM & \aPosNum & \aPosNumAll & \aPosNumI & \aPosNumII & \aPosNumIII & \aPosNumIV & \aPosNumV & \aPosNumVI & \aPosNumVII & \aPosNumVIII \tabularnewline
-PART & \aPosPart & \aPosPartAll & \aPosPartI & \aPosPartII & \aPosPartIII & \aPosPartIV & \aPosPartV & \aPosPartVI & \aPosPartVII & \aPosPartVIII \tabularnewline
-PRON & \aPosPron & \aPosPronAll & \aPosPronI & \aPosPronII & \aPosPronIII & \aPosPronIV & \aPosPronV & \aPosPronVI & \aPosPronVII & \aPosPronVIII \tabularnewline
-PRON & \aPosPropn & \aPosPropnAll & \aPosPropnI & \aPosPropnII & \aPosPropnIII & \aPosPropnIV & \aPosPropnV & \aPosPropnVI & \aPosPropnVII & \aPosPropnVIII \tabularnewline
-SCONJ & \aPosSconj & \aPosSconjAll & \aPosSconjI & \aPosSconjII & \aPosSconjIII & \aPosSconjIV & \aPosSconjV & \aPosSconjVI & \aPosSconjVII & \aPosSconjVIII \tabularnewline
-VERB & \aPosVerb & \aPosVerbAll & \aPosVerbI & \aPosVerbII & \aPosVerbIII & \aPosVerbIV & \aPosVerbV & \aPosVerbVI & \aPosVerbVII & \aPosVerbVIII \tabularnewline
-X & \aPosX & \aPosXAll & \aPosXI & \aPosXII & \aPosXIII & \aPosXIV & \aPosXV & \aPosXVI & \aPosXVII & \aPosXVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table*}
 
 
-\begin{table*}[t]
-\caption{Detailed part of speech tagging (TAG). The 15 most often occurring labels (overall 43 labels) sorted alphabetically. Descriptions were taken from spaCy.explain().}
-\label{tab:tag}
-\begin{tabular}{lllllllllll}
-\toprule
-\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
-\midrule
-ADJA & \aTagAdja & \aTagAdjaAll & \aTagAdjaI & \aTagAdjaII & \aTagAdjaIII & \aTagAdjaIV & \aTagAdjaV & \aTagAdjaVI & \aTagAdjaVII & \aTagAdjaVIII \tabularnewline
-ADJD & \aTagAdjd & \aTagAdjdAll & \aTagAdjdI & \aTagAdjdII & \aTagAdjdIII & \aTagAdjdIV & \aTagAdjdV & \aTagAdjdVI & \aTagAdjdVII & \aTagAdjdVIII \tabularnewline
-ADV & \aTagAdv & \aTagAdvAll & \aTagAdvI & \aTagAdvII & \aTagAdvIII & \aTagAdvIV & \aTagAdvV & \aTagAdvVI & \aTagAdvVII & \aTagAdvVIII \tabularnewline
-APPR & \aTagAppr & \aTagApprAll & \aTagApprI & \aTagApprII & \aTagApprIII & \aTagApprIV & \aTagApprV & \aTagApprVI & \aTagApprVII & \aTagApprVIII \tabularnewline
-ART & \aTagArt & \aTagArtAll & \aTagArtI & \aTagArtII & \aTagArtIII & \aTagArtIV & \aTagArtV & \aTagArtVI & \aTagArtVII & \aTagArtVIII \tabularnewline
-KON & \aTagKon & \aTagKonAll & \aTagKonI & \aTagKonII & \aTagKonIII & \aTagKonIV & \aTagKonV & \aTagKonVI & \aTagKonVII & \aTagKonVIII \tabularnewline
-NE & \aTagNe & \aTagNeAll & \aTagNeI & \aTagNeII & \aTagNeIII & \aTagNeIV & \aTagNeV & \aTagNeVI & \aTagNeVII & \aTagNeVIII \tabularnewline
-NN & \aTagNn & \aTagNnAll & \aTagNnI & \aTagNnII & \aTagNnIII & \aTagNnIV & \aTagNnV & \aTagNnVI & \aTagNnVII & \aTagNnVIII \tabularnewline
-PPER & \aTagPper & \aTagPperAll & \aTagPperI & \aTagPperII & \aTagPperIII & \aTagPperIV & \aTagPperV & \aTagPperVI & \aTagPperVII & \aTagPperVIII \tabularnewline
-PPOSAT & \aTagPposat & \aTagPposatAll & \aTagPposatI & \aTagPposatII & \aTagPposatIII & \aTagPposatIV & \aTagPposatV & \aTagPposatVI & \aTagPposatVII & \aTagPposatVIII \tabularnewline
-PTKVZ & \aTagPtkvz & \aTagPtkvzAll & \aTagPtkvzI & \aTagPtkvzII & \aTagPtkvzIII & \aTagPtkvzIV & \aTagPtkvzV & \aTagPtkvzVI & \aTagPtkvzVII & \aTagPtkvzVIII \tabularnewline
-VAFIN & \aTagVafin & \aTagVafinAll & \aTagVafinI & \aTagVafinII & \aTagVafinIII & \aTagVafinIV & \aTagVafinV & \aTagVafinVI & \aTagVafinVII & \aTagVafinVIII \tabularnewline
-VVFIN & \aTagVvfin & \aTagVvfinAll & \aTagVvfinI & \aTagVvfinII & \aTagVvfinIII & \aTagVvfinIV & \aTagVvfinV & \aTagVvfinVI & \aTagVvfinVII & \aTagVvfinVIII \tabularnewline
-VVINF & \aTagVvinf & \aTagVvinfAll & \aTagVvinfI & \aTagVvinfII & \aTagVvinfIII & \aTagVvinfIV & \aTagVvinfV & \aTagVvinfVI & \aTagVvinfVII & \aTagVvinfVIII \tabularnewline
-VVPP & \aTagVvpp & \aTagVvppAll & \aTagVvppI & \aTagVvppII & \aTagVvppIII & \aTagVvppIV & \aTagVvppV & \aTagVvppVI & \aTagVvppVII & \aTagVvppVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table*}
-
-
-\begin{table*}[t]
-\caption{Syntactic dependencies (DEP). The 15 most often occuring labels (overall 37 labels) sorted alphabetically. Descriptions were taken from spaCy.explain().}
-\label{tab:dep}
-\begin{tabular}{lllllllllll}
-\toprule
-\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
-\midrule
-cd & \aDepCd & \aDepCdAll & \aDepCdI & \aDepCdII & \aDepCdIII & \aDepCdIV & \aDepCdV & \aDepCdVI & \aDepCdVII & \aDepCdVIII \tabularnewline
-cj & \aDepCj & \aDepCjAll & \aDepCjI & \aDepCjII & \aDepCjIII & \aDepCjIV & \aDepCjV & \aDepCjVI & \aDepCjVII & \aDepCjVIII \tabularnewline
-cp & \aDepCp & \aDepCpAll & \aDepCpI & \aDepCpII & \aDepCpIII & \aDepCpIV & \aDepCpV & \aDepCpVI & \aDepCpVII & \aDepCpVIII \tabularnewline
-da & \aDepDa & \aDepDaAll & \aDepDaI & \aDepDaII & \aDepDaIII & \aDepDaIV & \aDepDaV & \aDepDaVI & \aDepDaVII & \aDepDaVIII \tabularnewline
-ju & \aDepJu & \aDepJuAll & \aDepJuI & \aDepJuII & \aDepJuIII & \aDepJuIV & \aDepJuV & \aDepJuVI & \aDepJuVII & \aDepJuVIII \tabularnewline
-mnr & \aDepMnr & \aDepMnrAll & \aDepMnrI & \aDepMnrII & \aDepMnrIII & \aDepMnrIV & \aDepMnrV & \aDepMnrVI & \aDepMnrVII & \aDepMnrVIII \tabularnewline
-mo & \aDepMo & \aDepMoAll & \aDepMoI & \aDepMoII & \aDepMoIII & \aDepMoIV & \aDepMoV & \aDepMoVI & \aDepMoVII & \aDepMoVIII \tabularnewline
-nk & \aDepNk & \aDepNkAll & \aDepNkI & \aDepNkII & \aDepNkIII & \aDepNkIV & \aDepNkV & \aDepNkVI & \aDepNkVII & \aDepNkVIII \tabularnewline
-oa & \aDepOa & \aDepOaAll & \aDepOaI & \aDepOaII & \aDepOaIII & \aDepOaIV & \aDepOaV & \aDepOaVI & \aDepOaVII & \aDepOaVIII \tabularnewline
-oc & \aDepOc & \aDepOcAll & \aDepOcI & \aDepOcII & \aDepOcIII & \aDepOcIV & \aDepOcV & \aDepOcVI & \aDepOcVII & \aDepOcVIII \tabularnewline
-pd & \aDepPd & \aDepPdAll & \aDepPdI & \aDepPdII & \aDepPdIII & \aDepPdIV & \aDepPdV & \aDepPdVI & \aDepPdVII & \aDepPdVIII \tabularnewline
-pnc & \aDepPnc & \aDepPncAll & \aDepPncI & \aDepPncII & \aDepPncIII & \aDepPncIV & \aDepPncV & \aDepPncVI & \aDepPncVII & \aDepPncVIII \tabularnewline
-ROOT & root of sentence & \aDepRootAll & \aDepRootI & \aDepRootII & \aDepRootIII & \aDepRootIV & \aDepRootV & \aDepRootVI & \aDepRootVII & \aDepRootVIII \tabularnewline
-sb & \aDepSb & \aDepSbAll & \aDepSbI & \aDepSbII & \aDepSbIII & \aDepSbIV & \aDepSbV & \aDepSbVI & \aDepSbVII & \aDepSbVIII \tabularnewline
-svp & separable verb prefix & \aDepSvpAll & \aDepSvpI & \aDepSvpII & \aDepSvpIII & \aDepSvpIV & \aDepSvpV & \aDepSvpVI & \aDepSvpVII & \aDepSvpVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table*}
-
-
-\begin{table*}[t]
-    \caption{Narrator's descriptive nouns. All categories sorted alphapetically. Examples are given in English. Description (of rules) fehlt in dieser Tabelle (vgl. alte Tabelle auf der allerletzten Seite). Wird nämlich in einer Tabelle mit horizontaler Ausrichtung eng. Kategorie ``++'' enthält ausnahmesweise auch adverbiale Best. der Zeit.}
-\label{tab:descr-nouns}
-\begin{tabular}{lllllllllll}
-\toprule
-\textbf{label} & \textbf{examples} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
-\midrule
-body & back, hip, shoulder; jacket, dress, shirt & \aDescrBodyAll & \aDescrBodyI & \aDescrBodyII & \aDescrBodyIII & \aDescrBodyIV & \aDescrBodyV & \aDescrBodyVI & \aDescrBodyVII & \aDescrBodyVIII \tabularnewline
-bodypart  & arm, finger, leg, toe & \aDescrBodypartAll & \aDescrBodypartI & \aDescrBodypartII & \aDescrBodypartIII & \aDescrBodypartIV & \aDescrBodypartV & \aDescrBodypartVI & \aDescrBodypartVII & \aDescrBodypartVIII\tabularnewline
-face & face, ear, nose, mouth & \aDescrFaceAll & \aDescrFaceI & \aDescrFaceII & \aDescrFaceIII & \aDescrFaceIV & \aDescrFaceV & \aDescrFaceVI & \aDescrFaceVII & \aDescrFaceVIII \tabularnewline
-female & nurse, mother, woman & \aDescrFemaleAll & \aDescrFemaleI & \aDescrFemaleII & \aDescrFemaleIII & \aDescrFemaleIV & \aDescrFemaleV & \aDescrFemaleVI & \aDescrFemaleVII & \aDescrFemaleVIII \tabularnewline
-females & women & \aDescrFemalesAll & \aDescrFemalesI & \aDescrFemalesII & \aDescrFemalesIII & \aDescrFemalesIV & \aDescrFemalesV & \aDescrFemalesVI & \aDescrFemalesVII & \aDescrFemalesVIII \tabularnewline
-fname & Jenny & \aDescrFnameAll & \aDescrFnameI & \aDescrFnameII & \aDescrFnameIII & \aDescrFnameIV & \aDescrFnameV & \aDescrFnameVI & \aDescrFnameVII & \aDescrFnameVIII \tabularnewline
-furniture & bench, bed, table, chair & \aDescrFurnitureAll & \aDescrFurnitureI & \aDescrFurnitureII & \aDescrFurnitureIII & \aDescrFurnitureIV & \aDescrFurnitureV & \aDescrFurnitureVI & \aDescrFurnitureVII & \aDescrFurnitureVIII \tabularnewline
-geo & building, tree, street, alley, meadow, cornfield, river & \aDescrGeoAll & \aDescrGeoI & \aDescrGeoII & \aDescrGeoIII & \aDescrGeoIV & \aDescrGeoV & \aDescrGeoVI & \aDescrGeoVII & \aDescrGeoVIII \tabularnewline
-geo-room & living room; wall, door, window, floor, turf & \aDescrGeoroomAll & \aDescrGeoroomI & \aDescrGeoroomII & \aDescrGeoroomIII & \aDescrGeoroomIV & \aDescrGeoroomV & \aDescrGeoroomVI & \aDescrGeoroomVII & \aDescrGeoroomVIII \tabularnewline
-head & head, hair, ear, neck, helmet & \aDescrHeadAll & \aDescrHeadI & \aDescrHeadII & \aDescrHeadIII & \aDescrHeadIV & \aDescrHeadV & \aDescrHeadVI & \aDescrHeadVII & \aDescrHeadVIII \tabularnewline
-male & man, father, soldier & \aDescrMaleAll & \aDescrMaleI & \aDescrMaleII & \aDescrMaleIII & \aDescrMaleIV & \aDescrMaleV & \aDescrMaleVI & \aDescrMaleVII & \aDescrMaleVIII \tabularnewline
-males & boys, opponents & \aDescrMalesAll & \aDescrMalesI & \aDescrMalesII & \aDescrMalesIII & \aDescrMalesIV & \aDescrMalesV & \aDescrMalesVI & \aDescrMalesVII & \aDescrMalesVIII \tabularnewline
-mname & Bubba, Kennedy & \aDescrMnameAll & \aDescrMnameI & \aDescrMnameII & \aDescrMnameIII & \aDescrMnameIV & \aDescrMnameV & \aDescrMnameVI & \aDescrMnameVII & \aDescrMnameVIII \tabularnewline
-object & telephone, car & \aDescrObjectAll & \aDescrObjectI & \aDescrObjectII & \aDescrObjectIII & \aDescrObjectIV & \aDescrObjectV & \aDescrObjectVI & \aDescrObjectVII & \aDescrObjectVIII \tabularnewline
-objects & wheels, photos & \aDescrObjectsAll & \aDescrObjectsI & \aDescrObjectsII & \aDescrObjectsIII & \aDescrObjectsIV & \aDescrObjectsV & \aDescrObjectsVI & \aDescrObjectsVII & \aDescrObjectsVIII \tabularnewline
-persons & hippies, patients & \aDescrPersonsAll & \aDescrPersonsI & \aDescrPersonsII & \aDescrPersonsIII & \aDescrPersonsIV & \aDescrPersonsV & \aDescrPersonsVI & \aDescrPersonsVII & \aDescrPersonsVIII \tabularnewline
-setting\_new & on a ``bridge'', on an ``alley'', on ``campus'' & \aDescrSettingnewAll & \aDescrSettingnewI & \aDescrSettingnewII & \aDescrSettingnewIII & \aDescrSettingnewIV & \aDescrSettingnewV & \aDescrSettingnewVI & \aDescrSettingnewVII & \aDescrSettingnewVIII \tabularnewline
-setting\_rec & at the ``bus stop'' & \aDescrSettingrecAll & \aDescrSettingrecI & \aDescrSettingrecII & \aDescrSettingrecIII & \aDescrSettingrecIV & \aDescrSettingrecV & \aDescrSettingrecVI & \aDescrSettingrecVII & \aDescrSettingrecVIII \tabularnewline
-++ &  in the ``evening'', it's ``daytime'', ``later'' & \aDescrAll & \aDescrI & \aDescrII & \aDescrIII & \aDescrIV & \aDescrV & \aDescrVI & \aDescrVII & \aDescrVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table*}
-
-
-\begin{table*}[t]
-    \caption{Overview of the 26 regressors for the validation analysis. The first column contains the number of the regressor in the design file of FSL \citep{smith2004fsl}. The 20 most often occuring labels from the detailed part-of speech tagging were used as such. Words belonging to all other labels were pooled to ``tag\_other''. The regressor ``sentence'' contains the end of complete grammatical sentences. The regressor ``phones'' contains the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32). The regressor ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent low-level auditory nuissance regressors comprising one event for every movie frame (40ms).}
-\label{tab:regressors}
-\begin{tabular}{llllllllllll}
-\toprule
-\textbf{no} & \textbf{label} &  \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
-\midrule
-1 & adja & \aTagAdja & \rAdjaAll & \rAdjaI & \rAdjaII & \rAdjaIII & \rAdjaIV & \rAdjaV & \rAdjaVI & \rAdjaVII & \rAdjaVIII \tabularnewline
-2 & adjd & \aTagAdjd & \rAdjdAll & \rAdjdI & \rAdjdII & \rAdjdIII & \rAdjdIV & \rAdjdV & \rAdjdVI & \rAdjdVII & \rAdjdVIII \tabularnewline
-3 & adv & \aTagAdv & \rAdvAll & \rAdvI & \rAdvII & \rAdvIII & \rAdvIV & \rAdvV & \rAdvVI & \rAdvVII & \rAdvVIII \tabularnewline
-4 & appr & \aTagAppr & \rApprAll & \rApprI & \rApprII & \rApprIII & \rApprIV & \rApprV & \rApprVI & \rApprVII & \rApprVIII \tabularnewline
-5 & apprart & preposition with article & \rApprartAll & \rApprartI & \rApprartII & \rApprartIII & \rApprartIV & \rApprartV & \rApprartVI & \rApprartVII & \rApprartVIII \tabularnewline
-6 & art & \aTagArt & \rArtAll & \rArtI & \rArtII & \rArtIII & \rArtIV & \rArtV & \rArtVI & \rArtVII & \rArtVIII \tabularnewline
-7 & kon & \aTagKon & \rKonAll & \rKonI & \rKonII & \rKonIII & \rKonIV & \rKonV & \rKonVI & \rKonVII & \rKonVIII \tabularnewline
-8 & ne & \aTagNe & \rNeAll & \rNeI & \rNeII & \rNeIII & \rNeIV & \rNeV & \rNeVI & \rNeVII & \rNeVIII \tabularnewline
-9 & nn & \aTagNn & \rNnAll & \rNnI & \rNnII & \rNnIII & \rNnIV & \rNnV & \rNnVI & \rNnVII & \rNnVIII \tabularnewline
-10 & pds & substituting demonstrative pronoun & \rPdsAll & \rPdsI & \rPdsII & \rPdsIII & \rPdsIV & \rPdsV & \rPdsVI & \rPdsVII & \rPdsVIII \tabularnewline
-11 & pis & substituting indefinite pronoun & \rPisAll & \rPisI & \rPisII & \rPisIII & \rPisIV & \rPisV & \rPisVI & pper \rPisVII & \rPisVIII \tabularnewline
-12 & pper & \aTagPper & \rPperAll & \rPperI & \rPperII & \rPperIII & \rPperIV & \rPperV & \rPperVI & \rPperVII & \rPperVIII \tabularnewline
-13 & pposat & \aTagPposat & \rPposatAll & \rPposatI & \rPposatII & \rPposatIII & \rPposatIV & \rPposatV & \rPposatVI & \rPposatVII & \rPposatVIII \tabularnewline
-14 & prf & reflexive personal pronoun & \rPrfAll & \rPrfI & \rPrfII & \rPrfIII & \rPrfIV & \rPrfV & \rPrfVI & \rPrfVII & \rPrfVIII \tabularnewline
-15 & ptkvz & \aTagPtkvz & \rPtkvzAll & \rPtkvzI & \rPtkvzII & \rPtkvzIII & \rPtkvzIV & \rPtkvzV & \rPtkvzVI & \rPtkvzVII & \rPtkvzVIII \tabularnewline
-16 & vafin & \aTagVafin & \rVafinAll & \rVafinI & \rVafinII & \rVafinIII & \rVafinIV & \rVafinV & \rVafinVI & \rVafinVII & \rVafinVIII \tabularnewline
-17 & vmfin & finite verb, modal & \rVmfinAll & \rVmfinI & \rVmfinII & \rVmfinIII & \rVmfinIV & \rVmfinV & \rVmfinVI & \rVmfinVII & \rVmfinVIII \tabularnewline
-18 & vvfin & \aTagVvfin & \rVvfinAll & \rVvfinI & \rVvfinII & \rVvfinIII & \rVvfinIV & \rVvfinV & \rVvfinVI & \rVvfinVII & \rVvfinVIII \tabularnewline
-19 & vvinf & \aTagVvinf & \rVvinfAll & \rVvinfI & \rVvinfII & \rVvinfIII & \rVvinfIV & \rVvinfV & \rVvinfVI & \rVvinfVII & \rVvinfVIII \tabularnewline
-20 & vvpp & \aTagVvpp & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvppV & \rVvppVI & \rVvppVII & \rVvppVIII \tabularnewline
-21 & tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII \tabularnewline
-\cline{1-12}
-22 & sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
-23 & phones & 80 most often occuring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
-24 & no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
-\cline{1-12}
-25 & fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
-26 & fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table*}
 
 % Also weshalb wird das temporal filtering der regressoren wann wie gemacht??? -> nachschlagen
 % “You should normally apply the same temporal filtering to the model as you have applied to the data, as the model is designed to look like the data before temporal filtering was applied. In this way, long-time-scale components in the model will be dealt with correctly. This is set with the Apply temporal filtering option.”
@@ -439,6 +256,44 @@ complete sentences of the orthographic transcription were copied into the
 annotation (s. table \ref{tab:overview} for an overview of the annotation's content). In a third step, the name of the speaker was added for every sentence (s. table \ref{tab:speakers} for the most often occurring speakers).
 During every new step results from all previous steps were checked again for errors and corrected.
 
+\begin{table*}[tbp]
+\caption{Overview of the speech annotation's content for the whole stimulus and it's individual segments. The label ``Sentences''' comprises complete grammatical sentences (i.e. having a subject and a predicate, and additionally marked with a full stop in the annotation). The  ``Sentences'' also comprises exlamations or non-speech vocalizations in quick succession (e.g. ``ha, ha, ha'') or in isolation (e.g. ``ha'', at time points when speakers rapidly switch). The label ``Words'' comprises every single word or non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
+\label{tab:overview}
+\begin{tabular}{llllllllll}
+\toprule
+\textbf{label} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
+\midrule
+sentences  & \aSentencesAll & \aSentencesI & \aSentencesII & \aSentencesIII & \aSentencesIV & \aSentencesV & \aSentencesVI & \aSentencesVII & \aSentencesVIII \tabularnewline
+words  & \aWordsAll & \aWordsI & \aWordsII & \aWordsIII & \aWordsIV & \aWordsV & \aWordsVI & \aWordsVII & \aWordsVIII \tabularnewline
+phonemes  & \aPhonesAll & \aPhonesI & \aPhonesII & \aPhonesIII & \aPhonesIV & \aPhonesV & \aPhonesVI & \aPhonesVII & \aPhonesVIII \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% bei ein paar Namen bin ich ggf. von Labs abgewichen (genauer identifiziert, ggf. kleine Fehler korrigiert. Ist dann aber nur bei Personen, die 1-2x mit 1-2 Sätzen auftauchen.
+\begin{table*}[btp]
+\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurrs in the audio-description of the movie. Shown names are identical to the names used in \citep{labs2015portrayed}. Overall 97 persons were identified.}
+\label{tab:speakers}
+\begin{tabular}{llllllllll}
+\toprule
+\textbf{name} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
+\midrule
+Bubba  & \aBubbaAll & \aBubbaI & \aBubbaII & \aBubbaIII & \aBubbaIV & \aBubbaV & \aBubbaVI & \aBubbaVII & \aBubbaVIII \tabularnewline
+Forrest  & \aForrestAll & \aForrestI & \aForrestII & \aForrestIII & \aForrestIV & \aForrestV & \aForrestVI & \aForrestVII & \aForrestVIII \tabularnewline
+Forrest (child)  & \aForrestchildAll & \aForrestchildI & \aForrestchildII & \aForrestchildIII & \aForrestchildIV & \aForrestchildV & \aForrestchildVI & \aForrestchildVII & \aForrestchildVIII \tabularnewline
+Forrest (v.o.)  & \aForrestvoAll & \aForrestvoI & \aForrestvoII & \aForrestvoIII & \aForrestvoIV & \aForrestvoV & \aForrestvoVI & \aForrestvoVII & \aForrestvoVIII \tabularnewline
+Hancock  & \aHancockAll & \aHancockI & \aHancockII & \aHancockIII & \aHancockIV & \aHancockV & \aHancockVI & \aHancockVII & \aHancockVIII \tabularnewline
+Jenny  & \aJennyAll & \aJennyI & \aJennyII & \aJennyIII & \aJennyIV & \aJennyV & \aJennyVI & \aJennyVII & \aJennyVIII \tabularnewline
+Jenny (child)  & \aJennychildAll & \aJennychildI & \aJennychildII & \aJennychildIII & \aJennychildIV & \aJennychildV & \aJennychildVI & \aJennychildVII & \aJennychildVIII \tabularnewline
+Lt. Dan  & \aLtdanAll & \aLtdanI & \aLtdanII & \aLtdanIII & \aLtdanIV & \aLtdanV & \aLtdanVI & \aLtdanVII & \aLtdanVIII \tabularnewline
+Mrs. Gump  & \aMrsgumpAll & \aMrsgumpI & \aMrsgumpII & \aMrsgumpIII & \aMrsgumpIV & \aMrsgumpV & \aMrsgumpVI & \aMrsgumpVII & \aMrsgumpVIII \tabularnewline
+Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarratorIV & \aNarratorV & \aNarratorVI & \aNarratorVII & \aNarratorVIII \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+
 % descriptive Nouns
 % hier ggf. noch angeben, dass die effektiv identisch waren
 % Florian hat zwei Regeln falsch verstanden, sonst war übereinstimmung >90%
@@ -447,6 +302,37 @@ persons performed a categorization of nouns embedded in sentences spoken by the
 narrator to describe the movie's missing visual content. Categories focus on the
 cinematographic scene's environment, inherent objects, persons, and a person's
 appearance. A preliminary annotation according to the rules (s. ist jetzt in der obigen Tabelle aus Platzgründen nicht mehr drin; in dieser,\ref{tab:descr-nouns}, einer neuen Tabelle oder im laufenden Text [wird viel Text] bringen) was done by one person and corrected in several runs by the author.
+
+\begin{table*}[t]
+    \caption{Narrator's descriptive nouns. All categories sorted alphapetically. Examples are given in English. Description (of rules) fehlt in dieser Tabelle (vgl. alte Tabelle auf der allerletzten Seite). Wird nämlich in einer Tabelle mit horizontaler Ausrichtung eng. Kategorie ``++'' enthält ausnahmesweise auch adverbiale Best. der Zeit.}
+\label{tab:descr-nouns}
+\begin{tabular}{lllllllllll}
+\toprule
+\textbf{label} & \textbf{examples} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\midrule
+body & back, hip, shoulder; jacket, dress, shirt & \aDescrBodyAll & \aDescrBodyI & \aDescrBodyII & \aDescrBodyIII & \aDescrBodyIV & \aDescrBodyV & \aDescrBodyVI & \aDescrBodyVII & \aDescrBodyVIII \tabularnewline
+bodypart  & arm, finger, leg, toe & \aDescrBodypartAll & \aDescrBodypartI & \aDescrBodypartII & \aDescrBodypartIII & \aDescrBodypartIV & \aDescrBodypartV & \aDescrBodypartVI & \aDescrBodypartVII & \aDescrBodypartVIII\tabularnewline
+face & face, ear, nose, mouth & \aDescrFaceAll & \aDescrFaceI & \aDescrFaceII & \aDescrFaceIII & \aDescrFaceIV & \aDescrFaceV & \aDescrFaceVI & \aDescrFaceVII & \aDescrFaceVIII \tabularnewline
+female & nurse, mother, woman & \aDescrFemaleAll & \aDescrFemaleI & \aDescrFemaleII & \aDescrFemaleIII & \aDescrFemaleIV & \aDescrFemaleV & \aDescrFemaleVI & \aDescrFemaleVII & \aDescrFemaleVIII \tabularnewline
+females & women & \aDescrFemalesAll & \aDescrFemalesI & \aDescrFemalesII & \aDescrFemalesIII & \aDescrFemalesIV & \aDescrFemalesV & \aDescrFemalesVI & \aDescrFemalesVII & \aDescrFemalesVIII \tabularnewline
+fname & Jenny & \aDescrFnameAll & \aDescrFnameI & \aDescrFnameII & \aDescrFnameIII & \aDescrFnameIV & \aDescrFnameV & \aDescrFnameVI & \aDescrFnameVII & \aDescrFnameVIII \tabularnewline
+furniture & bench, bed, table, chair & \aDescrFurnitureAll & \aDescrFurnitureI & \aDescrFurnitureII & \aDescrFurnitureIII & \aDescrFurnitureIV & \aDescrFurnitureV & \aDescrFurnitureVI & \aDescrFurnitureVII & \aDescrFurnitureVIII \tabularnewline
+geo & building, tree, street, alley, meadow, cornfield, river & \aDescrGeoAll & \aDescrGeoI & \aDescrGeoII & \aDescrGeoIII & \aDescrGeoIV & \aDescrGeoV & \aDescrGeoVI & \aDescrGeoVII & \aDescrGeoVIII \tabularnewline
+geo-room & living room; wall, door, window, floor, turf & \aDescrGeoroomAll & \aDescrGeoroomI & \aDescrGeoroomII & \aDescrGeoroomIII & \aDescrGeoroomIV & \aDescrGeoroomV & \aDescrGeoroomVI & \aDescrGeoroomVII & \aDescrGeoroomVIII \tabularnewline
+head & head, hair, ear, neck, helmet & \aDescrHeadAll & \aDescrHeadI & \aDescrHeadII & \aDescrHeadIII & \aDescrHeadIV & \aDescrHeadV & \aDescrHeadVI & \aDescrHeadVII & \aDescrHeadVIII \tabularnewline
+male & man, father, soldier & \aDescrMaleAll & \aDescrMaleI & \aDescrMaleII & \aDescrMaleIII & \aDescrMaleIV & \aDescrMaleV & \aDescrMaleVI & \aDescrMaleVII & \aDescrMaleVIII \tabularnewline
+males & boys, opponents & \aDescrMalesAll & \aDescrMalesI & \aDescrMalesII & \aDescrMalesIII & \aDescrMalesIV & \aDescrMalesV & \aDescrMalesVI & \aDescrMalesVII & \aDescrMalesVIII \tabularnewline
+mname & Bubba, Kennedy & \aDescrMnameAll & \aDescrMnameI & \aDescrMnameII & \aDescrMnameIII & \aDescrMnameIV & \aDescrMnameV & \aDescrMnameVI & \aDescrMnameVII & \aDescrMnameVIII \tabularnewline
+object & telephone, car & \aDescrObjectAll & \aDescrObjectI & \aDescrObjectII & \aDescrObjectIII & \aDescrObjectIV & \aDescrObjectV & \aDescrObjectVI & \aDescrObjectVII & \aDescrObjectVIII \tabularnewline
+objects & wheels, photos & \aDescrObjectsAll & \aDescrObjectsI & \aDescrObjectsII & \aDescrObjectsIII & \aDescrObjectsIV & \aDescrObjectsV & \aDescrObjectsVI & \aDescrObjectsVII & \aDescrObjectsVIII \tabularnewline
+persons & hippies, patients & \aDescrPersonsAll & \aDescrPersonsI & \aDescrPersonsII & \aDescrPersonsIII & \aDescrPersonsIV & \aDescrPersonsV & \aDescrPersonsVI & \aDescrPersonsVII & \aDescrPersonsVIII \tabularnewline
+setting\_new & on a ``bridge'', on an ``alley'', on ``campus'' & \aDescrSettingnewAll & \aDescrSettingnewI & \aDescrSettingnewII & \aDescrSettingnewIII & \aDescrSettingnewIV & \aDescrSettingnewV & \aDescrSettingnewVI & \aDescrSettingnewVII & \aDescrSettingnewVIII \tabularnewline
+setting\_rec & at the ``bus stop'' & \aDescrSettingrecAll & \aDescrSettingrecI & \aDescrSettingrecII & \aDescrSettingrecIII & \aDescrSettingrecIV & \aDescrSettingrecV & \aDescrSettingrecVI & \aDescrSettingrecVII & \aDescrSettingrecVIII \tabularnewline
+++ &  in the ``evening'', it's ``daytime'', ``later'' & \aDescrAll & \aDescrI & \aDescrII & \aDescrIII & \aDescrIV & \aDescrV & \aDescrVI & \aDescrVII & \aDescrVIII \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table*}
+
 
 % NLP
 To automatically analyze linguistic features of words in their corresponding
@@ -484,12 +370,93 @@ name of the persons that speaks the sentence, word or phoneme (s. table \ref{tab
 \subsubsection*{Simple part-of-speech tag (\texttt{pos})}
 This column contains tags for whole sentences ("SENTENCE"), phonemes ("PHONEME") and non-speech vocalizations (NONSPEECH). For single words, it contains a simple part-of-speech tagging (grammatical tagging; word-category disambiguation) taking the relationship with adjacent and related words in the same sentence into account (s. table \ref{tab:pos}). This simple part-of-speech tagging tags follow the \href{https://universaldependencies.org}{Universal Dependencies} v2 POS tag set.
 
+\begin{table*}[t]
+\caption{Simple part of speech tagging (POS). All 15 labels sorted alpapetically. Descriptions were taken from spaCy.explain(). Non-speech vocalizations (NONSPEECH) were manually identified.}
+\label{tab:pos}
+\begin{tabular}{lllllllllll}
+\toprule
+\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\midrule
+ADJ & \aPosAdj & \aPosAdjAll & \aPosAdjI & \aPosAdjII & \aPosAdjIII & \aPosAdjIV & \aPosAdjV & \aPosAdjVI & \aPosAdjVII \tabularnewline
+ADP & \aPosAdp & \aPosAdpAll & \aPosAdpI & \aPosAdpII & \aPosAdpIII & \aPosAdpIV & \aPosAdpV & \aPosAdpVI & \aPosAdpVII & \aPosAdpVIII \tabularnewline
+ADV & \aPosAdv & \aPosAdvAll & \aPosAdvI & \aPosAdvII & \aPosAdvIII & \aPosAdvIV & \aPosAdvV & \aPosAdvVI & \aPosAdvVII & \aPosAdvVIII \tabularnewline
+AUX & \aPosAux & \aPosAuxAll & \aPosAuxI & \aPosAuxII & \aPosAuxIII & \aPosAuxIV & \aPosAuxV & \aPosAuxVI & \aPosAuxVII & \aPosAuxVIII \tabularnewline
+CONJ & \aPosConj & \aPosConjAll & \aPosConjI & \aPosConjII & \aPosConjIII & \aPosConjIV & \aPosConjV & \aPosConjVI & \aPosConjVII & \aPosConjVIII \tabularnewline
+DET & \aPosDet & \aPosDetAll & \aPosDetI & \aPosDetII & \aPosDetIII & \aPosDetIV & \aPosDetV & \aPosDetVI & \aPosDetVII & \aPosDetVIII \tabularnewline
+NONSPEECH & non-speech vocalization & \aPosNonspeechAll & \aPosNonspeechI & \aPosNonspeechII & \aPosNonspeechIII & \aPosNonspeechIV & \aPosNonspeechV & \aPosNonspeechVI & \aPosNonspeechVII & \aPosNonspeechVIII \tabularnewline
+NOUN & \aPosNoun & \aPosNounAll & \aPosNounI & \aPosNounII & \aPosNounIII & \aPosNounIV & \aPosNounV & \aPosNounVI & \aPosNounVII & \aPosNounVIII \tabularnewline
+NUM & \aPosNum & \aPosNumAll & \aPosNumI & \aPosNumII & \aPosNumIII & \aPosNumIV & \aPosNumV & \aPosNumVI & \aPosNumVII & \aPosNumVIII \tabularnewline
+PART & \aPosPart & \aPosPartAll & \aPosPartI & \aPosPartII & \aPosPartIII & \aPosPartIV & \aPosPartV & \aPosPartVI & \aPosPartVII & \aPosPartVIII \tabularnewline
+PRON & \aPosPron & \aPosPronAll & \aPosPronI & \aPosPronII & \aPosPronIII & \aPosPronIV & \aPosPronV & \aPosPronVI & \aPosPronVII & \aPosPronVIII \tabularnewline
+PRON & \aPosPropn & \aPosPropnAll & \aPosPropnI & \aPosPropnII & \aPosPropnIII & \aPosPropnIV & \aPosPropnV & \aPosPropnVI & \aPosPropnVII & \aPosPropnVIII \tabularnewline
+SCONJ & \aPosSconj & \aPosSconjAll & \aPosSconjI & \aPosSconjII & \aPosSconjIII & \aPosSconjIV & \aPosSconjV & \aPosSconjVI & \aPosSconjVII & \aPosSconjVIII \tabularnewline
+VERB & \aPosVerb & \aPosVerbAll & \aPosVerbI & \aPosVerbII & \aPosVerbIII & \aPosVerbIV & \aPosVerbV & \aPosVerbVI & \aPosVerbVII & \aPosVerbVIII \tabularnewline
+X & \aPosX & \aPosXAll & \aPosXI & \aPosXII & \aPosXIII & \aPosXIV & \aPosXV & \aPosXVI & \aPosXVII & \aPosXVIII \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
 \subsubsection*{Detailed part-of-speech tag (\texttt{tag})}
 A detailed part-of-speech tagging following the TIGER Treebank annotation scheme \citep{brants2004tiger}(s. table \ref{tab:tag}) which is based on the \href{https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets}{Stuttgart-Tübingen-Tagset} \citep{schiller1999stts}.
+
+\begin{table*}[t]
+\caption{Detailed part of speech tagging (TAG). The 15 most often occurring labels (overall 43 labels) sorted alphabetically. Descriptions were taken from spaCy.explain().}
+\label{tab:tag}
+\begin{tabular}{lllllllllll}
+\toprule
+\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\midrule
+ADJA & \aTagAdja & \aTagAdjaAll & \aTagAdjaI & \aTagAdjaII & \aTagAdjaIII & \aTagAdjaIV & \aTagAdjaV & \aTagAdjaVI & \aTagAdjaVII & \aTagAdjaVIII \tabularnewline
+ADJD & \aTagAdjd & \aTagAdjdAll & \aTagAdjdI & \aTagAdjdII & \aTagAdjdIII & \aTagAdjdIV & \aTagAdjdV & \aTagAdjdVI & \aTagAdjdVII & \aTagAdjdVIII \tabularnewline
+ADV & \aTagAdv & \aTagAdvAll & \aTagAdvI & \aTagAdvII & \aTagAdvIII & \aTagAdvIV & \aTagAdvV & \aTagAdvVI & \aTagAdvVII & \aTagAdvVIII \tabularnewline
+APPR & \aTagAppr & \aTagApprAll & \aTagApprI & \aTagApprII & \aTagApprIII & \aTagApprIV & \aTagApprV & \aTagApprVI & \aTagApprVII & \aTagApprVIII \tabularnewline
+ART & \aTagArt & \aTagArtAll & \aTagArtI & \aTagArtII & \aTagArtIII & \aTagArtIV & \aTagArtV & \aTagArtVI & \aTagArtVII & \aTagArtVIII \tabularnewline
+KON & \aTagKon & \aTagKonAll & \aTagKonI & \aTagKonII & \aTagKonIII & \aTagKonIV & \aTagKonV & \aTagKonVI & \aTagKonVII & \aTagKonVIII \tabularnewline
+NE & \aTagNe & \aTagNeAll & \aTagNeI & \aTagNeII & \aTagNeIII & \aTagNeIV & \aTagNeV & \aTagNeVI & \aTagNeVII & \aTagNeVIII \tabularnewline
+NN & \aTagNn & \aTagNnAll & \aTagNnI & \aTagNnII & \aTagNnIII & \aTagNnIV & \aTagNnV & \aTagNnVI & \aTagNnVII & \aTagNnVIII \tabularnewline
+PPER & \aTagPper & \aTagPperAll & \aTagPperI & \aTagPperII & \aTagPperIII & \aTagPperIV & \aTagPperV & \aTagPperVI & \aTagPperVII & \aTagPperVIII \tabularnewline
+PPOSAT & \aTagPposat & \aTagPposatAll & \aTagPposatI & \aTagPposatII & \aTagPposatIII & \aTagPposatIV & \aTagPposatV & \aTagPposatVI & \aTagPposatVII & \aTagPposatVIII \tabularnewline
+PTKVZ & \aTagPtkvz & \aTagPtkvzAll & \aTagPtkvzI & \aTagPtkvzII & \aTagPtkvzIII & \aTagPtkvzIV & \aTagPtkvzV & \aTagPtkvzVI & \aTagPtkvzVII & \aTagPtkvzVIII \tabularnewline
+VAFIN & \aTagVafin & \aTagVafinAll & \aTagVafinI & \aTagVafinII & \aTagVafinIII & \aTagVafinIV & \aTagVafinV & \aTagVafinVI & \aTagVafinVII & \aTagVafinVIII \tabularnewline
+VVFIN & \aTagVvfin & \aTagVvfinAll & \aTagVvfinI & \aTagVvfinII & \aTagVvfinIII & \aTagVvfinIV & \aTagVvfinV & \aTagVvfinVI & \aTagVvfinVII & \aTagVvfinVIII \tabularnewline
+VVINF & \aTagVvinf & \aTagVvinfAll & \aTagVvinfI & \aTagVvinfII & \aTagVvinfIII & \aTagVvinfIV & \aTagVvinfV & \aTagVvinfVI & \aTagVvinfVII & \aTagVvinfVIII \tabularnewline
+VVPP & \aTagVvpp & \aTagVvppAll & \aTagVvppI & \aTagVvppII & \aTagVvppIII & \aTagVvppIV & \aTagVvppV & \aTagVvppVI & \aTagVvppVII & \aTagVvppVIII \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table*}
+
 
 \subsubsection*{Syntactic dependency (\texttt{dep})}
 A word's column entry provides information about a word's syntactic dependency. Information following the TIGER Treebank annotation scheme \citep{brants2004tiger} is given in the format:
 "arc label;word's head;word's child1, word's child2, ..." where the "arc label" (s. table \ref{tab:dep}) describes the type of syntactic relation that connects a "child" (the single word) to its "head".
+
+\begin{table*}[t]
+\caption{Syntactic dependencies (DEP). The 15 most often occuring labels (overall 37 labels) sorted alphabetically. Descriptions were taken from spaCy.explain().}
+\label{tab:dep}
+\begin{tabular}{lllllllllll}
+\toprule
+\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\midrule
+cd & \aDepCd & \aDepCdAll & \aDepCdI & \aDepCdII & \aDepCdIII & \aDepCdIV & \aDepCdV & \aDepCdVI & \aDepCdVII & \aDepCdVIII \tabularnewline
+cj & \aDepCj & \aDepCjAll & \aDepCjI & \aDepCjII & \aDepCjIII & \aDepCjIV & \aDepCjV & \aDepCjVI & \aDepCjVII & \aDepCjVIII \tabularnewline
+cp & \aDepCp & \aDepCpAll & \aDepCpI & \aDepCpII & \aDepCpIII & \aDepCpIV & \aDepCpV & \aDepCpVI & \aDepCpVII & \aDepCpVIII \tabularnewline
+da & \aDepDa & \aDepDaAll & \aDepDaI & \aDepDaII & \aDepDaIII & \aDepDaIV & \aDepDaV & \aDepDaVI & \aDepDaVII & \aDepDaVIII \tabularnewline
+ju & \aDepJu & \aDepJuAll & \aDepJuI & \aDepJuII & \aDepJuIII & \aDepJuIV & \aDepJuV & \aDepJuVI & \aDepJuVII & \aDepJuVIII \tabularnewline
+mnr & \aDepMnr & \aDepMnrAll & \aDepMnrI & \aDepMnrII & \aDepMnrIII & \aDepMnrIV & \aDepMnrV & \aDepMnrVI & \aDepMnrVII & \aDepMnrVIII \tabularnewline
+mo & \aDepMo & \aDepMoAll & \aDepMoI & \aDepMoII & \aDepMoIII & \aDepMoIV & \aDepMoV & \aDepMoVI & \aDepMoVII & \aDepMoVIII \tabularnewline
+nk & \aDepNk & \aDepNkAll & \aDepNkI & \aDepNkII & \aDepNkIII & \aDepNkIV & \aDepNkV & \aDepNkVI & \aDepNkVII & \aDepNkVIII \tabularnewline
+oa & \aDepOa & \aDepOaAll & \aDepOaI & \aDepOaII & \aDepOaIII & \aDepOaIV & \aDepOaV & \aDepOaVI & \aDepOaVII & \aDepOaVIII \tabularnewline
+oc & \aDepOc & \aDepOcAll & \aDepOcI & \aDepOcII & \aDepOcIII & \aDepOcIV & \aDepOcV & \aDepOcVI & \aDepOcVII & \aDepOcVIII \tabularnewline
+pd & \aDepPd & \aDepPdAll & \aDepPdI & \aDepPdII & \aDepPdIII & \aDepPdIV & \aDepPdV & \aDepPdVI & \aDepPdVII & \aDepPdVIII \tabularnewline
+pnc & \aDepPnc & \aDepPncAll & \aDepPncI & \aDepPncII & \aDepPncIII & \aDepPncIV & \aDepPncV & \aDepPncVI & \aDepPncVII & \aDepPncVIII \tabularnewline
+ROOT & root of sentence & \aDepRootAll & \aDepRootI & \aDepRootII & \aDepRootIII & \aDepRootIV & \aDepRootV & \aDepRootVI & \aDepRootVII & \aDepRootVIII \tabularnewline
+sb & \aDepSb & \aDepSbAll & \aDepSbI & \aDepSbII & \aDepSbIII & \aDepSbIV & \aDepSbV & \aDepSbVI & \aDepSbVII & \aDepSbVIII \tabularnewline
+svp & separable verb prefix & \aDepSvpAll & \aDepSvpI & \aDepSvpII & \aDepSvpIII & \aDepSvpIV & \aDepSvpV & \aDepSvpVI & \aDepSvpVII & \aDepSvpVIII \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table*}
+
 
 \subsubsection*{Lemmatization (\texttt{lemma})}
 For single words, the base form (root) of the word
@@ -534,6 +501,48 @@ All further steps analysis steps were carried out using Feat v6.00 (FMRI Expert
 Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB’s
 Software Library)\citep{smith2004fsl}. Data were temporally high-pass filtered (cut-off 150s), spatially smoothed (Gaussian kernel; 4.0 mm FWHM), and the brain was extracted from surrounding tissue [keine Plan, ob die Reihenfolge so korrek ist]. A grand-mean intensity normalization of the entire 4D dataset was performed by a single multiplicative factor.
 We implemented a standard three-level, voxel-wise general linear model (GLM) to average parameter estimates across the eight stimulus segments, and later across 19 subjects.
+
+\begin{table*}[t]
+    \caption{Overview of the 26 regressors for the validation analysis. The first column contains the number of the regressor in the design file of FSL \citep{smith2004fsl}. The 20 most often occuring labels from the detailed part-of speech tagging were used as such. Words belonging to all other labels were pooled to ``tag\_other''. The regressor ``sentence'' contains the end of complete grammatical sentences. The regressor ``phones'' contains the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32). The regressor ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent low-level auditory nuissance regressors comprising one event for every movie frame (40ms).}
+\label{tab:regressors}
+\begin{tabular}{llllllllllll}
+\toprule
+\textbf{no} & \textbf{label} &  \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\midrule
+1 & adja & \aTagAdja & \rAdjaAll & \rAdjaI & \rAdjaII & \rAdjaIII & \rAdjaIV & \rAdjaV & \rAdjaVI & \rAdjaVII & \rAdjaVIII \tabularnewline
+2 & adjd & \aTagAdjd & \rAdjdAll & \rAdjdI & \rAdjdII & \rAdjdIII & \rAdjdIV & \rAdjdV & \rAdjdVI & \rAdjdVII & \rAdjdVIII \tabularnewline
+3 & adv & \aTagAdv & \rAdvAll & \rAdvI & \rAdvII & \rAdvIII & \rAdvIV & \rAdvV & \rAdvVI & \rAdvVII & \rAdvVIII \tabularnewline
+4 & appr & \aTagAppr & \rApprAll & \rApprI & \rApprII & \rApprIII & \rApprIV & \rApprV & \rApprVI & \rApprVII & \rApprVIII \tabularnewline
+5 & apprart & preposition with article & \rApprartAll & \rApprartI & \rApprartII & \rApprartIII & \rApprartIV & \rApprartV & \rApprartVI & \rApprartVII & \rApprartVIII \tabularnewline
+6 & art & \aTagArt & \rArtAll & \rArtI & \rArtII & \rArtIII & \rArtIV & \rArtV & \rArtVI & \rArtVII & \rArtVIII \tabularnewline
+7 & kon & \aTagKon & \rKonAll & \rKonI & \rKonII & \rKonIII & \rKonIV & \rKonV & \rKonVI & \rKonVII & \rKonVIII \tabularnewline
+8 & ne & \aTagNe & \rNeAll & \rNeI & \rNeII & \rNeIII & \rNeIV & \rNeV & \rNeVI & \rNeVII & \rNeVIII \tabularnewline
+9 & nn & \aTagNn & \rNnAll & \rNnI & \rNnII & \rNnIII & \rNnIV & \rNnV & \rNnVI & \rNnVII & \rNnVIII \tabularnewline
+10 & pds & substituting demonstrative pronoun & \rPdsAll & \rPdsI & \rPdsII & \rPdsIII & \rPdsIV & \rPdsV & \rPdsVI & \rPdsVII & \rPdsVIII \tabularnewline
+11 & pis & substituting indefinite pronoun & \rPisAll & \rPisI & \rPisII & \rPisIII & \rPisIV & \rPisV & \rPisVI & pper \rPisVII & \rPisVIII \tabularnewline
+12 & pper & \aTagPper & \rPperAll & \rPperI & \rPperII & \rPperIII & \rPperIV & \rPperV & \rPperVI & \rPperVII & \rPperVIII \tabularnewline
+13 & pposat & \aTagPposat & \rPposatAll & \rPposatI & \rPposatII & \rPposatIII & \rPposatIV & \rPposatV & \rPposatVI & \rPposatVII & \rPposatVIII \tabularnewline
+14 & prf & reflexive personal pronoun & \rPrfAll & \rPrfI & \rPrfII & \rPrfIII & \rPrfIV & \rPrfV & \rPrfVI & \rPrfVII & \rPrfVIII \tabularnewline
+15 & ptkvz & \aTagPtkvz & \rPtkvzAll & \rPtkvzI & \rPtkvzII & \rPtkvzIII & \rPtkvzIV & \rPtkvzV & \rPtkvzVI & \rPtkvzVII & \rPtkvzVIII \tabularnewline
+16 & vafin & \aTagVafin & \rVafinAll & \rVafinI & \rVafinII & \rVafinIII & \rVafinIV & \rVafinV & \rVafinVI & \rVafinVII & \rVafinVIII \tabularnewline
+17 & vmfin & finite verb, modal & \rVmfinAll & \rVmfinI & \rVmfinII & \rVmfinIII & \rVmfinIV & \rVmfinV & \rVmfinVI & \rVmfinVII & \rVmfinVIII \tabularnewline
+18 & vvfin & \aTagVvfin & \rVvfinAll & \rVvfinI & \rVvfinII & \rVvfinIII & \rVvfinIV & \rVvfinV & \rVvfinVI & \rVvfinVII & \rVvfinVIII \tabularnewline
+19 & vvinf & \aTagVvinf & \rVvinfAll & \rVvinfI & \rVvinfII & \rVvinfIII & \rVvinfIV & \rVvinfV & \rVvinfVI & \rVvinfVII & \rVvinfVIII \tabularnewline
+20 & vvpp & \aTagVvpp & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvppV & \rVvppVI & \rVvppVII & \rVvppVIII \tabularnewline
+21 & tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII \tabularnewline
+\cline{1-12}
+22 & sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
+23 & phones & 80 most often occuring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
+24 & no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
+\cline{1-12}
+25 & fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
+26 & fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+
 % 1st lvl
 At the first level analysing each segment for each subject individually, we defined 26 regressors (s. table \ref{tab:regressors})
  based on information drawn from the annotation. The 20 most often occuring detailed tag labels (``nn'' with N=\rNnAll\space to ``prf'' with N=\rPrfAll) were modelled as such from the onset to offset of each word. The remaining tags were pooled to a single regressor (``tag\_other``; N=\rTagotherAll). The top 80 phonemes (``n'' with n=6053 to ``IY1'' with N=32) were pooled to the regressor ``phonemes'' (N=\rPhonesAll).
