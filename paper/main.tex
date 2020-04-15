@@ -421,38 +421,39 @@ We implemented a standard three-level, voxel-wise general linear model (GLM) to 
 \begin{table*}[t]
     \caption{Overview of the 26 regressors for the validation analysis. The first column contains the number of the regressor in the design file of FSL \citep{smith2004fsl}. The 20 most often occuring labels from the detailed part-of speech tagging were used as such. Words belonging to all other labels were pooled to ``tag\_other''. The regressor ``sentence'' contains the end of complete grammatical sentences. The regressor ``phones'' contains the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32). The regressor ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent low-level auditory nuissance regressors comprising one event for every movie frame (40ms).}
 \label{tab:regressors}
-\begin{tabular}{llllllllllll}
+\small
+\begin{tabular}{lllllllllll}
 \toprule
-\textbf{no} & \textbf{label} &  \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{label} &  \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
-1 & adja & \aTagAdja & \rAdjaAll & \rAdjaI & \rAdjaII & \rAdjaIII & \rAdjaIV & \rAdjaV & \rAdjaVI & \rAdjaVII & \rAdjaVIII \tabularnewline
-2 & adjd & \aTagAdjd & \rAdjdAll & \rAdjdI & \rAdjdII & \rAdjdIII & \rAdjdIV & \rAdjdV & \rAdjdVI & \rAdjdVII & \rAdjdVIII \tabularnewline
-3 & adv & \aTagAdv & \rAdvAll & \rAdvI & \rAdvII & \rAdvIII & \rAdvIV & \rAdvV & \rAdvVI & \rAdvVII & \rAdvVIII \tabularnewline
-4 & appr & \aTagAppr & \rApprAll & \rApprI & \rApprII & \rApprIII & \rApprIV & \rApprV & \rApprVI & \rApprVII & \rApprVIII \tabularnewline
-5 & apprart & preposition with article & \rApprartAll & \rApprartI & \rApprartII & \rApprartIII & \rApprartIV & \rApprartV & \rApprartVI & \rApprartVII & \rApprartVIII \tabularnewline
-6 & art & \aTagArt & \rArtAll & \rArtI & \rArtII & \rArtIII & \rArtIV & \rArtV & \rArtVI & \rArtVII & \rArtVIII \tabularnewline
-7 & kon & \aTagKon & \rKonAll & \rKonI & \rKonII & \rKonIII & \rKonIV & \rKonV & \rKonVI & \rKonVII & \rKonVIII \tabularnewline
-8 & ne & \aTagNe & \rNeAll & \rNeI & \rNeII & \rNeIII & \rNeIV & \rNeV & \rNeVI & \rNeVII & \rNeVIII \tabularnewline
-9 & nn & \aTagNn & \rNnAll & \rNnI & \rNnII & \rNnIII & \rNnIV & \rNnV & \rNnVI & \rNnVII & \rNnVIII \tabularnewline
-10 & pds & substituting demonstrative pronoun & \rPdsAll & \rPdsI & \rPdsII & \rPdsIII & \rPdsIV & \rPdsV & \rPdsVI & \rPdsVII & \rPdsVIII \tabularnewline
-11 & pis & substituting indefinite pronoun & \rPisAll & \rPisI & \rPisII & \rPisIII & \rPisIV & \rPisV & \rPisVI & pper \rPisVII & \rPisVIII \tabularnewline
-12 & pper & \aTagPper & \rPperAll & \rPperI & \rPperII & \rPperIII & \rPperIV & \rPperV & \rPperVI & \rPperVII & \rPperVIII \tabularnewline
-13 & pposat & \aTagPposat & \rPposatAll & \rPposatI & \rPposatII & \rPposatIII & \rPposatIV & \rPposatV & \rPposatVI & \rPposatVII & \rPposatVIII \tabularnewline
-14 & prf & reflexive personal pronoun & \rPrfAll & \rPrfI & \rPrfII & \rPrfIII & \rPrfIV & \rPrfV & \rPrfVI & \rPrfVII & \rPrfVIII \tabularnewline
-15 & ptkvz & \aTagPtkvz & \rPtkvzAll & \rPtkvzI & \rPtkvzII & \rPtkvzIII & \rPtkvzIV & \rPtkvzV & \rPtkvzVI & \rPtkvzVII & \rPtkvzVIII \tabularnewline
-16 & vafin & \aTagVafin & \rVafinAll & \rVafinI & \rVafinII & \rVafinIII & \rVafinIV & \rVafinV & \rVafinVI & \rVafinVII & \rVafinVIII \tabularnewline
-17 & vmfin & finite verb, modal & \rVmfinAll & \rVmfinI & \rVmfinII & \rVmfinIII & \rVmfinIV & \rVmfinV & \rVmfinVI & \rVmfinVII & \rVmfinVIII \tabularnewline
-18 & vvfin & \aTagVvfin & \rVvfinAll & \rVvfinI & \rVvfinII & \rVvfinIII & \rVvfinIV & \rVvfinV & \rVvfinVI & \rVvfinVII & \rVvfinVIII \tabularnewline
-19 & vvinf & \aTagVvinf & \rVvinfAll & \rVvinfI & \rVvinfII & \rVvinfIII & \rVvinfIV & \rVvinfV & \rVvinfVI & \rVvinfVII & \rVvinfVIII \tabularnewline
-20 & vvpp & \aTagVvpp & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvppV & \rVvppVI & \rVvppVII & \rVvppVIII \tabularnewline
-21 & tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII \tabularnewline
-\cline{1-12}
-22 & sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
-23 & phones & 80 most often occuring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
-24 & no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
-\cline{1-12}
-25 & fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
-26 & fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
+adja & \aTagAdja & \rAdjaAll & \rAdjaI & \rAdjaII & \rAdjaIII & \rAdjaIV & \rAdjaV & \rAdjaVI & \rAdjaVII & \rAdjaVIII \tabularnewline
+adjd & \aTagAdjd & \rAdjdAll & \rAdjdI & \rAdjdII & \rAdjdIII & \rAdjdIV & \rAdjdV & \rAdjdVI & \rAdjdVII & \rAdjdVIII \tabularnewline
+adv & \aTagAdv & \rAdvAll & \rAdvI & \rAdvII & \rAdvIII & \rAdvIV & \rAdvV & \rAdvVI & \rAdvVII & \rAdvVIII \tabularnewline
+appr & \aTagAppr & \rApprAll & \rApprI & \rApprII & \rApprIII & \rApprIV & \rApprV & \rApprVI & \rApprVII & \rApprVIII \tabularnewline
+apprart & preposition with article & \rApprartAll & \rApprartI & \rApprartII & \rApprartIII & \rApprartIV & \rApprartV & \rApprartVI & \rApprartVII & \rApprartVIII \tabularnewline
+art & \aTagArt & \rArtAll & \rArtI & \rArtII & \rArtIII & \rArtIV & \rArtV & \rArtVI & \rArtVII & \rArtVIII \tabularnewline
+kon & \aTagKon & \rKonAll & \rKonI & \rKonII & \rKonIII & \rKonIV & \rKonV & \rKonVI & \rKonVII & \rKonVIII \tabularnewline
+ne & \aTagNe & \rNeAll & \rNeI & \rNeII & \rNeIII & \rNeIV & \rNeV & \rNeVI & \rNeVII & \rNeVIII \tabularnewline
+nn & \aTagNn & \rNnAll & \rNnI & \rNnII & \rNnIII & \rNnIV & \rNnV & \rNnVI & \rNnVII & \rNnVIII \tabularnewline
+pds & substituting demonstrative pronoun & \rPdsAll & \rPdsI & \rPdsII & \rPdsIII & \rPdsIV & \rPdsV & \rPdsVI & \rPdsVII & \rPdsVIII \tabularnewline
+pis & substituting indefinite pronoun & \rPisAll & \rPisI & \rPisII & \rPisIII & \rPisIV & \rPisV & \rPisVI & pper \rPisVII & \rPisVIII \tabularnewline
+pper & \aTagPper & \rPperAll & \rPperI & \rPperII & \rPperIII & \rPperIV & \rPperV & \rPperVI & \rPperVII & \rPperVIII \tabularnewline
+pposat & \aTagPposat & \rPposatAll & \rPposatI & \rPposatII & \rPposatIII & \rPposatIV & \rPposatV & \rPposatVI & \rPposatVII & \rPposatVIII \tabularnewline
+prf & reflexive personal pronoun & \rPrfAll & \rPrfI & \rPrfII & \rPrfIII & \rPrfIV & \rPrfV & \rPrfVI & \rPrfVII & \rPrfVIII \tabularnewline
+ptkvz & \aTagPtkvz & \rPtkvzAll & \rPtkvzI & \rPtkvzII & \rPtkvzIII & \rPtkvzIV & \rPtkvzV & \rPtkvzVI & \rPtkvzVII & \rPtkvzVIII \tabularnewline
+vafin & \aTagVafin & \rVafinAll & \rVafinI & \rVafinII & \rVafinIII & \rVafinIV & \rVafinV & \rVafinVI & \rVafinVII & \rVafinVIII \tabularnewline
+vmfin & finite verb, modal & \rVmfinAll & \rVmfinI & \rVmfinII & \rVmfinIII & \rVmfinIV & \rVmfinV & \rVmfinVI & \rVmfinVII & \rVmfinVIII \tabularnewline
+vvfin & \aTagVvfin & \rVvfinAll & \rVvfinI & \rVvfinII & \rVvfinIII & \rVvfinIV & \rVvfinV & \rVvfinVI & \rVvfinVII & \rVvfinVIII \tabularnewline
+vvinf & \aTagVvinf & \rVvinfAll & \rVvinfI & \rVvinfII & \rVvinfIII & \rVvinfIV & \rVvinfV & \rVvinfVI & \rVvinfVII & \rVvinfVIII \tabularnewline
+vvpp & \aTagVvpp & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvppV & \rVvppVI & \rVvppVII & \rVvppVIII \tabularnewline
+tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII \tabularnewline
+e{1-12}
+sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
+phones & 80 most often occuring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
+no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
+e{1-12}
+fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
+fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
 \bottomrule
 \end{tabular}
 \end{table*}
