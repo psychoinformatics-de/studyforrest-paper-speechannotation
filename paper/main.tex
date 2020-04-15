@@ -55,93 +55,6 @@ language, speech, annotation, fMRI, natural stimulation, narrative, studyforrest
 \clearpage
 
 
-
-
-
-
-
-% Also weshalb wird das temporal filtering der regressoren wann wie gemacht??? -> nachschlagen
-% “You should normally apply the same temporal filtering to the model as you have applied to the data, as the model is designed to look like the data before temporal filtering was applied. In this way, long-time-scale components in the model will be dealt with correctly. This is set with the Apply temporal filtering option.”
-\begin{figure*}
-  \centering
-% \includegraphics[width=0.4\textwidth]{frog.jpg}
-  \includegraphics[width=\linewidth]{figures/regressor-corr}
-  \caption{Pearson correlation coefficients of the 26 regressors used in the analysis to validate the annotation. Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function, temporally filtered with the same high-pass filter (cut-off 150s) as the BOLD time series, and cocatenated across runs before performing the correlation.}
-\label{fig:reg-corr}
-\end{figure*}
-
-
-\begin{figure*}
-  \centering
-% \includegraphics[width=0.4\textwidth]{frog.jpg}
-  \includegraphics[width=\linewidth]{figures/slicescolorbars}
-  \caption{Mixed-effects group-level (N=14) GLM contrasts for the audio-description of the movie Forrest Gump. All cluster (Z>3.4, p<0.05; cluster corr.; MNI template space).}
-  \label{fig:results}
-\end{figure*}
-
-
-\begin{table*}[t]
-    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast words > no-speech.}
-\label{tab:cope1}
-\begin{tabular}{rrrrrrrrrrp{3cm}}
-\toprule
-& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
-\\ \cmidrule{5-7} \cmidrule{8-10}
-Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
-\midrule
-4 & 14990 & 0 & 6.31 & -49 & -24.7 & 6.35 & -54.8 & -32.5 & 3.73 & AREAL \\
-3 & 14469 & 0 & 6.48 & 55 & -14.9 & -6.9 & 54.1 & -23.1 & 0.374 & AREAL \\
-2 & 1971 & 2.37E-16 & 5.26 & -51.1 & 25.6 & -10.5 & -53.6 & 17.8 & 10.2 & AREAL \\
-1 & 217 & 0.00214 & 4.55 & -4.48 & -13.7 & 10.3 & -6.46 & -14.9 & 9.96 & AREAL \\
-\bottomrule
-\end{tabular}
-\end{table*}
-
-
-\begin{table*}[t]
-\caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast proper nouns (``ne'') > coordinate conjunctions (``kon'').}
-\label{tab:cope3}
-\begin{tabular}{rrrrrrrrrrp{3cm}}
-\toprule
-& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
-\\ \cmidrule{5-7} \cmidrule{8-10}
-Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
-\midrule
-9 & 7691 & 2.80E-45 & 6.23 & -61.2 & -22.3 & 11.6 & -55.9 & -20.7 & 4.03 & AREAL \\
-8 & 5928 & 5.97E-38 & 5.5 & 57.5 & -26.2 & 15.9 & 58.2 & -15.8 & 3.55 & AREAL \\
-7 & 479 & 1.13E-06 & 4.62 & -5.42 & -32.3 & 25.3 & -4.28 & -39.4 & 22.8 & AREAL \\
-6 & 420 & 4.65E-06 & 4.85 & -4.76 & -71.4 & 40.1 & -3.74 & -68.5 & 36.2 & AREAL \\
-5 & 407 & 6.38E-06 & 5.07 & 6.83 & -40.1 & 24.5 & 6.67 & -38.7 & 23.1 & AREAL \\
-4 & 294 & 0.000115 & 4.57 & 17 & -69.1 & 34.6 & 17.7 & -67.1 & 34.9 & AREAL \\
-3 & 121 & 0.0237 & 3.95 & 8.12 & -98.2 & 0.359 & 8.75 & -97.7 & -3.15 & AREAL \\
-2 & 117 & 0.0274 & 4.38 & 36.9 & -24.8 & 4.55 & 37.4 & -23 & 3.09 & AREAL \\
-1 & 115 & 0.0295 & 4.08 & -44.6 & -71.7 & 21.7 & -43.6 & -70.8 & 23.4 & AREAL \\
-\bottomrule
-\end{tabular}
-
-\end{table*}
-
-
-\begin{table*}[t]
-    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast nouns (``nn'') > coordinate conjunctions (``kon'').}
-\label{tab:cope5}
-\begin{tabular}{rrrrrrrrrrp{3cm}}
-\toprule
-& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
-\\ \cmidrule{5-7} \cmidrule{8-10}
-Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
-\midrule
-4 & 3166 & 2.79E-25 & 5.75 & -61.3 & -10.6 & -2.93 & -57.7 & -14.3 & 1.47 & AREAL \\
-3 & 1753 & 7.18E-17 & 4.99 & 63.3 & -15.1 & 8.41 & 58 & -13 & 4.02 & AREAL \\
-2 & 166 & 0.00446 & 4.5 & 6.83 & -40.1 & 24.5 & 7.01 & -39.7 & 24.2 & AREAL \\
-1 & 149 & 0.00793 & 4.13 & 18.2 & -67.8 & 36 & 19.8 & -66.4 & 34.6 & AREAL \\
-\bottomrule
-\end{tabular}
-\end{table*}
-
-
-\clearpage
-
 \section*{Introduction}
 % Links sind jetzt im laufenden Text; habs nach wie vor mit \href gemacht
 % sieht bei längeren Links natürlich kacke aus
@@ -553,6 +466,18 @@ Hier (und das ggf auch mehr auf Korrelation der Regressoren eingehen. \ref{fig:r
 Those 26 regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function. Temporal derivatives were also included in the design matrix, and it was subjected to the same temporal filtering as the BOLD time series. Finally, six motion parameters were used as additional nuisance regressors.
 The following six t-contrasts were defined: 1) words (21 tag-related regressors) > no-speech; 2) no-speech > all 21 tag-related regressors; 3) proper nouns (``ne''; N=\rNeAll) > coordinate conjunctions (``kon''; N=\rKonAll); 4) coordinate conjunctions > proper nouns; 5) nouns (``nn'') > coordinate conjunctions, and 6) coordinate conjunctions > nouns. The first level analysis that fitted each voxel’s time course separately for each subject was performed in functional space preserving the orientation of the EPI images [richtig?].
 
+% Also weshalb wird das temporal filtering der regressoren wann wie gemacht??? -> nachschlagen
+% “You should normally apply the same temporal filtering to the model as you have applied to the data, as the model is designed to look like the data before temporal filtering was applied. In this way, long-time-scale components in the model will be dealt with correctly. This is set with the Apply temporal filtering option.”
+\begin{figure*}
+  \centering
+% \includegraphics[width=0.4\textwidth]{frog.jpg}
+  \includegraphics[width=\linewidth]{figures/regressor-corr}
+  \caption{Pearson correlation coefficients of the 26 regressors used in the analysis to validate the annotation. Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function, temporally filtered with the same high-pass filter (cut-off 150s) as the BOLD time series, and cocatenated across runs before performing the correlation.}
+\label{fig:reg-corr}
+\end{figure*}
+
+
+
 % 2nd lvl and 3rd lvl
 The second-level analysis which averaged contrast estimates across the eight stimulus segments per subject was carried out using a fixed effects model by forcing the random effects variance to zero in FLAME (FMRIB’s Local Analysis of Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}. The third level analysis which averaged contrast estimates across subjects was carried out using FLAME stage 1 with automatic outlier de-weighting \citep{beckmann2003general, woolrich2004multilevel, woolrich2008robust}.
 Z (Gaussianised T/F) statistic images were thresholded using clusters determined by Z>3.4 and a (corrected) cluster significance threshold of p<.05 \citep{woolrich2008robust}. Brain regions associated with observed clusters were determined with the Juelich Histological Atlas \citep{eickhoff2005toolbox,eickhoff2007assignment} the Harvard-Oxford Cortical Atlas \citep{desikan2006automated}[really?] provided by FSL.
@@ -562,6 +487,73 @@ Z (Gaussianised T/F) statistic images were thresholded using clusters determined
 Results: The first contrast that contrasted words to moments where no speech is audible in the audio-description (all 21 tag-related regressors > no-speech) shows\dots;
 left lateralization (bigger cluster left in BA XY => Broca)
 The contrasts proper nouns > coordinate conjunctions and proper nouns > coordinate conjunctions identify bilateral, largely congruent (?) areas in areas known to be involved in processing auditory stimuli, word, nouns, semantics.
+
+\begin{figure*}
+  \centering
+% \includegraphics[width=0.4\textwidth]{frog.jpg}
+  \includegraphics[width=\linewidth]{figures/slicescolorbars}
+  \caption{Mixed-effects group-level (N=14) GLM contrasts for the audio-description of the movie Forrest Gump. All cluster (Z>3.4, p<0.05; cluster corr.; MNI template space).}
+  \label{fig:results}
+\end{figure*}
+
+\begin{table*}[t]
+    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast words > no-speech.}
+\label{tab:cope1}
+\begin{tabular}{rrrrrrrrrrp{3cm}}
+\toprule
+& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+\\ \cmidrule{5-7} \cmidrule{8-10}
+Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
+\midrule
+4 & 14990 & 0 & 6.31 & -49 & -24.7 & 6.35 & -54.8 & -32.5 & 3.73 & AREAL \\
+3 & 14469 & 0 & 6.48 & 55 & -14.9 & -6.9 & 54.1 & -23.1 & 0.374 & AREAL \\
+2 & 1971 & 2.37E-16 & 5.26 & -51.1 & 25.6 & -10.5 & -53.6 & 17.8 & 10.2 & AREAL \\
+1 & 217 & 0.00214 & 4.55 & -4.48 & -13.7 & 10.3 & -6.46 & -14.9 & 9.96 & AREAL \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast proper nouns (``ne'') > coordinate conjunctions (``kon'').}
+\label{tab:cope3}
+\begin{tabular}{rrrrrrrrrrp{3cm}}
+\toprule
+& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+\\ \cmidrule{5-7} \cmidrule{8-10}
+Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
+\midrule
+9 & 7691 & 2.80E-45 & 6.23 & -61.2 & -22.3 & 11.6 & -55.9 & -20.7 & 4.03 & AREAL \\
+8 & 5928 & 5.97E-38 & 5.5 & 57.5 & -26.2 & 15.9 & 58.2 & -15.8 & 3.55 & AREAL \\
+7 & 479 & 1.13E-06 & 4.62 & -5.42 & -32.3 & 25.3 & -4.28 & -39.4 & 22.8 & AREAL \\
+6 & 420 & 4.65E-06 & 4.85 & -4.76 & -71.4 & 40.1 & -3.74 & -68.5 & 36.2 & AREAL \\
+5 & 407 & 6.38E-06 & 5.07 & 6.83 & -40.1 & 24.5 & 6.67 & -38.7 & 23.1 & AREAL \\
+4 & 294 & 0.000115 & 4.57 & 17 & -69.1 & 34.6 & 17.7 & -67.1 & 34.9 & AREAL \\
+3 & 121 & 0.0237 & 3.95 & 8.12 & -98.2 & 0.359 & 8.75 & -97.7 & -3.15 & AREAL \\
+2 & 117 & 0.0274 & 4.38 & 36.9 & -24.8 & 4.55 & 37.4 & -23 & 3.09 & AREAL \\
+1 & 115 & 0.0295 & 4.08 & -44.6 & -71.7 & 21.7 & -43.6 & -70.8 & 23.4 & AREAL \\
+\bottomrule
+\end{tabular}
+
+\end{table*}
+
+
+\begin{table*}[t]
+    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast nouns (``nn'') > coordinate conjunctions (``kon'').}
+\label{tab:cope5}
+\begin{tabular}{rrrrrrrrrrp{3cm}}
+\toprule
+& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+\\ \cmidrule{5-7} \cmidrule{8-10}
+Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
+\midrule
+4 & 3166 & 2.79E-25 & 5.75 & -61.3 & -10.6 & -2.93 & -57.7 & -14.3 & 1.47 & AREAL \\
+3 & 1753 & 7.18E-17 & 4.99 & 63.3 & -15.1 & 8.41 & 58 & -13 & 4.02 & AREAL \\
+2 & 166 & 0.00446 & 4.5 & 6.83 & -40.1 & 24.5 & 7.01 & -39.7 & 24.2 & AREAL \\
+1 & 149 & 0.00793 & 4.13 & 18.2 & -67.8 & 36 & 19.8 & -66.4 & 34.6 & AREAL \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
 
 % discussion
 % careful what you pretend, check & cite (again)
