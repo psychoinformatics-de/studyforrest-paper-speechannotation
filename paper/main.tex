@@ -421,8 +421,8 @@ We implemented a standard three-level, voxel-wise general linear model (GLM) to 
 \begin{table*}[t]
     \caption{Overview of the 26 regressors for the validation analysis. The first column contains the number of the regressor in the design file of FSL \citep{smith2004fsl}. The 20 most often occuring labels from the detailed part-of speech tagging were used as such. Words belonging to all other labels were pooled to ``tag\_other''. The regressor ``sentence'' contains the end of complete grammatical sentences. The regressor ``phones'' contains the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32). The regressor ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent low-level auditory nuissance regressors comprising one event for every movie frame (40ms).}
 \label{tab:regressors}
-\small
-\begin{tabular}{lllllllllll}
+\footnotesize
+\begin{tabular}{lp{3.5cm}lllllllll}
 \toprule
 \textbf{label} &  \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
@@ -447,15 +447,16 @@ vvfin & \aTagVvfin & \rVvfinAll & \rVvfinI & \rVvfinII & \rVvfinIII & \rVvfinIV 
 vvinf & \aTagVvinf & \rVvinfAll & \rVvinfI & \rVvinfII & \rVvinfIII & \rVvinfIV & \rVvinfV & \rVvinfVI & \rVvinfVII & \rVvinfVIII \tabularnewline
 vvpp & \aTagVvpp & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvppV & \rVvppVI & \rVvppVII & \rVvppVIII \tabularnewline
 tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII \tabularnewline
-e{1-12}
+%e{1-12}
 sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
 phones & 80 most often occuring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
 no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
-e{1-12}
+%e{1-12}
 fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
 fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
 \bottomrule
 \end{tabular}
+\todo[inline]{what does e1-12 stand for? It makes the label column too wide}
 \end{table*}
 
 
