@@ -384,8 +384,9 @@
 
 @misc{ffmpeg,
 	author = "“FFmpeg Developers”",
-	title = "{FFmpeg tool (Version 4.1.4) [Software].
-Available from http://ffmpeg.org/}",
+	title = "{ffmpeg tool (Version 4.1.4) [Software].
+Available from http://ffmpeg.org/
+}",
 	year = "2019"
 }
 

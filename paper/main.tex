@@ -29,157 +29,110 @@
 \title{A studyforrest extension, an annotation of words and phonemes in the German dubbed movie ``Forrest Gump'' and its audio-description}
 %\titlenote{whatever titlenote here}
 
-% provide full affiliation information (including full institutional address, ZIP code and e-mail address) for all authors, and identify who is/are the corresponding author(s).
-% EMAIL hier noch "kanonisch" unterbringen
-% Madeburg habe ich nicht mit reingenommen, obwohl MD/Sachsen-Anhalt unten wg. Stipendium unter Funding kommt.
-\author[1, 2]{Christian~O.~Häusler}
-\author[1, 2]{Michael Hanke}
+\author[1, 2]{Christian~O.~Häusler \\ email \href{mailto:c.haeusler@fz-juelich.de}{c.haeusler@fz-juelich.de} }
+\author[1, 2]{Michael~Hanke}
 
-\affil[1]{Institute of Neuroscience and Medicine, Brain \& Behaviour (INM-7), Research Centre Jülich, Jülich, Germany}
-\affil[2]{Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany}
+\affil[1]{Institute of Neuroscience and Medicine, Brain \& Behaviour (INM-7), Research Centre Jülich, Jülich, 52425, Germany}
+\affil[2]{Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University, Düsseldorf, 40225, Germany}
 
 \maketitle
+
+\todo[inline]{wie email und ORCID (du: https://orcid.org/0000-0001-6398-6370; ich: https://orcid.org/0000-0002-0936-317X) unterbringen?}
+
+
 \thispagestyle{fancy}
 \begin{abstract}
 % up to 300 words
-Kommt ganz am Ende;
-Intro, Method, Results, Discussion;
-hier ggf. bereits Praat erwähnen;
-im Gegensatz zu Sätzen und Phones haben Einzelworte zusätzliche Annos
+\todo[inline]{The abstract should come now}
+Here we present an annotation of speech in the audio-visual movie ``Forrest Gump'' and it's audio-only variant (i.e. audio-description), as an addition to a large public functional brain imaging dataset (\url{http://studyforrest.org}). The annotation provides information about the exact timing of each of the \aSentencesAll\ spoken sentences, \aWordsAll\ words (including \aPosNonspeechAll\ non-speech vocalizations), and \aPhonesAll\ phonemes.
 
-\todo[inline]{The abstract should come now. It is needed to evaluate the
-concept of the paper in the light of its content and vice versa.}
+Zusätzliche Annos der Worte
 
+This annotation enables further studies of language perception and semantic processing under conditions of real-life complexity using the studyforrest dataset.
+
+Wort zur Validierungsstudie?
 \end{abstract}
+
 \section*{Keywords}
 % maximal 8
-language, speech, annotation, fMRI, natural stimulation, narrative, studyforrest
+annnotation, language, speech, lateralization, narrative, natural stimulation, fMRI, studyforrest
 
 \listoftodos
 
 \clearpage
 
-
 \section*{Introduction}
-% Links sind jetzt im laufenden Text; habs nach wie vor mit \href gemacht
-% sieht bei längeren Links natürlich kacke aus
-
-% largely adopted from haeusler2016annotation
-% https://f1000research.com/articles/5-2273
-% In Einleitung muss wohl noch etwas zu "reproducible research" und "datalad dataset" kommen
+\todo[inline]{Bitte am Ende (?) der Einleitung etwas zu "reproducible research" \& "datalad dataset" bringen}
 Cognitive neuroimaging research is moving towards studying brain behavior
-under conditions of real-life(-like complexity). Motion pictures \citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not, lerner2011topographic} are increasingly utilized as so called naturalistic stimuli.
+under conditions of real-life-like complexity. Motion pictures \citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not, lerner2011topographic} are increasingly utilized as so called naturalistic stimuli.
 
-% new; not from haeusler2016annotation
 Because naturalistic stimuli are multi-dimensional and their temporal structure
-is (usually) unknown, data-driven methods like intersubject correlation
-(ISC)\citep{hasson2004intersubject} or independent component analysis
+is usually unknown, data-driven methods like intersubject correlation (ISC)\citep{hasson2004intersubject} or independent component analysis
 (ICA)\citep{bartels2004chronoarchitecture} are often used to analyze
-corresponding fMRI data. Nevertheless, theory-driven\todo{model-based?, there is little theroy in GLM} analyses like a general
-linear model (GLM) are necessary to not just explain how but also when and why a
-brain region is responding to a stimulus \citep{hamilton2018revolution}. Studies
-using GLMs based on annotations of a stimulus' temporal structure have
+corresponding fMRI data.
+Nevertheless, model-driven methods like a general linear model (GLM) are necessary to not just explain how but also when (and why) a brain region is responding to a stimulus \citep{hamilton2018revolution}.
+Studies using GLMs based on annotations of a stimulus' temporal structure have
 elucidated how the brain responds to visual features of a movie
 \citep{bartels2004mapping} or speech-related features of a narrative
 \citep{rocca2019language}.
 
-% adapted from haeusler2016annotation
-% nun ja, folgend nicht super korrekt: sentences sind nicht vollständige
-% Sätze im linguistischen Sinne (Subjekt, Objekt, Prädikat), sondern auch
-% Ausrufe ("Forrest!") oder mitunter isolierte non-speech "Sätze" ("oouh").
+% hier sind “sentences” nicht vollständige Sätze im linguistischen Sinne (Subjekt, Objekt, Prädikat), sondern auch Ausrufe ("Forrest!") oder mitunter isolierte non-speech "Sätze" ("oouh").
 % Sätze im linguistischen Sinne sind in der Annotation durch "." oder "?" am
-% Ende gekennzeichnet. Sollte aber so passen.
-For this publication, we annotated the onsets and offsets, and content of
-sentences, single words, and phonemes spoken in the movie Forrest Gump (R.
-Zemeckis, Paramount Pictures, 1994) \citep{ForrestGumpMovie}. fMRI data of
-participants watching the audio-visual movie \citep{hanke2016simultaneous} and
-it's audio-description for visually impaired persons \citep{hanke2014audiomovie}
-are the core data of the publicly available \textit{studyforrest} dataset
-(\href{www.studyforrest.org}{studyforrest.org}). Additional fMRI data
-\citep{sengupta2016extension} include retinotopic mappings and localization of
-higher visual areas of the same participants.
+% Ende gekennzeichnet.
+For this publication, we annotated the onsets and offsets, and content of sentences, single words and phonemes spoken in the audio-visual (AV) movie ``Forrest Gump'' \citep{ForrestGumpMovie} and its corresponding audio-only (AO) variant (i.e. audio-description) for visually impaired persons \citep{ForrestGumpDVD}.
 % paper regarding mention musical not mentioned
-% und damit zitiere ich mich als dortiger Coauthor nicht selbst. Skandal!
+fMRI data of participants watching the audio-visual movie \citep{hanke2016simultaneous} and listening to the audio-description \citep{hanke2014audiomovie} are the core data of the publicly available \textit{studyforrest} dataset (\href{www.studyforrest.org}{studyforrest.org}).
+Additional fMRI data include retinotopic mappings and localization of higher visual areas of the same participants \citep{sengupta2016extension}.
 
+\todo[inline]{this work seems to improve/replace previous work (in part), it is important to state that clearly and identify which pieces are involved; welche previous work wird verbessert oder sogar replaced?}
 The current annotation facilitates modelling of hemodynamic brain responses
-correlating with speech-related events in the movie and audio-description.
-Further, it extends already available annotations of portrayed emotions
-\citep{labs2015portrayed} and perceived emtions
-\citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the movie \citep{haeusler2016annotation}. All annotations can be used in any study focusing on other aspects of real-life cognition by serving as additional
-confound measures describing key properties of major building blocks of the stimulus.
-
-\todo[inline]{this work seems to improve/replace previous work (in part), it is important to state that clearly and identify which pieces are involved}
+correlating with speech-related events in the two stimuli. Further, it extends already available annotations of portrayed emotions \citep{labs2015portrayed}, perceived emotions \citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the movie \citep{haeusler2016annotation}. All annotations can be used in any study focusing on other aspects of real-life cognition by serving as additional confound measures describing key properties of major building blocks of the stimulus.
 
 \section*{Materials and methods}
 \subsection*{Stimulus}
-% References sind vom Anno-Paper in die .bib-Datei übernommen worden; die
-% “hardcoded” Zitationen sind aber noch im laufenden Text.
-We annotated speech in stimuli built from the motion picture ``Forrest Gump'' as
-used in two previous studies: an audio-visual movie
-\citep{hanke2016simultaneous}, and its temporally aligned audio-description
-\citep{hanke2014audiomovie}. For the movie stimulus, we used the audio track of
-the German DVD release (Paramount Home Entertainment, Germany, 2002; PAL video,
-DE103519SV)\citep{ForrestGumpDVD}. For the audio-only stimulus, we used the
-movie's audio-description that was broadcast as an additional audio track for
-visually impaired listeners on Swiss public television (Koop, Michalski,
-Beckmann, Meinhardt \& Benecke, produced by Bayrischer Rundfunk,
-2009)\citep{ForrestGumpGermanAD}. The plot of the movie is already carried by an
-off-screen voice of the main character Forrest Gump. In the largely identical audio-description, a male narrator additionally describes essential aspects of the visual scenery when there is no off-screen voice, dialog, or other relevant auditory content
+We annotated speech in the slightly shortened ``research cut'' of the movie \citep{hanke2016simultaneous} and its temporally aligned audio-description \citep{hanke2014audiomovie}.
+For the movie stimulus, we used the audio track of the German DVD release \citep{ForrestGumpDVD}.
+For the audio-only stimulus, we used the movie's audio-description that was broadcast as an additional audio track for visually impaired listeners on Swiss public television \citep{ForrestGumpGermanAD}.
+The plot of the movie is already carried by an off-screen voice of the main character Forrest Gump.
+In the largely identical audio-description, a male narrator additionally describes essential aspects of the visual scenery when there is no off-screen voice, dialog, or other relevant auditory content.
 
 \subsection*{Annotation procedure}
-% wo kommen die "preliminaries transcriptions" her?
-% Die "most basic" Datei, die das Dataset enthält ist der Merge aus Diaolog, Narrator & Non-Speech-Annotation
-Preliminary, orthographic transcriptions of dialogues (\texttt{german\_dialog.csv})\todo{filenames should have some text markup. I did this example, please apply to other locations as well},
-non-speech vocalizations (e.g. laughing or groaning;
-non\_speech\_vocalization.json), and the audio-description's narrator
-(german\_audio\_description.csv)\todo{where were those from? citation missing} were merged and converted to Praat's
-\citep{boersma2019praat} TextGrid format (
-\href{www.fon.hum.uva.nl/praat}{fon.hum.uva.nl/praat}). The merged transcription
-containing one onset and offset for usually a couple of sentences was opened
-along (the audio file of) the audio-description in Praat v6.0.22 for manual
-improvements\todo{in general process information is not relevant: of course you need to open a file to work with it. The Q is what you did to it, why, and how exactly. So instead of "was opened along (the audio file of) the audio-description in Praat v6.0.22", better "was edited in Praat v6.0.22 for manual validation against the original audio"}: In several passes\todo{why several passes?}, the approximate temporal onsets and offsets
-were corrected. Intervals containing several sentences were split into intervals
-containing only one sentence. When two or more persons were speaking
-simultaneously the less dominant (background) voice was dropped. Low volume
-background speech (especially occurring during music or continuous environmental
-noise) or low volume non-speech vocalizations that are difficult to recognize by
-a regular audience\todo{what is a regular audience? without neurological disorders ;-)} were dropped, too.
+\todo[inline]{wo kommen die "preliminaries transcriptions" etc.? Habe die von Medusa; die "most basic" Datei, die das Dataset enthält ist wie abgesprochen der Merge aus Dialog (ungetrennte Sentences), Narrator \& Non-Speech-Annotation = \texttt{speech-vocal.csv}}
+Preliminary, orthographic transcriptions of dialogues (\texttt{german\_dialog.csv}), non-speech vocalizations (e.g. laughing or groaning; \texttt{non\_speech\_vocalization.json}), and the audio-description's narrator
+(\texttt{german\_audio\_description.csv}) were merged (\texttt{speech-vocal.csv}) and converted to Praat's \citep{boersma2019praat} TextGrid format  (\texttt{speech-vocal.TextGrid}).
+% \href{www.fon.hum.uva.nl/praat}{fon.hum.uva.nl/praat}.
+The merged transcription containing one onset and offset for usually a couple of sentences was edited in Praat v6.0.22 for manual validation against the original audio.
+The following steps were done in several passes to iteratively improve the quality of the data:
+Approximate temporal onsets and offsets were corrected, and intervals containing several sentences were split into intervals containing only one sentence.
+\todo[inline]{what is a regular audience? without neurological disorders ;-); Simpel: eine audience, die den Film nicht 45x auf voller Lautstärke über Kopfhörer mit Transkription danebenliegend gehört hat ;-)}
+When two or more persons were speaking simultaneously the less dominant voice was dropped.
+Low volume background speech (especially occurring during music or continuous environmental noise) or low volume non-speech vocalizations that are difficult to recognize by the audience were dropped, too.
 
 % Alignment preparations
-We used the Montreal Forced Aligner v1.0.1 
-\href{montrealcorpustools.github.io/Montreal-Forced-Aligner}{montrealcorpustools.github.io/Montreal-Forced-Aligner}\citep{mcauliffe2017montreal}\todo{we need a consistent way of citing software. I think it is overkill to have a reference, plus a URL, plus a version in the main text. Either everything in the reference, or (maybe) just name+version in the text};to
+We used the Montreal Forced Aligner v1.0.1 \citep{mcauliffe2017montreal} to
 algorithmically identify the onset and offset of each word and phoneme embedded
-in the transcribed sentences. To enable the aligner to look up the pronunciation
-of every word, we chose a German pronunciation dictionary
-\href{https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict}{raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict}
-provided by Prosodylab (\href{http://prosodylab.org}{prosodylab.org}) that uses
-the Prosodylab PhoneSet\todo{same here, use a proper bibtex reference}. The dictionary was manually updated with movie-specific
-German words\todo{which words, how determined, why?}. The pronunciation of English words occurring in the otherwise
-German audio track was taken from an English pronunciation dictionary
-(\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org/mfa/dictionaries/english.dict} that uses the ARPAbet PhoneSet\todo{It would help a non-expert like me to understand why a PhoneSet is important for this annotation, sounds like a jargon}.
+in the transcribed sentences.
+% http://prosodylab.org
+% https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict
+To enable the aligner to look up the phonemes within every word, we chose a German pronunciation dictionary provided by Prosodylab \citep {gorman2011prosodylab} that uses the Prosodylab PhoneSet to describe the pronounciation of single phonemes. To improve the quality of the automatic alignment, this dictionary was manually updated with German words that were missing in the dictionary but occur in the stimuli. The pronunciation of English words occurring in the otherwise German audio track was taken from an English pronunciation dictionary provided by the Montreal Language Modeling lab (\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org/mfa/dictionaries/english.dict} that uses the ARPAbet PhoneSet.
 
 % Alignment
-% Nicht erwähnt: Wenn die Korrektur der Phoneme unmöglich war, habe ich einfach
-% die Event-Borders zwischen den Phonemen herausgenommen. Wortbeginn und Wortende stimmen dann mit einem neuen, "künstlich-großen Phoneme" überein.
-% Das "Groß-Phonem" enthält dann ohne Grenzen zwischen den tatsächlichen Phonemen des Wortes alle Phoneme des Wortes ("es ist kompliziert zu erklären, aber im Grunde ganz einfach).
-% kommt selten vor, ist im Grunde "noise" und ist in der Anno sofort als solches zu erkennen.
-The audio file was converted from .FLAC to .WAV\todo{Better WAV not .WAV, likewise for others} via ffmpeg v4.1.4
-(\href{www.ffmpeg.org}{ffmpeg.org}) to meet the aligner's requirements. This
-.WAV file, the transcription of sentences, and the updated dictionary were
+\todo[inline]{Nicht erwähnt: Wenn die Korrektur der Phoneme unmöglich war, habe ich einfach die Event-Borders zwischen den Phonemen herausgenommen. Wortbeginn und Wortende stimmen dann mit einem neuen, "künstlich-großen Phoneme" überein.
+Das "Groß-Phonem" enthält dann ohne Grenzen zwischen den tatsächlichen Phonemen des Wortes alle Phoneme des Wortes ("es ist kompliziert zu erklären, aber im Grunde ganz einfach). kommt jedoch so selten vor, ist im Grunde "noise" und ist in der Anno sofort als solches zu erkennen.}
+The audio file was converted from FLAC to WAV via FFmpeg v4.1.4 \citep{ffmpeg} to meet the aligner's requirements.
+This WAV file, the transcription of sentences, and the updated dictionary were
 submitted to the aligner that first trained an acoustic model on the data and
-then performed the alignment. In a first step, the resulting .TextGrid file that
-contains onsets and offsets of words and phonemes was opened in Praat to check
-and correct the automatic alignment. In several passes, words [and their
-corresponding phonemes] on which the automatic alignment performed moderately
-were corrected. Some (low volume) sentences that are spoken in continuously
-noisy settings (pursuit, battle, hurricane, demonstration/rally, disco) were
-removed due to poor overall alignment performance. In a second step, the
-complete sentences of the orthographic transcription were copied into the
-annotation (s. table \ref{tab:overview} for an overview of the annotation's content). In a third step, the name of the speaker was added for every sentence (s. table \ref{tab:speakers} for the most often occurring speakers).
-During every new step results from all previous steps were checked again for errors and corrected.
+then performed the alignment.
+In a first step, the resulting .TextGrid file that contains onsets and offsets of words and phonemes was corrected in Praat, again interatively in several passes.
+Onsets and offsets of words and their corresponding phonemes on which the automatic alignment performed moderately were corrected.
+Some (low volume) sentences that are spoken in continuously noisy settings (pursuit, battle, hurricane, rally, disco) were removed due to poor overall alignment performance.
+In a second step, the complete sentences of the orthographic transcription were copied into the annotation (s. table \ref{tab:overview} for an overview of the annotation's content).
+In a third step, the name of the speaker was added for every sentence (cf. table \ref{tab:speakers} for the most often occurring speakers).
+During every new step results from previous steps were checked again for errors and corrected.
 
 \begin{table*}[tbp]
-\caption{Overview of the speech annotation's content for the whole stimulus and it's individual segments. The label ``Sentences''' comprises complete grammatical sentences (i.e. having a subject and a predicate, and additionally marked with a full stop in the annotation). The  ``Sentences'' also comprises exlamations or non-speech vocalizations in quick succession (e.g. ``ha, ha, ha'') or in isolation (e.g. ``ha'', at time points when speakers rapidly switch). The label ``Words'' comprises every single word or non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
+\caption{Overview of the speech annotation's content for the whole stimulus and it's individual segments used during fMRI scanning. The label ``Sentences''' comprises complete grammatical sentences (i.e. having a subject and a predicate) or questions that are additionally marked with a full stop or question mark.
+The  label ``Sentences'' also comprises exlamations or non-speech vocalizations in quick succession (e.g. ``ha, ha, ha'') or in isolation (e.g. ``ha'', at time points when speakers rapidly switch). The label ``Words'' comprises every single word or non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
 \label{tab:overview}
 \begin{tabular}{llllllllll}
 \toprule
@@ -192,9 +145,9 @@ phonemes  & \aPhonesAll & \aPhonesI & \aPhonesII & \aPhonesIII & \aPhonesIV & \a
 \end{tabular}
 \end{table*}
 
-% bei ein paar Namen bin ich ggf. von Labs abgewichen (genauer identifiziert, ggf. kleine Fehler korrigiert. Ist dann aber nur bei Personen, die 1-2x mit 1-2 Sätzen auftauchen.
+
 \begin{table*}[btp]
-\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurrs in the audio-description of the movie. Shown names are identical to the names used in \citep{labs2015portrayed}. Overall 97 persons were identified.}
+\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurrs in the audio-description of the movie. Shown names are mostly identical to the names used in \citep{labs2015portrayed}. Overall 97 persons were identified.}
 \label{tab:speakers}
 \begin{tabular}{llllllllll}
 \toprule
@@ -212,48 +165,6 @@ Mrs. Gump  & \aMrsgumpAll & \aMrsgumpI & \aMrsgumpII & \aMrsgumpIII & \aMrsgumpI
 Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarratorIV & \aNarratorV & \aNarratorVI & \aNarratorVII & \aNarratorVIII \tabularnewline
 \bottomrule
 \end{tabular}
-\end{table*}
-
-
-
-% descriptive Nouns
-% hier ggf. noch angeben, dass die effektiv identisch waren
-% Florian hat zwei Regeln falsch verstanden, sonst war übereinstimmung >90%
-A further annotation of the audio-description's narrator was done manually: Two
-persons performed a categorization of nouns embedded in sentences spoken by the
-narrator to describe the movie's missing visual content. Categories focus on the
-cinematographic scene's environment, inherent objects, persons, and a person's
-appearance. A preliminary annotation according to the rules (s. ist jetzt in der obigen Tabelle aus Platzgründen nicht mehr drin; in dieser,\ref{tab:descr-nouns}, einer neuen Tabelle oder im laufenden Text [wird viel Text] bringen) was done by one person and corrected in several runs by the author.\todo{I thought we said that this aspect should move to the PPA paper?}
-
-\begin{table*}[t]
-    \caption{Narrator's descriptive nouns. All categories sorted alphapetically. Examples are given in English. Description (of rules) fehlt in dieser Tabelle (vgl. alte Tabelle auf der allerletzten Seite). Wird nämlich in einer Tabelle mit horizontaler Ausrichtung eng. Kategorie ``++'' enthält ausnahmesweise auch adverbiale Best. der Zeit.}
-\label{tab:descr-nouns}
-\begin{tabular}{lllllllllll}
-\toprule
-\textbf{label} & \textbf{examples} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
-\midrule
-body & back, hip, shoulder; jacket, dress, shirt & \aDescrBodyAll & \aDescrBodyI & \aDescrBodyII & \aDescrBodyIII & \aDescrBodyIV & \aDescrBodyV & \aDescrBodyVI & \aDescrBodyVII & \aDescrBodyVIII \tabularnewline
-bodypart  & arm, finger, leg, toe & \aDescrBodypartAll & \aDescrBodypartI & \aDescrBodypartII & \aDescrBodypartIII & \aDescrBodypartIV & \aDescrBodypartV & \aDescrBodypartVI & \aDescrBodypartVII & \aDescrBodypartVIII\tabularnewline
-face & face, ear, nose, mouth & \aDescrFaceAll & \aDescrFaceI & \aDescrFaceII & \aDescrFaceIII & \aDescrFaceIV & \aDescrFaceV & \aDescrFaceVI & \aDescrFaceVII & \aDescrFaceVIII \tabularnewline
-female & nurse, mother, woman & \aDescrFemaleAll & \aDescrFemaleI & \aDescrFemaleII & \aDescrFemaleIII & \aDescrFemaleIV & \aDescrFemaleV & \aDescrFemaleVI & \aDescrFemaleVII & \aDescrFemaleVIII \tabularnewline
-females & women & \aDescrFemalesAll & \aDescrFemalesI & \aDescrFemalesII & \aDescrFemalesIII & \aDescrFemalesIV & \aDescrFemalesV & \aDescrFemalesVI & \aDescrFemalesVII & \aDescrFemalesVIII \tabularnewline
-fname & Jenny & \aDescrFnameAll & \aDescrFnameI & \aDescrFnameII & \aDescrFnameIII & \aDescrFnameIV & \aDescrFnameV & \aDescrFnameVI & \aDescrFnameVII & \aDescrFnameVIII \tabularnewline
-furniture & bench, bed, table, chair & \aDescrFurnitureAll & \aDescrFurnitureI & \aDescrFurnitureII & \aDescrFurnitureIII & \aDescrFurnitureIV & \aDescrFurnitureV & \aDescrFurnitureVI & \aDescrFurnitureVII & \aDescrFurnitureVIII \tabularnewline
-geo & building, tree, street, alley, meadow, cornfield, river & \aDescrGeoAll & \aDescrGeoI & \aDescrGeoII & \aDescrGeoIII & \aDescrGeoIV & \aDescrGeoV & \aDescrGeoVI & \aDescrGeoVII & \aDescrGeoVIII \tabularnewline
-geo-room & living room; wall, door, window, floor, turf & \aDescrGeoroomAll & \aDescrGeoroomI & \aDescrGeoroomII & \aDescrGeoroomIII & \aDescrGeoroomIV & \aDescrGeoroomV & \aDescrGeoroomVI & \aDescrGeoroomVII & \aDescrGeoroomVIII \tabularnewline
-head & head, hair, ear, neck, helmet & \aDescrHeadAll & \aDescrHeadI & \aDescrHeadII & \aDescrHeadIII & \aDescrHeadIV & \aDescrHeadV & \aDescrHeadVI & \aDescrHeadVII & \aDescrHeadVIII \tabularnewline
-male & man, father, soldier & \aDescrMaleAll & \aDescrMaleI & \aDescrMaleII & \aDescrMaleIII & \aDescrMaleIV & \aDescrMaleV & \aDescrMaleVI & \aDescrMaleVII & \aDescrMaleVIII \tabularnewline
-males & boys, opponents & \aDescrMalesAll & \aDescrMalesI & \aDescrMalesII & \aDescrMalesIII & \aDescrMalesIV & \aDescrMalesV & \aDescrMalesVI & \aDescrMalesVII & \aDescrMalesVIII \tabularnewline
-mname & Bubba, Kennedy & \aDescrMnameAll & \aDescrMnameI & \aDescrMnameII & \aDescrMnameIII & \aDescrMnameIV & \aDescrMnameV & \aDescrMnameVI & \aDescrMnameVII & \aDescrMnameVIII \tabularnewline
-object & telephone, car & \aDescrObjectAll & \aDescrObjectI & \aDescrObjectII & \aDescrObjectIII & \aDescrObjectIV & \aDescrObjectV & \aDescrObjectVI & \aDescrObjectVII & \aDescrObjectVIII \tabularnewline
-objects & wheels, photos & \aDescrObjectsAll & \aDescrObjectsI & \aDescrObjectsII & \aDescrObjectsIII & \aDescrObjectsIV & \aDescrObjectsV & \aDescrObjectsVI & \aDescrObjectsVII & \aDescrObjectsVIII \tabularnewline
-persons & hippies, patients & \aDescrPersonsAll & \aDescrPersonsI & \aDescrPersonsII & \aDescrPersonsIII & \aDescrPersonsIV & \aDescrPersonsV & \aDescrPersonsVI & \aDescrPersonsVII & \aDescrPersonsVIII \tabularnewline
-setting\_new & on a ``bridge'', on an ``alley'', on ``campus'' & \aDescrSettingnewAll & \aDescrSettingnewI & \aDescrSettingnewII & \aDescrSettingnewIII & \aDescrSettingnewIV & \aDescrSettingnewV & \aDescrSettingnewVI & \aDescrSettingnewVII & \aDescrSettingnewVIII \tabularnewline
-setting\_rec & at the ``bus stop'' & \aDescrSettingrecAll & \aDescrSettingrecI & \aDescrSettingrecII & \aDescrSettingrecIII & \aDescrSettingrecIV & \aDescrSettingrecV & \aDescrSettingrecVI & \aDescrSettingrecVII & \aDescrSettingrecVIII \tabularnewline
-++ &  in the ``evening'', it's ``daytime'', ``later'' & \aDescrAll & \aDescrI & \aDescrII & \aDescrIII & \aDescrIV & \aDescrV & \aDescrVI & \aDescrVII & \aDescrVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\todo[inline]{If the descriptive nounes are moved to the PPA paper, this table should be removed}
 \end{table*}
 
 
@@ -425,6 +336,11 @@ Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB’s
 Software Library)\citep{smith2004fsl}. Data were temporally high-pass filtered (cut-off 150s), spatially smoothed (Gaussian kernel; 4.0 mm FWHM), and the brain was extracted from surrounding tissue [keine Plan, ob die Reihenfolge so korrek ist]. A grand-mean intensity normalization of the entire 4D dataset was performed by a single multiplicative factor.
 We implemented a standard three-level, voxel-wise general linear model (GLM) to average parameter estimates across the eight stimulus segments, and later across 19 subjects.
 
+\todo[inline]{I think this table doesn't talk about 'regressors'. It talks about the
+events that were selected/available to build GLM regressors from them. Hence the term
+'event' should be used here, and cross-reference to figure \ref{fig:reg} should be made}
+\todo[inline]{what does e1-12 stand for? It makes the label column too wide}
+
 \begin{table*}[t]
     \caption{Overview of the 26 regressors for the validation analysis. The first column contains the number of the regressor in the design file of FSL \citep{smith2004fsl}. The 20 most often occuring labels from the detailed part-of speech tagging were used as such. Words belonging to all other labels were pooled to ``tag\_other''. The regressor ``sentence'' contains the end of complete grammatical sentences. The regressor ``phones'' contains the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32). The regressor ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent low-level auditory nuissance regressors comprising one event for every movie frame (40ms).}
 \label{tab:regressors}
@@ -443,7 +359,7 @@ kon & \aTagKon & \rKonAll & \rKonI & \rKonII & \rKonIII & \rKonIV & \rKonV & \rK
 ne & \aTagNe & \rNeAll & \rNeI & \rNeII & \rNeIII & \rNeIV & \rNeV & \rNeVI & \rNeVII & \rNeVIII \tabularnewline
 nn & \aTagNn & \rNnAll & \rNnI & \rNnII & \rNnIII & \rNnIV & \rNnV & \rNnVI & \rNnVII & \rNnVIII \tabularnewline
 pds & substituting demonstrative pronoun & \rPdsAll & \rPdsI & \rPdsII & \rPdsIII & \rPdsIV & \rPdsV & \rPdsVI & \rPdsVII & \rPdsVIII \tabularnewline
-pis & substituting indefinite pronoun & \rPisAll & \rPisI & \rPisII & \rPisIII & \rPisIV & \rPisV & \rPisVI & pper \rPisVII & \rPisVIII \tabularnewline
+pis & substituting indefinite pronoun & \rPisAll & \rPisI & \rPisII & \rPisIII & \rPisIV & \rPisV & \rPisVI & \rPisVII & \rPisVIII \tabularnewline
 pper & \aTagPper & \rPperAll & \rPperI & \rPperII & \rPperIII & \rPperIV & \rPperV & \rPperVI & \rPperVII & \rPperVIII \tabularnewline
 pposat & \aTagPposat & \rPposatAll & \rPposatI & \rPposatII & \rPposatIII & \rPposatIV & \rPposatV & \rPposatVI & \rPposatVII & \rPposatVIII \tabularnewline
 prf & reflexive personal pronoun & \rPrfAll & \rPrfI & \rPrfII & \rPrfIII & \rPrfIV & \rPrfV & \rPrfVI & \rPrfVII & \rPrfVIII \tabularnewline
@@ -463,10 +379,6 @@ fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI 
 fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
 \bottomrule
 \end{tabular}
-\todo[inline]{I think this table doesn't talk about 'regressors'. It talks about the
-events that were selected/available to build GLM regressors from them. Hence the term
-'event' should be used here, and cross-reference to figure \ref{fig:reg} should be made}
-\todo[inline]{what does e1-12 stand for? It makes the label column too wide}
 \end{table*}
 
 
@@ -497,77 +409,82 @@ The following six t-contrasts were defined: 1) words (21 tag-related regressors)
 The second-level analysis which averaged contrast estimates across the eight stimulus segments per subject was carried out using a fixed effects model by forcing the random effects variance to zero in FLAME (FMRIB’s Local Analysis of Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}. The third level analysis which averaged contrast estimates across subjects was carried out using FLAME stage 1 with automatic outlier de-weighting \citep{beckmann2003general, woolrich2004multilevel, woolrich2008robust}.
 Z (Gaussianised T/F) statistic images were thresholded using clusters determined by Z>3.4 and a (corrected) cluster significance threshold of p<.05 \citep{woolrich2008robust}. Brain regions associated with observed clusters were determined with the Juelich Histological Atlas \citep{eickhoff2005toolbox,eickhoff2007assignment} the Harvard-Oxford Cortical Atlas \citep{desikan2006automated}[really?] provided by FSL.
 
+
 % results
 % von Interpretation klar(er) getrennt halten
-Results: The first contrast that contrasted words to moments where no speech is audible in the audio-description (all 21 tag-related regressors > no-speech) shows\dots;
+figure \ref{fig:results}
+words > no-speech \ref{tab:cope1}
+proper nouns > coordinate conjunctions and proper nouns \ref{tab:cope3}
+nouns > coordinate conjunctions \ref{tab:cope5}
+Results: The first contrast that contrasted words to moments where no speech is audible in the audio-description (words > no-speech) shows\dots;
 left lateralization (bigger cluster left in BA XY => Broca)
-The contrasts proper nouns > coordinate conjunctions and proper nouns > coordinate conjunctions identify bilateral, largely congruent (?) areas in areas known to be involved in processing auditory stimuli, word, nouns, semantics.
+The contrasts proper nouns > coordinate conjunctions and nouns > coordinate conjunctions identify bilateral, largely congruent (?) areas in areas known to be involved in processing auditory stimuli, word, nouns, semantics.
+
 
 \begin{figure*}
   \centering
+  \label{fig:results}
 % \includegraphics[width=0.4\textwidth]{frog.jpg}
   \includegraphics[width=\linewidth]{figures/slicescolorbars}
-  \caption{Mixed-effects group-level (N=14) GLM contrasts for the audio-description of the movie Forrest Gump. All cluster (Z>3.4, p<0.05; cluster corr.; MNI template space).}
-  \label{fig:results}
-  \todo[inline]{Figure not referenced in the text}
+  \caption{Mixed-effects group-level (N=14) GLM contrasts for the audio-description of the movie Forrest Gump. All cluster (Z>3.4, p<0.05 cluster-corrected.; MNI template space)}.
 \end{figure*}
 
+
+% hier die Lateralisation in den Broca Arealen BA44 und BA45 klarer machen
 \begin{table*}[t]
-    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast words > no-speech.}
+    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast words > no-speech. Clusters sorted by voxel size. The first brain structure given contains the voxel with the maximum Z-Value.}
 \label{tab:cope1}
-\begin{tabular}{rrrrrrrrrrp{3cm}}
+\begin{tabular}{rrrrrrrrrp{6cm}}
 \toprule
-& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
-\\ \cmidrule{5-7} \cmidrule{8-10}
-Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
+& & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+\\ \cmidrule{4-6} \cmidrule{7-9}
+voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
 \midrule
-4 & 14990 & 0 & 6.31 & -49 & -24.7 & 6.35 & -54.8 & -32.5 & 3.73 & AREAL \\
-3 & 14469 & 0 & 6.48 & 55 & -14.9 & -6.9 & 54.1 & -23.1 & 0.374 & AREAL \\
-2 & 1971 & 2.37E-16 & 5.26 & -51.1 & 25.6 & -10.5 & -53.6 & 17.8 & 10.2 & AREAL \\
-1 & 217 & 0.00214 & 4.55 & -4.48 & -13.7 & 10.3 & -6.46 & -14.9 & 9.96 & AREAL \\
+14990 & <.001 & 6.31 & -49 & -24.7 & 6.35 & -54.8 & -32.5 & 3.73 & l Heschl's G.; lateral superior Occipital C., Angular G., posterior Supramarginal G., middle Temporal G. posterior to anterior; part of Planum Temporale, anterior superior Temporal G. \\
+14469 & <.001 & 6.48 & 55 & -14.9 & -6.9 & 54.1 & -23.1 & 0.374 & r. Superior Temporal G.; Angular G., Supramarginal G., middle Temporal G. posterior to anterior, Heschl's G. , inferior Frontal Gyrus pars opercularis (BA44); parts of Planum Temporale \& pars triangularis (BA45) \\
+1971 & <.001 & 5.26 & -51.1 & 25.6 & -10.5 & -53.6 & 17.8 & 10.2 & frontal Orbital C.; Precentral G. (Broca's area BA44), pars triangularis \& Inferior Frontal G.; part of pars opercularis (Broca's area BA44); NO Precentral Gyrus \\
+217 & .002 & 4.55 & -4.48 & -13.7 & 10.3 & -6.46 & -14.9 & 9.96 & l. Thalamus \\
 \bottomrule
 \end{tabular}
-  \todo[inline]{Table not referenced in the text}
 \end{table*}
 
+
 \begin{table*}[t]
-\caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast proper nouns (``ne'') > coordinate conjunctions (``kon'').}
+\caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast proper nouns (``ne'') > coordinate conjunctions (``kon''). Clusters sorted by voxel size. The first brain structure given contains the voxel with the maximum Z-Value.}
 \label{tab:cope3}
-\begin{tabular}{rrrrrrrrrrp{3cm}}
+\begin{tabular}{rrrrrrrrrp{6cm}}
 \toprule
-& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
-\\ \cmidrule{5-7} \cmidrule{8-10}
-Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
+& & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+\\ \cmidrule{4-6} \cmidrule{7-9}
+voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
 \midrule
-9 & 7691 & 2.80E-45 & 6.23 & -61.2 & -22.3 & 11.6 & -55.9 & -20.7 & 4.03 & AREAL \\
-8 & 5928 & 5.97E-38 & 5.5 & 57.5 & -26.2 & 15.9 & 58.2 & -15.8 & 3.55 & AREAL \\
-7 & 479 & 1.13E-06 & 4.62 & -5.42 & -32.3 & 25.3 & -4.28 & -39.4 & 22.8 & AREAL \\
-6 & 420 & 4.65E-06 & 4.85 & -4.76 & -71.4 & 40.1 & -3.74 & -68.5 & 36.2 & AREAL \\
-5 & 407 & 6.38E-06 & 5.07 & 6.83 & -40.1 & 24.5 & 6.67 & -38.7 & 23.1 & AREAL \\
-4 & 294 & 0.000115 & 4.57 & 17 & -69.1 & 34.6 & 17.7 & -67.1 & 34.9 & AREAL \\
-3 & 121 & 0.0237 & 3.95 & 8.12 & -98.2 & 0.359 & 8.75 & -97.7 & -3.15 & AREAL \\
-2 & 117 & 0.0274 & 4.38 & 36.9 & -24.8 & 4.55 & 37.4 & -23 & 3.09 & AREAL \\
-1 & 115 & 0.0295 & 4.08 & -44.6 & -71.7 & 21.7 & -43.6 & -70.8 & 23.4 & AREAL \\
+7691 & <.001 & 6.23 & -61.2 & -22.3 & 11.6 & -55.9 & -20.7 & 4.03 & l. Planum Temporale; Angular G., Supramarginal G., Heschl's G., Superior Temporal G., Planum Polare, Temporal Pole \\
+5928 & <.001 & 5.5 & 57.5 & -26.2 & 15.9 & 58.2 & -15.8 & 3.55 & r Parietal Operculum, Planum Temporale; Heschl's G., superior Temporal G., Planum Polare, Temporal Pole; part of Angular G. \\
+479 & <.001 & 4.62 & -5.42 & -32.3 & 25.3 & -4.28 & -39.4 & 22.8 & l. posterior Cingulate G. \\
+420 & <.001 & 4.85 & -4.76 & -71.4 & 40.1 & -3.74 & -68.5 & 36.2 & l. Precuneus \\
+407 & <.001 & 5.07 & 6.83 & -40.1 & 24.5 & 6.67 & -38.7 & 23.1 & r. posterior Cingulate C. \\
+294 & <.001 & 4.57 & 17 & -69.1 & 34.6 & 17.7 & -67.1 & 34.9 & r. Preceus \\
+121 & .024 & 3.95 & 8.12 & -98.2 & 0.359 & 8.75 & -97.7 & -3.15 & r. Occipital Pole \\
+117 & .027 & 4.38 & 36.9 & -24.8 & 4.55 & 37.4 & -23 & 3.09 & r. Heschl's G. \\
+115 & .029 & 4.08 & -44.6 & -71.7 & 21.7 & -43.6 & -70.8 & 23.4 & l. superior lateral Occipital C.\\
 \bottomrule
 \end{tabular}
-\todo[inline]{Table not referenced in the text}
-
 \end{table*}
 
 
 \begin{table*}[t]
-    \caption{Significant clusters (Z-Threshold Z>3.4; p<.05; corrected) for the contrast nouns (``nn'') > coordinate conjunctions (``kon'').}
+\caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast nouns (``nn'') > coordinate conjunctions (``kon''). Clusters sorted by voxel size. The first brain structure given contains the voxel with the maximum Z-Value.}
 \label{tab:cope5}
-\begin{tabular}{rrrrrrrrrrp{3cm}}
+\begin{tabular}{rrrrrrrrrp{6cm}}
 \toprule
-& & & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
-\\ \cmidrule{5-7} \cmidrule{8-10}
-Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure \\
+& & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+\\ \cmidrule{4-6} \cmidrule{7-9}
+voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
 \midrule
-4 & 3166 & 2.79E-25 & 5.75 & -61.3 & -10.6 & -2.93 & -57.7 & -14.3 & 1.47 & AREAL \\
-3 & 1753 & 7.18E-17 & 4.99 & 63.3 & -15.1 & 8.41 & 58 & -13 & 4.02 & AREAL \\
-2 & 166 & 0.00446 & 4.5 & 6.83 & -40.1 & 24.5 & 7.01 & -39.7 & 24.2 & AREAL \\
-1 & 149 & 0.00793 & 4.13 & 18.2 & -67.8 & 36 & 19.8 & -66.4 & 34.6 & AREAL \\
+3166 & <.001 & 5.75 & -61.3 & -10.6 & -2.93 & -57.7 & -14.3 & 1.47 & l. anterior superior Temporal G.; posterior Supramarginal G., Parietal Operculum, Planum Temporale, anterior superior Temporal G., Planum Polare; part of Heschl's Gyrus \\
+1753 & <.001 & 4.99 & 63.3 & -15.1 & 8.41 & 58 & -13 & 4.02 & r. Planum Temporale, Superior Temporal Gyrus; part of Heschl's G. \& Planum Polare \\
+166 & .004 & 4.5 & 6.83 & -40.1 & 24.5 & 7.01 & -39.7 & 24.2 & r. posterior Cingulate G. \\
+149 & .008 & 4.13 & 18.2 & -67.8 & 36 & 19.8 & -66.4 & 34.6 & r. Precuneus \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -577,6 +494,8 @@ Cl.\-Index & Voxels & $p_{corr.}$ & Z\-max & X & Y & Z  & X & Y & Z & structure 
 % careful what you pretend, check & cite (again)
 % \citep{binder2009semantic, dewitt2012phoneme}.
 Discussion: alles total awesome; Correlation der (konvolvierten Regressoren) is gut (s. figure \ref{fig:reg-corr}; Ergebnisse ergeben Sinn -> benutzt die Anno for awesome research
+All contrasts show bilateral clusters in speech-related regions (e.g. ) but all bigger in voxel count on the left side => Clear involvement of the right hemisphere but bias to the left (see \citep{hamilton2018revolution}
+
 
 \section*{Data availability}
 % aus der Schnitt-Annotation übernommen
@@ -632,38 +551,5 @@ We are grateful to \href{www.florianschurz.de}{Florian Schurz} who initiated doi
 
 {\small\bibliographystyle{unsrtnat}
 \bibliography{references}}
-
-\clearpage
-% der alte Entwurf der Tabelle; hier mit rules/description in der Tabelle
-\begin{center}
-\begin{tabular}{ |c|c|c|c| }
-\hline
-category & description & examples & count\\
-\hline
-geo & immobile landmarks & building, tree, street, alley, meadow, cornfield, river & 125\\
-geo-room & rooms / locales; elements defining a locale's spatial layout & living room; wall, door, window, floor, turf & 105\\
-setting\_new & first-time mentioned setting & on a bridge, on an alley, on campus & 86\\
-setting\_rec & recurring setting & at the bus stop & 37\\
-body & trunk of the body; overlaid clothes & back, hip, shoulder; jacket, dress, shirt & 66\\
-bodypart & limbs and trousers & arm, finger, leg, toe & 69\\
-face & face or parts of it & face, ear, nose, mouth & 47\\
-head & non-face parts of the head; worn headgear & head, hair, ear, neck, helmet & 36\\
-furniture & movable objects insides/outsides & bench, bed, table, chair & 50\\
-object & countable entities with firm boundaries & feather, telephone, car & 232\\
-objects & countable entities with firm boundaries & wheels, photos & 52\\
-female & female person & nurse, mother, women & 31\\
-females & female persons & women & 3\\
-fname & female name & Jenny, Carla & 74\\
-male & male person & man, father, soldier & 89\\
-males & concrete male persons & boys, opponents & 23\\
-mname & male name of person present in the scene & Forrest, Bubba, Kennedy & 291\\
-persons & concrete persons of unknown sex / gender & hippies, patients & 17\\
-++ & nouns, adverbial adjectives, and adverbs & in the evening, it's daytime, later \\
-\hline
-\label{tab:descr-nouns-old}
-\end{tabular}
-\todo[inline]{If the descriptive nounes are moved to the PPA paper, this table should be removed}
-\end{center}
-
 
 \end{document}
