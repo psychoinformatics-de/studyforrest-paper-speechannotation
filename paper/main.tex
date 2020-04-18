@@ -172,30 +172,47 @@ sentence, we employed the Python package spaCy v2.2.1
 (\texttt{de\_core\_news\_md} trained on the TIGER Treebank corpus \citep{brants2004tiger}.
 Non-speech vocalizations were dropped from the sentences before analysis.
 We then performed analyses regarding part-of-speech (i.e. grammatical tagging or word-category disambiguation), syntactic dependencies, lemmatization, word embedding (i.e. semantic similarity), and if the word is one of the most common words of the German language.
-Results of these analyzes were added to the annotation which is available as a Praat TextGrid file (\texttt{fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid} and as a tab separated file (\texttt{fg\_rscut\_ad\_ger\_speech\_tagged.tsv}) in accordance with the brain imaging data structure (\href{https://bids.neuroimaging.io/}{BIDS}) \citep{gorgolewski2016bids}).
+Results of these analyzes were added to the annotation which is available as a Praat TextGrid file (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid} and as a tab separated file (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv}) in accordance with the brain imaging data structure (\href{https://bids.neuroimaging.io/}{BIDS}) \citep{gorgolewski2016bids}).
 
 
 \subsection*{Data Legend}
+The annotation in TextGrid format comprises 10 tiers: person, sentence (the text of a sentence), words (thex text of single words), pos, tag, dep, lemma, stop, vector and phones (pronounciation of a phoneme).
+The annotation in TSV format comprises 11 columns: onset, duration, person, text, pos, tag, dep, lemma, stop, vector.
+In the following description column header labels are given in parenthesis.
 
 
 \subsubsection*{Start (\texttt{start})}
-the onset of the sentences, word or phoneme provided in seconds of stimulus onset.
+The onset of the sentences, word or phoneme. Time stamps are provided in the format seconds.milliseconds of stimulus onset.
+
 
 \subsubsection*{Duration (\texttt{end})}
-the duration of the sentences, word or phoneme provided in seconds.
+The duration of the sentences, word or phoneme provided provided in the format seconds.milliseconds.
+
 
 \subsubsection*{Speaker identity (\texttt{person})}
-name of the persons that speaks the sentence, word or phoneme (s. table \ref{tab:speakers}).
+Name of the person that speaks the sentence, word or phoneme (cf. table \ref{tab:speakers} for the ten most often ocurring speakers).
 
-% einige Eigennamen (NE/NN) wurden automatisch korrigiert, weil das Sprachmodell
-% die naheliegenderweise nicht kannte; eine Liste dieser Eigennamen befindet
-% sich oben in dem entsprechendem Skript
+
+\subsubsection*{Text (\texttt{text})}
+The text of a spoken sentence or word, or the pronounciation of a phoneme.
+Phonemes of German words follow the Prosodylab PhoneSet, English words follow the ARPAbet PhoneSet.
+
+
+% einige Eigennamen (NE/NN) wurden automatisch durch das Skript korrigiert, weil das Sprachmodell die naheliegenderweise nicht kannte
+% eine Liste dieser Eigennamen befindet sich oben in dem entsprechendem Skript
 % add_part-of-speech-tagging2textgrid.py
 \subsubsection*{Simple part-of-speech tag (\texttt{pos})}
-This column contains tags for whole sentences ("SENTENCE"), phonemes ("PHONEME") and non-speech vocalizations (NONSPEECH). For single words, it contains a simple part-of-speech tagging (grammatical tagging; word-category disambiguation) taking the relationship with adjacent and related words in the same sentence into account (s. table \ref{tab:pos}). This simple part-of-speech tagging tags follow the \href{https://universaldependencies.org}{Universal Dependencies} v2 POS tag set.
+A simple part-of-speech tagging (grammatical tagging; word-category disambiguation) of a word
+The simple part-of-speech tagging tags follow the \href{https://universaldependencies.org}{Universal Dependencies} v2 POS tag set.
+See \ref{tab:pos} for a description of tag labels and respective counts of all 15 labels.
+Additionally in cells of this column, sentences are tagged as "SENTENCE", and phonemes are tagged as "PHONEME" to facilitate sorting and filtering in potential further processing steps of the annotation.
 
 \begin{table*}[t]
-\caption{Simple part-of-speech tagging (POS). All 15 labels sorted alpapetically. Descriptions were taken from spaCy.explain(). Non-speech vocalizations (NONSPEECH) were manually identified.}
+\caption{Simple part-of-speech tagging (POS).
+All 15 labels sorted alpapetically.
+Descriptions were taken from spaCy.explain().
+Non-speech vocalizations (NONSPEECH) were manually identified.
+Counts for the whole stimulus (all) and for each of the eight stimulus segments refer to the audio-description.}
 \label{tab:pos}
 \begin{tabular}{lllllllllll}
 \toprule
@@ -222,10 +239,15 @@ X & \aPosX & \aPosXAll & \aPosXI & \aPosXII & \aPosXIII & \aPosXIV & \aPosXV & \
 
 
 \subsubsection*{Detailed part-of-speech tag (\texttt{tag})}
-A detailed part-of-speech tagging following the TIGER Treebank annotation scheme \citep{brants2004tiger}(s. table \ref{tab:tag}) which is based on the \href{https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets}{Stuttgart-Tübingen-Tagset} \citep{schiller1999stts}.
+% \href{https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets}{Stuttgart-Tübingen-Tagset}
+A detailed part-of-speech tagging of a word following the TIGER Treebank annotation scheme \citep{brants2004tiger} which is based on the Stuttgart-Tübingen-Tagset \citep{schiller1999stts}.
+See table \ref{tab:tag} for a descripion  of tag labels and the respective counts of the 15 most often occuring labels.
 
 \begin{table*}[t]
-\caption{Detailed part-of-speech tagging (TAG). The 15 most often occurring labels (overall 43 labels) sorted alphabetically. Descriptions were taken from spaCy.explain().}
+\caption{Detailed part-of-speech tagging (TAG).
+The 15 most often occurring labels (overall 43 labels) sorted alphabetically.
+Descriptions were taken from spaCy.explain().
+Counts for the whole stimulus (all) and for each of the eight stimulus segments refer to the audio-description.}
 \label{tab:tag}
 \begin{tabular}{lllllllllll}
 \toprule
@@ -252,11 +274,15 @@ VVPP & \aTagVvpp & \aTagVvppAll & \aTagVvppI & \aTagVvppII & \aTagVvppIII & \aTa
 
 
 \subsubsection*{Syntactic dependency (\texttt{dep})}
-A word's column entry provides information about a word's syntactic dependency. Information following the TIGER Treebank annotation scheme \citep{brants2004tiger} is given in the format:
-"arc label;word's head;word's child1, word's child2, ..." where the "arc label" (s. table \ref{tab:dep}) describes the type of syntactic relation that connects a "child" (the single word) to its "head".
+Information about a word's syntactic dependency taking the relationship with adjacent and related words in the same sentence into account.
+Information followsing the TIGER Treebank annotation scheme \citep{brants2004tiger} and is given in the format:
+``arc label;word's head;word's child1, word's child2, ...'', where the ``arc label'' (cf. table \ref{tab:dep}) describes the type of syntactic relation that connects a "child" (the single word) to its "head".
 
 \begin{table*}[t]
-\caption{Syntactic dependencies (DEP). The 15 most often occuring labels (overall 37 labels) sorted alphabetically. Descriptions were taken from spaCy.explain().}
+\caption{Syntactic dependencies (DEP).
+The 15 most often occuring labels (overall 37 labels) sorted alphabetically.
+Descriptions were taken from spaCy.explain().
+Counts for the whole stimulus (all) and for each of the eight stimulus segments refer to the audio-description.}
 \label{tab:dep}
 \begin{tabular}{lllllllllll}
 \toprule
@@ -283,24 +309,23 @@ svp & separable verb prefix & \aDepSvpAll & \aDepSvpI & \aDepSvpII & \aDepSvpIII
 
 
 \subsubsection*{Lemmatization (\texttt{lemma})}
-For single words, the base form (root) of the word
+The base form (root) of a word.
 
 \subsubsection*{Common Word (\texttt{stop})}
-For single words, this column provides information if the word is part of a stop list, hence one of the most common words in the German language or not (``True'' vs. ``False'')?
+This column's cell provides information if the word is part of a stop list, hence one of the most common words in the German language or not (``True'' vs. ``False'')?
 
 \subsubsection*{Word embedding (semantic similarity) (\texttt{vector})}
-A word's column entry contains a 300-dimensional \href{https://en.wikipedia.org/wiki/Word2vec}{word vector} providing a multi-dimensional meaning representation of the word. Uncommon and out-of-vocabulary words with a vector consisting of 300 dimensions of 0's were set to '\#' [to save space].
+% \href{https://en.wikipedia.org/wiki/Word2vec}{word vector}
+A 300-dimensional word2vec providing a multi-dimensional meaning representation of a word.
+Out-of-vocabulary words with a vector consisting of 300 dimensions of zeroes were set to '\#' to save space.
 
-\subsubsection*{Phonemes (\texttt{phones})}
-Phonemes of German words follow the Prosodylab PhoneSet, English words follow the ARPAbet PhoneSet.
 
 \subsection*{Dataset content}
-% habe folgend die Art und Weise aus der Datei p.tex der Schnitt-Annotation übernommen, wobei das im veröffentlichten Paper ganz anders aussieht
-% noch mit so Boxen und doi's
-% ACHTUNG: github erlaubt laut datalad handbook keine Dateien >100MB
-% Anno im Praat Format ist >200MB (und die audiodateien ohnehin)
-The released annotation comes in two different versions. First, in a (text-based) .TextGrid file that can be loaded into Praat (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid}).
-Second, as a text-based tab-separated-value (TSV) formatted table  (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv})  in accordance with the brain imaging data structure BIDS \citep{gorgolewski2016bids} (\href{https://bids.neuroimaging.io/}{bids.neuroimaging.io}). The source code for all descriptive statistics included in this paper is available in \texttt{code/descriptive-statistics.py} (Python script).
+% \href{https://bids.neuroimaging.io/}{bids.neuroimaging.io}
+\todo[inline]{darauf gehe ich schon am Ende von “annotation procedure” vor Datalegend ein, weil ich bereits dort erwähne, dass es zwei Versionen gibt und sich die Datalegend auf die TSV file bezieht.}
+The released annotation comes in two different versions. First, in a (text-based) TextGrid file that can be loaded into Praat (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid}).
+Second, as a text-based tab-separated-value (TSV) formatted table  (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv}) in accordance with the brain imaging data structure BIDS \citep{gorgolewski2016bids}
+The source code for all descriptive statistics included in this paper is available in \texttt{code/descriptive-statistics.py} (Python script).
 
 
 \section*{Dataset validation}
@@ -312,25 +337,26 @@ Second, as a text-based tab-separated-value (TSV) formatted table  (\texttt{anno
 In order to assess data quality, we investigated if contrasting speech-related events to non-speech related events lead to increased activation in areas known to be involved in semantic processing \citep{binder2009semantic, dewitt2012phoneme}.
 Moreover, we tested if similar linguistic concepts providing high semantic information (proper nouns and nouns) contrasted to a concept providing low semantic information (coordinate conjunctions) lead to increased activation in congruent brain areas.
 % Preprocessing
-% die Daten aus Hanke2014 sind eigentlich nicht bewegungskorrigiert und aligned
-% Quelle ist in vorliegendem Falle:
-% juseless.inm7.de:/data/project/studyforrest/collection/phase1
-% bei allem, was folgend mit alignment/co-registration zu tun hat, bin ich mir nicht sicher
-We used fMRI BOLD data of the 2h audio-description (7 Tesla, 2s TR, partial
-brain coverage with 1.4 mm isotropic voxels) \citep{hanke2014audiomovie} that
-were already corrected for motion and aligned [wie?] to study specific group template [co-registered to MNI?].
-All further steps analysis steps were carried out using Feat v6.00 (FMRI Expert
-Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB’s
-Software Library)\citep{smith2004fsl}. Data were temporally high-pass filtered (cut-off 150s), spatially smoothed (Gaussian kernel; 4.0 mm FWHM), and the brain was extracted from surrounding tissue [keine Plan, ob die Reihenfolge so korrekt ist]. A grand-mean intensity normalization of the entire 4D dataset was performed by a single multiplicative factor.
+\todo[inline]{die Daten aus Hanke2014 sind nicht bewegungskorrigiert und nicht  aligned. Quelle ist in vorliegendem Falle:
+juseless.inm7.de:/data/project/studyforrest/collection/phase1;
+bei allem, was folgend mit alignment/co-registration zu tun hat, bin ich mir nicht sicher}
+We used fMRI BOLD data of the 2h audio-description (7 Tesla, 2s TR, partial brain coverage with 1.4 mm isotropic voxels) \citep{hanke2014audiomovie} that were already corrected for motion and aligned [+++wie?+++] to study specific group template [+++co-registered to MNI?+++].
+All further steps analysis steps were carried out using Feat v6.00 (FMRI Expert Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB’s Software Library)\citep{smith2004fsl}.
+Data were temporally high-pass filtered (cut-off 150s), spatially smoothed (Gaussian kernel; 4.0 mm FWHM), and the brain was extracted from surrounding tissue [+++kein Plan, ob die Reihenfolge so korrekt ist].
+A grand-mean intensity normalization of the entire 4D dataset was performed by a single multiplicative factor.
 We implemented a standard three-level, voxel-wise general linear model (GLM) to average parameter estimates across the eight stimulus segments, and later across 19 subjects.
 
-\todo[inline]{I think this table doesn't talk about 'regressors'. It talks about the
-events that were selected/available to build GLM regressors from them. Hence the term
-'event' should be used here, and cross-reference to figure \ref{fig:reg} should be made}
-\todo[inline]{what does e1-12 stand for? It makes the label column too wide}
+\todo[inline]{I think this table doesn't talk about 'regressors'. It talks about the events that were selected/available to build GLM regressors from them.
+    Hence the term 'event' should be used here, and cross-reference to figure \ref{fig:reg-corr} should be made}
+\todo[inline]{what does e1-12 stand for? It makes the label column too wide; das waren hline Befehle}
 
 \begin{table*}[t]
-    \caption{Overview of the 26 regressors for the validation analysis. The first column contains the number of the regressor in the design file of FSL \citep{smith2004fsl}. The 20 most often occuring labels from the detailed part-of speech tagging were used as such. Words belonging to all other labels were pooled to ``tag\_other''. The regressor ``sentence'' contains the end of complete grammatical sentences. The regressor ``phones'' contains the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32). The regressor ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent low-level auditory nuissance regressors comprising one event for every movie frame (40ms).}
+    \caption{Overview of the 26 regressors for the validation analysis.
+The first column contains the number of the regressor [+++jetzt offenbar nicht mehr+++] in the design file of FSL \citep{smith2004fsl}.
+The 20 most often occuring labels from the detailed part-of speech tagging were used as such.
+Words belonging to all other labels were pooled to ``tag\_other''.
+The regressor ``sentence'' contains the end of complete grammatical sentences. The regressor ``phones'' contains the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32).
+The regressor ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent low-level auditory nuissance regressors comprising one event for every movie frame (40ms).}
 \label{tab:regressors}
 \footnotesize
 \begin{tabular}{lp{3.5cm}lllllllll}
@@ -370,16 +396,27 @@ fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFga
 \end{table*}
 
 
-
 % 1st lvl
-At the first level analysing each segment for each subject individually, we defined 26 regressors (s. table \ref{tab:regressors})
- based on information drawn from the annotation. The 20 most often occuring detailed tag labels (``nn'' with N=\rNnAll\space to ``prf'' with N=\rPrfAll) were modelled as such from the onset to offset of each word. The remaining tags were pooled to a single regressor (``tag\_other``; N=\rTagotherAll). The top 80 phonemes (``n'' with n=6053 to ``IY1'' with N=32) were pooled to the regressor ``phonemes'' (N=\rPhonesAll) to be used as a nuisance regressors.
+\todo[inline]{Hier (?) und das ggf auch mehr auf Korrelation der Regressoren eingehen. \ref{fig:reg-corr}.}
+At the first level analysing each segment for each subject individually, we defined 26 regressors (s. table \ref{tab:regressors}) based on information drawn from the annotation.
+The 20 most often occuring detailed tag labels (``nn'' with N=\rNnAll\space to ``prf'' with N=\rPrfAll) were modelled as such from the onset to offset of each word. The remaining tags were pooled to a single regressor (``tag\_other``; N=\rTagotherAll).
+The top 80 phonemes (``n'' with n=6053 to ``IY1'' with N=32) were pooled to the regressor ``phonemes'' (N=\rPhonesAll) to be used as a nuisance regressors.
 The ends of (complete) grammatical sentences were used as the onset of events, abitrarily lasting 0.2s, for the regressors ``sentence'' (N=\rSentenceAll).
-A ``no-speech'' regressor (``no-sp''; N=\rNospAll) serving as a control condition was created by the following rationale: events were fitted into intervals between onsets and offsets of sentences/words assumed to contain no audible/comprehensible speech. Each event of the no-speech condition had a minimum distance of 1.8s to onset/offsets of a sentence or isolated word and to each other onset of the no-speech condition (s. anno2events-files.py). A length of 0.07s was chosen for the events of the no speech regressors  matching the average length of phonemes.
+A ``no-speech'' regressor (``no-sp''; N=\rNospAll) serving as a control condition was created by the following rationale: events were fitted into intervals between onsets and offsets of sentences/words assumed to contain no audible/comprehensible speech.
+Each event of the no-speech condition had a minimum distance of 1.8s to onset/offsets of a sentence or isolated word and to each other onset of the no-speech condition (s. anno2events-files.py).
+A length of 0.07s was chosen for the events of the no speech regressors  matching the average length of phonemes.
+
 Two regressors reflecting auditory (low-level) features (left-right difference in loudness and root mean squared loudness) aligned to and averaged across the length of every movie frame (40 ms) were modelled to reduce nuisance effects.
-Hier (?? und das ggf auch mehr auf Korrelation der Regressoren eingehen. \ref{fig:reg-corr}).
-Those 26 regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function. Temporal derivatives were also included in the design matrix. The design was subjected to the same temporal filtering as the BOLD time series. Finally, six motion parameters were used as additional nuisance regressors.
-The following six t-contrasts were defined: 1) words (i.e. all 21 tag-related regressors; N=15985) > no-speech; 2) no-speech > words 3) proper nouns (``ne''; N=\rNeAll) > coordinate conjunctions (``kon''; N=\rKonAll); 4) coordinate conjunctions > proper nouns; 5) nouns (``nn'') > coordinate conjunctions, and 6) coordinate conjunctions > nouns. The first level analysis that fitted each voxel’s time course separately for each subject was performed in functional space preserving the orientation of the EPI images [richtig?].
+Those 26 regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function.
+Temporal derivatives were also included in the design matrix.
+The design was subjected to the same temporal filtering as the BOLD time series. Finally, six motion parameters were used as additional nuisance regressors.
+The following six t-contrasts were defined:
+1) words (i.e. all 21 tag-related regressors; N=15985) > no-speech;
+2) no-speech > words 3) proper nouns (``ne''; N=\rNeAll) > coordinate conjunctions (``kon''; N=\rKonAll);
+4) coordinate conjunctions > proper nouns;
+5) nouns (``nn'') > coordinate conjunctions, and
+6) coordinate conjunctions > nouns.
+The first level analysis that fitted each voxel's time course separately for each subject was performed in functional space preserving the orientation of the EPI images [+++richtig?+++].
 
 % Also weshalb wird das temporal filtering der regressoren wann wie gemacht??? -> nachschlagen
 % “You should normally apply the same temporal filtering to the model as you have applied to the data, as the model is designed to look like the data before temporal filtering was applied. In this way, long-time-scale components in the model will be dealt with correctly. This is set with the Apply temporal filtering option.”
@@ -387,34 +424,43 @@ The following six t-contrasts were defined: 1) words (i.e. all 21 tag-related re
   \centering
 % \includegraphics[width=0.4\textwidth]{frog.jpg}
   \includegraphics[width=\linewidth]{figures/regressor-corr}
-  \caption{Pearson correlation coefficients of the 26 regressors used in the analysis to validate the annotation. Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function, temporally filtered with the same high-pass filter (cut-off 150s) as the BOLD time series, and cocatenated across runs before performing the correlation.}
+  \caption{Pearson correlation coefficients of the 26 regressors used in the analysis to validate the annotation.
+Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function, temporally filtered with the same high-pass filter (cut-off 150s) as the BOLD time series, and cocatenated across runs before performing the correlation.}
 \label{fig:reg-corr}
 \end{figure*}
 
 
-
 % 2nd lvl and 3rd lvl
-The second-level analysis which averaged contrast estimates across the eight stimulus segments per subject was carried out using a fixed effects model by forcing the random effects variance to zero in FLAME (FMRIB’s Local Analysis of Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}. The third level analysis which averaged contrast estimates across subjects was carried out using FLAME stage 1 with automatic outlier de-weighting \citep{beckmann2003general, woolrich2004multilevel, woolrich2008robust}.
-Z (Gaussianised T/F) statistic images were thresholded using clusters determined by Z>3.4 and a (corrected) cluster significance threshold of p<.05 \citep{woolrich2008robust}. Brain regions associated with observed clusters were determined with the Juelich Histological Atlas \citep{eickhoff2005toolbox,eickhoff2007assignment} the Harvard-Oxford Cortical Atlas \citep{desikan2006automated}[really?] provided by FSL.
+The second-level analysis which averaged contrast estimates across the eight stimulus segments per subject was carried out using a fixed effects model by forcing the random effects variance to zero in FLAME (FMRIB’s Local Analysis of Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}.
+The third level analysis which averaged contrast estimates across subjects was carried out using FLAME stage 1 with automatic outlier de-weighting \citep{beckmann2003general, woolrich2004multilevel, woolrich2008robust}.
+\todo[inline]{wurde Harvar-Oxford Cortical Atlas verwendet?}
+Z (Gaussianised T/F) statistic images were thresholded using clusters determined by Z>3.4 and a (corrected) cluster significance threshold of p<.05 \citep{woolrich2008robust}.
+Brain regions associated with observed clusters were determined with the Juelich Histological Atlas \citep{eickhoff2005toolbox,eickhoff2007assignment} the Harvard-Oxford Cortical Atlas \citep{desikan2006automated} provided by FSL.
 
 
 % results
 % von Interpretation klar(er) getrennt halten
-figure \ref{fig:results}
+RESULTS:
+
+Figure: \ref{fig:results}
+
 words > no-speech \ref{tab:cope1}
+
 proper nouns > coordinate conjunctions and proper nouns \ref{tab:cope3}
+
 nouns > coordinate conjunctions \ref{tab:cope5}
-Results: The first contrast that contrasted words to moments where no speech is audible in the audio-description (words > no-speech) shows\dots;
+
+The first contrast that contrasted words to moments where no speech is audible in the audio-description (words > no-speech) shows\dots;
 left lateralization (bigger cluster left in BA XY => Broca)
 The contrasts proper nouns > coordinate conjunctions and nouns > coordinate conjunctions identify bilateral, largely congruent (?) areas in areas known to be involved in processing auditory stimuli, word, nouns, semantics.
 
 
 \begin{figure*}
   \centering
-  \label{fig:results}
 % \includegraphics[width=0.4\textwidth]{frog.jpg}
   \includegraphics[width=\linewidth]{figures/slicescolorbars}
   \caption{Mixed-effects group-level (N=14) GLM contrasts for the audio-description of the movie Forrest Gump. All cluster (Z>3.4, p<0.05 cluster-corrected.; MNI template space)}.
+\label{fig:results}
 \end{figure*}
 
 
@@ -480,8 +526,11 @@ voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
 % discussion
 % careful what you pretend, check & cite (again)
 % \citep{binder2009semantic, dewitt2012phoneme}.
-Discussion: alles total awesome; Correlation der (konvolvierten Regressoren) is gut (s. figure \ref{fig:reg-corr}; Ergebnisse ergeben Sinn -> benutzt die Anno for awesome research
+Discussion:
+
+alles total awesome; Correlation der (konvolvierten Regressoren) is gut (s. figure \ref{fig:reg-corr}; Ergebnisse ergeben Sinn -> benutzt die Anno for awesome research
 All contrasts show bilateral clusters in speech-related regions (e.g. ) but all bigger in voxel count on the left side => Clear involvement of the right hemisphere but bias to the left (see \citep{hamilton2018revolution}
+
 \section*{Data availability}
 % aus der Schnitt-Annotation übernommen
 \texttt{This section will be auto-generated.}
