@@ -10,6 +10,44 @@
 	year = 2015
 }
 
+@article{huth2016natural,
+	abstract = "The meaning of language is represented in regions of the cerebral cortex collectively known as the “semantic system”. However, little of the semantic system has been mapped comprehensively, and the semantic selectivity of most regions is unknown. Here we systematically map semantic selectivity across the cortex using voxel-wise modeling of fMRI data collected while subjects listened to hours of narrative stories. We show that the semantic system is organized into intricate patterns that appear consistent across individuals. We then use a novel generative model to create a detailed semantic atlas. Our results suggest that most areas within the semantic system represent information about specific semantic domains, or groups of related concepts, and our atlas shows which domains are represented in each area. This study demonstrates that data-driven methods— commonplace in studies of human neuroanatomy and functional connectivity—provide a powerful and efficient means for mapping functional representations in the brain.",
+	author = "Alexander G Huth and Wendy A de Heer and Thomas L Griffiths and Frédéric E Theunissen and Jack L Gallant",
+	journal = "Nature",
+	localfile = "/home/chris/psyinfo/library/paper/Huth (2016). Natural speech reveals the semantic maps that tile human cerebral cortex.pdf",
+	number = "7600",
+	pages = "453",
+	publisher = "Nature Publishing Group",
+	title = "{Natural speech reveals the semantic maps that tile human cerebral cortex}",
+	volume = "532",
+	year = "2016"
+}
+
+@article{mitchell2008predicting,
+	author = "Tom M Mitchell and Svetlana V Shinkareva and Andrew Carlson and Kai-Min Chang and Vicente L Malave and Robert A Mason and Marcel Adam Just",
+	journal = "science",
+	localfile = "/home/chris/psyinfo/library//home/chris/psyinfo/library/paper/Mitchell (2008). Predicting human brain activity associated with the meanings of nouns.pdf; /home/chris/psyinfo/library/paper/Mitchell (2008). Predicting human brain activity associated with the meanings of nouns.pdf",
+	number = "5880",
+	pages = "1191–1195",
+	publisher = "American Association for the Advancement of Science",
+	title = "{Predicting human brain activity associated with the meanings of nouns}",
+	volume = "320",
+	year = "2008"
+}
+
+@article{hickok2007cortical,
+	abstract = "Despite decades of research, the functional neuroanatomy of speech processing has been difficult to characterize. A major impediment to progress may have been the failure to consider task effects when mapping speech-related processing systems. We outline a dual-stream model of speech processing that remedies this situation. In this model, a ventral stream processes speech signals for comprehension, and a dorsal stream maps acoustic speech signals to frontal lobe articulatory networks. The model assumes that the ventral stream is largely bilaterally organized — although there are important computational differences between the left- and right-hemisphere systems — and that the dorsal stream is strongly left-hemisphere dominant.",
+	author = "Gregory Hickok and David Poeppel",
+	journal = "Nature Reviews Neuroscience",
+	localfile = "/home/chris/psyinfo/library/paper/Hickok (2007). The cortical organization of speech (review).pdf",
+	number = "5",
+	pages = "393–402",
+	publisher = "Nature Publishing Group",
+	title = "{The cortical organization of speech processing}",
+	volume = "8",
+	year = "2007"
+}
+
 @article{hasson2004intersubject,
 	author = "Uri Hasson and Yuval Nir and Ifat Levy and Galit Fuhrmann and Rafael Malach",
 	journal = "Science",
@@ -384,9 +422,40 @@
 
 @misc{ffmpeg,
 	author = "“FFmpeg Developers”",
-	title = "{ffmpeg tool (Version 4.1.4) [Software].
-Available from http://ffmpeg.org/
-}",
+	title = "{FFmpeg tool (Version 4.1.4) [Software]. Available from http://ffmpeg.org/}",
 	year = "2019"
+}
+
+@article{saenz2014tonotopic,
+	author = "Melissa Saenz and Dave RM Langers",
+	journal = "Hearing research",
+	localfile = "/home/chris/psyinfo/library/paper/Saenz (2013). Tonotopic mapping of human auditory cortex (review).pdf",
+	pages = "42–52",
+	publisher = "Elsevier",
+	title = "{Tonotopic mapping of human auditory cortex}",
+	year = "2014"
+}
+
+@article{arsenault2015distributed,
+	author = "Jessica S Arsenault and Bradley R Buchsbaum",
+	journal = "Journal of Neuroscience",
+	localfile = "/home/chris/psyinfo/library/paper/Arsenault (2016). Distributed Neural Representations of Phonological Features during Speech Perception.pdf",
+	number = "2",
+	pages = "634–642",
+	publisher = "Soc Neuroscience",
+	title = "{Distributed neural representations of phonological features during speech perception}",
+	volume = "35",
+	year = "2015"
+}
+
+@article{mesgarani2014phonetic,
+	author = "Nima Mesgarani and Connie Cheung and Keith Johnson and Edward F Chang",
+	journal = "Science",
+	localfile = "/home/chris/psyinfo/library/paper/Mesgarani (2014). Phonetic Feature Encoding in Human Superior Temporal Gyrus.pdf",
+	number = "6174",
+	pages = "1006–1010",
+	publisher = "American Association for the Advancement of Science",
+	title = "{Phonetic feature encoding in human superior temporal gyrus}",
+	year = "2014"
 }
 
