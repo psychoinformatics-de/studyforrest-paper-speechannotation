@@ -59,7 +59,6 @@ annnotation, language, speech, lateralization, narrative, natural stimulation, f
 \clearpage
 
 \section*{Introduction}
-\todo[inline]{Bitte am Ende (?) der Einleitung etwas zu "reproducible research" \& "datalad dataset" bringen}
 Cognitive neuroimaging research is moving towards studying brain behavior
 under conditions of real-life-like complexity. Motion pictures \citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not, lerner2011topographic} are increasingly utilized as so called ``naturalistic stimuli''.
 
@@ -73,12 +72,12 @@ elucidated how the brain responds to visual features of a movie
 \citep{bartels2004mapping} or speech-related features of a narrative
 \citep{rocca2019language}.
 
-\todo[inline]{In der Tabelle ausführlicher beschrieben als hier (ist okay so, denke ich): ``sentences'' sind hier nicht vollständige Sätze im linguistischen Sinne (Subjekt, Prädikat), sondern auch Ausrufe ("Forrest!") oder mitunter isolierte non-speech "Sätze" ("oouh")}
-For this publication, we annotated the onsets and offsets, and content of sentences, single words, and phonemes spoken in the audio-visual movie ``Forrest Gump'' \citep{ForrestGumpMovie} and its audio-description (i.e. the audio-only variant of the movie)\citep{ForrestGumpDVD}(cf. table \ref{tab:overview} for an overview of the annotation's content).
+\todo[inline]{Ausführliche Beschreibung bzgl. Sentences in Tabelle; ich finde es in der Form hier so ok/besser.}
+For this publication, we annotated the exact onsets and offsets, and content of sentences, single words, and phonemes spoken in the audio-visual movie ``Forrest Gump'' \citep{ForrestGumpMovie} and its audio-description (i.e. the audio-only variant of the movie)\citep{ForrestGumpDVD}(see Table \ref{tab:overview} for an overview of the annotation's content).
 fMRI data of participants watching the audio-visual movie \citep{hanke2016simultaneous} and listening to the audio-description \citep{hanke2014audiomovie} are the core data of the publicly available \textit{studyforrest} dataset (\href{www.studyforrest.org}{studyforrest.org}).
 Additional fMRI data of this dataset include the perception of musical genres \citep{hanke2015musical}, and retinotopic mappings and localization of higher visual areas of the same participants \citep{sengupta2016extension}.
 
-\todo[inline]{was meinst du mit: this work seems to improve/replace previous work (in part), it is important to state that clearly and identify which pieces are involved}
+\todo[inline]{this work seems to improve/replace previous work (in part), it is important to state that clearly and identify which pieces are involved => es ist implizit im Text, der von “exact onset \& offsets” und weiter unten von “preliminary annotations” gesprochen wird; keine Ahnung, ob man kommunizieren sollte, dass die preliminary Dinger mal auf github waren; war jedenfalls nicht offensichtlich, beworben o.ä.}
 The current annotation facilitates modelling of hemodynamic brain responses
 correlating with speech-related events in the two stimuli.
 It extends already available annotations of portrayed emotions \citep{labs2015portrayed}, perceived emotions \citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the movie \citep{haeusler2016annotation}.
@@ -93,22 +92,19 @@ The plot of the movie is already carried by an off-screen voice of the main char
 In the largely identical audio-description, a male narrator additionally describes essential aspects of the visual scenery when there is no off-screen voice, dialog, or other relevant auditory content.
 
 \subsection*{Annotation procedure}
-\todo[inline]{wo kommen die "preliminaries transcriptions" etc.? Habe die von Medusa; die "most basic" Datei, die das Dataset enthält ist wie abgesprochen der Merge aus Dialog (ungetrennte Sentences), Narrator \& Non-Speech-Annotation = \texttt{annotation/speech-vocal.csv}}
-Preliminary, orthographic transcriptions of dialogues (\texttt{german\_dialog.csv}), non-speech vocalizations (e.g. laughing or groaning; \texttt{non\_speech\_vocalization.json}), and the audio-description's narrator
-(\texttt{german\_audio\_description.csv}) were merged (\texttt{annotation/speech-vocal.csv}) and converted to Praat's \citep{boersma2019praat} TextGrid format  (\texttt{annotation/speech-vocal.TextGrid}).
+Preliminary, manual orthographic transcriptions of dialogues, non-speech vocalizations (e.g. laughing or groaning) and script for the audio-description's narrator were merged, and converted to Praat's \citep{boersma2019praat} TextGrid format.
 
 % \href{www.fon.hum.uva.nl/praat}{fon.hum.uva.nl/praat}.
-The merged transcription containing a rough onset and offset for usually a couple of sentences was edited in Praat v6.0.22 for manual validation against the original audio.
+The merged transcription containing a rough onset and offset for usually a couple of sentences was edited in Praat for manual validation against the original audio.
 The following steps were done in several passes to iteratively improve the quality of the data:
 approximate temporal onsets and offsets were corrected, and intervals containing several sentences were split into intervals containing only one sentence.
 When two or more persons were speaking simultaneously the less dominant voice was dropped.
-Low volume background speech (especially occurring during music or continuous environmental noise) or low volume non-speech vocalizations that are difficult to recognize by the audience were dropped, too.
-\todo[inline]{what is a regular audience? without neurological disorders ;-); Simpel: eine audience, die den Film nicht 45x auf voller Lautstärke über Kopfhörer mit Transkription danebenliegend gehört hat}
+Low volume background speech (especially occurring during music or continuous environmental noise) or low volume non-speech vocalizations which were subjectively assessed to be incomprehensible for the audience were dropped, too.
 
 % Alignment preparations
 % http://prosodylab.org
 % https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict
-We used the Montreal Forced Aligner v1.0.1 \citep{mcauliffe2017montreal} to
+We used the Montreal Forced Aligner \citep{mcauliffe2017montreal} to
 algorithmically identify the exact onset of offset of the sentences, and the onset and offset of each word and phoneme embedded in the transcribed sentences.
 To enable the aligner to look up the phonemes embedded within each word, we chose a German pronunciation dictionary provided by Prosodylab \citep {gorman2011prosodylab} that uses the Prosodylab PhoneSet to describe the pronounciation of phonemes.
 To improve the detection rate of the automatic alignment, the dictionary was manually updated with German words that occur in the stimuli but were originally missing in the dictionary.
@@ -116,9 +112,7 @@ To improve the detection rate of the automatic alignment, the dictionary was man
 The pronunciation of English words and phonemes occurring in the otherwise German audio track was taken from an English pronunciation dictionary (following the ARPAbet PhoneSet) provided by the Montreal Language Modeling lab (\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org}).
 
 % Alignment
-\todo[inline]{Nicht erwähnt: Wenn die Korrektur der Phoneme unmöglich war, habe ich einfach die Event-Borders zwischen den Phonemen herausgenommen. Wortbeginn und Wortende stimmen dann mit einem neuen, "künstlich-großen Phoneme" überein.
-Das "Groß-Phonem" enthält dann ohne Grenzen zwischen den tatsächlichen Phonemen des Wortes alle Phoneme des Wortes ("es ist kompliziert zu erklären, aber im Grunde ganz einfach). kommt jedoch so selten vor, ist im Grunde "noise" und ist in der Anno sofort als solches zu erkennen.}
-The audio track was converted from FLAC to WAV via FFmpeg v4.1.4 \citep{ffmpeg} to meet the aligner's requirements.
+The audio track was converted from FLAC to WAV via FFmpeg \citep{ffmpeg} to meet the aligner's requirements.
 This WAV file, the transcription of sentences, and the updated dictionary were
 submitted to the aligner that first trained an acoustic model on the data and
 then performed the alignment.
@@ -126,16 +120,16 @@ The resulting .TextGrid file that contains onsets and offsets of words and phone
 In a first step, onsets and offsets on which the automatic alignment performed moderately were corrected in Praat.
 Some low volume sentences that are spoken in continuously noisy settings (pursuit, battle, hurricane, rally, disco) were removed due to poor overall alignment performance.
 In a second step, the complete sentences of the orthographic transcription were copied into the annotation created by the aligner.
-In a third step, the a speaker's identity was added for each sentence (cf. Table \ref{tab:speakers} for the most often occurring speakers).
+In a third step, the a speaker's identity was added for each sentence (see Table \ref{tab:speakers} for the most often occurring speakers).
 During every step results from previous steps were checked again for errors.
 
 \begin{table*}[tbp]
-\caption{Overview of the annotation's content for the whole stimulus and its individual segments used during fMRI scanning. The label ``sentences'' comprises complete grammatical sentences which are additionally marked in the annotation with a full stop at the end (``my feet hurt.'').
-It also comprises questions (``do you want a chocolate?''), exlamations (``run away!), or non-speech vocalizations in quick succession (``ha, ha, ha''), or in isolation (e.g. ``Forrest?'', ``Forrest!'', ``ha'') at time points when speakers switch rapidly. The label ``words'' comprises each word or non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
+    \caption{Overview of the annotation's content for the whole stimulus and its individual segments used during fMRI scanning. The category \texttt{sentences} comprises complete grammatical sentences which are additionally marked in the annotation with a full stop at the end (``my feet hurt.'').
+    It also comprises questions (``do you want a chocolate?''), exlamations (``run away!), or non-speech vocalizations in quick succession (``ha, ha, ha''), or in isolation (e.g. ``Forrest?'', ``Forrest!'', ``ha'') at time points when speakers switch rapidly. The category \texttt{words} comprises each word or non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
 \label{tab:overview}
 \begin{tabular}{llllllllll}
 \toprule
-\textbf{label} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
+\textbf{category} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
 \midrule
 sentences  & \aSentencesAll & \aSentencesI & \aSentencesII & \aSentencesIII & \aSentencesIV & \aSentencesV & \aSentencesVI & \aSentencesVII & \aSentencesVIII \tabularnewline
 words  & \aWordsAll & \aWordsI & \aWordsII & \aWordsIII & \aWordsIV & \aWordsV & \aWordsVI & \aWordsVII & \aWordsVIII \tabularnewline
@@ -173,18 +167,16 @@ Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarra
 % Tiger Treebank Corpus:
 % \href{https://www.ims.uni-stuttgart.de}{ims.uni-stuttgart.de}.
 To automatically analyze linguistic features of each words in their corresponding
-sentence, we employed the Python package spaCy v2.2.1
-(\href{https://spacy.io}{spacy.io}) and its accompanying German language model (\texttt{de\_core\_news\_md} that was trained on the TIGER Treebank corpus \citep{brants2004tiger}.
+sentence, we employed the Python package spaCy \citep{spacy2} and its accompanying German language model (\texttt{de\_core\_news\_md} that was trained on the TIGER Treebank corpus \citep{brants2004tiger}.
 Non-speech vocalizations were dropped from the sentences before analysis.
 We performed analyses regarding part-of-speech (i.e. grammatical tagging or word-category disambiguation), syntactic dependencies, lemmatization, word embedding (i.e. multi-dimensional meaning representation of a word), and if the word is one of the most common words of the German language (i.e. if the word is part of a stop list).
-Results of these analyzes were added to the annotation which is available as a (text-based) Praat TextGrid file (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid} and as a text-based, tab-separated value (TSV) formatted table (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv}) in accordance with the brain imaging data structure (\href{https://bids.neuroimaging.io/}{BIDS}) \citep{gorgolewski2016bids}).
-\todo[inline]{hier bringe ich bereits vor der ``Data availability'' die Pfade/Dateinamen, weil im Folgenden die TSV-Datei in der ``Data legend'' beschrieben wird}
 
 
 \subsection*{Data Legend}
-The annotation in TextGrid format comprises 10 tiers: person, sentence (the text of a sentence), words (the text of a word), pos, tag, dep, lemma, stop, vector and phones (pronounciation of a phoneme).
-The annotation in TSV format comprises 11 columns: onset, duration, person, text (of sentence, word or phoneme), pos, tag, dep, lemma, stop, vector.
-In the following description column header labels are given in parenthesis.
+\todo[inline]{Minimale Info hier, dass es zwei Versionen gibt und sich der folgende Abschnitt auf TSV file bezieht}
+The annotation is available in two different versions, both providing the same information: a) as a (text-based) Praat TextGrid file and b) as a text-based, tab-separated value (TSV) formatted table.
+The following descriptions refer to the ten columns of the TSV file, namely
+\texttt{onset}, \texttt{duration}, \texttt{person}, \texttt{text} (of sentence, word or phoneme), \texttt{pos}, \texttt{tag}, \texttt{dep}, \texttt{lemma}, \texttt{stop}, \texttt{vector}.
 
 
 \subsubsection*{Start (\texttt{start})}
@@ -200,6 +192,8 @@ Name of the person that speaks the sentence, word or phoneme. See Table \ref{tab
 
 
 \subsubsection*{Text (\texttt{text})}
+\todo[inline]{Großphoneme erwähnen;Nicht erwähnt: Wenn die Korrektur der Phoneme unmöglich war, habe ich einfach die Event-Borders zwischen den Phonemen herausgenommen. Wortbeginn und Wortende stimmen dann mit einem neuen, "künstlich-großen Phoneme" überein.
+Das "Groß-Phonem" enthält dann ohne Grenzen zwischen den tatsächlichen Phonemen des Wortes alle Phoneme des Wortes ("es ist kompliziert zu erklären, aber im Grunde ganz einfach). kommt jedoch so selten vor, ist im Grunde "noise" und ist in der Anno sofort als solches zu erkennen.}
 The text of a spoken sentence or word, or the pronounciation of a phoneme.
 Phonemes of German words follow the Prosodylab PhoneSet, English words follow the ARPAbet PhoneSet.
 
@@ -211,18 +205,18 @@ See Table \ref{tab:pos} for a description of the labels and the respective count
 Nouns that spaCy mistook for proper nouns or vice versa were corrected via script.
 % s. list at the beginning of script
 % code/add_part-of-speech-tagging2textgrid.py
-Additionally in cells of this column, sentences are tagged as "SENTENCE", and phonemes are tagged as "PHONEME" to facilitate sorting, and filtering in potential further processing steps.
+Additionally in cells of this column, sentences are tagged as \texttt{SENTENCE}, and phonemes are tagged as \texttt{PHONEME} to facilitate sorting, and filtering in potential further processing steps.
 
 \begin{table*}[t]
-\caption{Simple part-of-speech tagging (pos) performed by the Python package spaCy (\href{https://spacy.io}{spacy.io}).
+\caption{Simple part-of-speech tagging (\texttt{pos}) performed by the Python package spaCy \citep{spacy2}.
 All 15 labels sorted alpapetically.
 Descriptions were taken from spaCy.explain().
-Non-speech vocalizations (NONSPEECH) were manually identified.
-Counts for the whole stimulus (all) and for each of the eight stimulus segments refer to the audio-description.}
+Non-speech vocalizations (\texttt{NONSPEECH}) were manually identified.
+Counts for the whole stimulus (\texttt{all}) and for each of the eight stimulus segments refer to the audio-description.}
 \label{tab:pos}
 \begin{tabular}{lllllllllll}
 \toprule
-textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 ADJ & \aPosAdj & \aPosAdjAll & \aPosAdjI & \aPosAdjII & \aPosAdjIII & \aPosAdjIV & \aPosAdjV & \aPosAdjVI & \aPosAdjVII \tabularnewline
 ADP & \aPosAdp & \aPosAdpAll & \aPosAdpI & \aPosAdpII & \aPosAdpIII & \aPosAdpIV & \aPosAdpV & \aPosAdpVI & \aPosAdpVII & \aPosAdpVIII \tabularnewline
@@ -253,10 +247,10 @@ See Table \ref{tab:tag} for a descripion  of the labels and the respective count
 
 
 \begin{table*}[t]
-\caption{Detailed part-of-speech tagging (tag) performed by the Python package spaCy (\href{https://spacy.io}{spacy.io}).
+\caption{Detailed part-of-speech tagging (\texttt{tag}) performed by the Python package spaCy \citep{spacy2}.
 The 15 most often occurring labels (overall 43 labels) sorted alphabetically.
 Descriptions were taken from spaCy.explain().
-Counts for the whole stimulus (all) and for each of the eight stimulus segments refer to the audio-description.}
+Counts for the whole stimulus (\texttt{all}) and for each of the eight stimulus segments refer to the audio-description.}
 \label{tab:tag}
 \begin{tabular}{lllllllllll}
 \toprule
@@ -285,13 +279,13 @@ VVPP & \aTagVvpp & \aTagVvppAll & \aTagVvppI & \aTagVvppII & \aTagVvppIII & \aTa
 \subsubsection*{Syntactic dependency (\texttt{dep})}
 Information about a word's syntactic dependencies with other words within the same sentence.
 Information follows the TIGER Treebank annotation scheme \citep{brants2004tiger} and is given in the format:
-``arc label;word's head;word's child1, word's child2, ...'', where the ``arc label'' (cf. table \ref{tab:dep}) describes the type of syntactic relation that connects a "child" (the single word) to its "head".
+``arc label;word's head;word's child1, word's child2, ...'', where the ``arc label'' (see Table \ref{tab:dep}) describes the type of syntactic relation that connects a "child" (the single word) to its "head".
 
 \begin{table*}[t]
-\caption{Syntactic dependencies (dep) performed by the Python package spaCy (\href{https://spacy.io}{spacy.io}).
+\caption{Syntactic dependencies (\texttt{dep}) performed by the Python package spaCy \citep{spacy2}.
 The 15 most often occuring labels (overall 37 labels) sorted alphabetically.
-Descriptions were taken from spaCy.explain()(\href{https://spacy.io}{spacy.io}).
-Counts for the whole stimulus (all) and for each of the eight stimulus segments refer to the audio-description.}
+Descriptions were taken from spaCy.explain().
+Counts for the whole stimulus (\texttt{all}) and for each of the eight stimulus segments refer to the audio-description.}
 \label{tab:dep}
 \begin{tabular}{lllllllllll}
 \toprule
@@ -322,20 +316,19 @@ The base form (root) of a word.
 
 
 \subsubsection*{Common Word (\texttt{stop})}
-This column's cell provides information if the word is part of a stop list, hence one of the most common words in the German language or not (``True'' vs. ``False'').
+This column's cell provides information if the word is part of a stop list, hence one of the most common words in the German language or not (\texttt{True} vs. \texttt{False}).
 
 
 \subsubsection*{Word embedding (\texttt{vector})}
 % \href{https://en.wikipedia.org/wiki/Word2vec}{word vector}
 A 300-dimensional word vector providing a multi-dimensional meaning representation of a word.
-Out-of-vocabulary words with a vector consisting of 300 dimensions of zeroes were set to ``\#'' to save space.
+Out-of-vocabulary words with a vector consisting of 300 dimensions of zeroes were set to \texttt{\#} to save space.
 
 
 \subsection*{Dataset content}
 % \href{https://bids.neuroimaging.io/}{bids.neuroimaging.io}
-\todo[inline]{darauf gehe ich schon am Ende von “annotation procedure” vor Datalegend ein, weil ich bereits dort erwähne, dass es zwei Versionen gibt und sich die Datalegend auf die TSV file bezieht.}
 The released annotation comes in two different versions. First, as a text-based TextGrid file (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid}) to be conveniently edited with the software Praat \citep{boersma2019praat}.
-Second, as a text-based tab-separated-value (TSV) formatted table  (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv}) in accordance with the brain imaging data structure BIDS \citep{gorgolewski2016bids}
+Second, as a text-based, tab-separated-value (TSV) formatted table  (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv}) in accordance with the brain imaging data structure (\href{https://bids.neuroimaging.io/}{BIDS} \citep{gorgolewski2016bids}).
 The source code for all descriptive statistics included in this paper is available in \texttt{code/descriptive-statistics.py} (Python script).
 
 
@@ -348,25 +341,26 @@ The source code for all descriptive statistics included in this paper is availab
 In order to assess data quality, we investigated if contrasting speech-related events to events without speech lead to increased activation in areas known to be involved in semantic processing \citep{hickok2007cortical}.
 Moreover, we tested if similar linguistic concepts providing high semantic information (proper nouns and nouns) contrasted to a concept providing low semantic information (coordinate conjunctions) lead to increased activation in congruent brain areas.
 % Preprocessing
-\todo[inline]{die Daten aus Hanke2014 sind nicht bewegungskorrigiert und nicht  aligned. Quelle ist in vorliegendem Falle:
-juseless.inm7.de:/data/project/studyforrest/collection/phase1}
-\todo[inline]{bei allem, was folgend mit alignment/co-registration zu tun hat, bin ich mir nicht sicher \& gehe ggf. zu wenig auf den Prozess der Template Erstellung und des alignments ein; vgl. Review zum Muscial Genre Paper}
 \todo[inline]{hanke2014 spricht von 20 subjects (age 21–38 years, mean age 26.6 years, 12 male), es fehlt hier aber sub-10}
-We used fMRI BOLD data of the 2h audio-description (\unit[7]{Tesla}, TR=\unit[2]{s}, 3599 volumes, 36 axial slices, thickness \unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane resolution, \unit[224]{mm} field-of-view) of 19 healthy subjects \citep{hanke2014audiomovie} that were already corrected for motion and aligned [+++wie?+++] to study specific group template [+++co-registered to MNI?+++].
-
+% Details of the alignment procedure are given in the section on “Technical Validation”.
+%Data aligned by applying an affine transformation only are available in bold_dico_dico7Tad2grpbold7Tad.nii.gz.
+% Data aligned by non-linear warping are available in bold_dico_dico7Tad2grpbold7Tad_nl.nii.gz.
+We used blood oxygenation level-dependent (BOLD) functional magnetic resonance imaging (fMRI) data of the 2h audio-description (\unit[7]{Tesla}, \unit[2]{s} repetition time, 3599 volumes, 36 axial slices, thickness \unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane resolution, \unit[224]{mm} field-of-view) of 19 healthy subjects \citep{hanke2014audiomovie}.
+Data were already corrected for motion at the scanner computer.
+Further, individual BOLD time-series were already aligned by non-linear warping to a study-specific T2*-weighted echo planar imaging (EPI) group template (cf. \citep{hanke2014audiomovie} for details on how the group template was created).
+\todo[inline]{So korrekt und “vollständig? MNI152 co-registration? Im Übrigen finde ich 3-4 Paper, die als Zitation für den MNI152-space in Frage kommen, wobei keines richtig passen will; hanke2014 zitiert keines}
 All further analysis steps were carried out using Feat v6.00 (FMRI Expert Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB's Software Library)\citep{smith2004fsl}.
 Data were temporally high-pass filtered (cut-off \unit[150]{s}), spatially smoothed (Gaussian kernel; \unit[4.0]{mm} FWHM), and the brain was extracted from surrounding tissue [+++kein Plan, ob die Reihenfolge so korrekt ist].
 A grand-mean intensity normalization of the entire 4D dataset was performed by a single multiplicative factor.
 
-\todo[inline]{what does e1-12 stand for? It makes the label column too wide; das waren hline Befehle}
 
 \begin{table*}[t]
     \caption{Overview of the events that were used to create the 26 regressors of the GLM analysis.
 The respective counts are given for the whole stimulus and the eight segments that were used during fMRI scanning.
-The 20 most often occuring labels from the detailed part-of speech tagging were used as such.
-Words belonging to all other labels were pooled to ``tag\_other''.
-The label ``sentence'' contains the end of complete grammatical sentences. label ``phones'' contains events of the 80 most often occuring phonemes (``n'' with N=6053 to ``IY1'' with N=32).
-The label ``no-sp'' represents moments when no speech was audible. ''fg\_ad\_lrdiff (left-right volume difference) and ``fg\_ad\_rms'' (root mean square loudness) represent one event for every movie frame (40ms). Events were convolved with FSL's ``Double-Gamma HRF'' to create the regressors. The correlation of these regressors over the time course of the whole stimulus can be seen in Figure \ref{fig:reg-corr}.}
+The 20 most often occuring labels from the detailed part-of speech tagging (\texttt{tag}) were used as such.
+Words belonging to all other labels were pooled to \texttt{tag\_other}.
+The label \texttt{sentence} contains the end of complete grammatical sentences. The label \texttt{phones} contains events of the 80 most often occuring phonemes (phoneme \texttt{n} with N=6053 to phoneme \texttt{IY1} with N=32).
+The label \texttt{no-sp} represents moments when no speech was audible. \texttt{fg\_ad\_lrdiff} (left-right volume difference) and \texttt{fg\_ad\_rms} (root mean square volume) represent one event for every movie frame (\unit[40]{ms}). Events were convolved with FSL's ``Double-Gamma HRF'' to create the regressors. The correlation of these regressors over the time course of the whole stimulus can be seen in Figure \ref{fig:reg-corr}.}
 \label{tab:regressors}
 \footnotesize
 \begin{tabular}{lp{3.5cm}lllllllll}
@@ -394,11 +388,11 @@ vvfin & \aTagVvfin & \rVvfinAll & \rVvfinI & \rVvfinII & \rVvfinIII & \rVvfinIV 
 vvinf & \aTagVvinf & \rVvinfAll & \rVvinfI & \rVvinfII & \rVvinfIII & \rVvinfIV & \rVvinfV & \rVvinfVI & \rVvinfVII & \rVvinfVIII \tabularnewline
 vvpp & \aTagVvpp & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvppV & \rVvppVI & \rVvppVII & \rVvppVIII \tabularnewline
 tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII \tabularnewline
-%e{1-12}
+%\hline
 sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
 phones & 80 most often occuring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
 no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
-%e{1-12}
+%\hline
 fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
 fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
 \bottomrule
@@ -408,32 +402,29 @@ fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFga
 
 % 1st lvl
 We implemented a standard three-level, voxel-wise general linear model (GLM) to average parameter estimates across the eight stimulus segments, and later across 19 subjects.
-At the first level analyzing each segment for each subject individually, we created 26 regressors based on events drawn from the annotation (cf. Table \ref{tab:regressors}).
-The 20 most often occuring detailed part-of-speech labels (``nn'' with N=\rNnAll\space to ``prf'' with N=\rPrfAll) were modelled as such from the onset to offset of each word.
-The remaining labels were pooled to (``tag\_other``; N=\rTagotherAll).
-The top 80 phonemes (``n'' with N=6053 to ``IY1'' with N=32) were pooled to  ``phonemes'' (N=\rPhonesAll) to be used as a nuisance regressors.
+At the first level analyzing each segment for each subject individually, we created 26 regressors based on events drawn from the annotation (see Table \ref{tab:regressors}).
+The 20 most often occuring detailed part-of-speech labels (\texttt{nn} with N=\rNnAll\space to text{prf} with N=\rPrfAll) were modelled as such from the onset to offset of each word.
+The remaining labels were pooled to (\texttt{tag\_other}; N=\rTagotherAll).
+The top 80 phonemes (\texttt{n} with N=6053 to \texttt{IY1} with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) to be used as a nuisance regressors.
 The end of each complete grammatical sentenc was used as an onsets of a event abitrarily lasting \unit[0.2]{s} (N=\rSentenceAll).
-``No-speech'' events (``no-sp''; N=\rNospAll) serving as a control condition were created by the following rationale:
-events were fitted into longer lasting intervals between onsets and offsets of words assumed to contain no audible/comprehensible speech.
-Each event of the no-speech condition had to have a minimum distance of 1.8s to an onsets/offsets of word, and to each onset to another event of the no-speech condition.
+``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control condition were created by the following rationale:
+events were fitted into longer lasting intervals between onsets and offsets of words assumed to contain no audible speech.
+Each event of the no-speech condition had to have a minimum distance of \unit[1.8]{s} to an onsets/offsets of word, and to each onset to another event of the no-speech condition.
 A length of \unit[70]{ms} was chosen for no-speech events matching the average length of phonemes.
-Lastly, we used events reflecting low-level auditory features (left-right difference in loudness and root mean squared loudness) averaged across the length of every movie frame (\unit[40]{ms}).
+Lastly, we used events reflecting low-level auditory features (left-right difference in volume and root mean squared volume) averaged across the length of every movie frame (\unit[40]{ms}).
 All events were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function to create the actual regressors.
 The Pearson correlation coefficients of the 26 regressors across the time course of all stimulus segments can be seen in Figure \ref{fig:reg-corr}.
 Temporal derivatives were also included in the design matrix and the design was subjected to the same temporal filtering as the BOLD time series.
 Finally, six motion parameters were used as additional nuisance regressors.
 
 \todo[inline]{die motion parameters werden nicht konvolviert, oder?}
-\todo[inline]{in den Results/Discussion wird nur auf die COPEs 1, 3, 5 eingegangen; sollte man hier 2, 4, 6 rausnehmen? oder von “and their reverse contrasts” sprechen?}
-The following six t-contrasts were defined:
-
-% events:n all tag-related regressors: N=15985)
-1) words (all 21 tag-related regressors) > no-speech;
-2) no-speech > words;
-3) proper nouns (``ne''; N=\rNeAll) > coordinate conjunctions (``kon''; N=\rKonAll);
-4) coordinate conjunctions > proper nouns;
-5) nouns (``nn''; N=\rNeAll) > coordinate conjunctions, and
-6) coordinate conjunctions > nouns.
+The following three t-contrasts were defined:
+% 1b) no-speech > words;
+% 2b) coordinate conjunctions > proper nouns;
+% 3b) coordinate conjunctions > nouns.
+1) words (all 21 \texttt{tag}-related regressors; N=15985) > no-speech (\texttt{no-sp}; N=\rNospAll),
+2) proper nouns (\texttt{ne}; N=\rNeAll) > coordinate conjunctions (\texttt{kon}; N=\rKonAll), and
+3) nouns (\texttt{nn}; N=\rNeAll) > coordinate conjunctions.
 The first level analysis which fitted each voxel's time course separately for each subject was performed in functional space preserving the orientation of the EPI images [+++richtig?+++].
 
 % Also weshalb wird das temporal filtering der regressoren wann wie gemacht??? -> nachschlagen
@@ -456,22 +447,22 @@ Brain regions associated with observed clusters were determined with the Juelich
 
 % Results
 % COPE 1:
-Figure \ref{fig:results} depicts the results of the three \todo{drei = “primary three”} contrasts (all Z-Threshold Z>3.4; p<.05 cluster-corrected).
-The contrast words > no-speech yielded four significant clusters (cf. Table \ref{tab:cope1}):
+Figure \ref{fig:results} depicts the results of the three contrasts (all Z-Threshold Z>3.4; p<.05 cluster-corrected).
+The contrast words (all 21 \texttt{tag-related} regressors) > no-speech yielded four significant clusters (see Table \ref{tab:cope1}):
 one left laterlized cluster spanning from the angular gyrus and inferior posterior supramarginal gyrus across the superior and middle temporal gyrus, including parts of Heschl's gyrus and planum temporale.
 A second left cluster in (inferior) frontal regions, including precentral gyrus, pars opercularis (Brodman Areal 44; BA44) and pars triangularis (BA45).
 Similarly in the right hemisphere, one cluster spanning from the angular gyrus across the superior and middle temporal gyrus but including frontal inferior regions (pars opercularis and pars triangularis).
 A fourth significant cluster is located in the left thalamus.
 
 % COPE 3
-The contrast proper nouns > coordinate conjunctions yielded 9 significant clusters (cf. Table \ref{tab:cope3}):
+The contrast proper nouns > coordinate conjunctions yielded 9 significant clusters (see Table \ref{tab:cope3}):
 one left laterlized cluster spanning from the angular gyrus across planum temporale and superior temporal gyrus, partially covering the Heschl's gyrus, into the anterior middle temporal gyrus.
 A largely congruent but smaller cluster in the right hemisphere.
 Two clusters in posterior cingulate cortex and precuneus of both hemispheres.
 Three small clusters in the right occipital pole, right Heschl's gyrus and left superior lateral occipital pole.
 
 % COPE 5
-The contrast nouns > coordinate conjunctions yielded 3 significant clusters (cf. Table \ref{tab:cope5}):
+The contrast nouns > coordinate conjunctions yielded 3 significant clusters (see Table \ref{tab:cope5}):
 two clusters that are slightly smaller than lateral temporal clusters of contrast nouns > coordinate conjunction. In this case, spanning from angular gyrus in the left hemisphere and from planum temporale in the right hermisphere into the anterior part of superior temporal cortex.
 Finally, two small right lateralized clusters in posterior cingulate gyrus and precuneus.
 
@@ -486,7 +477,7 @@ Finally, two small right lateralized clusters in posterior cingulate gyrus and p
 
 
 \begin{table*}[t]
-\caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast words > no-speech.
+\caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast words (all 21 \texttt{tag}-related regressors) > no-speech.
 Clusters sorted by voxel size.
 The first brain structure given contains the voxel with the maximum Z-Value, followed by brain structures from posterior to anterior, and partially covered areas.}
 \label{tab:cope1}
@@ -514,7 +505,7 @@ parts of precentral g. \\
 
 
 \begin{table*}[t]
-\caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast proper nouns (``ne'') > coordinate conjunctions (``kon'').
+\caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast proper nouns (\texttt{ne}) > coordinate conjunctions (\texttt{kon}).
 Clusters sorted by voxel size.
 The first brain structure given contains the voxel with the maximum Z-Value, followed by brain structures from posterior to anterior, and partially covered areas.}
 \label{tab:cope3}
@@ -544,7 +535,7 @@ parts of angular g. \& posterior inferior supramarginal gyrus \\
 
 
 \begin{table*}[t]
-\caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast nouns (``nn'') > coordinate conjunctions (``kon'').
+\caption{Significant clusters (Z-Threshold Z>3.4; p<.05 cluster-corrected) for the contrast nouns (\texttt{nn}) > coordinate conjunctions (\texttt{kon}).
 Clusters sorted by voxel size.
 The first brain structure given contains the voxel with the maximum Z-Value, followed by brain structures from posterior to anterior, and partially covered areas.}
 \label{tab:cope5}
@@ -568,15 +559,16 @@ right precuneus \\
 \end{tabular}
 \end{table*}
 
+\todo[inline]{Lass uns bzgl. der Discussion am besten unterhalten; im Grunde geht es darum, wie weit ich ins Detail gehen soll (kann nämlich viel zu sehr ins Detail gehen); im Grunde geht es imo nicht darum, alle Cluster inkl. Areale durchzudiskutieren, sondern zu kommunizieren, dass die Anno brauchbar ist; wie dem auch sei: Hier wird noch Inhalt nach dem Lesen der Reviews hinzukommen}
 % discussion
 % wilson2007beyond
 % planum temporale = Wernicke; ist witzigerweise nicht in contrast 1 (words > no speech), aber “stark” in nouns bzw. proper nouns > kon
-In the contrast words > no speech, we expectedly find increased hemodynamic activity in a bilateral cortical network including temporal, parietal and frontal regions realted to processing spoken language \citep{hickok2007cortical}.
+In the contrast words > no speech, we expectedly find increased hemodynamic activity in a bilateral cortical network including temporal, parietal and frontal regions realted to processing spoken language \citep{friederici2011brain, hickok2007cortical,price2012twentyyears}.\todo{abchecken}
 Our results are similar to results of studies that implemented an ISC approach to analyze fMRI data of naturalistic auditory stimuli \citep{honey2012not, lerner2011topographic, silbert2014coupled}.
 Contrary to previous studies, we do not find increased medial activation in the precuneus or medial frontal cortex. This could be attributed to the fact that our contrast does not [+++sufficiently+++] capture social aspects of the narrative \citep{ferstl2008extended, mar2011neural}\todo{abchecken}.
 The two contrasts contrasting nouns and proper nouns respectively to coordinate junctions lead to unexpected results. Increased activation is partially located in early sensory regions (Heschl's Gyrus; \citep{saenz2014tonotopic}) and most prominently adjacant regions bilaterally (planum temporale; superior temporal gyrus; \citep{arsenault2015distributed, mesgarani2014phonetic}).
 This could be attributed to the fact that a high count of heterogenous nouns (N=\rNnAll) and proper nouns (N=\rNeAll) were averaged across all 300 semantic dimensions (cf. \citep{mitchell2008predicting, huth2016natural}), and contrasted to coordinate conjunctions that offered a comparably small amount of events (N=\rKonAll).
-Moreover, the label ``coordinate junctions'' mostly comprises event of the words ``and'' (N=392) and ``but'' (N=49) and thus offered only a small amount of variance.
+Moreover, the coordinate junctions (\texttt{kon}) mostly comprises event of the words ``and'' (N=392) and ``but'' (N=49) and thus offered only a small amount of variance.
 A second explanation might be that our phoneme regressors that assumed linear summation of approximatly 70 ms lasting events in quick succession did not capture a sufficiently amount of nuissance variance.
 Nevertheless and more importantly to access the validity of the dataset is the fact that two similar lingustic concepts (nouns and proper nouns) embedded in a naturalistic stimulus that was not designed for linguistic research lead to similar activation patterns.
 % Within the language processing systems, early sensory regions are specialized for representing the immediate physical properties of the environment (form), while higher order regions extract increasingly abstract content (Davis and Johnsrude, 2003; Quiroga et al., 2005; Okada et al., 2010).
@@ -592,12 +584,12 @@ Github (\url{https://github.com/psychoinformatics-de/studyforrest-paper-speechan
 \todo[inline]{the paper needs to serve a purpose.
 One is, of course, to be documentation for the annotation.
 Another is to attract people to use this work for their own studies.
-I would even argue that this is the \textit{main} purpose, given that the annotation in itself represents to scientific progress. So the paper need to give an  accurate assessment what this can be used for and what is problematic or
-impossible.
+I would even argue that this is the \textit{main} purpose, given that the annotation in itself represents to scientific progress.
+The need to give an accurate assessment what this can be used for and what is problematic or impossible.
 ATM this is the only statement in this regard:
 'facilitates modelling of hemodynamic brain responses correlating with speech-related events' and the only indication of purpose is 'additional confound measures'.
 I think this is incongruent with the amount of work and the level of detail of
-this annotation.}
+this annotation; öööööhh, okay. Mir sind da jetzt über 2 Tage wenig Superlative eingefallen, die über den bisherigen Text hinausgehen; fehlt mir wohl die geeignete Perspektive}
 % state what you think are the main conclusions that can be realistically drawn from the findings in the paper, taking care not to make claims that cannot be supported.
 As an extension of the studoforrest dataset, we present an annotation of spoken language in the two hours lasting ``research cut'' of the audio-visual movie ``Forrest Gump'' and its temporally aligned audio-description.
 We annotated the onset and offset of sentences, words and phonemes, and the corresponding speaker's identity.
