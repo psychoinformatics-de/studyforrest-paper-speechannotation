@@ -362,16 +362,16 @@ The source code for all descriptive statistics included in this paper is availab
 In order to assess data quality, we investigated if contrasting speech-related events to events without speech lead to increased activation in areas known to be involved in semantic processing \citep{hickok2007cortical}.
 Moreover, we tested if similar linguistic concepts providing high semantic information (proper nouns and nouns) contrasted to a concept providing low semantic information (coordinate conjunctions) lead to increased activation in congruent brain areas.
 % Preprocessing
-\todo[inline]{hanke2014 spricht von 20 subjects (age 21–38 years, mean age 26.6 years, 12 male), es fehlt hier aber sub-10}
+\todo[inline]{hanke2014 spricht von 20 subjects (age 21–38 years, mean age 26.6 years, 12 male), es fehlt hier aber sub-10. MIH: age doesn't matter here. Just say that you left out sub-10, and why}
 % Details of the alignment procedure are given in the section on “Technical Validation”.
 %Data aligned by applying an affine transformation only are available in bold_dico_dico7Tad2grpbold7Tad.nii.gz.
 % Data aligned by non-linear warping are available in bold_dico_dico7Tad2grpbold7Tad_nl.nii.gz.
 We used blood oxygenation level-dependent (BOLD) functional magnetic resonance imaging (fMRI) data of the 2h audio-description (\unit[7]{Tesla}, \unit[2]{s} repetition time, 3599 volumes, 36 axial slices, thickness \unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane resolution, \unit[224]{mm} field-of-view) of 19 healthy subjects \citep{hanke2014audiomovie}.
 Data were already corrected for motion at the scanner computer.
 Further, individual BOLD time-series were already aligned by non-linear warping to a study-specific T2*-weighted echo planar imaging (EPI) group template (cf. \citep{hanke2014audiomovie} for details on how the group template was created).
-\todo[inline]{So korrekt und “vollständig? MNI152 co-registration? Im Übrigen finde ich 3-4 Paper, die als Zitation für den MNI152-space in Frage kommen, wobei keines richtig passen will; hanke2014 zitiert keines}
+\todo[inline]{So korrekt und “vollständig? MNI152 co-registration? Im Übrigen finde ich 3-4 Paper, die als Zitation für den MNI152-space in Frage kommen, wobei keines richtig passen will; hanke2014 zitiert keines. MIH: That is sufficient. No need to cite anything for MNI152}
 All further analysis steps were carried out using Feat v6.00 (FMRI Expert Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB's Software Library)\citep{smith2004fsl}.
-Data were temporally high-pass filtered (cut-off \unit[150]{s}), spatially smoothed (Gaussian kernel; \unit[4.0]{mm} FWHM), and the brain was extracted from surrounding tissue [+++kein Plan, ob die Reihenfolge so korrekt ist].
+Data were temporally high-pass filtered (cut-off \unit[150]{s}), spatially smoothed (Gaussian kernel; \unit[4.0]{mm} FWHM), and the brain was extracted from surrounding tissue.
 A grand-mean intensity normalization of the entire 4D dataset was performed by a single multiplicative factor.
 
 
@@ -421,24 +421,25 @@ fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFga
 \end{table*}
 
 
-% 1st lvl
+% 1st lv}
+\todo[inline]{What follows has typos}
 We implemented a standard three-level, voxel-wise general linear model (GLM) to average parameter estimates across the eight stimulus segments, and later across 19 subjects.
 At the first level analyzing each segment for each subject individually, we created 26 regressors based on events drawn from the annotation (see Table \ref{tab:regressors}).
-The 20 most often occuring detailed part-of-speech labels (\texttt{nn} with N=\rNnAll\space to text{prf} with N=\rPrfAll) were modelled as such from the onset to offset of each word.
-The remaining labels were pooled to (\texttt{tag\_other}; N=\rTagotherAll).
-The top 80 phonemes (\texttt{n} with N=6053 to \texttt{IY1} with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) to be used as a nuisance regressors.
-The end of each complete grammatical sentenc was used as an onsets of a event abitrarily lasting \unit[0.2]{s} (N=\rSentenceAll).
+The 20 most often occuring detailed part-of-speech labels (\texttt{nn} with N=\rNnAll\space to text{prf} with N=\rPrfAll) were modelled as such from the onset to offset of each word\todo{This has errors that I do not know how to fix}.
+The remaining labels were pooled to (\texttt{tag\_other}; N=\rTagotherAll)\todo{I do not know what this means}.
+The top 80 phonemes (\texttt{n} with N=6053 to \texttt{IY1} with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) to be used as a nuisance regressors\todo{Does that mean they share events with "other"}.
+The end of each complete grammatical sentence was modeled as an impulse event (N=\rSentenceAll)\todo{Why? Above it says 'we tested if similar linguistic concepts providing high semantic information (proper nouns and nouns)'. What does this need sentences for?}.
 ``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control condition were created by the following rationale:
-events were fitted into longer lasting intervals between onsets and offsets of words assumed to contain no audible speech.
+events were fitted into longer lasting intervals between onsets and offsets of words assumed\todo{Why assumed? Isn't the point of the annotion to "know"?} to contain no audible speech.
 Each event of the no-speech condition had to have a minimum distance of \unit[1.8]{s} to an onsets/offsets of word, and to each onset to another event of the no-speech condition.
 A length of \unit[70]{ms} was chosen for no-speech events matching the average length of phonemes.
-Lastly, we used events reflecting low-level auditory features (left-right difference in volume and root mean squared volume) averaged across the length of every movie frame (\unit[40]{ms}).
+Lastly, we used events\todo{They are not really events, but a continous nuisance regressor} reflecting low-level auditory features (left-right difference in volume and root mean squared volume) averaged across the length of every movie frame (\unit[40]{ms}).
 All events were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function to create the actual regressors.
 The Pearson correlation coefficients of the 26 regressors across the time course of all stimulus segments can be seen in Figure \ref{fig:reg-corr}.
 Temporal derivatives were also included in the design matrix and the design was subjected to the same temporal filtering as the BOLD time series.
 Finally, six motion parameters were used as additional nuisance regressors.
 
-\todo[inline]{die motion parameters werden nicht konvolviert, oder?}
+\todo[inline]{die motion parameters werden nicht konvolviert, oder? MIH: Dunno.}
 The following three t-contrasts were defined:
 % 1b) no-speech > words;
 % 2b) coordinate conjunctions > proper nouns;
@@ -446,7 +447,9 @@ The following three t-contrasts were defined:
 1) words (all 21 \texttt{tag}-related regressors; N=15985) > no-speech (\texttt{no-sp}; N=\rNospAll),
 2) proper nouns (\texttt{ne}; N=\rNeAll) > coordinate conjunctions (\texttt{kon}; N=\rKonAll), and
 3) nouns (\texttt{nn}; N=\rNeAll) > coordinate conjunctions.
-The first level analysis which fitted each voxel's time course separately for each subject was performed in functional space preserving the orientation of the EPI images [+++richtig?+++].
+\todo[inline]{I think having the N here is confusion. It is a contrast between regressors models. The number of events only indirectly accounts for the variance (which is interesting here). I would strip this info to reduce confusion}
+% implementation detail. Any analysis should preserve the orientiation.
+%The first level analysis which fitted each voxel's time course separately for each subject was performed in functional space preserving the orientation of the EPI images [+++richtig?+++].
 
 % Also weshalb wird das temporal filtering der regressoren wann wie gemacht??? -> nachschlagen
 % “You should normally apply the same temporal filtering to the model as you have applied to the data, as the model is designed to look like the data before temporal filtering was applied. In this way, long-time-scale components in the model will be dealt with correctly. This is set with the Apply temporal filtering option.”
@@ -487,7 +490,7 @@ The contrast nouns > coordinate conjunctions yielded 3 significant clusters (see
 two clusters that are slightly smaller than lateral temporal clusters of contrast nouns > coordinate conjunction. In this case, spanning from angular gyrus in the left hemisphere and from planum temporale in the right hermisphere into the anterior part of superior temporal cortex.
 Finally, two small right lateralized clusters in posterior cingulate gyrus and precuneus.
 
-\todo{Figure zeigt whole brain statt “partial brain coverage”; vgl. Text; Problem?}
+\todo{Figure zeigt whole brain statt “partial brain coverage”; vgl. Text; Problem? MIH: Could become an issue. In the data paper we showed the coverage. Maybe just ref the figure.}
 \begin{figure*}
   \centering
 % \includegraphics[width=0.4\textwidth]{frog.jpg}
@@ -586,12 +589,12 @@ right precuneus \\
 % planum temporale = Wernicke; ist witzigerweise nicht in contrast 1 (words > no speech), aber “stark” in nouns bzw. proper nouns > kon
 In the contrast words > no speech, we expectedly find increased hemodynamic activity in a bilateral cortical network including temporal, parietal and frontal regions realted to processing spoken language \citep{friederici2011brain, hickok2007cortical,price2012twentyyears}.\todo{abchecken}
 Our results are similar to results of studies that implemented an ISC approach to analyze fMRI data of naturalistic auditory stimuli \citep{honey2012not, lerner2011topographic, silbert2014coupled}.
-Contrary to previous studies, we do not find increased medial activation in the precuneus or medial frontal cortex. This could be attributed to the fact that our contrast does not [+++sufficiently+++] capture social aspects of the narrative \citep{ferstl2008extended, mar2011neural}\todo{abchecken}.
-The two contrasts contrasting nouns and proper nouns respectively to coordinate junctions lead to unexpected results. Increased activation is partially located in early sensory regions (Heschl's Gyrus; \citep{saenz2014tonotopic}) and most prominently adjacant regions bilaterally (planum temporale; superior temporal gyrus; \citep{arsenault2015distributed, mesgarani2014phonetic}).
+Contrary to previous studies, we do not find increased medial activation in the precuneus or medial frontal cortex. This could be attributed to the fact that our contrast does not [+++sufficiently+++]\todo{Which contrast captures ANY social aspects?} capture social aspects of the narrative \citep{ferstl2008extended, mar2011neural}\todo{abchecken}.
+The two contrasts contrasting nouns and proper nouns respectively to coordinate junctions lead to unexpected results\todo{That seems like an unfortunate statement. We make this analysis to show expected results to conclude that the annotation is good. But we get unexpected results and conclude...}. Increased activation is partially located in early sensory regions (Heschl's Gyrus; \citep{saenz2014tonotopic}) and most prominently adjacant regions bilaterally (planum temporale; superior temporal gyrus; \citep{arsenault2015distributed, mesgarani2014phonetic}).
 This could be attributed to the fact that a high count of heterogenous nouns (N=\rNnAll) and proper nouns (N=\rNeAll) were averaged across all 300 semantic dimensions (cf. \citep{mitchell2008predicting, huth2016natural}), and contrasted to coordinate conjunctions that offered a comparably small amount of events (N=\rKonAll).
 Moreover, the coordinate junctions (\texttt{kon}) mostly comprises event of the words ``and'' (N=392) and ``but'' (N=49) and thus offered only a small amount of variance.
-A second explanation might be that our phoneme regressors that assumed linear summation of approximatly 70 ms lasting events in quick succession did not capture a sufficiently amount of nuissance variance.
-Nevertheless and more importantly to access the validity of the dataset is the fact that two similar lingustic concepts (nouns and proper nouns) embedded in a naturalistic stimulus that was not designed for linguistic research lead to similar activation patterns.
+A second explanation might be that our phoneme regressors that assumed linear summation of approximatly 70 ms lasting events in quick succession did not capture a sufficiently amount of nuissance variance\todo{Reviewer 2 will ask: If you knew all these issues, why did you do it then?}.
+Nevertheless and more importantly to access the validity of the dataset is the fact that two similar lingustic concepts (nouns and proper nouns) embedded in a naturalistic stimulus that was not designed for linguistic research lead to similar activation patterns\todo{That statement is only true, if both contrasts are not (solely) driven by the conjuctions. There is no evidence in the paper that this is not the case.}
 % Within the language processing systems, early sensory regions are specialized for representing the immediate physical properties of the environment (form), while higher order regions extract increasingly abstract content (Davis and Johnsrude, 2003; Quiroga et al., 2005; Okada et al., 2010).
 
 \section*{Data availability}
