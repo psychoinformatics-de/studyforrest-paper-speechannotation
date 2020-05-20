@@ -50,7 +50,7 @@ Additionally for every word, we provide lemmatization, a simple
 part-of-speech-tagging putting words into 15 grammatical categories, a detailed
 part-of-speech tagging putting words into 43 grammatical categories, syntactic
 dependencies within each sentence, and a semantic analysis based on word
-embedding providing a 300-dimensional word vector.
+embeddings representing each word in a 300-dimensional semantic space.
 This annotation facilitates further studies of language perception and semantic processing under conditions of real-life complexity using the \textit{studyforrest} dataset.
 \end{abstract}
 
@@ -66,45 +66,53 @@ annnotation, language, speech, lateralization, narrative, natural stimulation, f
 Cognitive neuroimaging research is moving towards studying brain behavior
 under conditions of real-life-like complexity. Motion pictures \citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not, lerner2011topographic} are increasingly utilized as so called ``naturalistic stimuli''.
 
+% data-driven methods
 Because naturalistic stimuli are multi-dimensional and their temporal structure
 is usually unknown, data-driven methods like intersubject correlation
 (ISC)\citep{hasson2004intersubject} or independent component analysis
 (ICA)\citep{bartels2004chronoarchitecture} are often used to analyze
-corresponding fMRI data.  Nevertheless, model-driven methods, like a general
-linear model (GLM), can be useful to investigate which specific stimulus
-properties a brain region is responding to \citep{hamilton2018revolution}. For
-example, studies using GLMs based on annotations of a stimulus' temporal
+corresponding fMRI data. However, data-driven methods alone fall short of
+pinpointing their results to specific, time-locked features of a stimulus
+\citep{kauttonen2015optimizing}.
+% model-driven methods
+Model-driven methods, like a general linear model (GLM), can be useful to
+investigate how hemodynamic brain responses in isolated regions correlate with
+stimulus features. They can explain not just ``how'' the brain is responding to
+a stimulus but also ``why'' \citep{hamilton2018revolution}.
+% GLM: example studies
+For example, studies using GLMs based on annotations of a stimulus' temporal
 structure have elucidated how the brain responds to visual features of a movie
 \citep{bartels2004mapping} or speech-related features of a narrative
 \citep{rocca2019language}.
 
-For this publication, we annotated the exact onsets and offsets, and content of
-sentences, single words, and phonemes spoken in the audio-visual movie
-``Forrest Gump'' \citep{ForrestGumpMovie} and its audio-description (i.e. an
-audio-only variant of the movie)\citep{ForrestGumpDVD}.
-% immediate reference not needed in the intro
-%(see Table \ref{tab:overview} for an overview of the annotation's content).
+% We:
+For this publication, we revised previous, preliminary annotations done by our
+lab and now provide one single annotation with exact onsets/offsets and content
+of each sentences, word and phonemes (see Table \ref{tab:overview} for an
+overview) spoken in the audio-visual movie ``Forrest Gump''
+\citep{ForrestGumpMovie} and its audio-description (i.e. an audio-only variant
+of the movie)\citep{ForrestGumpDVD}.
+% the studyforrest dataset
+fMRI data of participants watching the audio-visual movie
+\citep{hanke2016simultaneous} and listening to the audio-description
+\citep{hanke2014audiomovie} are the core data of the publicly available
+\textit{studyforrest} dataset (\href{www.studyforrest.org}{studyforrest.org}).
+% why
+This publication enables researchers to model time-locked hemodynamic brain
+responses that correlate with different aspects of spoken occurring in a 2-hour
+lasting naturalistic stimulus.
+% extending previous non-speech annotations
+The current annotation of speech extends already available annotations of
+portrayed emotions \citep{labs2015portrayed}, perceived emotions
+\citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the
+movie \citep{haeusler2016annotation}. All annotations can be used in any study
+focusing on aspects of real-life cognition by serving as additional confound
+measures describing key properties of major building blocks of the stimulus.
 
-fMRI data of participants watching the audio-visual movie \citep{hanke2016simultaneous} and listening to the audio-description \citep{hanke2014audiomovie} are the core data of the publicly available \textit{studyforrest} dataset (\href{www.studyforrest.org}{studyforrest.org}).
-% the following seems unrelated to the scope of the paper
-%Additional fMRI data of this dataset include the perception of musical genres
-%\citep{hanke2015musical}, and retinotopic mappings and localization of higher
-%visual areas of the same participants \citep{sengupta2016extension}.
-The annotation presented here facilitates modelling of hemodynamic brain responses
-correlated with speech-related events in the two stimuli.
-It extends already available annotations of portrayed emotions
-\citep{labs2015portrayed}, perceived emotions \citep{lettieri2019emotionotopy},
-as well as cuts and locations depicted in the movie
-\citep{haeusler2016annotation}.  All annotations can be used in any study
-focusing on other aspects of real-life cognition by serving as additional
-confound measures describing key properties of major building blocks of the
-stimulus.
-
-\todo[inline]{this work seems to improve/replace previous work (in part), it is important to state that clearly and identify which pieces are involved => es ist implizit im Text, der von “exact onset \& offsets” und weiter unten von “preliminary annotations” gesprochen wird; keine Ahnung, ob man kommunizieren sollte, dass die preliminary Dinger mal auf github waren; war jedenfalls nicht offensichtlich, beworben o.ä.\\
-If you want to take this question in a revision, I am OK with that. However,
-the intro still doesn't say anything about WHY one would want to do "modelling of
-hemodynamic brain responses correlated with speech-related events" other than
-to discard speech as a confound. This seems like a massive underselling.}
+\todo[inline]{Das “why one should model” ist jetzt drin; Frage an dich als
+Datenanalyse-Pro: Man kann doch bestimmt auch data-driven methods irgendwie
+“constrainen”, und die durch eine Annotation verbessern? Hast du da eine
+Formulierung und/oder auch ein (high-level) Paper für mich zu dem Thema?}
 
 \section*{Materials and methods}
 \subsection*{Stimulus}
@@ -613,7 +621,7 @@ Another is to attract people to use this work for their own studies.
 I would even argue that this is the \textit{main} purpose, given that the annotation in itself represents to scientific progress.
 The need to give an accurate assessment what this can be used for and what is problematic or impossible.
 ATM this is the only statement in this regard:
-'facilitates modelling of hemodynamic brain responses correlating with speech-related events' and the only indication of purpose is 'additional confound measures'.
+'facilitates modeling of hemodynamic brain responses correlating with speech-related events' and the only indication of purpose is 'additional confound measures'.
 I think this is incongruent with the amount of work and the level of detail of
 this annotation; öööööhh, okay. Mir sind da jetzt über 2 Tage wenig Superlative eingefallen, die über den bisherigen Text hinausgehen; fehlt mir wohl die geeignete Perspektive}
 % state what you think are the main conclusions that can be realistically drawn from the findings in the paper, taking care not to make claims that cannot be supported.
