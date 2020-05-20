@@ -114,45 +114,94 @@ Datenanalyse-Pro: Man kann doch bestimmt auch data-driven methods irgendwie
 “constrainen”, und die durch eine Annotation verbessern? Hast du da eine
 Formulierung und/oder auch ein (high-level) Paper für mich zu dem Thema?}
 
-\section*{Materials and methods}
-\subsection*{Stimulus}
-We annotated speech in the slightly shortened ``research cut'' of the movie \citep{hanke2016simultaneous} and its temporally aligned audio-description \citep{hanke2014audiomovie}.
-For the movie stimulus, we used the audio track of the German DVD release \citep{ForrestGumpDVD}.
-For the audio-only stimulus, we used the movie's audio-description that was broadcast as an additional audio track for visually impaired listeners on Swiss public television \citep{ForrestGumpGermanAD}.
-The plot of the movie is already carried by an off-screen voice of the main character Forrest Gump.
-In the largely identical audio-description, a male narrator additionally describes essential aspects of the visual scenery when there is no off-screen voice, dialog, or other relevant auditory content.
+\section*{Materials and methods} \subsection*{Stimulus}
+% stimulus != DVD but ``research cut''
+We annotated speech in the slightly shortened ``research cut'' of the movie
+\citep{hanke2016simultaneous} and its temporally aligned audio-description
+\citep{hanke2014audiomovie}.
+% movie source
+For the movie stimulus, we used the audio track of the German DVD release
+\citep{ForrestGumpDVD}.
+% audio source
+For the audio-only stimulus, we used the movie's audio-description that was
+broadcast as an additional audio track for visually impaired listeners on Swiss
+public television \citep{ForrestGumpGermanAD}.
+% diff in audio AV vs. AO
+The plot of the movie is already carried by an off-screen voice of the main
+character Forrest Gump. In the largely identical audio-description, a male
+narrator additionally describes essential aspects of the visual scenery when
+there is no off-screen voice, dialog, or other relevant auditory content.
 
 \subsection*{Annotation procedure}
-Preliminary, manual orthographic transcriptions of dialogues, non-speech vocalizations (e.g. laughing or groaning) and script for the audio-description's narrator were merged, and converted to Praat's \citep{boersma2019praat} TextGrid format.
-
+% preliminary annotations
+Preliminary, manual orthographic transcriptions of dialogues, non-speech
+vocalizations (e.g. laughing or groaning) and script for the audio-description's
+narrator were merged, and converted to Praat's \citep{boersma2019praat} TextGrid
+format.
+% preparing annotation in Praat before forced alignment
 % \href{www.fon.hum.uva.nl/praat}{fon.hum.uva.nl/praat}.
-The merged transcription containing a rough onset and offset for usually a couple of sentences was edited in Praat for manual validation against the original audio.
-The following steps were done in several passes to iteratively improve the quality of the data:
-approximate temporal onsets and offsets were corrected, and intervals containing several sentences were split into intervals containing only one sentence.
-When two or more persons were speaking simultaneously the less dominant voice was dropped.
-Low volume background speech (especially occurring during music or continuous environmental noise) or low volume non-speech vocalizations which were subjectively assessed to be incomprehensible for the audience were dropped, too.
-
-% Alignment preparations
+The merged transcription containing a rough onset and offset for usually a
+couple of sentences was edited in Praat for manual validation against the
+original audio.
+% steps conducted
+The following steps were done in several passes to iteratively improve the
+quality of the data: approximate temporal onsets and offsets were corrected, and
+intervals containing several sentences were split into intervals containing only
+one sentence.
+% dropping of sentences hard to understand
+When two or more persons were speaking simultaneously the less dominant voice
+was dropped. Low volume background speech (especially occurring during music or
+continuous environmental noise) or low volume non-speech vocalizations which
+were subjectively assessed to be incomprehensible for the audience were dropped,
+too.
+% intro for forced aligner
+We used the Montreal Forced Aligner \citep{mcauliffe2017montreal} to
+algorithmically identify the exact onset of offset of the sentences, and the
+onset and offset of each word and phoneme embedded in the transcribed sentences.
+% preparing other inputs before forced alignment pronounciation dictionary
 % http://prosodylab.org
 % https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict
-We used the Montreal Forced Aligner \citep{mcauliffe2017montreal} to
-algorithmically identify the exact onset of offset of the sentences, and the onset and offset of each word and phoneme embedded in the transcribed sentences.
-To enable the aligner to look up the phonemes embedded within each word, we chose a German pronunciation dictionary provided by Prosodylab \citep {gorman2011prosodylab} that uses the Prosodylab PhoneSet to describe the pronounciation of phonemes.
-To improve the detection rate of the automatic alignment, the dictionary was manually updated with German words that occur in the stimuli but were originally missing in the dictionary.
+To enable the aligner to look up the phonemes embedded within each word, we
+chose a German pronunciation dictionary provided by Prosodylab \citep
+{gorman2011prosodylab} that uses the Prosodylab PhoneSet to describe the
+pronunciation of phonemes.
+% extending the dictionary with formerly unknown German words
+To improve the detection rate of the automatic alignment, the dictionary was
+manually updated with German words that occur in the stimuli but were originally
+missing in the dictionary.
 % \href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org/mfa/dictionaries/english.dict}
-The pronunciation of English words and phonemes occurring in the otherwise German audio track was taken from an English pronunciation dictionary (following the ARPAbet PhoneSet) provided by the Montreal Language Modeling lab (\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org}).
+% English words in the otherwise German stimulus
+The pronunciation of English words and phonemes occurring in the otherwise
+German audio track was taken from an English pronunciation dictionary (following
+the ARPAbet PhoneSet) provided by the Montreal Language Modeling lab
+(\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org}).
 
-% Alignment
-The audio track was converted from FLAC to WAV via FFmpeg \citep{ffmpeg} to meet the aligner's requirements.
+% performing the forced alignment audio input to the aligner
+The audio track was converted from FLAC to WAV via FFmpeg \citep{ffmpeg} to meet
+the aligner's requirements.
+% inputs
 This WAV file, the transcription of sentences, and the updated dictionary were
 submitted to the aligner that first trained an acoustic model on the data and
 then performed the alignment.
-The resulting .TextGrid file that contains onsets and offsets of words and phonemes was corrected manually and iteratively in several passes:
-In a first step, onsets and offsets on which the automatic alignment performed moderately were corrected in Praat.
-Some low volume sentences that are spoken in continuously noisy settings (pursuit, battle, hurricane, rally, disco) were removed due to poor overall alignment performance.
-In a second step, the complete sentences of the orthographic transcription were copied into the annotation created by the aligner.
-In a third step, the a speaker's identity was added for each sentence (see Table \ref{tab:speakers} for the most often occurring speakers).
-During every step results from previous steps were checked again for errors.
+% output
+The resulting .TextGrid file that contains onsets and offsets of words and
+phonemes was corrected manually and iteratively in several passes:
+% onset/offset checking & correction
+In a first step, onsets and offsets on which the automatic alignment performed
+moderately were corrected in Praat.
+% handling poor performance
+Some low volume sentences that are spoken in continuously noisy settings
+(pursuit, battle, hurricane, rally, disco) were removed due to poor overall
+alignment performance.
+% adding whole sentences
+In a second step, the complete sentences of the orthographic transcription were
+copied into the annotation created by the aligner.
+% speaker identity
+In a third step, a speaker's identity was added for each sentence (see Table
+\ref{tab:speakers} for the most often occurring speakers).
+% constant on-the-fly checking of previous
+During every step results from previous steps were constantly checked again for
+errors and further improvements.
 
 \begin{table*}[tbp]
     \caption{Overview of the annotation's content for the whole stimulus and its individual segments used during fMRI scanning. The category \texttt{sentences} comprises complete grammatical sentences which are additionally marked in the annotation with a full stop at the end (``my feet hurt.'').
