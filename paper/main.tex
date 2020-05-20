@@ -251,13 +251,23 @@ Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarra
 \end{table*}
 
 
-% natural luanguage processing (NLP)
+% natural language processing (NLP)
+% spaCy
+To automatically analyze linguistic features of each words in their
+corresponding sentence, we employed the Python package spaCy \citep{spacy2} and
+its accompanying German language model (\texttt{de\_core\_news\_md} that was
+trained on the TIGER Treebank corpus \citep{brants2004tiger}.
 % Tiger Treebank Corpus:
 % \href{https://www.ims.uni-stuttgart.de}{ims.uni-stuttgart.de}.
-To automatically analyze linguistic features of each words in their corresponding
-sentence, we employed the Python package spaCy \citep{spacy2} and its accompanying German language model (\texttt{de\_core\_news\_md} that was trained on the TIGER Treebank corpus \citep{brants2004tiger}.
-Non-speech vocalizations were dropped from the sentences before analysis.
-We performed analyses regarding part-of-speech (i.e. grammatical tagging or word-category disambiguation), syntactic dependencies, lemmatization, word embedding (i.e. multi-dimensional meaning representation of a word), and if the word is one of the most common words of the German language (i.e. if the word is part of a stop list).
+% dropping of non-speech vocalizations because they often delude the algo
+Non-speech vocalizations were dropped from the sentences before analysis to
+improve results.
+% performed analyses
+We performed analyses regarding part-of-speech (i.e. grammatical tagging or
+word-category disambiguation), syntactic dependencies, lemmatization, word
+embedding (i.e. multi-dimensional meaning representation of a word), and if the
+word is one of the most common words of the German language (i.e. if the word is
+part of a stop list).
 
 
 \subsection*{Data Legend}
