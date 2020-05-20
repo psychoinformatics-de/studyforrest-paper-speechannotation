@@ -270,40 +270,55 @@ word is one of the most common words of the German language (i.e. if the word is
 part of a stop list).
 
 
-\subsection*{Data Legend}
-\todo[inline]{Minimale Info hier, dass es zwei Versionen gibt und sich der folgende Abschnitt auf TSV file bezieht}
-The annotation is available in two different versions, both providing the same information: a) as a (text-based) Praat TextGrid file and b) as a text-based, tab-separated value (TSV) formatted table.
+\subsection*{Data Legend} \todo[inline]{Minimale Info hier, dass es zwei
+Versionen gibt und sich der folgende Abschnitt auf TSV file bezieht}
+% TextGrid vs. TSV
+The annotation is available in two different versions, both providing the same
+information: a) as a (text-based) Praat TextGrid file and b) as a text-based,
+tab-separated value (TSV) formatted table.
+% preview of following subsubsections
 The following descriptions refer to the ten columns of the TSV file, namely
-\texttt{onset}, \texttt{duration}, \texttt{person}, \texttt{text} (of sentence, word or phoneme), \texttt{pos}, \texttt{tag}, \texttt{dep}, \texttt{lemma}, \texttt{stop}, \texttt{vector}.
+\texttt{onset}, \texttt{duration}, \texttt{person}, \texttt{text} (of sentence,
+word or phoneme), \texttt{pos}, \texttt{tag}, \texttt{dep}, \texttt{lemma},
+\texttt{stop}, \texttt{vector}.
 
 
-\subsubsection*{Start (\texttt{start})}
-The onset of the sentence, word or phoneme. Time stamps are provided in the format seconds.milliseconds of stimulus onset.
+\subsubsection*{Start (\texttt{start})} The onset of the sentence, word or
+phoneme. Time stamps are provided in the format seconds.milliseconds of stimulus
+onset.
 
 
-\subsubsection*{Duration (\texttt{duration})}
-The duration of the sentences, word or phoneme provided the format seconds.milliseconds.
+\subsubsection*{Duration (\texttt{duration})} The duration of the sentences,
+word or phoneme provided the format seconds.milliseconds.
 
 
-\subsubsection*{Speaker identity (\texttt{person})}
-Name of the person that speaks the sentence, word or phoneme. See Table \ref{tab:speakers} for the ten most often ocurring speakers.
+\subsubsection*{Speaker identity (\texttt{person})} Name of the person that
+speaks the sentence, word or phoneme. See Table \ref{tab:speakers} for the ten
+most often occurring speakers.
 
 
 \subsubsection*{Text (\texttt{text})}
-\todo[inline]{Großphoneme erwähnen;Nicht erwähnt: Wenn die Korrektur der Phoneme unmöglich war, habe ich einfach die Event-Borders zwischen den Phonemen herausgenommen. Wortbeginn und Wortende stimmen dann mit einem neuen, "künstlich-großen Phoneme" überein.
-Das "Groß-Phonem" enthält dann ohne Grenzen zwischen den tatsächlichen Phonemen des Wortes alle Phoneme des Wortes ("es ist kompliziert zu erklären, aber im Grunde ganz einfach). kommt jedoch so selten vor, ist im Grunde "noise" und ist in der Anno sofort als solches zu erkennen.}
-The text of a spoken sentence or word, or the pronounciation of a phoneme.
-Phonemes of German words follow the Prosodylab PhoneSet, English words follow the ARPAbet PhoneSet.
+% ``Großphoneme'': n<200
+The text of a spoken sentence or word, or the pronunciation of a phoneme.
+Phonemes of German words follow the Prosodylab PhoneSet, English words follow
+the ARPAbet PhoneSet.
 
 
-\subsubsection*{Simple part-of-speech tag (\texttt{pos})}
-A simple part-of-speech tagging (grammatical tagging; word-category disambiguation) of a word.
-The simple part-of-speech tagging tags follow the Universal Dependencies v2 POS tag set (\href{https://universaldependencies.org}{universaldependencies.org}).
-See Table \ref{tab:pos} for a description of the labels and the respective counts of all 15 labels.
-Nouns that spaCy mistook for proper nouns or vice versa were corrected via script.
-% s. list at the beginning of script
-% code/add_part-of-speech-tagging2textgrid.py
-Additionally in cells of this column, sentences are tagged as \texttt{SENTENCE}, and phonemes are tagged as \texttt{PHONEME} to facilitate sorting, and filtering in potential further processing steps.
+\subsubsection*{Simple part-of-speech tag (\texttt{pos})} A simple
+part-of-speech tagging (grammatical tagging; word-category disambiguation) of a
+word.
+% annotation scheme
+The simple part-of-speech tagging tags follow the Universal Dependencies v2 POS
+tag set (\href{https://universaldependencies.org}{universaldependencies.org}).
+% reference to table
+See Table \ref{tab:pos} for a description of the labels and the respective
+counts of all 15 labels. Nouns that spaCy mistook for proper nouns or vice
+versa were corrected via script.
+% s. list at the beginning of script code/add_part-of-speech-tagging2textgrid.py
+% flags for sentences and phonemes in POS column
+Additionally in cells of this column, sentences are tagged as \texttt{SENTENCE},
+and phonemes are tagged as \texttt{PHONEME} to facilitate sorting, and filtering
+in potential further processing steps.
 
 \begin{table*}[t]
 \caption{Simple part-of-speech tagging (\texttt{pos}) performed by the Python package spaCy \citep{spacy2}.
@@ -338,10 +353,14 @@ X & \aPosX & \aPosXAll & \aPosXI & \aPosXII & \aPosXIII & \aPosXIV & \aPosXV & \
 
 \subsubsection*{Detailed part-of-speech tag (\texttt{tag})}
 % \href{https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets}{Stuttgart-Tübingen-Tagset}
-A detailed part-of-speech tagging of a word following the TIGER Treebank annotation scheme \citep{brants2004tiger} which is based on the Stuttgart-Tübingen-Tagset \citep{schiller1999stts}.
-See Table \ref{tab:tag} for a descripion  of the labels and the respective counts of the 15 most often occuring labels. Nouns that spaCy mistook for proper nouns or vice versa were corrected via script.
-% s. list at the beginning of script
-% code/add_part-of-speech-tagging2textgrid.py
+A detailed part-of-speech tagging of a word following the TIGER Treebank
+annotation scheme \citep{brants2004tiger} which is based on the
+Stuttgart-Tübingen-Tagset \citep{schiller1999stts}.
+% reference to table
+See Table \ref{tab:tag} for a descripion  of the labels and the respective
+counts of the 15 most often occuring labels. Nouns that spaCy mistook for proper
+nouns or vice versa were corrected via script.
+% s. list at the beginning of script code/add_part-of-speech-tagging2textgrid.py
 
 
 \begin{table*}[t]
@@ -374,10 +393,14 @@ VVPP & \aTagVvpp & \aTagVvppAll & \aTagVvppI & \aTagVvppII & \aTagVvppIII & \aTa
 \end{table*}
 
 
-\subsubsection*{Syntactic dependency (\texttt{dep})}
-Information about a word's syntactic dependencies with other words within the same sentence.
-Information follows the TIGER Treebank annotation scheme \citep{brants2004tiger} and is given in the format:
-``arc label;word's head;word's child1, word's child2, ...'', where the ``arc label'' (see Table \ref{tab:dep}) describes the type of syntactic relation that connects a "child" (the single word) to its "head".
+\subsubsection*{Syntactic dependency (\texttt{dep})} Information about a word's
+syntactic dependencies with other words within the same sentence.
+% annotation scheme
+Information follows the TIGER Treebank annotation scheme \citep{brants2004tiger}
+and is given in the format: ``arc label;word's head;word's child1, word's
+child2, ...'', where the ``arc label'' (see Table \ref{tab:dep}) describes the
+type of syntactic relation that connects a "child" (the single word) to its
+"head".
 
 \begin{table*}[t]
 \caption{Syntactic dependencies (\texttt{dep}) performed by the Python package spaCy \citep{spacy2}.
@@ -409,8 +432,7 @@ svp & separable verb prefix & \aDepSvpAll & \aDepSvpI & \aDepSvpII & \aDepSvpIII
 \end{table*}
 
 
-\subsubsection*{Lemmatization (\texttt{lemma})}
-The base form (root) of a word.
+\subsubsection*{Lemmatization (\texttt{lemma})} The base form (root) of a word.
 
 
 \subsubsection*{Common Word (\texttt{stop})}
@@ -433,32 +455,62 @@ The source code for all descriptive statistics included in this paper is availab
 \section*{Dataset validation}
 % Information about any validation carried out and/or any limitations of the
 % datasets, including any allowances made for controlling bias or unwanted
-% sources of variability.
-% ~170 words => das wird beim folgenden Schreiben definitiv nichts werden
-% Intro
-In order to assess data quality, we investigated if contrasting speech-related events to events without speech lead to increased activation in areas known to be involved in semantic processing \citep{hickok2007cortical}.
-Moreover, we tested if similar linguistic concepts providing high semantic information (proper nouns and nouns) contrasted to a concept providing low semantic information (coordinate conjunctions) lead to increased activation in congruent brain areas.
-% Preprocessing
-\todo[inline]{hanke2014 spricht von 20 subjects (age 21–38 years, mean age 26.6 years, 12 male), es fehlt hier aber sub-10. MIH: age doesn't matter here. Just say that you left out sub-10, and why}
-% Details of the alignment procedure are given in the section on “Technical Validation”.
-%Data aligned by applying an affine transformation only are available in bold_dico_dico7Tad2grpbold7Tad.nii.gz.
-% Data aligned by non-linear warping are available in bold_dico_dico7Tad2grpbold7Tad_nl.nii.gz.
-We used blood oxygenation level-dependent (BOLD) functional magnetic resonance imaging (fMRI) data of the 2h audio-description (\unit[7]{Tesla}, \unit[2]{s} repetition time, 3599 volumes, 36 axial slices, thickness \unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane resolution, \unit[224]{mm} field-of-view) of 19 healthy subjects \citep{hanke2014audiomovie}.
+% sources of variability. ~170 words => das wird beim folgenden Schreiben
+% definitiv nichts werden intro
+In order to assess data quality, we investigated if contrasting speech-related
+events to events without speech lead to increased activation in areas known to
+be involved in semantic processing \citep{hickok2007cortical}.
+% nouns and proper nouns resp. > coordinate junctions
+Moreover, we tested if similar linguistic concepts providing high semantic
+information (proper nouns and nouns) contrasted to a concept providing low
+semantic information (coordinate conjunctions) lead to increased activation in
+congruent brain areas.
+% data source
+% data aligned by applying an affine transformation only are available in
+% bold_dico_dico7Tad2grpbold7Tad.nii.gz.
+% data aligned by non-linear warping are available in
+% bold_dico_dico7Tad2grpbold7Tad_nl.nii.gz.
+We used a dataset providing blood oxygenation level-dependent (BOLD) functional
+magnetic resonance imaging (fMRI) data of 20 subjects (age 21–38 years, mean age
+26.6 years, 12 male) listening to the 2h audio-description (\unit[7]{Tesla},
+\unit[2]{s} repetition time, 3599 volumes, 36 axial slices, thickness
+\unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane resolution, \unit[224]{mm}
+field-of-view) \citep{hanke2014audiomovie}.
+% motion correction
 Data were already corrected for motion at the scanner computer.
-Further, individual BOLD time-series were already aligned by non-linear warping to a study-specific T2*-weighted echo planar imaging (EPI) group template (cf. \citep{hanke2014audiomovie} for details on how the group template was created).
-\todo[inline]{So korrekt und “vollständig? MNI152 co-registration? Im Übrigen finde ich 3-4 Paper, die als Zitation für den MNI152-space in Frage kommen, wobei keines richtig passen will; hanke2014 zitiert keines. MIH: That is sufficient. No need to cite anything for MNI152}
-All further analysis steps were carried out using Feat v6.00 (FMRI Expert Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB's Software Library)\citep{smith2004fsl}.
-Data were temporally high-pass filtered (cut-off \unit[150]{s}), spatially smoothed (Gaussian kernel; \unit[4.0]{mm} FWHM), and the brain was extracted from surrounding tissue.
-A grand-mean intensity normalization of the entire 4D dataset was performed by a single multiplicative factor.
+% alignment
+Further, individual BOLD time-series were already aligned by non-linear warping
+to a study-specific T2*-weighted echo planar imaging (EPI) group template (cf.
+\citep{hanke2014audiomovie} for details on how the group template was created).
+% steps done by C.H.
+All further analysis steps were carried out using Feat v6.00 (FMRI Expert
+Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB's
+Software Library)\citep{smith2004fsl}.
+% dropping of subject 10
+Data of one participant was dropped to due to invalid distortion correction
+during scanning.
+% temporal and spatial filter, brain extraction
+Data were temporally high-pass filtered (cut-off \unit[150]{s}), spatially
+smoothed (Gaussian kernel; \unit[4.0]{mm} FWHM), and the brain was extracted
+from surrounding tissue.
+% normalization
+A grand-mean intensity normalization of the entire 4D dataset was performed by a
+single multiplicative factor.
 
 
 \begin{table*}[t]
     \caption{Overview of the events that were used to create the 26 regressors of the GLM analysis.
-The respective counts are given for the whole stimulus and the eight segments that were used during fMRI scanning.
-The 20 most often occuring labels from the detailed part-of speech tagging (\texttt{tag}) were used as such.
+The respective counts are given for the whole stimulus and the eight segments
+that were used during fMRI scanning.
+The 20 most often occurring labels from the detailed part-of speech tagging     (\texttt{tag}) were used as such.
 Words belonging to all other labels were pooled to \texttt{tag\_other}.
-The label \texttt{sentence} contains the end of complete grammatical sentences. The label \texttt{phones} contains events of the 80 most often occuring phonemes (phoneme \texttt{n} with N=6053 to phoneme \texttt{IY1} with N=32).
-The label \texttt{no-sp} represents moments when no speech was audible. \texttt{fg\_ad\_lrdiff} (left-right volume difference) and \texttt{fg\_ad\_rms} (root mean square volume) represent one event for every movie frame (\unit[40]{ms}). Events were convolved with FSL's ``Double-Gamma HRF'' to create the regressors. The correlation of these regressors over the time course of the whole stimulus can be seen in Figure \ref{fig:reg-corr}.}
+The label \texttt{sentence} contains the end of complete grammatical sentences.
+The label \texttt{phones} contains events of the 80 most often occurring
+phonemes (phoneme \texttt{n} with N=6053 to phoneme \texttt{IY1} with N=32).
+The label \texttt{no-sp} represents moments when no speech was audible. \texttt{fg\_ad\_lrdiff} (left-right volume difference) and \texttt{fg\_ad\_rms} (root mean square volume) represent one event for every movie frame (\unit[40]{ms}).
+Events were convolved with FSL's ``Double-Gamma HRF'' to create the regressors.
+The correlation of these regressors over the time course of the whole stimulus
+can be seen in Figure \ref{fig:reg-corr}.}
 \label{tab:regressors}
 \footnotesize
 \begin{tabular}{lp{3.5cm}lllllllll}
@@ -488,7 +540,7 @@ vvpp & \aTagVvpp & \rVvppAll & \rVvppI & \rVvppII & \rVvppIII & \rVvppIV & \rVvp
 tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagotherII & \rTagotherIII & \rTagotherIV & \rTagotherV & \rTagotherVI & \rTagotherVII & \rTagotherVIII \tabularnewline
 %\hline
 sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
-phones & 80 most often occuring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
+phones & 80 most often occurring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
 no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
 %\hline
 fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
