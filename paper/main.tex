@@ -135,7 +135,7 @@ there is no off-screen voice, dialog, or other relevant auditory content.
 \subsection*{Annotation procedure}
 % preliminary annotations
 Preliminary, manual orthographic transcriptions of dialogues, non-speech
-vocalizations (e.g. laughing or groaning) and script for the audio-description's
+vocalizations (e.g. laughter or groaning) and script for the audio-description's
 narrator were merged, and converted to Praat's \citep{boersma2019praat} TextGrid
 format.
 % preparing annotation in Praat before forced alignment
@@ -158,7 +158,7 @@ too.
 We used the Montreal Forced Aligner \citep{mcauliffe2017montreal} to
 algorithmically identify the exact onset of offset of the sentences, and the
 onset and offset of each word and phoneme embedded in the transcribed sentences.
-% preparing other inputs before forced alignment pronounciation dictionary
+% preparing other inputs before forced alignment pronunciation dictionary
 % http://prosodylab.org
 % https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict
 To enable the aligner to look up the phonemes embedded within each word, we
@@ -204,8 +204,16 @@ During every step results from previous steps were constantly checked again for
 errors and further improvements.
 
 \begin{table*}[tbp]
-    \caption{Overview of the annotation's content for the whole stimulus and its individual segments used during fMRI scanning. The category \texttt{sentences} comprises complete grammatical sentences which are additionally marked in the annotation with a full stop at the end (``my feet hurt.'').
-    It also comprises questions (``do you want a chocolate?''), exlamations (``run away!), or non-speech vocalizations in quick succession (``ha, ha, ha''), or in isolation (e.g. ``Forrest?'', ``Forrest!'', ``ha'') at time points when speakers switch rapidly. The category \texttt{words} comprises each word or non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
+    \caption{Overview of the annotation's content for the audio-only stimulus
+that comprises the additional narrator. Counts are given for the whole stimulus
+(\texttt{all}) and its individual segments used during fMRI scanning.
+The category \texttt{sentences} comprises complete grammatical sentences which
+are additionally marked in the annotation with a full stop at the end (``my feet hurt.'').
+It also comprises questions (``do you want a chocolate?''), exclamations (``run
+away!''), or non-speech vocalizations in quick succession (``ha, ha, ha''), or
+in isolation (e.g. ``Forrest?'', ``Forrest!'', ``ha'') at time points when
+speakers switch rapidly. The category \texttt{words} comprises each word or
+non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
 \label{tab:overview}
 \begin{tabular}{llllllllll}
 \toprule
@@ -220,7 +228,7 @@ phonemes  & \aPhonesAll & \aPhonesI & \aPhonesII & \aPhonesIII & \aPhonesIV & \a
 
 
 \begin{table*}[btp]
-\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurrs in the audio-description of the movie.
+\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurs in the audio-description of the movie.
 Overall 97 persons were identified.
 Names are mostly identical to the names used in \citep{labs2015portrayed}.}
 \label{tab:speakers}
@@ -243,7 +251,7 @@ Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarra
 \end{table*}
 
 
-% NLP
+% natural luanguage processing (NLP)
 % Tiger Treebank Corpus:
 % \href{https://www.ims.uni-stuttgart.de}{ims.uni-stuttgart.de}.
 To automatically analyze linguistic features of each words in their corresponding
