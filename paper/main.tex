@@ -550,25 +550,67 @@ fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFga
 \end{table*}
 
 
-% 1st lv}
-\todo[inline]{What follows has typos}
-We implemented a standard three-level, voxel-wise general linear model (GLM) to average parameter estimates across the eight stimulus segments, and later across 19 subjects.
-At the first level analyzing each segment for each subject individually, we created 26 regressors based on events drawn from the annotation (see Table \ref{tab:regressors}).
-The 20 most often occuring detailed part-of-speech labels (\texttt{nn} with N=\rNnAll\space to text{prf} with N=\rPrfAll) were modelled as such from the onset to offset of each word\todo{This has errors that I do not know how to fix}.
-The remaining labels were pooled to (\texttt{tag\_other}; N=\rTagotherAll)\todo{I do not know what this means}.
-The top 80 phonemes (\texttt{n} with N=6053 to \texttt{IY1} with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) to be used as a nuisance regressors\todo{Does that mean they share events with "other"}.
-The end of each complete grammatical sentence was modeled as an impulse event (N=\rSentenceAll)\todo{Why? Above it says 'we tested if similar linguistic concepts providing high semantic information (proper nouns and nouns)'. What does this need sentences for?}.
-``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control condition were created by the following rationale:
-events were fitted into longer lasting intervals between onsets and offsets of words assumed\todo{Why assumed? Isn't the point of the annotion to "know"?} to contain no audible speech.
-Each event of the no-speech condition had to have a minimum distance of \unit[1.8]{s} to an onsets/offsets of word, and to each onset to another event of the no-speech condition.
-A length of \unit[70]{ms} was chosen for no-speech events matching the average length of phonemes.
-Lastly, we used events\todo{They are not really events, but a continous nuisance regressor} reflecting low-level auditory features (left-right difference in volume and root mean squared volume) averaged across the length of every movie frame (\unit[40]{ms}).
-All events were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function to create the actual regressors.
-The Pearson correlation coefficients of the 26 regressors across the time course of all stimulus segments can be seen in Figure \ref{fig:reg-corr}.
-Temporal derivatives were also included in the design matrix and the design was subjected to the same temporal filtering as the BOLD time series.
+% intro to analysis
+We implemented a standard three-level, voxel-wise general linear model (GLM) to
+average parameter estimates across the eight stimulus segments, and later across
+19 subjects.
+% 1st lvl
+At the first level analyzing each segment for each subject individually, we
+created 26 regressors based on events drawn from the annotation (see Table
+\ref{tab:regressors}).
+% part-of-speech labels: labels to events, top 20
+The 20 most often occurring detailed part-of-speech labels (\texttt{nn} with
+N=\rNnAll\space to text{prf} with N=\rPrfAll) were modeled as boxcar function
+from onset to offset of each word \todo{This has errors that I do not know how
+to fix; sorry, unclear what you mean by that}.
+% path-of-speech labels: remaining labels
+The remaining other part-of-speech labels were pooled to a single new label
+(\texttt{tag\_other}; N=\rTagotherAll) and each event was modeled as a boxcar
+function from onset to offset of the corresponding word\todo{I do not know what
+this means; hope it got clearer now}.
+% phonemes
+The top 80 phonemes (\texttt{n} with N=6053 to \texttt{IY1} with N=32) were
+pooled to \texttt{phonemes} (N=\rPhonesAll) and each event modeled as boxcar
+function from onset to offset of the corresponding phoneme.\todo{Does that mean
+they share events with "other"}.
+% sentence (endings)
+The end of each complete grammatical sentence was modeled as an impulse event
+(N=\rSentenceAll) to capture variance of sentence comprehension\todo{Why? Above
+it says 'we tested if similar linguistic concepts providing high semantic
+information (proper nouns and nouns)'. What does this need sentences for?}.
+% no-speech intro
+``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control
+condition were created by the following rationale: events were fitted into
+longer lasting intervals between onsets and offsets of words and thus within
+intervals without audible speech \todo{Why assumed? Isn't the point of the
+annotation to "know"? => Words where chosen to carefully; intervals don't
+contain any audible speech with 98 perc. certainty}
+% minimum distance to words
+Each event of the no-speech condition had to have a minimum distance of
+\unit[1.8]{s} to an onsets or offsets of a word, and to each onset to another
+event of the no-speech condition.
+% length of no-speech events
+A length of \unit[70]{ms} was chosen for no-speech events matching the average
+length of phonemes.
+% low-level nuisance regressors
+Lastly, we used events\todo{They are not really events, but a continuous
+nuisance regressor; okay, how do you phrase that correctly?} reflecting
+low-level auditory features (left-right difference in volume and root mean
+squared volume) averaged across the length of every movie frame (\unit[40]{ms}).
+All events were convolved with FSL's ``Double-Gamma HRF'' as a model of the
+hemodynamic response function to create the actual regressors.
+% reference to figure ``correlation of regressors''
+The Pearson correlation coefficients of the 26 regressors across the time course
+of all stimulus segments can be seen in Figure \ref{fig:reg-corr}.
+% temporal derivatives
+Temporal derivatives were also included in the design matrix and the design was
+subjected to the same temporal filtering as the BOLD time series.
+% motion parameters
 Finally, six motion parameters were used as additional nuisance regressors.
 
 \todo[inline]{die motion parameters werden nicht konvolviert, oder? MIH: Dunno.}
+
+% t-contrasts
 The following three t-contrasts were defined:
 % 1b) no-speech > words;
 % 2b) coordinate conjunctions > proper nouns;
