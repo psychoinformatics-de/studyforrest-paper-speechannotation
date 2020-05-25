@@ -618,44 +618,78 @@ The following three t-contrasts were defined:
 % 3b) coordinate conjunctions > nouns
 
 \begin{figure*} \centering
-    \includegraphics[width=\linewidth]{figures/regressor-corr} \caption{Pearson
-    correlation coefficients of the 26 regressors used in the analysis to
-    validate the annotation.
-    Regressors were convolved with FSL's
-    ``Double-Gamma HRF'' as a model of the hemodynamic response function and
-    concatenated across runs before performing the correlation.}
+\includegraphics[width=\linewidth]{figures/regressor-corr}
+\caption{Pearson correlation coefficients of the 26 regressors used in the
+    analysis to validate the annotation.
+    Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the
+    hemodynamic response function and concatenated across runs before
+    performing the correlation.}
 \label{fig:reg-corr} \end{figure*}
 
 
-% 2nd lvl and 3rd lvl
-The second-level analysis which averaged contrast estimates across the eight stimulus segments per subject was carried out using a fixed effects model by forcing the random effects variance to zero in FLAME (FMRIB's Local Analysis of Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}.
-The third level analysis which averaged contrast estimates across subjects was carried out using FLAME stage 1 with automatic outlier de-weighting \citep{woolrich2004multilevel, woolrich2008robust}.
-Z (Gaussianised T/F) statistic images were thresholded using clusters determined by Z>3.4 and a corrected cluster significance threshold of p<.05 \citep{woolrich2008robust}.
-Brain regions associated with observed clusters were determined with the Juelich Histological Atlas \citep{eickhoff2005toolbox,eickhoff2007assignment} and the Harvard-Oxford Cortical Atlas \citep{desikan2006automated} provided by FSL.
+% 2nd lvl
+The second-level analysis which averaged contrast estimates across the eight
+stimulus segments per subject was carried out using a fixed effects model by
+forcing the random effects variance to zero in FLAME (FMRIB's Local Analysis of
+Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}.
+% 3rd lvl
+The third level analysis which averaged contrast estimates across subjects was
+carried out using FLAME stage 1 with automatic outlier de-weighting
+\citep{woolrich2004multilevel, woolrich2008robust}.
+% thresholding
+Z (Gaussianised T/F) statistic images were thresholded using clusters determined
+by Z>3.4 and a corrected cluster significance threshold of p<.05
+\citep{woolrich2008robust}.
+% identification of brain regions
+Brain regions associated with observed clusters were determined with the Jülich
+Histological Atlas \citep{eickhoff2005toolbox,eickhoff2007assignment} and the
+Harvard-Oxford Cortical Atlas \citep{desikan2006automated} provided by FSL.
 
 
 % Results
+Figure \ref{fig:results} depicts the results of the three contrasts (Z threshold
+Z>3.4; p<.05 cluster-corrected).
 % COPE 1:
-Figure \ref{fig:results} depicts the results of the three contrasts (all Z-Threshold Z>3.4; p<.05 cluster-corrected).
-The contrast words (all 21 \texttt{tag-related} regressors) > no-speech yielded four significant clusters (see Table \ref{tab:cope1}):
-one left laterlized cluster spanning from the angular gyrus and inferior posterior supramarginal gyrus across the superior and middle temporal gyrus, including parts of Heschl's gyrus and planum temporale.
-A second left cluster in (inferior) frontal regions, including precentral gyrus, pars opercularis (Brodman Areal 44; BA44) and pars triangularis (BA45).
-Similarly in the right hemisphere, one cluster spanning from the angular gyrus across the superior and middle temporal gyrus but including frontal inferior regions (pars opercularis and pars triangularis).
+The contrast words (all 21 \texttt{tag-related} regressors) > no-speech yielded
+four significant clusters (see Table \ref{tab:cope1}):
+% cluster 1
+one left lateralized cluster spanning from the angular gyrus and inferior
+posterior supramarginal gyrus across the superior and middle temporal gyrus,
+including parts of Heschl's gyrus and planum temporale.
+% cluster 2
+A second left cluster in (inferior) frontal regions, including precentral gyrus,
+pars opercularis (Brodmann Areal 44; BA44) and pars triangularis (BA45).
+% cluster 3
+Similarly in the right hemisphere, one cluster spanning from the angular gyrus
+across the superior and middle temporal gyrus but including frontal inferior
+regions (pars opercularis and pars triangularis).
+% cluster 4
 A fourth significant cluster is located in the left thalamus.
 
 % COPE 3
-The contrast proper nouns > coordinate conjunctions yielded 9 significant clusters (see Table \ref{tab:cope3}):
-one left laterlized cluster spanning from the angular gyrus across planum temporale and superior temporal gyrus, partially covering the Heschl's gyrus, into the anterior middle temporal gyrus.
+The contrast proper nouns > coordinate conjunctions yielded 9 significant
+clusters (see Table \ref{tab:cope3}):
+% cluster 1
+one left lateralized cluster spanning from the angular gyrus across planum
+temporale and superior temporal gyrus, partially covering the Heschl's gyrus,
+into the anterior middle temporal gyrus.
+% cluster 2
 A largely congruent but smaller cluster in the right hemisphere.
+% cluster 3 & 5, and 4 & 6
 Two clusters in posterior cingulate cortex and precuneus of both hemispheres.
-Three small clusters in the right occipital pole, right Heschl's gyrus and left superior lateral occipital pole.
+% remaining 3 clusters of COPE 3
+Three small clusters in the right occipital pole, right Heschl's gyrus and left
+superior lateral occipital pole.
 
 % COPE 5
-The contrast nouns > coordinate conjunctions yielded 3 significant clusters (see Table \ref{tab:cope5}):
+The contrast nouns > coordinate conjunctions yielded 4 significant clusters (see Table \ref{tab:cope5}):
+% cluster 1 & 2
 two clusters that are slightly smaller than lateral temporal clusters of contrast nouns > coordinate conjunction. In this case, spanning from angular gyrus in the left hemisphere and from planum temporale in the right hermisphere into the anterior part of superior temporal cortex.
-Finally, two small right lateralized clusters in posterior cingulate gyrus and precuneus.
+% cluster 3 & 4
+Finally, two small right lateralized clusters in the right posterior cingulate
+gyrus and right precuneus.
 
-\todo{Figure zeigt whole brain statt “partial brain coverage”; vgl. Text; Problem? MIH: Could become an issue. In the data paper we showed the coverage. Maybe just ref the figure.}
+\todo{Figure zeigt whole brain statt “partial brain coverage”; vgl. Text; Problem? MIH: Could become an issue. In the data paper we showed the coverage. Maybe just ref the figure}
 \begin{figure*}
   \centering
 % \includegraphics[width=0.4\textwidth]{frog.jpg}
