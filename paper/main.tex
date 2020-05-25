@@ -567,24 +567,26 @@ to fix; sorry, unclear what you mean by that}.
 The remaining other part-of-speech labels were pooled to a single new label
 (\texttt{tag\_other}; N=\rTagotherAll) and each event was modeled as a boxcar
 function from onset to offset of the corresponding word\todo{I do not know what
-this means; hope it got clearer now}.
+this mean; CH: hope it got clearer now}.
 % phonemes
 The top 80 phonemes (\texttt{n} with N=6053 to \texttt{IY1} with N=32) were
 pooled to \texttt{phonemes} (N=\rPhonesAll) and each event modeled as boxcar
 function from onset to offset of the corresponding phoneme.\todo{Does that mean
-they share events with "other"}.
+they share events with "other"; CH: dunno what you mean, but text should be
+clearer now}.
 % sentence (endings)
 The end of each complete grammatical sentence was modeled as an impulse event
 (N=\rSentenceAll) to capture variance of sentence comprehension\todo{Why? Above
 it says 'we tested if similar linguistic concepts providing high semantic
-information (proper nouns and nouns)'. What does this need sentences for?}.
+information (proper nouns and nouns)'. What does this need sentences for? CH:
+it is kinda nuisance regressor}.
 % no-speech intro
 ``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control
 condition were created by the following rationale: events were fitted into
 longer lasting intervals between onsets and offsets of words and thus within
 intervals without audible speech \todo{Why assumed? Isn't the point of the
-annotation to "know"? => Words where chosen to carefully; intervals don't
-contain any audible speech with 98 perc. certainty}
+annotation to "know"? CH: words where chosen to carefully; intervals don't
+contain any audible speech with >98 perc. certainty}
 % minimum distance to words
 Each event of the no-speech condition had to have a minimum distance of
 \unit[1.8]{s} to an onsets or offsets of a word, and to each onset to another
@@ -594,7 +596,7 @@ A length of \unit[70]{ms} was chosen for no-speech events matching the average
 length of phonemes.
 % low-level nuisance regressors
 Lastly, we used events\todo{They are not really events, but a continuous
-nuisance regressor; okay, how do you phrase that correctly?} reflecting
+nuisance regressor; CH: okay, how do you phrase that correctly?} reflecting
 low-level auditory features (left-right difference in volume and root mean
 squared volume) averaged across the length of every movie frame (\unit[40]{ms}).
 All events were convolved with FSL's ``Double-Gamma HRF'' as a model of the
@@ -689,7 +691,8 @@ two clusters that are slightly smaller than lateral temporal clusters of contras
 Finally, two small right lateralized clusters in the right posterior cingulate
 gyrus and right precuneus.
 
-\todo{“partial brain coverage” / FoV. MIH: Could become an issue. In the data paper we showed the coverage. Maybe just ref the figure => gonna take a look how I can adjust the script to get a FoV mask from the data and use it during plotting; otherwise: ref to paper}
+\todo{“partial brain coverage” / FoV. MIH: Could become an issue. In the data
+paper we showed the coverage. Maybe just ref the figure. CH: gonna take a look how I can adjust the script to get a FoV mask from the data and use it during plotting; otherwise: ref to paper}
 \begin{figure*}
   \centering
   \includegraphics[width=\linewidth]{figures/slicescolorbars}
@@ -798,15 +801,16 @@ lerner2011topographic, silbert2014coupled}.
 % dissimilarities
 Contrary to previous studies, we do not find increased medial activation in the
 precuneus or medial frontal cortex. This could be attributed to the fact that
-our contrast does not \todo{Which contrast captures ANY social aspects? => the
+our contrast does not \todo{Which contrast captures ANY social aspects? CH: the
 COPEs in the references} capture social aspects of the narrative
 \citep{ferstl2008extended, mar2011neural}\todo{check it}.
 % (proper) nouns > con
 The two contrasts contrasting nouns and proper nouns respectively to coordinate
 junctions lead to unexpected results\todo{That seems like an unfortunate
 statement. We make this analysis to show expected results to conclude that the
-annotation is good. But we get unexpected results and conclude; the contrast is
-shit; cf. following explanation}.
+annotation is good. But we get unexpected results and conclude; CH: the contrast
+turned out to yield the result; cf. following explanation; I don't feel
+comfortable of HARKing}.
 % cluster location
 Increased activation is partially located in early sensory regions (Heschl's
 Gyrus; \citep{saenz2014tonotopic}) and most prominently adjacent regions
@@ -828,7 +832,7 @@ variance.
 A second explanation might be that our phoneme regressors that assumed linear
 summation of approximately 70 ms lasting events in quick succession did not
 capture a sufficiently amount of nuisance variance\todo{Reviewer 2 will ask: If
-you knew all these issues, why did you do it then? hindsight bias after
+you knew all these issues, why did you do it then? hindsight bias/HARKing after
 exploratory analyses?!}.
 % but...
 Nevertheless and more importantly to access the validity of the dataset is the
@@ -849,21 +853,35 @@ that this is not the case.}
 In addition, released data, code, and manuscript sources are also available on
 Github (\url{https://github.com/psychoinformatics-de/studyforrest-paper-speechannotation}).
 
-\section*{Conclusions}
-\todo[inline]{the paper needs to serve a purpose.
-One is, of course, to be documentation for the annotation.
-Another is to attract people to use this work for their own studies.
-I would even argue that this is the \textit{main} purpose, given that the annotation in itself represents to scientific progress.
-The need to give an accurate assessment what this can be used for and what is problematic or impossible.
-ATM this is the only statement in this regard:
-'facilitates modeling of hemodynamic brain responses correlating with speech-related events' and the only indication of purpose is 'additional confound measures'.
-I think this is incongruent with the amount of work and the level of detail of
-this annotation; öööööhh, okay. Mir sind da jetzt über 2 Tage wenig Superlative eingefallen, die über den bisherigen Text hinausgehen; fehlt mir wohl die geeignete Perspektive}
-% state what you think are the main conclusions that can be realistically drawn from the findings in the paper, taking care not to make claims that cannot be supported.
-As an extension of the studoforrest dataset, we present an annotation of spoken language in the two hours lasting ``research cut'' of the audio-visual movie ``Forrest Gump'' and its temporally aligned audio-description.
-We annotated the onset and offset of sentences, words and phonemes, and the corresponding speaker's identity.
-An additional tagging of each word's linguistic features and the public nature of the dataset enable independent working groups to create sophisticated models of hemodynamic activity correlating with speech-related events in a naturalistic stimulus.
-Results of our dataset validating analysis that we run as a proof of concept show that the annotation's content can indeed / in principle be used to isolate/track speech-related networks in the human brain under life-like conditions.
+\section*{Conclusions} \todo[inline]{the paper needs to serve a purpose.  One
+is, of course, to be documentation for the annotation.  Another is to attract
+people to use this work for their own studies.  I would even argue that this is
+the \textit{main} purpose, given that the annotation in itself represents to
+scientific progress.  The need to give an accurate assessment what this can be
+used for and what is problematic or impossible.  ATM this is the only statement
+in this regard: 'facilitates modeling of hemodynamic brain responses correlating
+with speech-related events' and the only indication of purpose is 'additional
+confound measures'.  I think this is incongruent with the amount of work and the
+level of detail of this annotation; CH: let's discuss that personally}
+% state what you think are the main conclusions that can be realistically drawn
+% from the findings in the paper, taking care not to make claims that cannot be
+% supported.  intro
+As an extension of the studyforrest dataset, we present an annotation of spoken
+language in the two hours lasting ``research cut'' of the audio-visual movie
+``Forrest Gump'' and its temporally aligned audio-description.
+% what we did
+We annotated the onset and offset of sentences, words and phonemes, and the
+corresponding speaker's identity.
+% what for
+An additional tagging of each word's linguistic features and the public nature
+of the dataset enable independent working groups to create sophisticated models
+of hemodynamic activity correlating with speech-related events in a naturalistic
+stimulus.
+% results
+Results of our dataset validating analysis that we run as a proof of concept
+show that the annotation's content can indeed / in principle be used to
+isolate/track speech-related networks in the human brain under life-like
+conditions.
 
 
 \subsection*{Author contributions}
@@ -880,7 +898,6 @@ MH provided critical feedback on the procedure and wrote the manuscript.
 No competing interests were disclosed.
 
 \subsection*{Grant information}
-
 COH was supported by a graduate stipend from the German federal state of
 Saxony-Anhalt and MH was supported by funds from the German federal state of
 Saxony-Anhalt and the European Regional Development Fund (ERDF), Project:
@@ -891,7 +908,7 @@ no. 785907 (HBP SGA2).
 
 
 \subsection*{Acknowledgements}
-We are grateful to \href{www.florianschurz.de}{Florian Schurz} who initiated doing the annotation of the descriptive nouns\todo{should it still be here? or move in PPA paper?}, and performed the preliminary annotation of nouns. Christian O. Häusler is also grateful to Valeri Kippes who took care of the author's mental sanity by providing excellent training at his gym in Jülich during the mentally draining period of manual corrections of the annotation.
+COH is grateful to Valeri Kippes who took care of the author's mental sanity by providing excellent training at his gym in Jülich during the mentally draining period of manual corrections of the annotation.
 
 {\small\bibliographystyle{unsrtnat}
 \bibliography{references}}
