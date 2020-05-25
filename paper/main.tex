@@ -608,29 +608,23 @@ subjected to the same temporal filtering as the BOLD time series.
 % motion parameters
 Finally, six motion parameters were used as additional nuisance regressors.
 
-\todo[inline]{die motion parameters werden nicht konvolviert, oder? MIH: Dunno.}
-
 % t-contrasts
 The following three t-contrasts were defined:
-% 1b) no-speech > words;
-% 2b) coordinate conjunctions > proper nouns;
-% 3b) coordinate conjunctions > nouns.
-1) words (all 21 \texttt{tag}-related regressors; N=15985) > no-speech (\texttt{no-sp}; N=\rNospAll),
-2) proper nouns (\texttt{ne}; N=\rNeAll) > coordinate conjunctions (\texttt{kon}; N=\rKonAll), and
-3) nouns (\texttt{nn}; N=\rNeAll) > coordinate conjunctions.
-\todo[inline]{I think having the N here is confusion. It is a contrast between regressors models. The number of events only indirectly accounts for the variance (which is interesting here). I would strip this info to reduce confusion}
-% implementation detail. Any analysis should preserve the orientiation.
-%The first level analysis which fitted each voxel's time course separately for each subject was performed in functional space preserving the orientation of the EPI images [+++richtig?+++].
+1) words (all 21 \texttt{tag}-related regressors) > no-speech (\texttt{no-sp}),
+% 1b) no-speech > words
+2) proper nouns (\texttt{ne}) > coordinate conjunctions (\texttt{kon}; N=\rKonAll), and
+% 2b) coordinate conjunctions > proper nouns
+3) nouns (\texttt{nn}) > coordinate conjunctions.
+% 3b) coordinate conjunctions > nouns
 
-% Also weshalb wird das temporal filtering der regressoren wann wie gemacht??? -> nachschlagen
-% “You should normally apply the same temporal filtering to the model as you have applied to the data, as the model is designed to look like the data before temporal filtering was applied. In this way, long-time-scale components in the model will be dealt with correctly. This is set with the Apply temporal filtering option.”
-\begin{figure*}
-  \centering
-  \includegraphics[width=\linewidth]{figures/regressor-corr}
-  \caption{Pearson correlation coefficients of the 26 regressors used in the analysis to validate the annotation.
-Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic response function, temporally filtered with the same high-pass filter (cut-off 150s) as the BOLD time series, and cocatenated across runs before performing the correlation.}
-\label{fig:reg-corr}
-\end{figure*}
+\begin{figure*} \centering
+    \includegraphics[width=\linewidth]{figures/regressor-corr} \caption{Pearson
+    correlation coefficients of the 26 regressors used in the analysis to
+    validate the annotation.
+    Regressors were convolved with FSL's
+    ``Double-Gamma HRF'' as a model of the hemodynamic response function and
+    concatenated across runs before performing the correlation.}
+\label{fig:reg-corr} \end{figure*}
 
 
 % 2nd lvl and 3rd lvl
