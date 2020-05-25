@@ -684,7 +684,7 @@ superior lateral occipital pole.
 % COPE 5
 The contrast nouns > coordinate conjunctions yielded 4 significant clusters (see Table \ref{tab:cope5}):
 % cluster 1 & 2
-two clusters that are slightly smaller than lateral temporal clusters of contrast nouns > coordinate conjunction. In this case, spanning from angular gyrus in the left hemisphere and from planum temporale in the right hermisphere into the anterior part of superior temporal cortex.
+two clusters that are slightly smaller than lateral temporal clusters of contrast nouns > coordinate conjunction. In this case, spanning from angular gyrus in the left hemisphere and from planum temporale in the right hemisphere into the anterior part of superior temporal cortex.
 % cluster 3 & 4
 Finally, two small right lateralized clusters in the right posterior cingulate
 gyrus and right precuneus.
@@ -692,7 +692,6 @@ gyrus and right precuneus.
 \todo{“partial brain coverage” / FoV. MIH: Could become an issue. In the data paper we showed the coverage. Maybe just ref the figure => gonna take a look how I can adjust the script to get a FoV mask from the data and use it during plotting; otherwise: ref to paper}
 \begin{figure*}
   \centering
-% \includegraphics[width=0.4\textwidth]{frog.jpg}
   \includegraphics[width=\linewidth]{figures/slicescolorbars}
   \caption{Mixed-effects group-level (N=14) GLM contrasts for the audio-description of the movie Forrest Gump. All cluster (Z>3.4, p<0.05 cluster-corrected; MNI template space)}.
 \label{fig:results}
@@ -782,19 +781,66 @@ right precuneus \\
 \end{tabular}
 \end{table*}
 
-\todo[inline]{Lass uns bzgl. der Discussion am besten unterhalten; im Grunde geht es darum, wie weit ich ins Detail gehen soll (kann nämlich viel zu sehr ins Detail gehen); im Grunde geht es imo nicht darum, alle Cluster inkl. Areale durchzudiskutieren, sondern zu kommunizieren, dass die Anno brauchbar ist; wie dem auch sei: Hier wird noch Inhalt nach dem Lesen der Reviews hinzukommen}
-% discussion
-% wilson2007beyond
-% planum temporale = Wernicke; ist witzigerweise nicht in contrast 1 (words > no speech), aber “stark” in nouns bzw. proper nouns > kon
-In the contrast words > no speech, we expectedly find increased hemodynamic activity in a bilateral cortical network including temporal, parietal and frontal regions realted to processing spoken language \citep{friederici2011brain, hickok2007cortical,price2012twentyyears}.\todo{abchecken}
-Our results are similar to results of studies that implemented an ISC approach to analyze fMRI data of naturalistic auditory stimuli \citep{honey2012not, lerner2011topographic, silbert2014coupled}.
-Contrary to previous studies, we do not find increased medial activation in the precuneus or medial frontal cortex. This could be attributed to the fact that our contrast does not [+++sufficiently+++]\todo{Which contrast captures ANY social aspects?} capture social aspects of the narrative \citep{ferstl2008extended, mar2011neural}\todo{abchecken}.
-The two contrasts contrasting nouns and proper nouns respectively to coordinate junctions lead to unexpected results\todo{That seems like an unfortunate statement. We make this analysis to show expected results to conclude that the annotation is good. But we get unexpected results and conclude...}. Increased activation is partially located in early sensory regions (Heschl's Gyrus; \citep{saenz2014tonotopic}) and most prominently adjacant regions bilaterally (planum temporale; superior temporal gyrus; \citep{arsenault2015distributed, mesgarani2014phonetic}).
-This could be attributed to the fact that a high count of heterogenous nouns (N=\rNnAll) and proper nouns (N=\rNeAll) were averaged across all 300 semantic dimensions (cf. \citep{mitchell2008predicting, huth2016natural}), and contrasted to coordinate conjunctions that offered a comparably small amount of events (N=\rKonAll).
-Moreover, the coordinate junctions (\texttt{kon}) mostly comprises event of the words ``and'' (N=392) and ``but'' (N=49) and thus offered only a small amount of variance.
-A second explanation might be that our phoneme regressors that assumed linear summation of approximatly 70 ms lasting events in quick succession did not capture a sufficiently amount of nuissance variance\todo{Reviewer 2 will ask: If you knew all these issues, why did you do it then?}.
-Nevertheless and more importantly to access the validity of the dataset is the fact that two similar lingustic concepts (nouns and proper nouns) embedded in a naturalistic stimulus that was not designed for linguistic research lead to similar activation patterns\todo{That statement is only true, if both contrasts are not (solely) driven by the conjuctions. There is no evidence in the paper that this is not the case.}
-% Within the language processing systems, early sensory regions are specialized for representing the immediate physical properties of the environment (form), while higher order regions extract increasingly abstract content (Davis and Johnsrude, 2003; Quiroga et al., 2005; Okada et al., 2010).
+\todo[inline]{Lass uns bzgl. der Discussion am besten unterhalten; im Grunde
+geht es darum, wie weit ich ins Detail gehen soll (kann nämlich viel zu sehr ins
+Detail gehen); im Grunde geht es imo nicht darum, alle Cluster inkl. Areale
+durchzudiskutieren, sondern zu kommunizieren, dass die Anno brauchbar ist; wie
+dem auch sei: Hier wird noch Inhalt nach dem Lesen der Reviews hinzukommen}
+% words > no-speech
+In the contrast words > no-speech, we find increased hemodynamic activity in a
+bilateral cortical network including temporal, parietal and frontal regions
+related to processing spoken language \citep{friederici2011brain,
+hickok2007cortical,price2012twentyyears}.
+% similarities to previous naturalistic speech paradigms
+Our results are similar to results of studies that implemented an ISC approach
+to analyze fMRI data of naturalistic auditory stimuli \citep{honey2012not,
+lerner2011topographic, silbert2014coupled}.
+% dissimilarities
+Contrary to previous studies, we do not find increased medial activation in the
+precuneus or medial frontal cortex. This could be attributed to the fact that
+our contrast does not \todo{Which contrast captures ANY social aspects? => the
+COPEs in the references} capture social aspects of the narrative
+\citep{ferstl2008extended, mar2011neural}\todo{check it}.
+% (proper) nouns > con
+The two contrasts contrasting nouns and proper nouns respectively to coordinate
+junctions lead to unexpected results\todo{That seems like an unfortunate
+statement. We make this analysis to show expected results to conclude that the
+annotation is good. But we get unexpected results and conclude; the contrast is
+shit; cf. following explanation}.
+% cluster location
+Increased activation is partially located in early sensory regions (Heschl's
+Gyrus; \citep{saenz2014tonotopic}) and most prominently adjacent regions
+bilaterally (planum temporale; superior temporal gyrus;
+\citep{arsenault2015distributed, mesgarani2014phonetic}).
+% interpretation 1a: large amount of semantically different nouns > narrow
+% concept (conjunctions)
+This could be attributed to the fact that a high count of heterogeneous nouns
+(N=\rNnAll) and proper nouns (N=\rNeAll) were averaged across all 300 semantic
+dimensions (cf. \citep{mitchell2008predicting, huth2016natural}), and contrasted
+to coordinate conjunctions that offered a comparably small amount of events
+(N=\rKonAll).
+% interpretation 1b: not just narrow concept but also dominated by just two
+% different words
+Moreover, the coordinate junctions (\texttt{kon}) mostly comprises event of the
+words ``and'' (N=392) and ``but'' (N=49) and thus offered only a small amount of
+variance.
+% interpretation 2
+A second explanation might be that our phoneme regressors that assumed linear
+summation of approximately 70 ms lasting events in quick succession did not
+capture a sufficiently amount of nuisance variance\todo{Reviewer 2 will ask: If
+you knew all these issues, why did you do it then? hindsight bias after
+exploratory analyses?!}.
+% but...
+Nevertheless and more importantly to access the validity of the dataset is the
+fact that two similar linguistic concepts (nouns and proper nouns) embedded in a
+naturalistic stimulus that was not designed for linguistic research lead to
+similar activation patterns\todo{That statement is only true, if both contrasts
+are not (solely) driven by the conjunctions. There is no evidence in the paper
+that this is not the case.}
+% Within the language processing systems, early sensory regions are specialized
+% for representing the immediate physical properties of the environment (form),
+% while higher order regions extract increasingly abstract content (Davis and
+% Johnsrude, 2003; Quiroga et al., 2005; Okada et al., 2010).
 
 \section*{Data availability}
 % aus der Schnitt-Annotation übernommen
