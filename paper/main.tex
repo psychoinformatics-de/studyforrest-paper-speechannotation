@@ -575,14 +575,14 @@ this mean; CH: hope it got clearer now}.
 The top 80 phonemes (\texttt{n} with N=6053 to \texttt{IY1} with N=32) were
 pooled to \texttt{phonemes} (N=\rPhonesAll) and each event modeled as boxcar
 function from onset to offset of the corresponding phoneme.\todo{Does that mean
-they share events with "other"; CH: dunno what you mean, but text should be
+    they share events with "other"; CH: dunno what you mean, but text should be
 clearer now}.
 % sentence (endings)
 The end of each complete grammatical sentence was modeled as an impulse event
-(N=\rSentenceAll) to capture variance of sentence comprehension\todo{Why? Above
-it says 'we tested if similar linguistic concepts providing high semantic
-information (proper nouns and nouns)'. What does this need sentences for? CH:
-it is kinda nuisance regressor}.
+(N=\rSentenceAll) to capture variance correlating with sentence comprehension.
+\todo{Why? Above it says 'we tested if similar linguistic concepts providing
+    high semantic information (proper nouns and nouns)'. What does this need
+sentences for? CH: it is kinda nuisance regressor}
 % no-speech intro
 ``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control
 condition were created by the following rationale: events were fitted into
@@ -856,19 +856,19 @@ that this is not the case.}
 In addition, released data, code, and manuscript sources are also available on
 Github (\url{https://github.com/psychoinformatics-de/studyforrest-paper-speechannotation}).
 
-\section*{Conclusions} \todo[inline]{the paper needs to serve a purpose.  One
-is, of course, to be documentation for the annotation.  Another is to attract
-people to use this work for their own studies.  I would even argue that this is
-the \textit{main} purpose, given that the annotation in itself represents to
-scientific progress.  The need to give an accurate assessment what this can be
-used for and what is problematic or impossible.  ATM this is the only statement
-in this regard: 'facilitates modeling of hemodynamic brain responses correlating
-with speech-related events' and the only indication of purpose is 'additional
-confound measures'.  I think this is incongruent with the amount of work and the
-level of detail of this annotation; CH: let's discuss that personally}
-% state what you think are the main conclusions that can be realistically drawn
-% from the findings in the paper, taking care not to make claims that cannot be
-% supported.  intro
+\todo[inline]{the paper needs to serve a purpose:
+    a) documentation for the annotation.
+    b) attract people to use this work for their own studies.
+    I would even argue that this is the \textit{main} purpose, given that the
+    annotation in itself represents to scientific progress. The need to give an
+    accurate assessment what this can be used for and what is problematic or
+    impossible.  ATM this is the only statement in this regard: 'facilitates
+    modeling of hemodynamic brain responses correlating with speech-related
+events' and the only indication of purpose is 'additional confound measures'. I
+thin this is incongruent with the amount of work and the level of detail of
+this annotation; CH: let's discuss that personally}
+
+\section*{Conclusions} % what the paper is about
 As an extension of the studyforrest dataset, we present an annotation of spoken
 language in the two hours lasting ``research cut'' of the audio-visual movie
 ``Forrest Gump'' and its temporally aligned audio-description.
