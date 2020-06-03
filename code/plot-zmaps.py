@@ -15,6 +15,9 @@ import os
 # anatImg = '/usr/share/fsl/5.0/data/standard/MNI152_T1_1mm.nii.gz'
 anatImg = '/usr/share/data/fsl-mni152-templates/MNI152_T1_0.5mm.nii.gz'
 
+# T2* EPI group template
+audioMask = 'code/grbold7Tad_brain_inMNI_12dof.nii.gz'
+
 # list of primary contrasts
 # words > no-speech (bottom), Ne > kon (middle), Nn > kon (top image)
 primCopes = ['cope1_z3.4.gfeat/cope1.feat/thresh_zstat1.nii.gz',
@@ -63,7 +66,9 @@ def process_group_averages(outfpath, imageList=
     topImg = imageList[2]
     print('creating plot for 3rd lvl group analysis')
 
-    fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(15,15))
+    fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2,
+                                                 ncols=2,
+                                                 figsize=(15, 15))
     plt.subplots_adjust(wspace=0, hspace=0)
 
     # plot axial / horizontal plane
@@ -102,7 +107,7 @@ def process_group_averages(outfpath, imageList=
 
     # manually, add a legend in bottom, right plot (right sagittal plane
     blue = mpl.patches.Patch(color='blue',
-                             label='tags > no-speech')
+                             label='words > no-speech')
     red = mpl.patches.Patch(color='red',
                             label='proper nouns > coord. conjunctions',)
     green = mpl.patches.Patch(color='green',
@@ -128,7 +133,6 @@ def process_group_averages(outfpath, imageList=
                 pad_inches=0,
                 facecolor=fig.get_facecolor())
 
-
     plt.close()
 
 
@@ -137,13 +141,25 @@ def plot_grp_slice(mode, coord,
                    title=None, anno=True):
     '''
     '''
+    # underlying MNI152 T1 0.5mm image
+    colorMap = plt.cm.get_cmap('copper')
     display = plotting.plot_anat(anat_img=anatImg,
                                  title=title,
                                  axes=axis,
                                  annotate=anno,
                                  display_mode=mode,
+                                 cmap=colorMap,
                                  draw_cross=False,
                                  cut_coords=coord)
+
+    # brain mask 'grbold7Tad' in MNI space aligned with 12dof
+    colorMap = plt.cm.get_cmap('Greys')
+    colorMap = colorMap.reversed()
+    display.add_overlay(audioMask,
+                        cmap=colorMap,
+                        vmin=0,
+                        vmax=7000,  # adjust luminance to match MNI template
+                        alpha=.95)
 
     # bottom z-map
     colorMap = plt.cm.get_cmap('Blues')
@@ -174,7 +190,6 @@ def plot_grp_slice(mode, coord,
                         vmin=3.4,
                         vmax=6.5,
                         alpha=1.0)
-
 
     return display
 
