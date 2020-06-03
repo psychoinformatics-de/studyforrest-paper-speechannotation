@@ -694,14 +694,16 @@ two clusters that are slightly smaller than lateral temporal clusters of contras
 Finally, two small right lateralized clusters in the right posterior cingulate
 gyrus and right precuneus.
 
-\todo{“partial brain coverage” / FoV. MIH: Could become an issue. In the data
-paper we showed the coverage. Maybe just ref the figure. CH: gonna take a look how I can adjust the script to get a FoV mask from the data and use it during plotting; otherwise: ref to paper}
-\begin{figure*}
-  \centering
-  \includegraphics[width=\linewidth]{figures/slicescolorbars}
-  \caption{Mixed-effects group-level (N=14) GLM contrasts for the audio-description of the movie Forrest Gump. All cluster (Z>3.4, p<0.05 cluster-corrected; MNI template space)}.
-\label{fig:results}
-\end{figure*}
+\todo{manually edit/merge slices.svg and colorbars.svg for final slicescolorbars}
+
+\begin{figure*} \centering
+    \includegraphics[width=\linewidth]{figures/slicescolorbars}
+    \caption{Mixed-effects group-level (N=14) GLM contrasts for the
+        audio-description of the movie Forrest Gump. Significant clusters
+        (Z>3.4, p<0.05 cluster-corrected) are overlaid on the custom T2* EPI
+        group template (gray; taken from \citep{hanke2014audiomovie}) which is
+    aligned to and overlaid on the MNI152 T1-weighted head template (copper).}
+    \label{fig:results} \end{figure*}
 
 
 \begin{table*}[t]
