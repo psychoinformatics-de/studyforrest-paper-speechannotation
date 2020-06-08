@@ -40,7 +40,8 @@
 
 \todo[inline]{wie email und ORCID (du: https://orcid.org/0000-0001-6398-6370; ich: https://orcid.org/0000-0002-0936-317X) unterbringen?}
 
-\todo{Wort zur Validierungsstudie; Es sind erst 110 von max 300 Worten verbraucht; Werte würde ich eher runden }
+\todo{Wort zur Validierungsstudie; awesomeness (s. Aliko (2020); Es sind erst
+110 von max 300 Worten verbraucht; Werte runden statt newcommand benutzen}
 \thispagestyle{fancy}
 \begin{abstract}
 % up to 300 words
@@ -66,7 +67,6 @@ annnotation, language, speech, lateralization, narrative, natural stimulation, f
 Cognitive neuroimaging research is moving towards studying brain behavior
 under conditions of real-life-like complexity. Motion pictures \citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not, lerner2011topographic} are increasingly utilized as so called ``naturalistic stimuli''.
 
-\todo[inline]{revised: data-driven vs./in combination (with) model-driven}
 % data-driven methods
 Because naturalistic stimuli are multi-dimensional and their temporal structure
 is usually unknown, data-driven methods like intersubject correlation
@@ -89,8 +89,6 @@ Additionally, stimulus annotations can inform data-driven methods about a
 stimulus' temporal dynamics, or model-driven and data-driven methods can be
 combined to improve interpretability of results \citep{lahnakoski2012stimulus}.
 
-\todo[inline]{revised: why this anno is better than any previous anno and worth
-being published as a paper}
 % we:
 For this publication, we revised previous, preliminary annotations done by our
 lab and now provide one single annotation with exact onset and offset of each
@@ -104,6 +102,7 @@ fMRI data of participants watching the audio-visual movie
 \citep{hanke2014audiomovie} are the core data of the publicly available
 \textit{studyforrest} dataset (\href{www.studyforrest.org}{studyforrest.org}).
 % why even bother?
+\todo[inline]{importance/bottleneck of (missing) annotations -> Aliko (2020)}
 This publication enables researchers to model hemodynamic brain responses that
 correlate with a variety of aspects of spoken language ranging from a speaker's
 identity, to phonology, grammar, and semantics.
@@ -271,8 +270,7 @@ the word is one of the most common words of the German language (i.e. if the
 word is part of a stop list).
 
 
-\subsection*{Data Legend} \todo[inline]{Minimale Info hier, dass es zwei
-Versionen gibt und sich der folgende Abschnitt auf TSV file bezieht}
+\subsection*{Data Legend}
 % TextGrid vs. TSV
 The annotation is available in two different versions, both providing the same
 information: a) as a (text-based) Praat TextGrid file and b) as a text-based,
@@ -575,32 +573,24 @@ created 26 regressors based on events drawn from the annotation (see Table
 % part-of-speech labels: labels to events, top 20
 The 20 most often occurring detailed part-of-speech labels (\texttt{nn} with
 N=\rNnAll\space to text{prf} with N=\rPrfAll) were modeled as boxcar function
-from onset to offset of each word \todo{This has errors that I do not know how
-to fix; COH: sorry, unclear what you mean by that}.
+from onset to offset of each word.
 % path-of-speech labels: remaining labels
 The remaining other part-of-speech labels were pooled to a single new label
 (\texttt{tag\_other}; N=\rTagotherAll) and each event was modeled as a boxcar
-function from onset to offset of the corresponding word\todo{I do not know what
-this mean; CH: hope it got clearer now}.
+function from onset to offset of the corresponding word.
 % phonemes
 The 80 most often occurring phonemes (\texttt{n} with N=6053 to \texttt{IY1}
 with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) and each event
 modeled as boxcar function from onset to offset of the corresponding
-phoneme.\todo{Does that mean they share events with "other"; CH: dunno what you
-mean, but text should be clearer now}.
+phoneme.
 % sentence (endings)
 The end of each complete grammatical sentence was modeled as an impulse event
 (N=\rSentenceAll) to capture variance correlating with sentence comprehension.
-\todo{Why? Above it says 'we tested if similar linguistic concepts providing
-    high semantic information (proper nouns and nouns)'. What does this need
-sentences for? CH: it is kinda nuisance regressor}
 % no-speech intro
 ``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control
 condition were created by the following rationale: events were fitted into
 longer lasting intervals between onsets and offsets of words and thus within
-intervals without audible speech \todo{Why assumed? Isn't the point of the
-annotation to "know"? CH: words where chosen to carefully; intervals don't
-contain any audible speech with >98 perc. certainty}
+intervals without audible speech.
 % minimum distance to words
 Each event of the no-speech condition had to have a minimum distance of
 \unit[1.8]{s} to an onsets or offsets of a word, and to each onset to another
@@ -808,13 +798,9 @@ right precuneus \\
 \end{tabular}
 \end{table*}
 
-\todo[inline]{Lass uns bzgl. der Discussion am besten unterhalten; im Grunde
-geht es darum, wie weit ich ins Detail gehen soll (kann nämlich viel zu sehr ins
-Detail gehen); im Grunde geht es imo nicht darum, alle Cluster inkl. Areale
-durchzudiskutieren, sondern zu kommunizieren, dass die Anno brauchbar ist; wie
-dem auch sei: Hier wird noch Inhalt nach dem Lesen der Reviews hinzukommen}
 
-% Discussion words > no-speech
+% Discussion
+% words > no-speech
 For the contrast words > no-speech, we find increased hemodynamic activity in a
 bilateral cortical network including temporal, parietal and frontal regions
 related to processing spoken language \citep{friederici2011brain,
@@ -822,14 +808,16 @@ hickok2007cortical,price2012twentyyears}.
 % similarities to previous naturalistic speech paradigms
 Our results are similar to results of studies that implemented an ISC approach
 to analyze fMRI data of naturalistic auditory stimuli \citep{honey2012not,
-lerner2011topographic, silbert2014coupled}.
+lerner2011topographic, silbert2014coupled, wilson2007beyond}.
 % dissimilarities
 \todo{Which contrast captures ANY social aspects? CH: the COPEs in the
 references} Contrary to previous studies \citep{ferstl2008extended,
 mar2011neural}, we do not find increased medial activation in the precuneus or
 medial frontal cortex. This could be attributed to the fact that the contrast
-here was not designed to capture social aspects of the narrative.\todo{check the
-previous studies}.
+here was not designed to capture social aspects of the
+narrative.\todo{wilson2007beyond: ISC medial ja, aber decreased activation
+    compared to rest; current study in reverse contrast: posterior cingulate and
+anterior cingulate (and insula bilaterally)}.
 % (proper) nouns > con
 The two contrasts contrasting nouns and proper nouns respectively to coordinate
 junctions yielded increased activation that is partially located in early
