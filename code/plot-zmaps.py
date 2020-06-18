@@ -66,13 +66,18 @@ def process_group_averages(outfpath, imageList=
     topImg = imageList[2]
     print('creating plot for 3rd lvl group analysis')
 
-    fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2,
-                                                 ncols=2,
-                                                 figsize=(15, 15))
+    fsize = (15, 15)
+    fig = plt.figure(figsize=fsize, constrained_layout=False)
+
+    # adjust space between subplots
     plt.subplots_adjust(wspace=0, hspace=0)
 
+    # add the grid
+    grid = fig.add_gridspec(28, 6)
+
+
     # plot axial / horizontal plane
-    axis = ax1
+    axis = fig.add_subplot(grid[0:12, 0:3])
     mode = 'z'  # axial/horizontal slice
     coord = [9]
     plot_grp_slice(mode, coord,
@@ -80,7 +85,7 @@ def process_group_averages(outfpath, imageList=
                    title='Z>3.4, p<0.05', axis=axis)
 
     # plot coronal plane
-    axis = ax2
+    axis = fig.add_subplot(grid[0:12, 3:])
     mode = 'y'
     coord = [-18]
     plot_grp_slice(mode, coord,
@@ -88,7 +93,7 @@ def process_group_averages(outfpath, imageList=
                    axis=axis)
 
     # plot left sagittal plane
-    axis = ax3
+    axis = fig.add_subplot(grid[12:24, 0:3])
     mode = 'x'
     coord = [-55]
     plot_grp_slice(mode, coord,
@@ -98,12 +103,25 @@ def process_group_averages(outfpath, imageList=
     plt.gca().invert_xaxis()
 
     # plot right sagittal plane
-    axis = ax4
+    axis = fig.add_subplot(grid[12:24, 3:])
     mode = 'x'
     coord = [55]
     plot_grp_slice(mode, coord,
                    bottomImg, middleImg, topImg,
                    axis=axis)
+
+    # text for z threshold and significance level
+    plt.text(-330, 285,
+             'Z>3.4, p<0.05',  # title=subject
+             size=16,
+             color='white',
+             backgroundcolor='black',
+             # set boxcolor and its edge to white and make transparent
+             bbox=dict(facecolor=(1, 1, 1, 0), edgecolor=(1, 1, 1, 0)))
+
+    # add the legend
+    # plotting of the legend
+    legendAxis = fig.add_subplot(grid[24:, :3])
 
     # manually, add a legend in bottom, right plot (right sagittal plane
     blue = mpl.patches.Patch(color='blue',
@@ -112,17 +130,69 @@ def process_group_averages(outfpath, imageList=
                             label='proper nouns > coord. conjunctions',)
     green = mpl.patches.Patch(color='green',
                               label='nouns > coord. conjunctions')
-    plt.legend(handles=[blue, red, green], facecolor='white', framealpha=1)
+
+    legendAxis.legend(handles=[blue, red, green],
+                      loc='center',
+                      facecolor='white',  # white background
+                      prop={'size': 12},
+                      framealpha=1)
+
+    legendAxis.xaxis.set_visible(False)
+    legendAxis.yaxis.set_visible(False)
+
+    # plotting of the colorbars
+    # blue colorbar for audio-description
+    cb1Axis = fig.add_subplot(grid[24, 3:])
+    cmap = mpl.cm.Blues
+    cmap = cmap.reversed()
+    norm = mpl.colors.Normalize(vmin=3.4, vmax=6.6)
+    cb1 = mpl.colorbar.ColorbarBase(cb1Axis,
+                                    cmap=cmap,
+                                    norm=norm,
+                                    orientation='horizontal')
+
+    plt.setp(cb1Axis.get_xticklabels(), visible=False)
+    cb1Axis.xaxis.set_visible(False)
+    cb1.outline.set_edgecolor('w')
+
+    # red colorbar for movie
+    cb2Axis = fig.add_subplot(grid[25, 3:])
+    cmap = mpl.cm.YlOrRd
+    cmap = cmap.reversed()
+    norm = mpl.colors.Normalize(vmin=3.4, vmax=6.6)
+    cb2 = mpl.colorbar.ColorbarBase(cb2Axis,
+                                    cmap=cmap,
+                                    norm=norm,
+                                    orientation='horizontal')
+
+
+
+    # ticklabels and edge of the colorbar
+    plt.setp(cb2Axis.get_xticklabels(), visible=False)
+    cb2Axis.xaxis.set_visible(False)
+    cb2.outline.set_edgecolor('w')
+
+    # green colorbar
+    cb3Axis = fig.add_subplot(grid[26, 3:])
+    cmap = mpl.cm.Greens
+    cmap = cmap.reversed()
+    norm = mpl.colors.Normalize(vmin=3.4, vmax=6.6)
+    cb3 = mpl.colorbar.ColorbarBase(cb3Axis,
+                                    cmap=cmap,
+                                    norm=norm,
+                                    orientation='horizontal')
+
+    cb3Axis.tick_params(colors='w')
+    cb3.set_label('Z value', color='w')
+    cb3.outline.set_edgecolor('w')
 
     # set space between subplots and outer edge to black
     fig.patch.set_facecolor('black')
-    # cut space between subplots and outer edge
-    fig.patch.set_visible(False)
 
     # save as SVG
     svgOut = outfpath + '.svg'
     plt.savefig(svgOut,
-                transparent=True,
+                bbox_inches='tight',
                 pad_inches=0,
                 facecolor=fig.get_facecolor())
 
@@ -138,19 +208,20 @@ def process_group_averages(outfpath, imageList=
 
 def plot_grp_slice(mode, coord,
                    bottomImg, middleImg, topImg, axis,
-                   title=None, anno=True):
+                   title=None, annoBool=True):
     '''
     '''
     # underlying MNI152 T1 0.5mm image
     colorMap = plt.cm.get_cmap('copper')
     display = plotting.plot_anat(anat_img=anatImg,
-                                 title=title,
                                  axes=axis,
-                                 annotate=anno,
+                                 # title=title,
+                                 # annotate=annoBool,
                                  display_mode=mode,
                                  cmap=colorMap,
                                  draw_cross=False,
                                  cut_coords=coord)
+    display.annotate(size=16)
 
     # brain mask 'grbold7Tad' in MNI space aligned with 12dof
     colorMap = plt.cm.get_cmap('Greys')
@@ -168,7 +239,7 @@ def plot_grp_slice(mode, coord,
                         threshold=3.4,
                         cmap=colorMap,  # plotting.cm.black_blue,
                         vmin=3.4,
-                        vmax=6.5,
+                        vmax=6.6,
                         alpha=1.0)
 
     # middle z-map
@@ -178,7 +249,7 @@ def plot_grp_slice(mode, coord,
                         threshold=3.4,
                         cmap=colorMap,
                         vmin=3.4,
-                        vmax=6.5,
+                        vmax=6.6,
                         alpha=1.0)
 
     # top z-map
@@ -188,74 +259,18 @@ def plot_grp_slice(mode, coord,
                         threshold=3.4,
                         cmap=colorMap,  # plotting.cm.red_transparent,
                         vmin=3.4,
-                        vmax=6.5,
+                        vmax=6.6,
                         alpha=1.0)
 
     return display
 
 
-def plot_colorbars(outFpath):
-    '''
-    '''
-    fig = plt.figure(figsize=(5, 1))
-    gridspec = fig.add_gridspec(3, 2)
-    cax1 = fig.add_subplot(gridspec[0, :])
-    cax2 = fig.add_subplot(gridspec[1, :])
-    cax3 = fig.add_subplot(gridspec[2, :])
-    # decrease horizontal space between colorbars
-    gridspec.update(left=0.01, right=0.98, top=0.97, bottom=0.23, hspace=0.15)
-
-    # Blue colorbar
-    cmap = mpl.cm.Blues
-    cmap = cmap.reversed()
-    norm = mpl.colors.Normalize(vmin=3.4, vmax=6.5)
-    cb1 = mpl.colorbar.ColorbarBase(cax1,
-                                    cmap=cmap,
-                                    norm=norm,
-                                    orientation='horizontal')
-    cax1.tick_params(colors='w')
-    plt.setp(cax1.get_xticklabels(), visible=False)
-    cb1.outline.set_edgecolor('w')
-
-    # Red colorbar
-    cmap = mpl.cm.YlOrRd
-    cmap = cmap.reversed()
-    norm = mpl.colors.Normalize(vmin=3.4, vmax=6.5)
-    cb2 = mpl.colorbar.ColorbarBase(cax2,
-                                    cmap=cmap,
-                                    norm=norm,
-                                    orientation='horizontal')
-
-    plt.setp(cax2.get_xticklabels(), visible=False)
-    cax2.tick_params(colors='w')
-    cb2.outline.set_edgecolor('w')
-
-    # Green colorbar
-    cmap = mpl.cm.Greens
-    cmap = cmap.reversed()
-    norm = mpl.colors.Normalize(vmin=3.4, vmax=6.5)
-    cb3 = mpl.colorbar.ColorbarBase(cax3,
-                                    cmap=cmap,
-                                    norm=norm,
-                                    orientation='horizontal')
-
-    cax3.tick_params(colors='w')
-    cb3.set_label('Z value', color='w')
-    cb3.outline.set_edgecolor('w')
-
-#    plt.tight_layout()
-
-    # save as svg
-    svgOut = outFpath + '.svg'
-    plt.savefig(svgOut, transparent=True, facecolor='black')
-
-    # save as pdf
-    svgOut = outFpath + '.pdf'
-    plt.savefig(svgOut, transparent=True, facecolor='black')
-
-
 # main program #
 if __name__ == "__main__":
+    # set the background of all figures (for saving) to black
+    plt.rcParams['savefig.facecolor'] = 'black'
+    plt.rcParams['axes.facecolor'] = 'black'
+
     # get the command line arguments
     inDir, outDir = parse_arguments()
 
@@ -264,13 +279,8 @@ if __name__ == "__main__":
     os.makedirs(os.path.dirname(outDir), exist_ok=True)
 
     # plotting stacked zmaps
-    fName = 'slices'
+    fName = 'slicescolorbars'
     outFile = os.path.join(outDir, fName)
     process_group_averages(outFile, inFpathes)
-
-    # plotting colorbars
-    fName = 'colorbars'
-    outFile = os.path.join(outDir, fName)
-    plot_colorbars(outFile)
 
     plt.close('all')
