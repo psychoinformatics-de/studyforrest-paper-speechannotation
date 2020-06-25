@@ -1,6 +1,6 @@
 all: main.pdf
 
-main.pdf: main.tex descr-stats-anno.tex descr-stats-regressors.tex
+main.pdf: main.tex descr-stats-anno.tex descr-stats-regressors.tex figures
 	latexmk -pdf -g $<
 
 clean:
@@ -12,4 +12,4 @@ figures:
 	$(MAKE) -C figures
 
 
-.PHONY: clean
+.PHONY: clean figures
