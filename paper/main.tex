@@ -57,28 +57,34 @@ This annotation facilitates further studies on the cognitive neuroscience of lan
 
 \section*{Keywords}
 % maximal 8
-annnotation, language, speech, lateralization, narrative, natural stimulation, fMRI, studyforrest
+annotation, language, speech, lateralization, narrative, natural stimulation, fMRI, studyforrest
 
 \listoftodos
 
 \clearpage
 
-\section*{Introduction}
-Cognitive neuroimaging research is moving towards studying brain behavior
-under conditions of real-life-like complexity. Motion pictures \citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not, lerner2011topographic} are increasingly utilized as so called ``naturalistic stimuli''.
+\section*{Introduction} Cognitive and psychiatric neuroimaging are moving
+towards studying brain functions under conditions of real-life-like complexity
+\citep{sonkusare2019naturalistic, eickhoff2020towards}. Motion pictures
+\citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not,
+lerner2011topographic} are increasingly utilized as so called ``naturalistic
+stimuli''.
 
 % data-driven methods
-Because naturalistic stimuli are multi-dimensional and their temporal structure
-is usually unknown, data-driven methods like intersubject correlation
-(ISC)\citep{hasson2004intersubject} or independent component analysis
-(ICA)\citep{bartels2004chronoarchitecture} are often used to analyze
-corresponding fMRI data. However, data-driven methods alone fall usually short
-of pinpointing their results to specific, time-locked stimulus features \citep{kauttonen2015optimizing}.
+Naturalistic stimuli are usually not designed for research purposes but to
+entertain their audience. Hence, their temporal is structure usually unknown due
+to an ``annotation bottleneck'' \citep{aliko2020naturalistic}. Data-driven
+methods like intersubject correlation (ISC)\citep{hasson2004intersubject} or
+independent component analysis (ICA)\citep{bartels2004chronoarchitecture} are
+often used to analyze corresponding fMRI data circumventing this bottleneck.
+However, data-driven methods alone fall usually short of pinpointing their
+results to specific stimulus events \citep{kauttonen2015optimizing}.
 % model-driven methods
-Model-driven methods, like a general linear model (GLM), can be useful to
-investigate how hemodynamic brain responses in isolated regions correlate with
-stimulus features. They can explain not just ``how'' the brain is responding to
-a stimulus but also ``why'' \citep{hamilton2018revolution}.
+Model-driven methods, like a general linear model (GLM), can be useful to test
+hypotheses on specific brain functions under more ecologically valid conditions,
+to statistically control confounding stimulus features, and to explain not just
+``how'' the brain is responding to a stimulus but also ``why''
+\citep{hamilton2018revolution}.
 % GLM: example studies
 For example, studies using GLMs based on annotations of a stimulus' temporal
 structure have elucidated how the brain responds to visual features of a movie
@@ -102,17 +108,16 @@ fMRI data of participants watching the audio-visual movie
 \citep{hanke2014audiomovie} are the core data of the publicly available
 \textit{studyforrest} dataset (\href{www.studyforrest.org}{studyforrest.org}).
 % why even bother?
-\todo[inline]{importance/bottleneck of (missing) annotations -> Aliko (2020)}
 This publication enables researchers to model hemodynamic brain responses that
 correlate with a variety of aspects of spoken language ranging from a speaker's
-identity, to phonology, grammar, syntacs, and semantics.
+identity, to phonology, grammar, syntax, and semantics.
 % extending previous non-speech annotations
 The current annotation of speech extends already available annotations of
 portrayed emotions \citep{labs2015portrayed}, perceived emotions
 \citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the
 movie \citep{haeusler2016annotation}. All annotations can be used in any study
 focusing on aspects of real-life cognition by serving as additional confound
-measures describing key properties of major building blocks of the stimulus.
+measures describing key properties of major building blocks of the stimuli.
 
 
 \section*{Materials and methods} \subsection*{Stimulus}
