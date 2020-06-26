@@ -709,7 +709,6 @@ In this case, spanning from angular gyrus in the left hemisphere and from planum
 Finally, two small right lateralized clusters in the right posterior cingulate
 gyrus and right precuneus.
 
-\todo{manually edit/merge slices.svg and colorbars.svg for final slicescolorbars}
 
 \begin{figure*} \centering
     \includegraphics[width=\linewidth]{figures/slicescolorbars}
@@ -811,31 +810,56 @@ right precuneus \\
 \end{table*}
 
 
-% Discussion
-% words > no-speech
-For the contrast words > no-speech, we find increased hemodynamic activity in a
-bilateral cortical network including temporal, parietal and frontal regions
+% Discussion words > no-speech
+For the contrast words > no-speech, results show increased hemodynamic activity
+in a bilateral cortical network including temporal, parietal and frontal regions
 related to processing spoken language \citep{friederici2011brain,
 hickok2007cortical,price2012twentyyears}.
 % similarities to previous naturalistic speech paradigms
-Our results are similar to results of studies that implemented an ISC approach
-to analyze fMRI data of naturalistic auditory stimuli \citep{honey2012not,
-lerner2011topographic, silbert2014coupled, wilson2008beyond}.
-% dissimilarities
-\todo{Which contrast captures ANY social aspects? CH: the COPEs in the
-references} Contrary to previous studies \citep{ferstl2008extended,
-mar2011neural}, we do not find increased medial activation in the precuneus or
-medial frontal cortex. This could be attributed to the fact that the contrast
-here was not designed to capture social aspects of the
-narrative.\todo{wilson2007beyond: ISC medial ja, aber decreased activation
-    compared to rest; current study in reverse contrast: posterior cingulate and
-anterior cingulate (and insula bilaterally)}.
+These clusters resemble results of previous studies that implemented an ISC
+approach to analyze fMRI data of naturalistic auditory stimuli
+\citep{honey2012not, lerner2011topographic, silbert2014coupled}.
+% differences
+We don't find significantly increased activations in midline areas (like the
+posterior cingulate cortex and precuneus or anterior cingulate cortex and medial
+frontal cortex) which showed correlated activity across subjects in previous
+studies.
+% Wilson (2008): ISC + GLM
+In this regard, our results are similar to \citep{wilson2008beyond} who
+implemented both an ISC and a GLM analysis. The findings by
+\citep{wilson2008beyond} were that an ISC analysis yielded correlated activity
+in midline areas. But the GLM analysis contrasting blocks of listening to
+narratives to blocks of a resting condition yielded decreased activity in
+midline areas.
+\todo{fun fact regarding reverse contrast (no-speech > words):
+    clusters in posterior \& anterior cingulate (and subcallosal c. \& insulae
+bilaterally); could be mentioned, must be mentioned? How shortly? No figure,
+pls!}
+
 % (proper) nouns > con
 The two contrasts contrasting nouns and proper nouns respectively to coordinate
-junctions yielded increased activation that is partially located in early
-sensory regions (Heschl's Gyrus; \citep{saenz2014tonotopic}) and most
-prominently adjacent regions bilaterally (planum temporale; superior temporal
-gyrus; \citep{arsenault2015distributed, mesgarani2014phonetic}).
+junctions yielded increased activation partially located in early sensory
+regions (Heschl's Gyrus; \citep{saenz2014tonotopic}) and most prominently
+adjacent regions bilaterally (planum temporale; superior temporal gyrus;
+\citep{arsenault2015distributed, mesgarani2014phonetic}).
+% why these contrasts nous & proper nouns
+We chose nouns and proper nouns for these two contrasts because they represent
+linguistically similar concepts but are uncorrelated in the German language and
+stimulus (cf. \ref{fig:reg-corr})
+% coordinate conjunctions
+We contrasted nouns and proper nouns respectively to coordinate conjunctions
+because (proper) nouns and coordinate conjunctions are both linguistically
+different and uncorrelated.
+% “interpretation”
+\todo{well what's combing up next is adventurous} Despite the fact that nouns
+and proper nouns are uncorrelated, contrasts lead to spatially similar clusters
+``which were not driven by a negative correlation of coordinate conjunctions
+with the modeled time series (s. totally private data)''.
+% why it's cool
+Results suggest that our current annotation of naturalistic stimuli can be used
+to create model-based analyses to test neuroscientific hypotheses.
+
+\todo[inline]{following stuff is still here but can probably be deleted}
 % interpretation 1a: large amount of semantically different nouns > narrow
 % concept (conjunctions)
 This could be attributed to the exploratory nature of our analysis. A high count
@@ -851,20 +875,8 @@ uncorrelated with nouns but mostly consist of the words ``and'' (N=392) and
 % interpretation 2
 A second explanation might be that our phoneme regressors that assumed linear
 summation of approximately \unit[70]{ms} lasting events in quick succession did
-not capture a sufficiently amount of nuisance variance\todo{Reviewer 2 will ask:
-    If you knew all these issues, why did you do it then? hindsight bias/HARKing
-after exploratory analyses?!}.
-% but...
-Nevertheless and more importantly to exploratorily access the validity of the
-dataset is the fact that two similar linguistic concepts (nouns and proper
-nouns) embedded in a naturalistic stimulus that was not designed for linguistic
-research lead to similar activation patterns\todo{That statement is only true,
-if both contrasts are not (solely) driven by the conjunctions. There is no
-evidence in the paper that this is not the case.}
-% Within the language processing systems, early sensory regions are specialized
-% for representing the immediate physical properties of the environment (form),
-% while higher order regions extract increasingly abstract content (Davis and
-% Johnsrude, 2003; Quiroga et al., 2005; Okada et al., 2010).
+not capture a sufficiently amount of nuisance variance
+
 
 \section*{Data availability}
 % aus der Schnitt-Annotation übernommen
