@@ -587,8 +587,7 @@ function from onset to offset of the corresponding word.
 % phonemes
 The 80 most often occurring phonemes (\texttt{n} with N=6053 to \texttt{IY1}
 with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) and each event
-modeled as boxcar function from onset to offset of the corresponding
-phoneme.
+modeled as boxcar function from onset to offset of the corresponding phoneme.
 % sentence (endings)
 The end of each complete grammatical sentence was modeled as an impulse event
 (N=\rSentenceAll) to capture variance correlating with sentence comprehension.
@@ -602,13 +601,13 @@ Each event of the no-speech condition had to have a minimum distance of
 \unit[1.8]{s} to an onsets or offsets of a word, and to each onset to another
 event of the no-speech condition.
 % length of no-speech events
-A length of \unit[70]{ms} was chosen for no-speech events matching the
-average length of phonemes.
+A length of \unit[70]{ms} was chosen for no-speech events matching the average
+length of phonemes.
 % low-level nuisance regressors
-Lastly, we used continuous information about auditory features (left-right
-difference in volume and root mean squared volume) that was averaged across the
-length of every movie frame (\unit[40]{ms}) to capture variance correlating with
-low-level perceptual processes.
+Lastly, we used continuous bins of information about auditory features
+(left-right difference in volume and root mean square energy) that was averaged
+across the length of every movie frame (\unit[40]{ms}) to capture variance
+correlating with low-level perceptual processes.
 % convolving
 Time series of events were convolved with FSL's ``Double-Gamma HRF'' as a model
 of the hemodynamic response function to create the actual regressors.
@@ -618,13 +617,11 @@ of all stimulus segments can be seen in Figure \ref{fig:reg-corr}.
 % temporal derivatives
 Temporal derivatives were also included in the design matrix to compensate for
 regional differences between modeled and actual HRF.
-% motion parameters & temporal filtering of design
-% motion parameter are filtered, too. See FSL manual:
-% ``All (confound) EVs will be filtered to match the processing applied to the
-% input data''
+% motion parameters & temporal filtering of design motion parameter are
+% filtered, too. See FSL manual: ``All (confound) EVs will be filtered to match
+% the processing applied to the input data''
 Finally, six motion parameters were used as additional nuisance regressors and
-the design was subjected to the same temporal filtering as the BOLD time
-series.
+the design was subjected to the same temporal filtering as the BOLD time series.
 
 % t-contrasts
 The following three t-contrasts were defined:
