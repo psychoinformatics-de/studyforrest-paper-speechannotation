@@ -500,6 +500,7 @@ magnetic resonance imaging (fMRI) data of 20 subjects (age 21–38 years, mean a
 \unit[2]{s} repetition time, 3599 volumes, 36 axial slices, thickness
 \unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane resolution, \unit[224]{mm}
 field-of-view) \citep{hanke2014audiomovie}.
+
 % motion correction
 Data were already corrected for motion at the scanner computer.
 % alignment
@@ -585,16 +586,16 @@ created 26 regressors based on events drawn from the annotation (see Table
 \ref{tab:regressors}).
 % part-of-speech labels: labels to events, top 20
 The 20 most often occurring detailed part-of-speech labels (\texttt{nn} with
-N=\rNnAll\space to text{prf} with N=\rPrfAll) were modeled as boxcar function
+N=\rNnAll\space to \texttt{prf} with N=\rPrfAll) were modeled as boxcar function
 from onset to offset of each word.
 % path-of-speech labels: remaining labels
 The remaining other part-of-speech labels were pooled to a single new label
-(\texttt{tag\_other}; N=\rTagotherAll) and each event was modeled as a boxcar
-function from onset to offset of the corresponding word.
+(\texttt{tag\_other}; N=\rTagotherAll) and modeled as a boxcar
+function from a word's onset to offset.
 % phonemes
 The 80 most often occurring phonemes (\texttt{n} with N=6053 to \texttt{IY1}
-with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) and each event
-modeled as boxcar function from onset to offset of the corresponding phoneme.
+with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) and events were as
+boxcar function from a phoneme's onset to offset.
 % sentence (endings)
 The end of each complete grammatical sentence was modeled as an impulse event
 (N=\rSentenceAll) to capture variance correlating with sentence comprehension.
@@ -610,11 +611,12 @@ event of the no-speech condition.
 % length of no-speech events
 A length of \unit[70]{ms} was chosen for no-speech events matching the average
 length of phonemes.
+
 % low-level nuisance regressors
 Lastly, we used continuous bins of information about auditory features
 (left-right difference in volume and root mean square energy) that was averaged
-across the length of every movie frame (\unit[40]{ms}) to capture variance
-correlating with low-level perceptual processes.
+across the length of every movie frame (\unit[40]{ms}) via Python script to
+capture variance correlating with low-level perceptual processes.
 % convolving
 Time series of events were convolved with FSL's ``Double-Gamma HRF'' as a model
 of the hemodynamic response function to create the actual regressors.
@@ -669,8 +671,7 @@ Harvard-Oxford Cortical Atlas \citep{desikan2006automated} provided by FSL.
 
 
 % Results
-Figure \ref{fig:results} depicts the results of the three contrasts (Z threshold
-Z>3.4; p<.05 cluster-corrected).
+Figure \ref{fig:results} depicts the results of the three contrasts (Z threshold >3.4; p<.05 cluster-corrected).
 % COPE 1:
 The contrast words > no-speech yielded four significant clusters (see Table
 \ref{tab:cope1}):
@@ -826,12 +827,12 @@ approach to analyze fMRI data of naturalistic auditory stimuli
 % differences
 We don't find significantly increased activations in midline areas (like the
 posterior cingulate cortex and precuneus or anterior cingulate cortex and medial
-frontal cortex) which showed correlated activity across subjects in previous
+frontal cortex) which showed synchronized activity across subjects in previous
 studies.
 % Wilson (2008): ISC + GLM
 In this regard, our results are similar to \citep{wilson2008beyond} who
 implemented both an ISC and a GLM analysis. The findings by
-\citep{wilson2008beyond} were that an ISC analysis yielded correlated activity
+\citep{wilson2008beyond} were that an ISC analysis yielded synchronized activity
 in midline areas. But the GLM analysis contrasting blocks of listening to
 narratives to blocks of a resting condition yielded decreased activity in
 midline areas.
@@ -849,19 +850,20 @@ adjacent regions bilaterally (planum temporale; superior temporal gyrus;
 % why these contrasts nous & proper nouns
 We chose nouns and proper nouns for these two contrasts because they represent
 linguistically similar concepts but are uncorrelated in the German language and
-stimulus (cf. \ref{fig:reg-corr})
+stimulus (cf. Figure \ref{fig:reg-corr})
 % coordinate conjunctions
 We contrasted nouns and proper nouns respectively to coordinate conjunctions
 because (proper) nouns and coordinate conjunctions are both linguistically
-different and uncorrelated.
+different and uncorrelated to coordinate conjunctions.
 % “interpretation”
 \todo{well what's combing up next is adventurous} Despite the fact that nouns
 and proper nouns are uncorrelated, contrasts lead to spatially similar clusters
 ``which were not driven by a negative correlation of coordinate conjunctions
 with the modeled time series (s. totally private data)''.
 % why it's cool
-Results suggest that our current annotation of naturalistic stimuli can be used
-to create model-based analyses to test neuroscientific hypotheses.
+Results suggest that our current annotation of naturalistic stimuli is of
+``sufficient quality'' and can be used to create model-based analyses to test
+neuroscientific hypotheses.
 
 \todo[inline]{following stuff is still here but can probably be deleted}
 % interpretation 1a: large amount of semantically different nouns > narrow
