@@ -149,14 +149,14 @@ there is no off-screen voice, dialog, or other relevant auditory content.
 \subsection*{Annotation procedure}
 % preliminary annotations
 Preliminary, manual orthographic transcriptions of dialogs, non-speech
-vocalizations (e.g. laughter or groaning) and script for the audio-description's
-narrator were merged and converted to Praat's \citep{boersma2019praat} TextGrid
-format.
+vocalizations (e.g. laughter or groaning) and the script for the
+audio-description's narrator were merged and converted to Praat's
+\citep{boersma2019praat} TextGrid format.
 % preparing annotation in Praat before forced alignment
 % \href{www.fon.hum.uva.nl/praat}{fon.hum.uva.nl/praat}.
 The merged transcription containing a rough onset and offset for usually a
 couple of sentences was edited in Praat for manual validation against the
-original audio.
+actual content of the audio material.
 % steps conducted
 The following steps were done in several passes to iteratively improve the
 quality of the data: approximate temporal onsets and offsets were corrected, and
@@ -168,6 +168,7 @@ was dropped. Low volume background speech (especially occurring during music or
 continuous environmental noise) or low volume non-speech vocalizations which
 were subjectively assessed to be incomprehensible for the audience were dropped,
 too.
+
 % intro for forced aligner
 We then used the Montreal Forced Aligner \citep{mcauliffe2017montreal} to
 algorithmically identify the exact onset of offset of each sentence, and the
@@ -189,24 +190,24 @@ The pronunciation of English words and phonemes occurring in the otherwise
 German audio track was taken from an English pronunciation dictionary (following
 the ARPAbet PhoneSet) provided by the Montreal Language Modeling lab
 (\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org}).
-
 % performing the forced alignment audio input to the aligner
 The audio track was converted from FLAC to WAV via FFmpeg \citep{ffmpeg} to meet
 the aligner's requirements.
 % inputs
-This WAV file, the transcription of sentences, and the updated dictionary were
+This WAV file, the merged transcription, and the updated dictionary were
 submitted to the aligner that first trained an acoustic model on the data and
 then performed the alignment.
+
 % output
 The resulting .TextGrid file that contains onsets and offsets of words and
-phonemes was corrected manually and iteratively in several passes:
+phonemes was corrected manually and iteratively in several passes using Praat:
 % onset/offset checking & correction
 In a first step, onsets and offsets on which the automatic alignment performed
-moderately were corrected in Praat.
+moderately were corrected.
 % handling poor performance
-Some low volume sentences that are spoken in continuously noisy settings
-(pursuit, battle, hurricane, rally, disco) were removed due to poor overall
-alignment performance.
+Some low volume sentences that are spoken in continuously noisy settings (e.g.
+during battle or hurricane) were removed due to poor overall alignment
+performance.
 % adding whole sentences
 In a second step, the complete sentences of the orthographic transcription were
 copied into the annotation created by the aligner.
@@ -265,14 +266,13 @@ Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarra
 \end{table*}
 
 
-% natural language processing (NLP) spaCy
-To automatically analyze linguistic features of each word in their corresponding
-sentence, we employed the Python package spaCy \citep{spacy2} and its
-accompanying German language model (\texttt{de\_core\_news\_md} that was trained
-on the TIGER Treebank corpus \citep{brants2004tiger}.
-% Tiger Treebank Corpus:
-% \href{https://www.ims.uni-stuttgart.de}{ims.uni-stuttgart.de}.  dropping of
-% non-speech vocalizations because they often delude the algo
+% natural language processing (NLP); Tiger Treebank Corpus:
+% \href{https://www.ims.uni-stuttgart.de}{ims.uni-stuttgart.de}.
+We employed the Python package spaCy \citep{spacy2} and its accompanying German
+language model (\texttt{de\_core\_news\_md}; trained on the TIGER
+Treebank corpus \citep{brants2004tiger}) to automatically analyze linguistic
+features of each word in their corresponding sentence.
+% dropping of non-speech vocalizations because they often delude the algo
 Non-speech vocalizations were dropped from the sentences before analysis to
 improve results.
 % performed analyses
