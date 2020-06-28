@@ -286,12 +286,11 @@ word is part of a stop list).
 \subsection*{Data Legend}
 % TextGrid vs. TSV
 The annotation is available in two different versions, both providing the same
-information: a) as a (text-based) Praat TextGrid file and b) as a text-based,
+information: a) as a text-based Praat TextGrid file and b) as a text-based,
 tab-separated value (TSV) formatted table.
 % preview of following subsubsections
 The following descriptions refer to the ten columns of the TSV file, namely
-\texttt{onset}, \texttt{duration}, \texttt{person}, \texttt{text} (of sentence,
-word or phoneme), \texttt{pos}, \texttt{tag}, \texttt{dep}, \texttt{lemma},
+\texttt{onset}, \texttt{duration}, \texttt{person}, \texttt{text}, \texttt{pos}, \texttt{tag}, \texttt{dep}, \texttt{lemma},
 \texttt{stop}, \texttt{vector}.
 
 
@@ -300,7 +299,7 @@ phoneme. Time stamps are provided in the format seconds.milliseconds of stimulus
 onset.
 
 
-\subsubsection*{Duration (\texttt{duration})} The duration of the sentences,
+\subsubsection*{Duration (\texttt{duration})} The duration of the sentence,
 word or phoneme provided the format seconds.milliseconds.
 
 
@@ -330,8 +329,8 @@ were corrected via script.
 % s. list at the beginning of script code/add_part-of-speech-tagging2textgrid.py
 % flags for sentences and phonemes in POS column
 Additionally in cells of this column, sentences are tagged as \texttt{SENTENCE},
-and phonemes are tagged as \texttt{PHONEME} to facilitate sorting, and filtering
-in potential further processing steps.
+and phonemes are tagged as \texttt{PHONEME} to facilitate filtering in potential
+further processing steps.
 
 \begin{table*}[t]
 \caption{Simple part-of-speech tagging (\texttt{pos}) performed by the Python package spaCy \citep{spacy2}.
@@ -412,7 +411,7 @@ syntactic dependencies with other words within the same sentence.
 Information follows the TIGER Treebank annotation scheme \citep{brants2004tiger}
 and is given in the format: ``arc label;word's head;word's child1, word's
 child2, ...'', where the ``arc label'' (see Table \ref{tab:dep}) describes the
-type of syntactic relation that connects a "child" (the single word) to its
+type of syntactic relation that connects a "child" (the word) to its
 ``head''.
 
 \begin{table*}[t]
@@ -465,12 +464,12 @@ were set to \texttt{\#} to save space.
 % \href{https://bids.neuroimaging.io/}{bids.neuroimaging.io} TextGrid format
 The annotation comes in two different versions. First, as a text-based TextGrid
 file (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid}) to be
-conveniently edited with the software Praat \citep{boersma2019praat}.
+conveniently edited using the software Praat \citep{boersma2019praat}.
 % TSV format
 Second, as a text-based, tab-separated-value (TSV) formatted table
 (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv}) in accordance with
-the brain imaging data structure (\href{https://bids.neuroimaging.io/}{BIDS}
-\citep{gorgolewski2016bids}).
+the brain imaging data structure (\href{https://bids.neuroimaging.io/}{BIDS})
+\citep{gorgolewski2016bids}.
 % source code for descriptive statistics
 The source code for all descriptive statistics included in this paper is
 available in \texttt{code/descriptive-statistics.py} (Python script).
