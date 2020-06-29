@@ -125,7 +125,7 @@ portrayed emotions \citep{labs2015portrayed}, perceived emotions
 \citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the
 movie \citep{haeusler2016annotation}. All annotations can be used in any study
 focusing on aspects of real-life cognition by serving as additional confound
-measures describing the the temporal structure and feature space of the stimuli.
+measures describing the  tempora structure and feature space of the stimuli.
 
 
 \section*{Materials and methods} \subsection*{Stimulus}
@@ -148,7 +148,7 @@ there is no off-screen voice, dialog, or other relevant auditory content.
 
 \subsection*{Annotation procedure}
 % preliminary annotations
-Preliminary, manual orthographic transcriptions of dialogs, non-speech
+Preliminary, manual orthographic transcriptions of dialogues, non-speech
 vocalizations (e.g. laughter or groaning) and the script for the
 audio-description's narrator were merged and converted to Praat's
 \citep{boersma2019praat} TextGrid format.
@@ -218,32 +218,33 @@ In a third step, a speaker's identity was added for each sentence (see Table
 During every step results from previous steps were constantly checked again for
 errors and further improvements.
 
-\begin{table*}[tbp]
-    \caption{Overview of the annotation's content for the audio-only stimulus
-that comprises the additional narrator. Counts are given for the whole stimulus
-(\texttt{all}) and its individual segments used during fMRI scanning.
-The category \texttt{sentences} comprises complete grammatical sentences which
-are additionally marked in the annotation with a full stop at the end (``my feet hurt.'').
-It also comprises questions (``do you want a chocolate?''), exclamations (``run
-away!''), or non-speech vocalizations in quick succession (``ha, ha, ha''), or
-in isolation (e.g. ``Forrest?'', ``Forrest!'', ``ha'') at time points when
-speakers switch rapidly. The category \texttt{words} comprises each word or
-non-speech vocalization (N=\aPosNonspeechAll) in isolation.}
-\label{tab:overview}
-\begin{tabular}{llllllllll}
-\toprule
-\textbf{category} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
-\midrule
-sentences  & \aSentencesAll & \aSentencesI & \aSentencesII & \aSentencesIII & \aSentencesIV & \aSentencesV & \aSentencesVI & \aSentencesVII & \aSentencesVIII \tabularnewline
-words  & \aWordsAll & \aWordsI & \aWordsII & \aWordsIII & \aWordsIV & \aWordsV & \aWordsVI & \aWordsVII & \aWordsVIII \tabularnewline
-phonemes  & \aPhonesAll & \aPhonesI & \aPhonesII & \aPhonesIII & \aPhonesIV & \aPhonesV & \aPhonesVI & \aPhonesVII & \aPhonesVIII \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table*}
+\begin{table*}[tbp] \caption{Overview of the annotation's content for the
+        audio-description of ``Forrest Gump'' (i.e. the audio-only variant of
+        the movie) that comprises the additional narrator. Counts are given for
+        the whole stimulus (\texttt{all}) and its individual segments used
+        during fMRI scanning.  The category \texttt{sentences} comprises
+        complete grammatical sentences which are additionally marked in the
+        annotation with a full stop at the end (``my feet hurt.'').  It also
+        comprises questions (``do you want a chocolate?''), exclamations (``run
+        away!''), or non-speech vocalizations in quick succession (``ha, ha,
+        ha''), or in isolation (e.g. ``Forrest?'', ``Forrest!'', ``ha'') at time
+        points when speakers switch rapidly. The category \texttt{words}
+        comprises each word or non-speech vocalization (N=\aPosNonspeechAll) in
+    isolation.} \label{tab:overview} \begin{tabular}{llllllllll} \toprule
+        \textbf{category} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3}
+        & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
+        \midrule sentences  & \aSentencesAll & \aSentencesI & \aSentencesII &
+        \aSentencesIII & \aSentencesIV & \aSentencesV & \aSentencesVI &
+        \aSentencesVII & \aSentencesVIII \tabularnewline words  & \aWordsAll &
+        \aWordsI & \aWordsII & \aWordsIII & \aWordsIV & \aWordsV & \aWordsVI &
+        \aWordsVII & \aWordsVIII \tabularnewline phonemes  & \aPhonesAll &
+        \aPhonesI & \aPhonesII & \aPhonesIII & \aPhonesIV & \aPhonesV &
+        \aPhonesVI & \aPhonesVII & \aPhonesVIII \tabularnewline \bottomrule
+    \end{tabular} \end{table*}
 
 
 \begin{table*}[btp]
-\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurs in the audio-description of the movie.
+\caption{Sentences spoken by the ten most often occurring speakers sorted alphabetically. The narrator only occurs in the audio-description.
 Overall 97 persons were identified.
 Names are mostly identical to the names used in \citep{labs2015portrayed}.}
 \label{tab:speakers}
@@ -334,7 +335,7 @@ further processing steps.
 
 \begin{table*}[t]
 \caption{Simple part-of-speech tagging (\texttt{pos}) performed by the Python package spaCy \citep{spacy2}.
-All 15 labels sorted alpapetically.
+All 15 labels sorted alphabetically.
 Descriptions were taken from spaCy.explain().
 Non-speech vocalizations (\texttt{NONSPEECH}) were manually identified.
 Counts for the whole stimulus (\texttt{all}) and for each of the eight stimulus segments refer to the audio-description.}
@@ -416,7 +417,7 @@ type of syntactic relation that connects a "child" (the word) to its
 
 \begin{table*}[t]
 \caption{Syntactic dependencies (\texttt{dep}) performed by the Python package spaCy \citep{spacy2}.
-The 15 most often occuring labels (overall 37 labels) sorted alphabetically.
+The 15 most often occurring labels (overall 37 labels) sorted alphabetically.
 Descriptions were taken from spaCy.explain().
 Counts for the whole stimulus (\texttt{all}) and for each of the eight stimulus segments refer to the audio-description.}
 \label{tab:dep}
@@ -532,11 +533,13 @@ Words belonging to all other labels were pooled to \texttt{tag\_other}.
 The label \texttt{sentence} contains the end of complete grammatical sentences.
 The label \texttt{phones} contains events of the 80 most often occurring
 phonemes (phoneme \texttt{n} with N=6053 to phoneme \texttt{IY1} with N=32).
-The label \texttt{no-sp} represents moments when no speech was audible. \texttt{fg\_ad\_lrdiff} (left-right volume difference) and \texttt{fg\_ad\_rms} (root mean square volume) represent one event for every movie frame (\unit[40]{ms}).
-\todo[inline]{where from, or how created?}
+The label \texttt{no-sp} represents moments when no speech was audible.
+\texttt{fg\_ad\_lrdiff} (left-right volume difference) and \texttt{fg\_ad\_rms}
+(root mean square energy) were compute for and averaged across every movie frame
+(\unit[40]{ms}) via Python script.
 Events were convolved with FSL's ``Double-Gamma HRF'' to create the regressors.
 The correlation of these regressors over the time course of the whole stimulus
-can be seen in Figure \ref{fig:reg-corr}.}
+can be seen in Figure \ref{fig:reg-corr}}.
 \label{tab:regressors}
 \footnotesize
 \begin{tabular}{lp{3.5cm}lllllllll}
@@ -567,7 +570,7 @@ tag\_other & all other TAG categories & \rTagotherAll & \rTagotherI & \rTagother
 %\hline
 sentence & complete grammatical sentences & \rSentenceAll & \rSentenceI & \rSentenceII & \rSentenceIII & \rSentenceIV & \rSentenceV & \rSentenceVI & \rSentenceVII & \rSentenceVIII \tabularnewline
 phones & 80 most often occurring phonemes & \rPhonesAll & \rPhonesI & \rPhonesII & \rPhonesIII & \rPhonesIV & \rPhonesV & \rPhonesVI & \rPhonesVII & \rPhonesVIII \tabularnewline
-no-sp & no-speech (``soundscape'') & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
+no-sp & no-speech & \rNospAll & \rNospI & \rNospII & \rNospIII & \rNospIV & \rNospV & \rNospVI & \rNospVII & \rNospVIII \tabularnewline
 %\hline
 fg\_ad\_lrdiff & left-right volume difference & \rFgadlrdiffAll & \rFgadlrdiffI & \rFgadlrdiffII & \rFgadlrdiffIII & \rFgadlrdiffIV & \rFgadlrdiffV & \rFgadlrdiffVI & \rFgadlrdiffVII & \rFgadlrdiffVIII \tabularnewline
 fg\_ad\_rms & root mean square & \rFgadrmsAll & \rFgadrmsI & \rFgadrmsII & \rFgadrmsIII & \rFgadrmsIV & \rFgadrmsV & \rFgadrmsVI & \rFgadrmsVII & \rFgadrmsVIII \tabularnewline
@@ -647,7 +650,7 @@ The following three t-contrasts were defined:
     analysis to validate the annotation.
     Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the
     hemodynamic response function and concatenated across runs before
-    performing the correlation.}
+    computing the correlation.}
 \label{fig:reg-corr} \end{figure*}
 
 
@@ -718,7 +721,7 @@ gyrus and right precuneus.
 \begin{figure*} \centering
     \includegraphics[width=\linewidth]{figures/slicescolorbars}
     \caption{Mixed-effects group-level (N=14) GLM contrasts for the
-        audio-description of the movie Forrest Gump. Significant clusters
+        audio-description of the movie ``Forrest Gump''. Significant clusters
         (Z>3.4, p<0.05 cluster-corrected) are overlaid on the custom T2* EPI
         group template (gray; taken from \citep{hanke2014audiomovie}) which is
     aligned to and overlaid on the MNI152 T1-weighted head template (copper).}
@@ -739,17 +742,17 @@ areas (l. = left; r. = right; c. = cortex; g. = gyrus).}
 voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
 \midrule
 14990 & <.001 & 6.31 & -49 & -24.7 & 6.35 & -54.8 & -32.5 & 3.73 &
-left Heschl's g.;
-lateral superior occipital c., angular g., superior and middle temporal g. (posterior to anterior);
-parts of supramarginal g. \&, planum temporale \\
+l. Heschl's g.;
+lateral superior occipital c., angular g., superior \& middle temporal g. (posterior to anterior);
+parts of supramarginal g. \& planum temporale \\
 14469 & <.001 & 6.48 & 55 & -14.9 & -6.9 & 54.1 & -23.1 & 0.374 &
-right superior temporal g.;
+r. superior temporal g.;
 angular g., superior (and middle) temporal g. (posterior to anterior), Heschl's g.;
 parts of supramarginal g., planum temporale, pars opercularis (BA44) \& pars triangularis (BA45) \\
-1971 & <.001 & 5.26 & -51.1 & 25.6 & -10.5 & -53.6 & 17.8 & 10.2 & left frontal orbital c.;
+1971 & <.001 & 5.26 & -51.1 & 25.6 & -10.5 & -53.6 & 17.8 & 10.2 & l. frontal orbital c.;
 pars opercularis (BA44), pars triangularis (BA45);
 parts of precentral g. \\
-217 & .002 & 4.55 & -4.48 & -13.7 & 10.3 & -6.46 & -14.9 & 9.96 & left Thalamus \\
+217 & .002 & 4.55 & -4.48 & -13.7 & 10.3 & -6.46 & -14.9 & 9.96 & l. Thalamus \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -769,19 +772,19 @@ areas (l. = left; r. = right; c. = cortex; g. = gyrus).}
 voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
 \midrule
 7691 & <.001 & 6.23 & -61.2 & -22.3 & 11.6 & -55.9 & -20.7 & 4.03 &
-left lPanum temporale; posterior inferior supramarginal g., superior temporal g., planum polare,
+l. planum temporale; posterior inferior supramarginal g., superior temporal g., planum polare,
 parts of posterior angular g.,  Heschl's g., middle temporal gyrus \\
 5928 & <.001 & 5.5 & 57.5 & -26.2 & 15.9 & 58.2 & -15.8 & 3.55 &
-right planum temporale;
+r. planum temporale;
 Heschl's g., superior temporal g., planum polare, temporal pole;
 parts of angular g. \& posterior inferior supramarginal gyrus \\
-479 & <.001 & 4.62 & -5.42 & -32.3 & 25.3 & -4.28 & -39.4 & 22.8 & left posterior cingulate g. \\
-420 & <.001 & 4.85 & -4.76 & -71.4 & 40.1 & -3.74 & -68.5 & 36.2 & left precuneus \\
-407 & <.001 & 5.07 & 6.83 & -40.1 & 24.5 & 6.67 & -38.7 & 23.1 & right posterior cingulate c. \\
-294 & <.001 & 4.57 & 17 & -69.1 & 34.6 & 17.7 & -67.1 & 34.9 & right precuneus \\
-121 & .024 & 3.95 & 8.12 & -98.2 & 0.359 & 8.75 & -97.7 & -3.15 & right occipital pole \\
-117 & .027 & 4.38 & 36.9 & -24.8 & 4.55 & 37.4 & -23 & 3.09 & right Heschl's g. \\
-115 & .029 & 4.08 & -44.6 & -71.7 & 21.7 & -43.6 & -70.8 & 23.4 & left superior lateral occipital c.\\
+479 & <.001 & 4.62 & -5.42 & -32.3 & 25.3 & -4.28 & -39.4 & 22.8 & l. posterior cingulate g. \\
+420 & <.001 & 4.85 & -4.76 & -71.4 & 40.1 & -3.74 & -68.5 & 36.2 & l. precuneus \\
+407 & <.001 & 5.07 & 6.83 & -40.1 & 24.5 & 6.67 & -38.7 & 23.1 & r. posterior cingulate c. \\
+294 & <.001 & 4.57 & 17 & -69.1 & 34.6 & 17.7 & -67.1 & 34.9 & r. precuneus \\
+121 & .024 & 3.95 & 8.12 & -98.2 & 0.359 & 8.75 & -97.7 & -3.15 & r. occipital pole \\
+117 & .027 & 4.38 & 36.9 & -24.8 & 4.55 & 37.4 & -23 & 3.09 & r. Heschl's g. \\
+115 & .029 & 4.08 & -44.6 & -71.7 & 21.7 & -43.6 & -70.8 & 23.4 & l. superior lateral occipital c.\\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -801,15 +804,15 @@ areas (l. = left; r. = right; c. = cortex; g. = gyrus).}
 voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
 \midrule
 3166 & <.001 & 5.75 & -61.3 & -10.6 & -2.93 & -57.7 & -14.3 & 1.47 &
-left anterior superior (and middle) temporal g.;
+l. anterior superior (and middle) temporal g.;
 planum temporale, planum polare, anterior superior temporal g.;
 part of posterior supramarginal g., Heschl's g. \\
-1753 & <.001 & 4.99 & 63.3 & -15.1 & 8.41 & 58 & -13 & 4.02 & right planum temporale, anterior superior temporal g., planum polare;
+1753 & <.001 & 4.99 & 63.3 & -15.1 & 8.41 & 58 & -13 & 4.02 & r. planum temporale, anterior superior temporal g., planum polare;
 part of\& part of Heschl's G. \\
 166 & .004 & 4.5 & 6.83 & -40.1 & 24.5 & 7.01 & -39.7 & 24.2 &
-right posterior cingulate g. \\
+r. posterior cingulate g. \\
 149 & .008 & 4.13 & 18.2 & -67.8 & 36 & 19.8 & -66.4 & 34.6 &
-right precuneus \\
+r. precuneus \\
 \bottomrule
 \end{tabular}
 \end{table*}
