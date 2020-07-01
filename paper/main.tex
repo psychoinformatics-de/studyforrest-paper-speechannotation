@@ -636,7 +636,7 @@ Finally, six motion parameters were used as additional nuisance regressors and
 the design was subjected to the same temporal filtering as the BOLD time series.
 
 % t-contrasts
-The following three t-contrasts were defined:
+The following three $t$-contrasts were defined:
 1) words (all 21 \texttt{tag}-related regressors) > no-speech (\texttt{no-sp}),
 % 1b) no-speech > words
 2) proper nouns (\texttt{ne}) > coordinate conjunctions (\texttt{kon}; N=\rKonAll), and
@@ -645,13 +645,15 @@ The following three t-contrasts were defined:
 % 3b) coordinate conjunctions > nouns
 
 \begin{figure*} \centering
-\includegraphics[width=\linewidth]{figures/regressor-corr}
-\caption{Pearson correlation coefficients of the 26 regressors used in the
-    analysis to validate the annotation.
-    Regressors were convolved with FSL's ``Double-Gamma HRF'' as a model of the
-    hemodynamic response function and concatenated across runs before
-    computing the correlation.}
-\label{fig:reg-corr} \end{figure*}
+    \includegraphics[width=\linewidth]{figures/regressor-corr} \caption{Pearson
+        correlation coefficients of the 26 regressors used in the analysis to
+        validate the annotation. Regressors were created by convolving the
+        events with FSL's ``Double-Gamma HRF'' as a model of the hemodynamic
+        response function, temporally filtered with the same high-pass filter
+        (cut-off \unit[150]{s}) as the BOLD time series, and concatenated across
+    runs before computing the correlation.}
+    \label{fig:reg-corr}
+\end{figure*}
 
 
 % 2nd lvl
