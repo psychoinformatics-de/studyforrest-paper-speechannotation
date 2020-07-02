@@ -16,7 +16,7 @@ import os
 anatImg = '/usr/share/data/fsl-mni152-templates/MNI152_T1_0.5mm.nii.gz'
 
 # T2* EPI group template
-audioMask = 'code/grbold7Tad_brain_inMNI_12dof.nii.gz'
+audioMask = 'code/fov_tmpl_0.5.nii.gz'
 
 # list of primary contrasts
 # words > no-speech (bottom), Ne > kon (middle), Nn > kon (top image)
@@ -212,7 +212,8 @@ def plot_grp_slice(mode, coord,
     '''
     '''
     # underlying MNI152 T1 0.5mm image
-    colorMap = plt.cm.get_cmap('copper')
+    colorMap = plt.cm.get_cmap('Greys')
+    colorMap = colorMap.reversed()
     display = plotting.plot_anat(anat_img=anatImg,
                                  axes=axis,
                                  # title=title,
@@ -224,13 +225,9 @@ def plot_grp_slice(mode, coord,
     display.annotate(size=16)
 
     # brain mask 'grbold7Tad' in MNI space aligned with 12dof
-    colorMap = plt.cm.get_cmap('Greys')
-    colorMap = colorMap.reversed()
     display.add_overlay(audioMask,
                         cmap=colorMap,
-                        vmin=0,
-                        vmax=7000,  # adjust luminance to match MNI template
-                        alpha=.95)
+                        alpha=.9)
 
     # bottom z-map
     colorMap = plt.cm.get_cmap('Blues')
