@@ -291,7 +291,7 @@ word is part of a stop list).
 \subsection*{Data Legend}
 % TextGrid vs. TSV
 The annotation is available in two different versions, both providing the same
-information: a) as a text-based Praat TextGrid file and b) as a text-based,
+information: a) as a text-based Praat TextGrid file, and b) as a text-based,
 tab-separated value (TSV) formatted table.
 % preview of following subsubsections
 The following descriptions refer to the ten columns of the TSV file, namely
@@ -348,7 +348,8 @@ Counts for the whole stimulus (\texttt{all}) and for each of the eight stimulus 
 \toprule
 \textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
-ADJ & \aPosAdj & \aPosAdjAll & \aPosAdjI & \aPosAdjII & \aPosAdjIII & \aPosAdjIV & \aPosAdjV & \aPosAdjVI & \aPosAdjVII \tabularnewline
+ADJ & \aPosAdj & \aPosAdjAll & \aPosAdjI & \aPosAdjII & \aPosAdjIII & \aPosAdjIV
+& \aPosAdjV & \aPosAdjVI & \aPosAdjVII & \aPosAdjVIII \tabularnewline
 ADP & \aPosAdp & \aPosAdpAll & \aPosAdpI & \aPosAdpII & \aPosAdpIII & \aPosAdpIV & \aPosAdpV & \aPosAdpVI & \aPosAdpVII & \aPosAdpVIII \tabularnewline
 ADV & \aPosAdv & \aPosAdvAll & \aPosAdvI & \aPosAdvII & \aPosAdvIII & \aPosAdvIV & \aPosAdvV & \aPosAdvVI & \aPosAdvVII & \aPosAdvVIII \tabularnewline
 AUX & \aPosAux & \aPosAuxAll & \aPosAuxI & \aPosAuxII & \aPosAuxIII & \aPosAuxIV & \aPosAuxV & \aPosAuxVI & \aPosAuxVII & \aPosAuxVIII \tabularnewline
@@ -416,7 +417,7 @@ syntactic dependencies with other words within the same sentence.
 Information follows the TIGER Treebank annotation scheme \citep{brants2004tiger}
 and is given in the format: ``arc label;word's head;word's child1, word's
 child2, ...'', where the ``arc label'' (see Table \ref{tab:dep}) describes the
-type of syntactic relation that connects a "child" (the word) to its
+type of syntactic relation that connects a "child" (the current word) to its
 ``head''.
 
 \begin{table*}[t]
@@ -484,21 +485,18 @@ available in \texttt{code/descriptive-statistics.py} (Python script).
 % Information about any validation carried out and/or any limitations of the
 % datasets, including any allowances made for controlling bias or unwanted
 % sources of variability. ~170 words => das wird beim folgenden Schreiben
-% definitiv nichts werden
-% intro
-In order to assess data quality, we investigated if contrasting speech-related
-events to events without speech lead to increased activation in areas known to
-be involved in semantic processing \citep{hickok2007cortical}.
+% definitiv nichts werden intro
+In order to assess the annotation's quality, we investigated if contrasting
+speech-related events to events without speech lead to increased activation in
+areas known to be involved in language processing \citep{hickok2007cortical}.
 % nouns and proper nouns resp. > coordinate junctions
 Moreover, we tested if similar linguistic concepts providing high semantic
 information (proper nouns and nouns) contrasted to a concept providing low
 semantic information (coordinate conjunctions) lead to increased activation in
 congruent brain areas.
-% data source
-% data aligned by applying an affine transformation only are available in
-% bold_dico_dico7Tad2grpbold7Tad.nii.gz.
-% data aligned by non-linear warping are available in
-% bold_dico_dico7Tad2grpbold7Tad_nl.nii.gz.
+% data source data aligned by applying an affine transformation only are
+% available in bold_dico_dico7Tad2grpbold7Tad.nii.gz.  data aligned by
+% non-linear warping are available in bold_dico_dico7Tad2grpbold7Tad_nl.nii.gz.
 We used a dataset providing blood oxygenation level-dependent (BOLD) functional
 magnetic resonance imaging (fMRI) data of 20 subjects (age 21–38 years, mean age
 26.6 years, 12 male) listening to the 2h audio-description (\unit[7]{Tesla},
@@ -543,7 +541,7 @@ The label \texttt{no-sp} represents moments when no speech was audible.
 (\unit[40]{ms}) via Python script.
 Events were convolved with FSL's ``Double-Gamma HRF'' to create the regressors.
 The correlation of these regressors over the time course of the whole stimulus
-can be seen in Figure \ref{fig:reg-corr}}.
+can be seen in Figure \ref{fig:reg-corr}.}
 \label{tab:regressors}
 \footnotesize
 \begin{tabular}{lp{3.5cm}lllllllll}
@@ -589,19 +587,19 @@ average parameter estimates across the eight stimulus segments, and later across
 19 subjects.
 % 1st lvl
 At the first level analyzing each segment for each subject individually, we
-created 26 regressors based on events drawn from the annotation (see Table
-\ref{tab:regressors}).
+created 26 regressors (see Table \ref{tab:regressors}) based on events drawn
+from the annotation.
 % part-of-speech labels: labels to events, top 20
 The 20 most often occurring detailed part-of-speech labels (\texttt{nn} with
 N=\rNnAll\space to \texttt{prf} with N=\rPrfAll) were modeled as boxcar function
 from onset to offset of each word.
 % path-of-speech labels: remaining labels
 The remaining other part-of-speech labels were pooled to a single new label
-(\texttt{tag\_other}; N=\rTagotherAll) and modeled as a boxcar
-function from a word's onset to offset.
+(\texttt{tag\_other}; N=\rTagotherAll) and modeled as a boxcar function from a
+word's onset to offset.
 % phonemes
 The 80 most often occurring phonemes (\texttt{n} with N=6053 to \texttt{IY1}
-with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) and events were as
+with N=32) were pooled to \texttt{phonemes} (N=\rPhonesAll) and modeled as
 boxcar function from a phoneme's onset to offset.
 % sentence (endings)
 The end of each complete grammatical sentence was modeled as an impulse event
@@ -609,8 +607,7 @@ The end of each complete grammatical sentence was modeled as an impulse event
 % no-speech intro
 ``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control
 condition were created by the following rationale: events were fitted into
-longer lasting intervals between onsets and offsets of words and thus within
-intervals without audible speech.
+intervals without audible speech that lasted at least \unit[3.6]{s}.
 % minimum distance to words
 Each event of the no-speech condition had to have a minimum distance of
 \unit[1.8]{s} to an onsets or offsets of a word, and to each onset to another
@@ -618,7 +615,6 @@ event of the no-speech condition.
 % length of no-speech events
 A length of \unit[70]{ms} was chosen for no-speech events matching the average
 length of phonemes.
-
 % low-level nuisance regressors
 Lastly, we used continuous bins of information about auditory features
 (left-right difference in volume and root mean square energy) that was averaged
@@ -638,7 +634,6 @@ regional differences between modeled and actual HRF.
 % the processing applied to the input data''
 Finally, six motion parameters were used as additional nuisance regressors and
 the design was subjected to the same temporal filtering as the BOLD time series.
-
 % t-contrasts
 The following three $t$-contrasts were defined:
 1) words (all 21 \texttt{tag}-related regressors) > no-speech (\texttt{no-sp}),
@@ -661,7 +656,7 @@ The following three $t$-contrasts were defined:
 
 
 % 2nd lvl
-The second-level analysis which averaged contrast estimates across the eight
+The second-level analysis that averaged contrast estimates across the eight
 stimulus segments per subject was carried out using a fixed effects model by
 forcing the random effects variance to zero in FLAME (FMRIB's Local Analysis of
 Mixed Effects) \citep{beckmann2003general, woolrich2004multilevel}.
@@ -686,7 +681,7 @@ Z>3.4; p<.05 cluster-corrected).
 The contrast words > no-speech yielded four significant clusters (see Table
 \ref{tab:cope1}):
 % cluster 1
-one left lateralized cluster spanning from the angular gyrus and inferior
+one left-lateralized cluster spanning from the angular gyrus and inferior
 posterior supramarginal gyrus across the superior and middle temporal gyrus,
 including parts of Heschl's gyrus and planum temporale.
 % cluster 2
@@ -703,7 +698,7 @@ A fourth significant cluster is located in the left thalamus.
 The contrast proper nouns > coordinate conjunctions yielded nine significant
 clusters (see Table \ref{tab:cope3}):
 % cluster 1
-one left lateralized cluster spanning from the angular gyrus across planum
+one left-lateralized cluster spanning from the angular gyrus across planum
 temporale and superior temporal gyrus, partially covering the Heschl's gyrus,
 into the anterior middle temporal gyrus.
 % cluster 2
@@ -715,13 +710,17 @@ Three small clusters in the right occipital pole, right Heschl's gyrus and left
 superior lateral occipital pole.
 
 % COPE 5
-The contrast nouns > coordinate conjunctions yielded four significant clusters (see Table \ref{tab:cope5}):
+The contrast nouns > coordinate conjunctions yielded four significant clusters
+(see Table \ref{tab:cope5}):
 % cluster 1 & 2
-two clusters that are slightly smaller than lateral temporal clusters of contrast nouns > coordinate conjunction.
+two clusters that are slightly smaller than lateral temporal clusters of
+contrast nouns > coordinate conjunction.
 % variation in cluster 1 & 2 in comparison to COPE 1
-In this case, spanning from angular gyrus in the left hemisphere and from planum temporale in the right hemisphere into the anterior part of superior temporal cortex.
+In this case, spanning from angular gyrus in the left hemisphere and from planum
+temporale in the right hemisphere into the anterior part of superior temporal
+cortex.
 % cluster 3 & 4
-Finally, two small right lateralized clusters in the right posterior cingulate
+Finally, two small right-lateralized clusters in the right posterior cingulate
 gyrus and right precuneus.
 
 
@@ -734,7 +733,7 @@ gyrus and right precuneus.
         Light grey: The audio-description's field-of-view
         (cf. \citep{hanke2014audiomovie}).}
     \label{fig:results}
-\end{figure*} \todo{manual finalization of the figures spatial layout }
+\end{figure*}
 
 
 \begin{table*}[t]
@@ -843,61 +842,45 @@ frontal cortex) which showed synchronized activity across subjects in previous
 studies.
 % Wilson (2008): ISC + GLM
 In this regard, our results are similar to \citep{wilson2008beyond} who
-implemented both an ISC and a GLM analysis. The findings by
-\citep{wilson2008beyond} were that an ISC analysis yielded synchronized activity
-in midline areas. But the GLM analysis contrasting blocks of listening to
-narratives to blocks of a resting condition yielded decreased activity in
-midline areas.
-\todo{fun fact regarding reverse contrast (no-speech > words):
-    clusters in posterior \& anterior cingulate (and subcallosal c. \& insulae
-bilaterally); could be mentioned, must be mentioned? How shortly? No figure,
-pls!}
+implemented both an ISC and a GLM analysis. In this study, the ISC analysis
+showed synchronized activity in midline areas but the GLM analysis contrasting
+blocks of listening to narratives to blocks of a resting condition showed
+significantly decreased activity in these areas.
+\todo[inline]{our reverse contrast (no-speech > words): clusters in posterior \&
+anterior cingulate (and subcallosal c. \& insulae bilaterally); I think opening
+the pandora's box of the reverse contrasts is not worth it here}
 
 % (proper) nouns > con
-The two contrasts contrasting nouns and proper nouns respectively to coordinate
-junctions yielded increased activation partially located in early sensory
-regions (Heschl's Gyrus; \citep{saenz2014tonotopic}) and most prominently
-adjacent regions bilaterally (planum temporale; superior temporal gyrus;
-\citep{arsenault2015distributed, mesgarani2014phonetic}).
+The two contrasts that contrasted nouns and proper nouns respectively to
+coordinate junctions yielded increased activation partially located in early
+sensory regions (Heschl's Gyrus; \citep{saenz2014tonotopic}) and most
+prominently adjacent regions bilaterally (planum temporale; superior temporal
+gyrus; \citep{arsenault2015distributed, mesgarani2014phonetic}).
 % why these contrasts nous & proper nouns
 We chose nouns and proper nouns for these two contrasts because they represent
 linguistically similar concepts but are uncorrelated in the German language and
 stimulus (cf. Figure \ref{fig:reg-corr})
 % coordinate conjunctions
 We contrasted nouns and proper nouns respectively to coordinate conjunctions
-because (proper) nouns and coordinate conjunctions are both linguistically
-different and uncorrelated to coordinate conjunctions.
+because (proper) nouns are linguistically different to coordinate conjunctions
+as well as uncorrelated.
 % “interpretation”
-\todo{well what's combing up next is adventurous} Despite the fact that nouns
-and proper nouns are uncorrelated, contrasts lead to spatially similar clusters
-``which were not driven by a negative correlation of coordinate conjunctions
-with the modeled time series (s. totally private data)''.
+\todo[inline]{well what's coming up next is adventurous} Both contrasts lead to
+largely spatially congruent clusters despite the fact that nouns and proper
+nouns are uncorrelated.
+% not driven by coordinate conjunction regressors
+We confirmed the validity of these interpretation by testing if the spatial
+congruency could be attributed to a negative correlation of coordinate
+conjunctions with the modeled time series which turned out to be not the case.
 % why it's cool
-Results suggest that our current annotation of naturalistic stimuli is of
-``sufficient quality'' and can be used to create model-based analyses to test
-neuroscientific hypotheses.
-
-\todo[inline]{following stuff is still here but can probably be deleted}
-% interpretation 1a: large amount of semantically different nouns > narrow
-% concept (conjunctions)
-This could be attributed to the exploratory nature of our analysis. A high count
-of heterogeneous nouns (N=\rNnAll) and proper nouns (N=\rNeAll) that were
-averaged across all 300 semantic dimensions (cf. \citep{mitchell2008predicting,
-huth2016natural}), and contrasted to coordinate conjunctions that offered a
-comparably small amount of events (N=\rKonAll).
-% interpretation 1b: not just narrow concept but also dominated by just two
-% different words
-Coordinate junctions were chosen because they were assumed to be temporally
-uncorrelated with nouns but mostly consist of the words ``and'' (N=392) and
-``but'' (N=49), and thus offered only a small amount of variance.
-% interpretation 2
-A second explanation might be that our phoneme regressors that assumed linear
-summation of approximately \unit[70]{ms} lasting events in quick succession did
-not capture a sufficiently amount of nuisance variance
+In summary, the results of our exploratory analyses suggests that the
+annotation of speech meets the quality requirements to be used as the basis for
+model-based analyses that investigate language perception under more
+ecologically valid conditions.\todo{might be a little humble}
 
 
 \section*{Data availability}
-% aus der Schnitt-Annotation übernommen
+\todo{cf. other F1000 papers but probably a gift for the master}
 \texttt{This section will be auto-generated.}
 
 In addition, released data, code, and manuscript sources are also available on
