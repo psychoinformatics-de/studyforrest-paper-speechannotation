@@ -72,44 +72,51 @@ annotation, language, speech, narrative, natural stimulation, fMRI, studyforrest
 Cognitive and psychiatric neuroimaging are moving towards studying brain
 functions under conditions of lifelike complexity
 \citep{sonkusare2019naturalistic, eickhoff2020towards}. Motion pictures
-\citep{hasson2008neurocinematics} and continuous narratives \citep{honey2012not,
-lerner2011topographic} are increasingly utilized as so called ``naturalistic
+\citep{hasson2008neurocinematics} and continuous narratives
+\citep{wilson2008beyond, lerner2011topographic} are increasingly utilized as so called ``naturalistic
 stimuli''.
-
-% annotation bottleneck
+% not designed for research
 Naturalistic stimuli are usually designed for commercial purposes and to
-entertain their audience. Thus, the temporal structure of their feature space is
-usually not explicitly known leading to an ``annotation bottleneck'' when used
-for research purposes \citep{aliko2020naturalistic}.
-% data-driven methods
+entertain their audiences.
+% thus annotation bottleneck
+Thus, the temporal structure of their feature space is usually not explicitly
+known leading to an ``annotation bottleneck'' \citep{aliko2020naturalistic} when
+used for neuroscientific research.
+
+% data-driven methods..
 Data-driven methods like intersubject correlation
 (ISC)\citep{hasson2004intersubject} or independent component analysis
 (ICA)\citep{bartels2004chronoarchitecture} are often used to analyze
-corresponding fMRI data circumventing this bottleneck. However, data-driven
-methods alone fall usually short of pinpointing their results to specific
-stimulus events \citep{kauttonen2015optimizing}.
+corresponding fMRI data circumventing this bottleneck.
+% ..are nice but:
+However, data-driven methods alone fall usually short of pinpointing their
+results to specific stimulus events \citep{kauttonen2015optimizing}.
 % model-driven methods
-Model-driven methods, like a general linear model (GLM), can be useful to test
-hypotheses on specific brain functions under more ecologically valid conditions,
-to statistically control confounding stimulus features, and to explain not just
-``how'' the brain is responding to a stimulus but also ``why''
-\citep{hamilton2018revolution}.
+Model-driven methods, like a general linear model (GLM), that are based on
+stimulus annotations can be useful to test hypotheses on specific brain
+functions under more ecologically valid conditions, to statistically control
+confounding stimulus features, and to explain not just ``how'' the brain is
+responding to a stimulus but also ``why'' \citep{hamilton2018revolution}.
 % GLM: example studies
-For example, studies using GLMs based on annotations of a stimulus' temporal
-structure have elucidated how the brain responds to visual features of a movie
+Studies using GLMs based on annotations of a stimulus' temporal structure have
+elucidated for example how the brain responds to visual features of a movie
 \citep{bartels2004mapping} or speech-related features of a narrative
 \citep{rocca2020language}.
 % combination of data-driven and model-driven approaches
-Additionally, stimulus annotations can inform data-driven methods about a
+Furthermore, stimulus annotations can inform data-driven methods about a
 stimulus' temporal dynamics, or model-driven and data-driven methods can be
 combined to improve interpretability of results \citep{lahnakoski2012stimulus}.
 
-% we:
+% This publication
+% there was stuff that needed to be honed
 For this publication, we revised previous, preliminary annotations done by our
-lab and now provide one single annotation with exact onset and offset of each
+lab.
+% now the honed stuff for AV and AO
+We now provide one single annotation with exact onset and offset of each
 sentence, word and phoneme (see Table \ref{tab:overview} for an overview) spoken
 in the audio-visual movie ``Forrest Gump'' \citep{ForrestGumpMovie} and its
-audio-description \citep{ForrestGumpGermanAD}.
+audio-description (i.e. the movie's audio-only variant with an additional
+narrator)\citep{ForrestGumpGermanAD}.
 % the studyforrest dataset
 fMRI data of participants watching the audio-visual movie
 \citep{hanke2016simultaneous} and listening to the audio-description
@@ -120,12 +127,14 @@ The current publication enables researchers to model hemodynamic brain responses
 that correlate with a variety of aspects of spoken language ranging from a
 speaker's identity, to phonetics, grammar, syntax, and semantics.
 % extending previous non-speech annotations
-The current annotation of speech extends already available annotations of
-portrayed emotions \citep{labs2015portrayed}, perceived emotions
-\citep{lettieri2019emotionotopy}, as well as cuts and locations depicted in the
-movie \citep{haeusler2016annotation}. All annotations can be used in any study
-focusing on aspects of real-life cognition by serving as additional confound
-measures describing the  tempora structure and feature space of the stimuli.
+This publication extends already available annotations of portrayed emotions
+\citep{labs2015portrayed}, perceived emotions \citep{lettieri2019emotionotopy},
+as well as cuts and locations depicted in the movie
+\citep{haeusler2016annotation}.
+% just use it all
+All annotations can be used in any study focusing on aspects of real-life
+cognition by serving as additional confound measures describing the  temporal
+structure and feature space of the stimuli.
 
 
 \section*{Materials and methods}
