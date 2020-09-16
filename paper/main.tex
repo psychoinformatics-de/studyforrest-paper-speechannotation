@@ -67,6 +67,8 @@ annotation, language, speech, narrative, natural stimulation, fMRI, studyforrest
 
 \clearpage
 
+\todo[inline]{``Dataset content'' vs. ``Data and software availability''}
+
 \section*{Introduction}
 % intro to intro
 Cognitive and psychiatric neuroimaging are moving towards studying brain
@@ -84,7 +86,7 @@ known leading to an ``annotation bottleneck'' \citep{aliko2020naturalistic} when
 used for neuroscientific research.
 
 % data-driven methods..
-Data-driven methods like intersubject correlation
+Data-driven methods like inter-subject correlation
 (ISC)\citep{hasson2004intersubject} or independent component analysis
 (ICA)\citep{bartels2004chronoarchitecture} are often used to analyze
 corresponding fMRI data circumventing this bottleneck.
@@ -141,8 +143,9 @@ structure and feature space of the stimuli.
 
 \subsection*{Stimulus}
 % stimulus != DVD but ``research cut''
-We annotated speech in the slightly shortened ``research cut'' \citep{hanke2014audiomovie, hanke2016simultaneous} of the movie and its
-temporally aligned audio-description that was broadcast as an additional audio
+We annotated speech in the slightly shortened ``research cut''
+\citep{hanke2014audiomovie} of the movie and its
+temporally aligned audio-description \citep{hanke2016simultaneous} that was broadcast as an additional audio
 track for visually impaired listeners on Swiss public television
 \citep{ForrestGumpGermanAD}.
 %  what the AO contains
@@ -175,8 +178,7 @@ subjectively assessed to be incomprehensible for the audience were dropped, too.
 
 % intro for forced aligner
 We then used the Montreal Forced Aligner \citep{mcauliffe2017montreal} to
-algorithmically identify the exact onset of offset of each sentence, and the
-onset and offset of each word and phoneme.
+algorithmically identify the exact onset of offset of each word and phoneme.
 % preparing other inputs before forced alignment pronunciation dictionary
 % http://prosodylab.org
 % https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict
@@ -274,7 +276,7 @@ Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarra
 % natural language processing (NLP); Tiger Treebank Corpus:
 % \href{https://www.ims.uni-stuttgart.de}{ims.uni-stuttgart.de}.
 We employed the Python package spaCy \citep{spacy2} and its accompanying German
-language model (\texttt{de\_core\_news\_md}; trained on the TIGER
+language model (\texttt{de\_core\_news\_md}) that was trained on the TIGER
 Treebank corpus \citep{brants2004tiger}) to automatically analyze linguistic
 features of each word in their corresponding sentence.
 % dropping of non-speech vocalizations because they often delude the algo
@@ -305,7 +307,7 @@ onset.
 
 
 \subsubsection*{Duration (\texttt{duration})} The duration of the sentence,
-word or phoneme provided the format seconds.milliseconds.
+word or phoneme provided in the format seconds.milliseconds.
 
 
 \subsubsection*{Speaker identity (\texttt{person})} Name of the person that
@@ -490,10 +492,11 @@ In order to assess the annotation's quality, we investigated if contrasting
 speech-related events to events without speech lead to increased activation in
 areas known to be involved in language processing \citep{hickok2007cortical}.
 % nouns and proper nouns resp. > coordinate junctions
-Moreover, we tested if similar linguistic concepts providing high semantic
-information (proper nouns and nouns) contrasted to a concept providing low
+Moreover, we tested if two similar linguistic concepts (proper nouns and nouns)
+providing high semantic information contrasted with a concept providing low
 semantic information (coordinate conjunctions) lead to increased activation in
 congruent brain areas.
+
 % data source data aligned by applying an affine transformation only are
 % available in bold_dico_dico7Tad2grpbold7Tad.nii.gz.  data aligned by
 % non-linear warping are available in bold_dico_dico7Tad2grpbold7Tad_nl.nii.gz.
@@ -503,17 +506,17 @@ magnetic resonance imaging (fMRI) data of 20 subjects (age 21–38 years, mean a
 \unit[2]{s} repetition time, 3599 volumes, 36 axial slices, thickness
 \unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane resolution, \unit[224]{mm}
 field-of-view) \citep{hanke2014audiomovie}.
-
 % motion correction
 Data were already corrected for motion at the scanner computer.
 % alignment
 Further, individual BOLD time-series were already aligned by non-linear warping
 to a study-specific T2*-weighted echo planar imaging (EPI) group template (cf.
-\citep{hanke2014audiomovie} for details on how the group template was created).
+\citep{hanke2014audiomovie} for exact details).
+
 % steps done by C.H.
-All further analysis steps were carried out using Feat v6.00 (FMRI Expert
-Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9 (FMRIB's
-Software Library)\citep{smith2004fsl}.
+All further steps for the current analysis were carried out using Feat v6.00
+(FMRI Expert Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9
+(FMRIB's Software Library)\citep{smith2004fsl}.
 % dropping of subject 10
 Data of one participant were dropped to due to invalid distortion correction
 during scanning.
@@ -616,10 +619,10 @@ event of the no-speech condition.
 A length of \unit[70]{ms} was chosen for no-speech events matching the average
 length of phonemes.
 % low-level nuisance regressors
-Lastly, we used continuous bins of information about auditory features
+Lastly, we used continuous bins of information about low-level auditory features
 (left-right difference in volume and root mean square energy) that was averaged
-across the length of every movie frame (\unit[40]{ms}) via Python script to
-capture variance correlating with low-level perceptual processes.
+across the length of every movie frame (\unit[40]{ms}) to capture variance
+correlating with low-level perceptual processes.
 % convolving
 Time series of events were convolved with FSL's ``Double-Gamma HRF'' as a model
 of the hemodynamic response function to create the actual regressors.
@@ -635,10 +638,10 @@ regional differences between modeled and actual HRF.
 Finally, six motion parameters were used as additional nuisance regressors and
 the design was subjected to the same temporal filtering as the BOLD time series.
 % t-contrasts
-The following three $t$-contrasts were defined:
-1) words (all 21 \texttt{tag}-related regressors) > no-speech (\texttt{no-sp}),
+The following three $t$-contrasts were defined: 1) words (all 21
+\texttt{tag}-related regressors) > no-speech (\texttt{no-sp}),
 % 1b) no-speech > words
-2) proper nouns (\texttt{ne}) > coordinate conjunctions (\texttt{kon}; N=\rKonAll), and
+2) proper nouns (\texttt{ne}) > coordinate conjunctions (\texttt{kon}), and
 % 2b) coordinate conjunctions > proper nouns
 3) nouns (\texttt{nn}) > coordinate conjunctions.
 % 3b) coordinate conjunctions > nouns
@@ -713,7 +716,7 @@ superior lateral occipital pole.
 The contrast nouns > coordinate conjunctions yielded four significant clusters
 (see Table \ref{tab:cope5}):
 % cluster 1 & 2
-two clusters that are slightly smaller than lateral temporal clusters of
+two clusters that are slightly smaller than the lateral temporal clusters of
 contrast nouns > coordinate conjunction.
 % variation in cluster 1 & 2 in comparison to COPE 1
 In this case, spanning from angular gyrus in the left hemisphere and from planum
@@ -760,7 +763,7 @@ parts of supramarginal g., planum temporale, pars opercularis (BA44) \& pars tri
 1971 & <.001 & 5.26 & -51.1 & 25.6 & -10.5 & -53.6 & 17.8 & 10.2 & l. frontal orbital c.;
 pars opercularis (BA44), pars triangularis (BA45);
 parts of precentral g. \\
-217 & .002 & 4.55 & -4.48 & -13.7 & 10.3 & -6.46 & -14.9 & 9.96 & l. Thalamus \\
+217 & .002 & 4.55 & -4.48 & -13.7 & 10.3 & -6.46 & -14.9 & 9.96 & l. thalamus \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -858,25 +861,27 @@ prominently adjacent regions bilaterally (planum temporale; superior temporal
 gyrus; \citep{arsenault2015distributed, mesgarani2014phonetic}).
 % why these contrasts nous & proper nouns
 We chose nouns and proper nouns for these two contrasts because they represent
-linguistically similar concepts but are uncorrelated in the German language and
-stimulus (cf. Figure \ref{fig:reg-corr})
+linguistically similar concepts but are yet uncorrelated in the German language
+and stimulus (cf. Figure \ref{fig:reg-corr}).
 % coordinate conjunctions
 We contrasted nouns and proper nouns respectively to coordinate conjunctions
-because (proper) nouns are linguistically different to coordinate conjunctions
-as well as uncorrelated.
+because nouns and proper nouns are linguistically different to coordinate
+conjunctions as well as uncorrelated.
 % “interpretation”
-\todo[inline]{well what's coming up next is adventurous} Both contrasts lead to
-largely spatially congruent clusters despite the fact that nouns and proper
-nouns are uncorrelated.
+\todo[inline]{well what's coming up next is adventurous} Despite the fact that
+nouns and proper nouns are uncorrelated, both contrasts lead to largely
+spatially congruent clusters. Results suggest that models based on our
+annotation of similar linguistic concepts correlate with hemodynamic activity in
+spatially similar areas.
 % not driven by coordinate conjunction regressors
 We confirmed the validity of these interpretation by testing if the spatial
 congruency could be attributed to a negative correlation of coordinate
-conjunctions with the modeled time series which turned out to be not the case.
+conjunctions with the modeled time series which turned out not to be the case.
 % why it's cool
-In summary, the results of our exploratory analyses suggests that the
-annotation of speech meets the quality requirements to be used as the basis for
-model-based analyses that investigate language perception under more
-ecologically valid conditions.\todo{might be a little humble}
+In summary, results of our exploratory analyses suggest that the annotation of
+speech meets the quality requirements to be used as the basis for model-based
+analyses that investigate language perception under more ecologically valid
+conditions.\todo{might be a little humble}
 
 
 \section*{Data availability}
@@ -912,10 +917,7 @@ working groups to create sophisticated models of hemodynamic activity
 correlating with linguistics aspects like phonetics, grammar, syntax, and
 semantics occurring in two naturalistic stimuli.
 % results
-Results of our dataset validating analysis that we run as a proof of concept
-show that the annotation's content can indeed / in principle be used to
-isolate/track speech-related networks in the human brain under life-like
-conditions.
+Results of our analysis that we ran to assess the dataset's quality shows that the annotation's content can indeed be used to isolate speech-related networks in the human brain under life-like conditions.
 
 
 \subsection*{Author contributions}
