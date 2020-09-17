@@ -38,36 +38,46 @@
 
 \maketitle
 
+
 \todo[inline]{wie email und ORCID (du: https://orcid.org/0000-0001-6398-6370; ich: https://orcid.org/0000-0002-0936-317X) unterbringen?}
 
-\todo{Wort zur Validierungsstudie; Es sind erst 110 von max 300 Worten
-verbraucht} \thispagestyle{fancy} \begin{abstract}
-% up to 300 words
-Here we present an annotation of speech in the audio-visual movie ``Forrest
-Gump'' and its audio-description (i.e. the audio-only variant of the movie) as
-an addition to a large public functional brain imaging dataset
-(\href{www.studyforrest.org}{studyforrest.org}). The annotation provides
-information about the exact timing of each of the more than 2500 spoken
-sentences, 16000 words (including 202 non-speech vocalizations), 66000 phonemes,
-and their corresponding speaker. Additionally for every word, we provide
-lemmatization, a simple part-of-speech-tagging (15 grammatical categories), a
-detailed part-of-speech tagging (43 grammatical categories), syntactic
-dependencies, and a semantic analysis based on word embeddings which represents
-each word in a 300-dimensional semantic space. This annotation enables
-researchers to create sophisticated models of brain activity related to
-phonetics, grammar, syntax, and semantics under conditions of real-life
-complexity.  \end{abstract}
 
+\thispagestyle{fancy}
+
+\begin{abstract}
+% up to 300 words intro
+Here we present an annotation of speech spoken in the audio-visual movie
+``Forrest Gump'' and its audio-description (i.e. the audio-only variant of the
+movie) as an addition to a large public functional brain imaging dataset
+(\href{www.studyforrest.org}{studyforrest.org}).
+% anno content 1
+The annotation provides information about the exact timing of each of the more
+than 2500 spoken sentences, 16000 words (including 202 non-speech
+vocalizations), 66000 phonemes, and their corresponding speaker.
+% anno content 2
+Additionally for every word, we provide lemmatization, a simple
+part-of-speech-tagging (15 grammatical categories), a detailed part-of-speech
+tagging (43 grammatical categories), syntactic dependencies, and a semantic
+analysis based on word embedding which represents each word in a
+300-dimensional semantic space.
+% validation
+To validate the dataset's quality, we build a model of hemodynamic brain
+activity based on information drawn from the annotation.
+% why bother
+Results suggest that the annotation's content and quality enable independent
+researchers to create sophisticated models of brain activity correlating with a
+variety of linguistic aspects under conditions of real-life complexity.
+\end{abstract} \todo{validation is now (carefully) mentioned; 150 of 300 words
+used for abstract}
 
 \section*{Keywords}
 % maximal 8
-annotation, language, speech, narrative, natural stimulation, fMRI, studyforrest
+annotation, language, speech, narrative, naturalistic stimulus, fMRI, studyforrest
 
 \listoftodos
 
 \clearpage
 
-\todo[inline]{``Dataset content'' vs. ``Data and software availability''}
 
 \section*{Introduction}
 % intro to intro
@@ -107,7 +117,7 @@ elucidated for example how the brain responds to visual features of a movie
 % combination of data-driven and model-driven approaches
 Furthermore, stimulus annotations can inform data-driven methods about a
 stimulus' temporal dynamics, or model-driven and data-driven methods can be
-combined to improve interpretability of results \citep{lahnakoski2012stimulus}.
+combined to improve the interpretability of results \citep{lahnakoski2012stimulus}.
 
 % This publication
 % there was stuff that needed to be honed
@@ -484,10 +494,10 @@ available in \texttt{code/descriptive-statistics.py} (Python script).
 
 
 \section*{Dataset validation}
-% Information about any validation carried out and/or any limitations of the
-% datasets, including any allowances made for controlling bias or unwanted
-% sources of variability. ~170 words => das wird beim folgenden Schreiben
-% definitiv nichts werden intro
+\todo[inline]{``Information about any validation carried out and/or any
+    limitations of the datasets, including any allowances made for controlling
+bias or unwanted sources of variability. ~170 words'' 170 words? lol}
+% intro
 In order to assess the annotation's quality, we investigated if contrasting
 speech-related events to events without speech lead to increased activation in
 areas known to be involved in language processing \citep{hickok2007cortical}.
@@ -839,7 +849,7 @@ These clusters resemble results of previous studies that implemented an ISC
 approach to analyze fMRI data of naturalistic auditory stimuli
 \citep{honey2012not, lerner2011topographic, silbert2014coupled}.
 % differences
-We don't find significantly increased activations in midline areas (like the
+We do not find significantly increased activations in midline areas (like the
 posterior cingulate cortex and precuneus or anterior cingulate cortex and medial
 frontal cortex) which showed synchronized activity across subjects in previous
 studies.
@@ -884,26 +894,23 @@ analyses that investigate language perception under more ecologically valid
 conditions.\todo{might be a little humble}
 
 
-\section*{Data availability}
-\todo{cf. other F1000 papers but probably a gift for the master}
-\texttt{This section will be auto-generated.}
+\section*{Data availability} \todo[inline]{``This section will be
+auto-generated.'' What do we have to do here? I cleaned input datasets
+(speechanno and speechanno as subdataset in validation analysis) of this paper
+repo from the descriptive nouns}
 
 In addition, released data, code, and manuscript sources are also available on
 Github (\url{https://github.com/psychoinformatics-de/studyforrest-paper-speechannotation}).
 
-\todo[inline]{the paper needs to serve a purpose:
-    a) documentation for the annotation.
-    b) attract people to use this work for their own studies.
-    I would even argue that this is the \textit{main} purpose, given that the
-    annotation in itself represents to scientific progress. The need to give an
-    accurate assessment what this can be used for and what is problematic or
-    impossible.  ATM this is the only statement in this regard: 'facilitates
-    modeling of hemodynamic brain responses correlating with speech-related
-events' and the only indication of purpose is 'additional confound measures'. I
-thin this is incongruent with the amount of work and the level of detail of
-this annotation; CH: let's discuss that personally}
+
 
 \section*{Conclusions}
+\todo[inline]{give an accurate assessment what this can be used for and what is
+    problematic or impossible.  ATM this is the only statement in this regard:
+    'facilitates modeling of hemodynamic brain responses correlating with
+    speech-related events' and the only indication of purpose is 'additional
+confound measures'. I thin this is incongruent with the amount of work and the
+level of detail of this annotation; CH: let's discuss that personally}
 % what the paper is about
 As an extension of the studyforrest dataset, we present an annotation of spoken
 language in the two hours lasting ``research cut'' of the audio-visual movie
@@ -917,7 +924,9 @@ working groups to create sophisticated models of hemodynamic activity
 correlating with linguistics aspects like phonetics, grammar, syntax, and
 semantics occurring in two naturalistic stimuli.
 % results
-Results of our analysis that we ran to assess the dataset's quality shows that the annotation's content can indeed be used to isolate speech-related networks in the human brain under life-like conditions.
+Results of our analysis that we ran to assess the dataset's quality shows that
+the annotation's content can indeed be used to isolate speech-related networks
+in the human brain under life-like conditions.
 
 
 \subsection*{Author contributions}
