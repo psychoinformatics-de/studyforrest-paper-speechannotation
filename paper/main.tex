@@ -30,17 +30,13 @@
 \title{A studyforrest extension, an annotation of spoken language in the German dubbed movie ``Forrest Gump'' and its audio-description}
 %\titlenote{whatever titlenote here}
 
-\author[1, 2]{Christian~O.~Häusler \\ email \href{mailto:c.haeusler@fz-juelich.de}{c.haeusler@fz-juelich.de} }
-\author[1, 2]{Michael~Hanke \\ email \href{mailto:m.hanke@fz-juelich.de}{m.hanke@fz-juelich.de} }
+\author[1, 2]{Christian~O.~Häusler}
+\author[1, 2]{Michael~Hanke}
 
 \affil[1]{Institute of Neuroscience and Medicine, Brain \& Behaviour (INM-7), Research Centre Jülich, Jülich, 52425, Germany}
 \affil[2]{Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University, Düsseldorf, 40225, Germany}
 
 \maketitle
-
-
-\todo[inline]{wie email und ORCID (du: https://orcid.org/0000-0001-6398-6370; ich: https://orcid.org/0000-0002-0936-317X) unterbringen?}
-
 
 \thispagestyle{fancy}
 
@@ -65,10 +61,20 @@ To validate the dataset's quality, we build a model of hemodynamic brain
 activity based on information drawn from the annotation.
 % why bother
 Results suggest that the annotation's content and quality enable independent
-researchers to create sophisticated models of brain activity correlating with a
+researchers to create models of brain activity correlating with a
 variety of linguistic aspects under conditions of real-life complexity.
-\end{abstract} \todo{validation is now (carefully) mentioned; 150 of 300 words
-used for abstract}
+\end{abstract}
+
+
+\section*{Contacts}
+\begin{description}
+  \item{Christian~O.~Häusler} \\
+    email: \href{mailto:c.haeusler@fz-juelich.de}{c.haeusler@fz-juelich.de} \\
+    orcid: https://orcid.org/0000-0002-0936-317X
+  \item{Michael~Hanke}\\
+    email: \href{mailto:michael.hanke@gmail.com}{michael.hanke@gmail.com} \\
+    orcid: https://orcid.org/0000-0001-6398-6370 \\
+\end{description}
 
 \section*{Keywords}
 % maximal 8
@@ -481,11 +487,11 @@ were set to \texttt{\#} to save space.
 \subsection*{Dataset content}
 % \href{https://bids.neuroimaging.io/}{bids.neuroimaging.io} TextGrid format
 The annotation comes in two different versions. First, as a text-based TextGrid
-file (\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid}) to be
+file (\texttt{annotation/ fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid}) to be
 conveniently edited using the software Praat \citep{boersma2019praat}.
 % TSV format
 Second, as a text-based, tab-separated-value (TSV) formatted table
-(\texttt{annotation/fg\_rscut\_ad\_ger\_speech\_tagged.tsv}) in accordance with
+(\texttt{annotation/fg\_rscut\_ ad\_ger\_speech\_tagged.tsv}) in accordance with
 the brain imaging data structure (\href{https://bids.neuroimaging.io/}{BIDS})
 \citep{gorgolewski2016bids}.
 % source code for descriptive statistics
@@ -494,9 +500,6 @@ available in \texttt{code/descriptive-statistics.py} (Python script).
 
 
 \section*{Dataset validation}
-\todo[inline]{``Information about any validation carried out and/or any
-    limitations of the datasets, including any allowances made for controlling
-bias or unwanted sources of variability. ~170 words'' 170 words? lol}
 % intro
 In order to assess the annotation's quality, we investigated if contrasting
 speech-related events to events without speech lead to increased activation in
@@ -859,9 +862,6 @@ implemented both an ISC and a GLM analysis. In this study, the ISC analysis
 showed synchronized activity in midline areas but the GLM analysis contrasting
 blocks of listening to narratives to blocks of a resting condition showed
 significantly decreased activity in these areas.
-\todo[inline]{our reverse contrast (no-speech > words): clusters in posterior \&
-anterior cingulate (and subcallosal c. \& insulae bilaterally); I think opening
-the pandora's box of the reverse contrasts is not worth it here}
 
 % (proper) nouns > con
 The two contrasts that contrasted nouns and proper nouns respectively to
@@ -878,7 +878,7 @@ We contrasted nouns and proper nouns respectively to coordinate conjunctions
 because nouns and proper nouns are linguistically different to coordinate
 conjunctions as well as uncorrelated.
 % “interpretation”
-\todo[inline]{well what's coming up next is adventurous} Despite the fact that
+Despite the fact that
 nouns and proper nouns are uncorrelated, both contrasts lead to largely
 spatially congruent clusters. Results suggest that models based on our
 annotation of similar linguistic concepts correlate with hemodynamic activity in
@@ -891,7 +891,7 @@ conjunctions with the modeled time series which turned out not to be the case.
 In summary, results of our exploratory analyses suggest that the annotation of
 speech meets the quality requirements to be used as the basis for model-based
 analyses that investigate language perception under more ecologically valid
-conditions.\todo{might be a little humble}
+conditions.
 
 
 \section*{Data availability} \todo[inline]{``This section will be
@@ -905,12 +905,6 @@ Github (\url{https://github.com/psychoinformatics-de/studyforrest-paper-speechan
 
 
 \section*{Conclusions}
-\todo[inline]{give an accurate assessment what this can be used for and what is
-    problematic or impossible.  ATM this is the only statement in this regard:
-    'facilitates modeling of hemodynamic brain responses correlating with
-    speech-related events' and the only indication of purpose is 'additional
-confound measures'. I thin this is incongruent with the amount of work and the
-level of detail of this annotation; CH: let's discuss that personally}
 % what the paper is about
 As an extension of the studyforrest dataset, we present an annotation of spoken
 language in the two hours lasting ``research cut'' of the audio-visual movie
@@ -920,7 +914,7 @@ We annotated the onset and offset of sentences, words and phonemes, and the
 corresponding speaker's identity.
 % what for
 An additional tagging of each word's linguistic features enables independent
-working groups to create sophisticated models of hemodynamic activity
+working groups to create models of hemodynamic activity
 correlating with linguistics aspects like phonetics, grammar, syntax, and
 semantics occurring in two naturalistic stimuli.
 % results
