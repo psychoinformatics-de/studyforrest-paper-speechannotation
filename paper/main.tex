@@ -622,10 +622,10 @@ The end of each complete grammatical sentence was modeled as an impulse event
 % no-speech intro
 ``No-speech'' events (\texttt{no-sp}; N=\rNospAll) serving as a control
 condition were created by the following rationale: events were fitted into
-intervals without audible speech that lasted at least \unit[3.6]{s}.
+intervals without audible speech that lasted at least \unit[3.6]{s} \todo{why 3.6?}.
 % minimum distance to words
 Each event of the no-speech condition had to have a minimum distance of
-\unit[1.8]{s} to an onsets or offsets of a word, and to each onset to another
+\unit[1.8]{s}\todo{why 1.8} to an onsets or offsets of a word, and to each onset to another
 event of the no-speech condition.
 % length of no-speech events
 A length of \unit[70]{ms} was chosen for no-speech events matching the average
@@ -634,7 +634,7 @@ length of phonemes.
 Lastly, we used continuous bins of information about low-level auditory features
 (left-right difference in volume and root mean square energy) that was averaged
 across the length of every movie frame (\unit[40]{ms}) to capture variance
-correlating with low-level perceptual processes.
+correlating with assumed low-level perceptual processes.
 % convolving
 Time series of events were convolved with FSL's ``Double-Gamma HRF'' as a model
 of the hemodynamic response function to create the actual regressors.
