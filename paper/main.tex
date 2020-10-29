@@ -42,16 +42,16 @@
 
 \begin{abstract}
 % up to 300 words intro
-Here we present an annotation of speech spoken in the audio-visual movie
-``Forrest Gump'' and its audio-description (i.e. the audio-only variant of the
-movie) as an addition to a large public functional brain imaging dataset
+Here we present an annotation of speech in the audio-visual movie
+``Forrest Gump'' and its audio-description for a visually impaired audience,
+as an addition to a large public functional brain imaging dataset
 (\href{www.studyforrest.org}{studyforrest.org}).
 % anno content 1
 The annotation provides information about the exact timing of each of the more
 than 2500 spoken sentences, 16000 words (including 202 non-speech
 vocalizations), 66000 phonemes, and their corresponding speaker.
 % anno content 2
-Additionally for every word, we provide lemmatization, a simple
+Additionally, for every word, we provide lemmatization, a simple
 part-of-speech-tagging (15 grammatical categories), a detailed part-of-speech
 tagging (43 grammatical categories), syntactic dependencies, and a semantic
 analysis based on word embedding which represents each word in a
@@ -62,7 +62,7 @@ activity based on information drawn from the annotation.
 % why bother
 Results suggest that the annotation's content and quality enable independent
 researchers to create models of brain activity correlating with a
-variety of linguistic aspects under conditions of real-life complexity.
+variety of linguistic aspects under conditions of near-real-life complexity.
 \end{abstract}
 
 
@@ -96,26 +96,26 @@ Naturalistic stimuli are usually designed for commercial purposes and to
 entertain their audiences.
 % thus annotation bottleneck
 Thus, the temporal structure of their feature space is usually not explicitly
-known leading to an ``annotation bottleneck'' \citep{aliko2020naturalistic} when
+known, leading to an ``annotation bottleneck'' \citep{aliko2020naturalistic} when
 used for neuroscientific research.
 
 % data-driven methods..
 Data-driven methods like inter-subject correlation
 (ISC)\citep{hasson2004intersubject} or independent component analysis
 (ICA)\citep{bartels2004chronoarchitecture} are often used to analyze
-corresponding fMRI data circumventing this bottleneck.
+such fMRI data in order to circumvent this bottleneck.
 % ..are nice but:
-However, data-driven methods alone fall usually short of pinpointing their
-results to specific stimulus events \citep{kauttonen2015optimizing}.
+However, use of data-driven methods alone falls short of associating results with
+particular stimulus events \citep{kauttonen2015optimizing}.
 % model-driven methods
-Model-driven methods, like a general linear model (GLM), that are based on
+Model-driven methods, like the general linear model (GLM), that are based on
 stimulus annotations can be useful to test hypotheses on specific brain
 functions under more ecologically valid conditions, to statistically control
 confounding stimulus features, and to explain not just ``how'' the brain is
 responding to a stimulus but also ``why'' \citep{hamilton2018revolution}.
 % GLM: example studies
 Studies using GLMs based on annotations of a stimulus' temporal structure have
-elucidated for example how the brain responds to visual features of a movie
+elucidated, for example, how the brain responds to visual features of a movie
 \citep{bartels2004mapping} or speech-related features of a narrative
 \citep{rocca2020language}.
 % combination of data-driven and model-driven approaches
