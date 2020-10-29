@@ -158,41 +158,42 @@ structure and feature space of the stimuli.
 \subsection*{Stimulus}
 % stimulus != DVD but ``research cut''
 We annotated speech in the slightly shortened ``research cut''
-\citep{hanke2014audiomovie} of the movie and its
-temporally aligned audio-description \citep{hanke2016simultaneous} that was broadcast as an additional audio
-track for visually impaired listeners on Swiss public television
-\citep{ForrestGumpGermanAD}.
+\citep{hanke2014audiomovie} of the movie ``Forrest Gump'' and its temporally
+aligned audio-description \citep{hanke2016simultaneous} that was broadcast as
+an additional audio track for visually impaired listeners on Swiss public
+television \citep{ForrestGumpGermanAD}.
 %  what the AO contains
-The plot of the movie is already carried by an off-screen voice of the main
-character Forrest Gump. In the largely identical audio-description, a male
-narrator additionally describes essential aspects of the visual scenery when
+The plot of the original movie is already carried by an off-screen voice of the
+main character Forrest Gump. In the audio-description, an additional male
+narrator describes essential aspects of the visual scenery when
 there is no off-screen voice, dialog, or other relevant auditory content.
 
 \subsection*{Annotation procedure}
 % preliminary annotations
-Preliminary, manual orthographic transcriptions of dialogues, non-speech
+Preliminary, manual orthographic transcripts of dialogues, non-speech
 vocalizations (e.g. laughter or groaning) and the script for the
 audio-description's narrator were merged and converted to Praat's
 \citep{boersma2019praat} TextGrid format.
 % preparing annotation in Praat before forced alignment
 % \href{www.fon.hum.uva.nl/praat}{fon.hum.uva.nl/praat}.
-This merged transcription that contained a rough onset and offset for usually a
-couple of sentences was edited in Praat for manual validation against the actual
-content of the audio material.
+This merged transcript contained a rough onset and offset timings for small
+groups of sentences, and was further edited in Praat for manual validation
+against the actual content of the audio material.
 % steps conducted
-The following steps were done in several passes to iteratively improve the
-quality of the data: approximate temporal onsets and offsets were corrected, and
+The following steps were performed by a single person, already familiar with
+the stimulus, in several passes to iteratively improve the
+quality of the data: approximate temporal onsets and offsets were corrected;
 intervals containing several sentences were split into intervals containing only
-one sentence.
+one sentence;
 % dropping of sentences hard to understand
-When two or more persons were speaking simultaneously the less dominant voice
-was dropped. Low volume non-speech vocalizations or low volume background speech
+when two or more persons were speaking simultaneously the less dominant voice
+was dropped; low volume non-speech vocalizations or low volume background speech
 (especially during music or continuous environmental noise) which were
 subjectively assessed to be incomprehensible for the audience were dropped, too.
 
 % intro for forced aligner
 We then used the Montreal Forced Aligner \citep{mcauliffe2017montreal} to
-algorithmically identify the exact onset of offset of each word and phoneme.
+algorithmically identify the exact onset and offset of each word and phoneme.
 % preparing other inputs before forced alignment pronunciation dictionary
 % http://prosodylab.org
 % https://raw.githubusercontent.com/prosodylab/prosodylab.dictionaries/master/de.dict
@@ -219,8 +220,8 @@ submitted to the aligner that first trained an acoustic model on the data and
 then performed the alignment.
 
 % output
-The resulting .TextGrid file that contains onsets and offsets of words and
-phonemes was corrected manually and iteratively in several passes using Praat:
+The resulting timings of words and
+phonemes were corrected manually and iteratively in several passes using Praat:
 % onset/offset checking & correction
 In a first step, onsets and offsets on which the automatic alignment performed
 moderately were corrected.
@@ -235,7 +236,7 @@ copied into the annotation created by the aligner.
 In a third step, a speaker's identity was added for each sentence (see Table
 \ref{tab:speakers} for the most often occurring speakers).
 % constant on-the-fly checking of previous
-During every step results from previous steps were constantly checked again for
+During every step previous results were repeatedly checked for
 errors and further improvements.
 
 \begin{table*}[tbp] \caption{Overview of the annotation's content for the
@@ -316,7 +317,7 @@ The following descriptions refer to the ten columns of the TSV file, namely
 
 
 \subsubsection*{Start (\texttt{start})} The onset of the sentence, word or
-phoneme. Time stamps are provided in the format seconds.milliseconds of stimulus
+phoneme. Time stamps are provided in the format seconds.milliseconds from stimulus
 onset.
 
 
