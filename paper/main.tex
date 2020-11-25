@@ -48,8 +48,8 @@ as an addition to a large public functional brain imaging dataset
 (\href{www.studyforrest.org}{studyforrest.org}).
 % anno content 1
 The annotation provides information about the exact timing of each of the more
-than 2500 spoken sentences, 16000 words (including 202 non-speech
-vocalizations), 66000 phonemes, and their corresponding speaker.
+than 2500 spoken sentences, 16,000 words (including 202 non-speech
+vocalizations), 66,000 phonemes, and their corresponding speaker.
 % anno content 2
 Additionally, for every word, we provide lemmatization, a simple
 part-of-speech-tagging (15 grammatical categories), a detailed part-of-speech
@@ -108,7 +108,7 @@ such fMRI data in order to circumvent this bottleneck.
 However, use of data-driven methods alone falls short of associating results with
 particular stimulus events \citep{kauttonen2015optimizing}.
 % model-driven methods
-Model-driven methods, like the general linear model (GLM), that are based on
+Model-driven methods, like the general linear model (GLM), which are based on
 stimulus annotations can be useful to test hypotheses on specific brain
 functions under more ecologically valid conditions, to statistically control
 confounding stimulus features, and to explain not just ``how'' the brain is
@@ -189,10 +189,10 @@ one sentence;
 when two or more persons were speaking simultaneously the less dominant voice
 was dropped; low volume non-speech vocalizations or low volume background speech
 (especially during music or continuous environmental noise) which were
-subjectively assessed to be incomprehensible for the audience were dropped, too.
+subjectively assessed to be incomprehensible for the audience were also dropped.
 
 % intro for forced aligner
-We then used the Montreal Forced Aligner \citep{mcauliffe2017montreal} to
+We then used the \href{https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner}{Montreal Forced Aligner} \citep{mcauliffe2017montreal} to
 algorithmically identify the exact onset and offset of each word and phoneme.
 % preparing other inputs before forced alignment pronunciation dictionary
 % http://prosodylab.org
@@ -209,11 +209,10 @@ missing in the dictionary.
 % English words in the otherwise German stimulus
 The pronunciation of English words and phonemes occurring in the otherwise
 German audio track was taken from an English pronunciation dictionary (following
-the ARPAbet PhoneSet) provided by the Montreal Language Modeling lab
-(\href{http://mlmlab.org/mfa/dictionaries/english.dict}{mlmlab.org}).
+the ARPAbet PhoneSet) provided by the \href{http://mlmlab.org/mfa/dictionaries/english.dict}{Montreal Language Modeling lab}.
 % performing the forced alignment audio input to the aligner
 The audio track of the audio-description was converted from FLAC to WAV via
-FFmpeg \citep{ffmpeg} to meet the aligner's input requirements.
+\href{https://ffmpeg.org/}{FFmpeg} \citep{ffmpeg} to meet the aligner's input requirements. %Please state version of FFmpeg used
 % inputs
 This WAV file, the merged transcription, and the updated dictionary were
 submitted to the aligner that first trained an acoustic model on the data and
@@ -221,7 +220,7 @@ then performed the alignment.
 
 % output
 The resulting timings of words and
-phonemes were corrected manually and iteratively in several passes using Praat:
+phonemes were corrected manually and iteratively in several passes using \href{https://www.fon.hum.uva.nl/praat/}{Praat}:%Please state version
 % onset/offset checking & correction
 In a first step, onsets and offsets on which the automatic alignment performed
 moderately were corrected.
@@ -252,13 +251,13 @@ errors and further improvements.
         points when speakers switch rapidly. The category \texttt{words}
         comprises each word or non-speech vocalization (N=\aPosNonspeechAll) in
     isolation.} \label{tab:overview} \begin{tabular}{llllllllll} \toprule
-        \textbf{category} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3}
+        \textbf{Category} & \textbf{All} & \textbf{1} & \textbf{2} & \textbf{3}
         & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
-        \midrule sentences  & \aSentencesAll & \aSentencesI & \aSentencesII &
+        \midrule Sentences  & \aSentencesAll & \aSentencesI & \aSentencesII &
         \aSentencesIII & \aSentencesIV & \aSentencesV & \aSentencesVI &
-        \aSentencesVII & \aSentencesVIII \tabularnewline words  & \aWordsAll &
+        \aSentencesVII & \aSentencesVIII \tabularnewline Words  & \aWordsAll &
         \aWordsI & \aWordsII & \aWordsIII & \aWordsIV & \aWordsV & \aWordsVI &
-        \aWordsVII & \aWordsVIII \tabularnewline phonemes  & \aPhonesAll &
+        \aWordsVII & \aWordsVIII \tabularnewline Phonemes  & \aPhonesAll &
         \aPhonesI & \aPhonesII & \aPhonesIII & \aPhonesIV & \aPhonesV &
         \aPhonesVI & \aPhonesVII & \aPhonesVIII \tabularnewline \bottomrule
     \end{tabular} \end{table*}
@@ -271,7 +270,7 @@ Names are mostly identical to the names used in \citep{labs2015portrayed}.}
 \label{tab:speakers}
 \begin{tabular}{llllllllll}
 \toprule
-\textbf{name} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
+\textbf{Name} & \textbf{All} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8}\\
 \midrule
 Bubba  & \aBubbaAll & \aBubbaI & \aBubbaII & \aBubbaIII & \aBubbaIV & \aBubbaV & \aBubbaVI & \aBubbaVII & \aBubbaVIII \tabularnewline
 Forrest  & \aForrestAll & \aForrestI & \aForrestII & \aForrestIII & \aForrestIV & \aForrestV & \aForrestVI & \aForrestVII & \aForrestVIII \tabularnewline
@@ -290,7 +289,8 @@ Narrator  & \aNarratorAll & \aNarratorI & \aNarratorII & \aNarratorIII & \aNarra
 
 % natural language processing (NLP); Tiger Treebank Corpus:
 % \href{https://www.ims.uni-stuttgart.de}{ims.uni-stuttgart.de}.
-We employed the Python package spaCy \citep{spacy2} and its accompanying German
+We employed the Python package \href{https://spacy.io/}{spaCy} \citep{spacy2} %Please state version
+and its accompanying German
 language model (\texttt{de\_core\_news\_md}) that was trained on the TIGER
 Treebank corpus \citep{brants2004tiger}) to automatically analyze linguistic
 features of each word in their corresponding sentence.
@@ -305,7 +305,7 @@ the word is one of the most common words of the German language (i.e. if the
 word is part of a stop list).
 
 
-\subsection*{Data Legend}
+\subsection*{Data legend}
 % TextGrid vs. TSV
 The annotation is available in two different versions, both providing the same
 information: a) as a text-based Praat TextGrid file, and b) as a text-based,
@@ -363,7 +363,7 @@ Counts for the whole stimulus (\texttt{all}) and for each of the eight stimulus 
 \label{tab:pos}
 \begin{tabular}{lllllllllll}
 \toprule
-\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{Label} & \textbf{Description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 ADJ & \aPosAdj & \aPosAdjAll & \aPosAdjI & \aPosAdjII & \aPosAdjIII & \aPosAdjIV
 & \aPosAdjV & \aPosAdjVI & \aPosAdjVII & \aPosAdjVIII \tabularnewline
@@ -406,7 +406,7 @@ Counts for the whole stimulus (\texttt{all}) and for each of the eight stimulus 
 \label{tab:tag}
 \begin{tabular}{lllllllllll}
 \toprule
-\textbf{label} & \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{Label} & \textbf{Description} & \textbf{All} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 ADJA & \aTagAdja & \aTagAdjaAll & \aTagAdjaI & \aTagAdjaII & \aTagAdjaIII & \aTagAdjaIV & \aTagAdjaV & \aTagAdjaVI & \aTagAdjaVII & \aTagAdjaVIII \tabularnewline
 ADJD & \aTagAdjd & \aTagAdjdAll & \aTagAdjdI & \aTagAdjdII & \aTagAdjdIII & \aTagAdjdIV & \aTagAdjdV & \aTagAdjdVI & \aTagAdjdVII & \aTagAdjdVIII \tabularnewline
@@ -514,7 +514,7 @@ congruent brain areas.
 % non-linear warping are available in bold_dico_dico7Tad2grpbold7Tad_nl.nii.gz.
 We used a dataset providing blood oxygenation level-dependent (BOLD) functional
 magnetic resonance imaging (fMRI) data of 20 subjects (age 21–38 years, mean age
-26.6 years, 12 male) listening to the 2h audio-description (\unit[7]{Tesla},
+26.6 years, 12 male) listening to the 2 h audio-description (\unit[7]{Tesla},
 \unit[2]{s} repetition time, 3599 volumes, 36 axial slices, thickness
 \unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane resolution, \unit[224]{mm}
 field-of-view) \citep{hanke2014audiomovie}.
@@ -526,7 +526,7 @@ to a study-specific T2*-weighted echo planar imaging (EPI) group template (cf.
 \citep{hanke2014audiomovie} for exact details).
 
 % steps done by C.H.
-All further steps for the current analysis were carried out using Feat v6.00
+All further steps for the current analysis were carried out using \href{https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT}{FEAT} v6.00
 (FMRI Expert Analysis Tool)\citep{woolrich2001autocorr} as part of FSL v5.0.9
 (FMRIB's Software Library)\citep{smith2004fsl}.
 % dropping of subject 10
@@ -561,7 +561,7 @@ can be seen in Figure \ref{fig:reg-corr}.}
 \footnotesize
 \begin{tabular}{lp{3.5cm}lllllllll}
 \toprule
-\textbf{label} &  \textbf{description} & \textbf{all} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\textbf{Label} &  \textbf{Description} & \textbf{All} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 \midrule
 adja & \aTagAdja & \rAdjaAll & \rAdjaI & \rAdjaII & \rAdjaIII & \rAdjaIV & \rAdjaV & \rAdjaVI & \rAdjaVII & \rAdjaVIII \tabularnewline
 adjd & \aTagAdjd & \rAdjdAll & \rAdjdI & \rAdjdII & \rAdjdIII & \rAdjdIV & \rAdjdV & \rAdjdVI & \rAdjdVII & \rAdjdVIII \tabularnewline
@@ -762,9 +762,9 @@ areas (l. = left; r. = right; c. = cortex; g. = gyrus).}
 \label{tab:cope1}
 \begin{tabular}{rrrrrrrrrp{6cm}}
 \toprule
-& & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+& & & \multicolumn{3}{r}{Max location (MNI)} & \multicolumn{3}{r}{Center of gravity (MNI)} &
 \\ \cmidrule{4-6} \cmidrule{7-9}
-voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
+Voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & Structure \\
 \midrule
 14990 & <.001 & 6.31 & -49 & -24.7 & 6.35 & -54.8 & -32.5 & 3.73 &
 l. Heschl's g.;
@@ -792,9 +792,9 @@ areas (l. = left; r. = right; c. = cortex; g. = gyrus).}
 \label{tab:cope3}
 \begin{tabular}{rrrrrrrrrp{6cm}}
 \toprule
-& & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+& & & \multicolumn{3}{r}{Max location (MNI)} & \multicolumn{3}{r}{Center of gravity (MNI)} &
 \\ \cmidrule{4-6} \cmidrule{7-9}
-voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
+Voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & Structure \\
 \midrule
 7691 & <.001 & 6.23 & -61.2 & -22.3 & 11.6 & -55.9 & -20.7 & 4.03 &
 l. planum temporale; posterior inferior supramarginal g., superior temporal g., planum polare,
@@ -824,9 +824,9 @@ areas (l. = left; r. = right; c. = cortex; g. = gyrus).}
 \label{tab:cope5}
 \begin{tabular}{rrrrrrrrrp{6cm}}
 \toprule
-& & & \multicolumn{3}{r}{max location (MNI)} & \multicolumn{3}{r}{center of gravity (MNI)} &
+& & & \multicolumn{3}{r}{Max location (MNI)} & \multicolumn{3}{r}{Center of gravity (MNI)} &
 \\ \cmidrule{4-6} \cmidrule{7-9}
-voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & structure \\
+Voxels & $p_{corr.}$ & Z-max & x & y & z  & x & y & z & Structure \\
 \midrule
 3166 & <.001 & 5.75 & -61.3 & -10.6 & -2.93 & -57.7 & -14.3 & 1.47 &
 l. anterior superior (and middle) temporal g.;
@@ -896,12 +896,23 @@ conditions.
 
 
 \section*{Data availability}
+\subsection*{Underlying data}
+Open Science Framework: studyforrest-paper-speechannotation. \href{https://doi.org/10.17605/OSF.IO/GFRME}{https://doi.org/10.17605/OSF.IO/GFRME}. %Please see email
+\newline
+This project contains the following underlying data: 
+%Please use this section to describe all data files included within your dataset. Where there are too many files to describe individually, please describe groups of files together.
+\begin{itemize}
+\item 
+\end{itemize}
+
+
+Data are available under the terms of the \href{https://creativecommons.org/licenses/by/4.0/legalcode}{Creative Commons Attribution 4.0 International license} (CC-BY 4.0).
 
 The annotation (tab-separated values (TSV) formatted table and TextGrid file),
 as well as scripts and data of the validation analysis are available from
 OpenScienceFramework project
-\href{http://dx.doi.org/10.17605/OSF.IO/GFRME}{10.17605/OSF.IO/GFRME}, and
-accessible as DataLad (RRID:SCR\_003931) datasets.
+, and
+accessible as DataLad (RRID:SCR\_003931) datasets.%Please confirm - I cannot find this RRID number
 
 
 \subsection*{Author contributions}
@@ -918,7 +929,7 @@ MH provided critical feedback on the procedure and wrote the manuscript.
 No competing interests were disclosed.
 
 \subsection*{Grant information}
-
+%Please ensure all available grant numbers are provided
 COH was supported by a graduate stipend from the German federal state of
 Saxony-Anhalt and MH was, in-part, supported by funds from the German federal
 state of Saxony-Anhalt and the European Regional Development Fund (ERDF),
@@ -930,6 +941,7 @@ German Federal Ministry of Education and Research (BMBF 01GQ1905).
 
 \subsection*{Acknowledgements}
 COH is grateful to Valeri Kippes who took care of the author's mental sanity by providing excellent training at his gym in Jülich during the mentally draining period of manual corrections of the annotation.
+%Please see email
 
 {\small\bibliographystyle{unsrtnat}
 \bibliography{references}}
